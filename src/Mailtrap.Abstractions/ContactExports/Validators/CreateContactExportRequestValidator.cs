@@ -23,7 +23,8 @@ internal sealed class CreateContactExportRequestValidator : AbstractValidator<Cr
         RuleFor(r => r.Filters)
             .Cascade(CascadeMode.Stop)
             .NotEmpty()
-            .Must(list => list.Count is >= MinFiltersPerRequest and <= MaxFiltersPerRequest);
+            .Must(list => list.Count is >= MinFiltersPerRequest and <= MaxFiltersPerRequest)
+            .WithMessage($"Filters count must be between {MinFiltersPerRequest} and {MaxFiltersPerRequest}.");
 
         RuleForEach(r => r.Filters)
             .NotNull()

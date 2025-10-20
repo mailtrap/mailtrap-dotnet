@@ -31,10 +31,10 @@ public sealed record CreateContactExportRequest : IValidatable
     /// <exception cref="ArgumentNullException">
     /// When <paramref name="filters"/> is <see langword="null"/> or empty.
     /// </exception>
-    /// <para>
+    /// <remarks>
     /// Use <see cref="Validate"/> to ensure the filters count is within the allowed range
     /// and each filter satisfies per-item rules.
-    /// </para>
+    /// </remarks>
     public CreateContactExportRequest(IEnumerable<ContactExportFilterBase> filters)
     {
         Ensure.NotNullOrEmpty(filters, nameof(filters));

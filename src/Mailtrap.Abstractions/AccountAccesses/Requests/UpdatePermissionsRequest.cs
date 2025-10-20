@@ -34,7 +34,7 @@ public sealed record UpdatePermissionsRequest : IValidatable
     {
         Ensure.NotNull(permissions, nameof(permissions));
 
-        Permissions = permissions;
+        Permissions = permissions.ToList(); // Defensive copy to prevent post-ctor mutation.
     }
 
     /// <summary>

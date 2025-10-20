@@ -8,7 +8,6 @@ public sealed record ContactExportSubscriptionStatusFilter : ContactExportFilter
     /// <summary>
     /// Discriminator value for JSON polymorphic deserialization.
     /// </summary>
-    [JsonIgnore]
     public const string Discriminator = "subscription_status";
 
     /// <summary>

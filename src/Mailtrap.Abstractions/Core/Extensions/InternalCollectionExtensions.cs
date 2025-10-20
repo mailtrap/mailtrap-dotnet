@@ -8,18 +8,18 @@ internal static class InternalCollectionExtensions
     /// <summary>
     /// Returns a new collection by making a defensive copy of the provided <paramref name="items"/>.
     /// </summary>
-    ///
     /// <typeparam name="T">
     /// Item type.
     /// </typeparam>
-    ///
     /// <param name="items">
     /// The items to copy.
     /// </param>
-    ///
     /// <exception cref = "ArgumentNullException" >
     /// When provided <paramref name="items"/> is <see langword="null"/>.
     /// </exception>
+    /// <returns>
+    /// A new collection containing copies of the provided items.
+    /// </returns>
     internal static IList<T> Clone<T>(this IEnumerable<T> items)
     {
         Ensure.NotNull(items, nameof(items));

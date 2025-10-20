@@ -8,7 +8,6 @@ public sealed record ContactExportListIdFilter : ContactExportFilterBase
     /// <summary>
     /// Discriminator value for JSON polymorphic deserialization.
     /// </summary>
-    [JsonIgnore]
     public const string Discriminator = "list_id";
 
     /// <summary>

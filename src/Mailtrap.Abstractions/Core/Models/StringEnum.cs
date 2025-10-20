@@ -113,7 +113,8 @@ public abstract record StringEnum<T> where T : StringEnum<T>, new()
         return value is not null
             && !ReferenceEquals(value, None)
             && !ReferenceEquals(value, Unknown)
-            && s_values.Values.Contains(value);
+            && s_values.TryGetValue(value.ToString(), out var found)
+            && ReferenceEquals(value, found);
     }
 
 

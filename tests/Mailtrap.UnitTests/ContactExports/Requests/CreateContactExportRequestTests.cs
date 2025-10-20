@@ -38,11 +38,7 @@ internal sealed class CreateContactExportRequestTests
     public void Validate_Should_Fail_WhenProvidedCollectionSizeIsInvalid([Values(0, 50001)] int size)
     {
         // Arrange
-        var filters = new List<ContactExportFilterBase>(size);
-        for (var i = 0; i < size; i++)
-        {
-            filters.Add(RandomContactExportFilter());
-        }
+        var filters = Enumerable.Range(0, size).Select(_ => RandomContactExportFilter());
         var request = size == 0 ? new CreateContactExportRequest() : new CreateContactExportRequest(filters);
 
         // Act
@@ -65,22 +61,6 @@ internal sealed class CreateContactExportRequestTests
         };
 
         var request = new CreateContactExportRequest(filters);
-
-        // Act
-        var result = CreateContactExportRequestValidator.Instance.TestValidate(request);
-
-        // Assert
-        result.IsValid.Should().BeFalse();
-        result.ShouldHaveValidationErrorFor(f => f.Filters);
-    }
-
-    [Test]
-    public void Validate_Should_Fail_WhenProvidedCollectionExceedsMaximumSize([Values(0, 50001)] int size)
-    {
-        // Arrange
-        var filters = Enumerable.Range(0, size).Select(_ => RandomContactExportFilter());
-
-        var request = size == 0 ? new CreateContactExportRequest() : new CreateContactExportRequest(filters);
 
         // Act
         var result = CreateContactExportRequestValidator.Instance.TestValidate(request);
@@ -118,11 +98,10 @@ internal sealed class CreateContactExportRequestTests
         }
         else
         {
-            var status = (TestContext.CurrentContext.Random.Next() % 2) switch
+            var status = TestContext.CurrentContext.Random.NextBool() switch
             {
-                0 => ContactExportFilterSubscriptionStatus.Subscribed,
-                1 => ContactExportFilterSubscriptionStatus.Unsubscribed,
-                _ => throw new ArgumentOutOfRangeException()
+                true => ContactExportFilterSubscriptionStatus.Subscribed,
+                false => ContactExportFilterSubscriptionStatus.Unsubscribed,
             };
             return new ContactExportSubscriptionStatusFilter(status);
         }

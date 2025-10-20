@@ -21,8 +21,8 @@ internal sealed class ContactExportSubscriptionStatusFilterTests
         var filter = new ContactExportSubscriptionStatusFilter(ContactExportFilterSubscriptionStatus.Subscribed);
 
         // Assert
-        filter.Value.Should().BeEquivalentTo(ContactExportFilterSubscriptionStatus.Subscribed);
-        filter.Operator.Should().BeEquivalentTo(ContactExportFilterOperator.Equal);
+        filter.Value.Should().Be(ContactExportFilterSubscriptionStatus.Subscribed);
+        filter.Operator.Should().Be(ContactExportFilterOperator.Equal);
     }
 
     [Test]
@@ -36,9 +36,9 @@ internal sealed class ContactExportSubscriptionStatusFilterTests
         };
 
         // Assert
-        filter.Value.Should().BeEquivalentTo(ContactExportFilterSubscriptionStatus.Subscribed);
+        filter.Value.Should().Be(ContactExportFilterSubscriptionStatus.Subscribed);
         filter.Operator.Should().Be(ContactExportFilterOperator.Equal);
-        filterCopy.Value.Should().BeEquivalentTo(ContactExportFilterSubscriptionStatus.Subscribed);
+        filterCopy.Value.Should().Be(ContactExportFilterSubscriptionStatus.Subscribed);
         filterCopy.Operator.Should().Be(ContactExportFilterOperator.None);
     }
 

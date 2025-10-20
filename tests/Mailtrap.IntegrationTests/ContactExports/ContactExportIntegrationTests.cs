@@ -76,56 +76,16 @@ internal sealed class ContactExportIntegrationTests
         result.Should().BeEquivalentTo(expectedResponse);
     }
 
-    [Test]
-    public async Task GetDetails_Success()
+    [TestCase("GetDetails_Success")]
+    [TestCase("GetDetails_ShouldCorrectlyHandleUri")]
+    public async Task GetDetails_Success(string fileName)
     {
         // Arrange
         var httpMethod = HttpMethod.Get;
         var exportId = TestContext.CurrentContext.Random.NextLong();
         var requestUri = _resourceUri.Append(exportId).AbsoluteUri;
 
-        using var responseContent = await Feature.LoadFileToStringContent();
-        var expectedResponse = await responseContent.DeserializeStringContentAsync<ContactExport>(_jsonSerializerOptions);
-
-        using var mockHttp = new MockHttpMessageHandler();
-        mockHttp
-            .Expect(httpMethod, requestUri)
-            .WithHeaders("Authorization", $"Bearer {_clientConfig.ApiToken}")
-            .WithHeaders("Accept", MimeTypes.Application.Json)
-            .WithHeaders("User-Agent", HeaderValues.UserAgent.ToString())
-            .Respond(HttpStatusCode.OK, responseContent);
-
-        var serviceCollection = new ServiceCollection();
-        serviceCollection
-            .AddMailtrapClient(_clientConfig)
-            .ConfigurePrimaryHttpMessageHandler(() => mockHttp);
-
-        using var services = serviceCollection.BuildServiceProvider();
-        var client = services.GetRequiredService<IMailtrapClient>();
-
-        // Act
-        var result = await client
-            .Account(_accountId)
-            .Contacts()
-            .Export(exportId)
-            .GetDetails()
-            .ConfigureAwait(false);
-
-        // Assert
-        mockHttp.VerifyNoOutstandingExpectation();
-
-        result.Should().BeEquivalentTo(expectedResponse);
-    }
-
-    [Test]
-    public async Task GetDetails_ShouldCorrectlyHandleUri()
-    {
-        // Arrange
-        var httpMethod = HttpMethod.Get;
-        var exportId = TestContext.CurrentContext.Random.NextLong();
-        var requestUri = _resourceUri.Append(exportId).AbsoluteUri;
-
-        using var responseContent = await Feature.LoadFileToStringContent();
+        using var responseContent = await Feature.LoadFileToStringContent(fileName);
         var expectedResponse = await responseContent.DeserializeStringContentAsync<ContactExport>(_jsonSerializerOptions);
 
         using var mockHttp = new MockHttpMessageHandler();
@@ -292,11 +252,10 @@ internal sealed class ContactExportIntegrationTests
         }
         else
         {
-            var status = (TestContext.CurrentContext.Random.Next() % 2) switch
+            var status = TestContext.CurrentContext.Random.NextBool() switch
             {
-                0 => ContactExportFilterSubscriptionStatus.Subscribed,
-                1 => ContactExportFilterSubscriptionStatus.Unsubscribed,
-                _ => throw new ArgumentOutOfRangeException()
+                true => ContactExportFilterSubscriptionStatus.Subscribed,
+                false => ContactExportFilterSubscriptionStatus.Unsubscribed,
             };
             return new ContactExportSubscriptionStatusFilter(status);
         }

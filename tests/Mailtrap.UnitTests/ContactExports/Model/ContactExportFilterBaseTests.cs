@@ -56,9 +56,10 @@ internal sealed class ContactExportFilterBaseTests
         """;
 
         // Act
-        var result = JsonSerializer.Deserialize<CreateContactExportRequest>(json, _options)!;
+        var result = JsonSerializer.Deserialize<CreateContactExportRequest>(json, _options);
 
         // Assert
+        result.Should().NotBeNull();
         result.Filters.Should().HaveCount(2);
         result.Filters[0].Should().BeOfType<ContactExportListIdFilter>();
         result.Filters[1].Should().BeOfType<ContactExportSubscriptionStatusFilter>();
@@ -84,9 +85,10 @@ internal sealed class ContactExportFilterBaseTests
 
         // Act
         var json = JsonSerializer.Serialize(original, _options);
-        var deserialized = JsonSerializer.Deserialize<CreateContactExportRequest>(json, _options)!;
+        var deserialized = JsonSerializer.Deserialize<CreateContactExportRequest>(json, _options);
 
         // Assert
+        deserialized.Should().NotBeNull();
         deserialized.Should().BeEquivalentTo(original);
     }
 }

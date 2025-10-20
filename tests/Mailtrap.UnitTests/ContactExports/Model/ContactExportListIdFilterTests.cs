@@ -23,11 +23,9 @@ internal sealed class ContactExportListIdFilterTests
     [Test]
     public void Constructor_Should_InitializeFieldsCorrectlyFromArray()
     {
-        var values = new[] { 1, 2, 3 };
-
         // Arrange & Act
+        var values = new[] { 1, 2, 3 };
         var filter = new ContactExportListIdFilter(values);
-
 
         // Assert
         filter.Value.Should().BeEquivalentTo(values);
@@ -80,7 +78,7 @@ internal sealed class ContactExportListIdFilterTests
     }
 
     [Test]
-    public void Validator_Should_Fail_WhenOperatorIsNullOrEmpty()
+    public void Validator_Should_Fail_WhenOperatorIsNull()
     {
         // Arrange
         var filter = new ContactExportListIdFilter(1, 2)
@@ -129,6 +127,4 @@ internal sealed class ContactExportListIdFilterTests
         result.IsValid.Should().BeTrue();
         result.ShouldNotHaveAnyValidationErrors();
     }
-
-
 }

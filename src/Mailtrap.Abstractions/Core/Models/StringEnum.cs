@@ -51,18 +51,18 @@ public abstract record StringEnum<T> where T : StringEnum<T>, new()
     /// <summary>
     /// Finds enum entry by the specified string value.
     /// </summary>
-    /// 
+    ///
     /// <param name="value">
     /// String value to find enum entry for.
     /// </param>
-    /// 
+    ///
     /// <returns>
     /// Enum entry for the specified string value if found, <see langword="null"/> otherwise.
     /// </returns>
     ///
     /// <remarks>
     /// Search is case-sensitive.
-    /// </remarks>    
+    /// </remarks>
     public static T Find(string? value)
     {
         return
@@ -75,7 +75,7 @@ public abstract record StringEnum<T> where T : StringEnum<T>, new()
     /// <summary>
     /// Defines new enum entry and adds it to the values dictionary.
     /// </summary>
-    /// 
+    ///
     /// <param name="value">
     /// Enum entry value.
     /// </param>
@@ -94,6 +94,26 @@ public abstract record StringEnum<T> where T : StringEnum<T>, new()
         return added
             ? enumValue
             : throw new ArgumentException($"Attempt to define a duplicate value '{value}' in '{typeof(T).Name}'.", nameof(value));
+    }
+
+    /// <summary>
+    /// Checks whether the specified value is defined in the enum.
+    /// </summary>
+    /// <param name="value">
+    /// Value to check.
+    /// </param>
+    /// <returns>
+    /// <see langword="true"/> if the specified value is defined in the enum, <see langword="false"/> otherwise.
+    /// </returns>
+    /// <remarks>
+    /// The method returns <see langword="false"/> for <see langword="null"/>, <see cref="None"/> and <see cref="Unknown"/>.
+    /// </remarks>
+    internal static bool IsDefined(T? value)
+    {
+        return value is not null
+            && !ReferenceEquals(value, None)
+            && !ReferenceEquals(value, Unknown)
+            && s_values.Values.Contains(value);
     }
 
 

@@ -22,11 +22,11 @@ public sealed record UpdatePermissionsRequest : IValidatable
     /// <summary>
     /// Instance constructor.
     /// </summary>
-    /// 
+    ///
     /// <param name="permissions">
     /// Collection of resources with permissions to update.
     /// </param>
-    /// 
+    ///
     /// <exception cref="ArgumentNullException">
     /// When <paramref name="permissions"/> is <see langword="null"/>.
     /// </exception>
@@ -40,11 +40,11 @@ public sealed record UpdatePermissionsRequest : IValidatable
     /// <summary>
     /// Instance constructor.
     /// </summary>
-    /// 
+    ///
     /// <param name="permissions">
     /// Collection of resources with permissions to update.
     /// </param>
-    /// 
+    ///
     /// <exception cref="ArgumentNullException">
     /// When <paramref name="permissions"/> is <see langword="null"/>.
     /// </exception>
@@ -52,7 +52,7 @@ public sealed record UpdatePermissionsRequest : IValidatable
     {
         Ensure.NotNull(permissions, nameof(permissions));
 
-        Permissions = permissions.ToList();
+        Permissions = permissions.Clone();
     }
 
 

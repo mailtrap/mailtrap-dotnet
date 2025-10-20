@@ -5,7 +5,7 @@
 internal sealed class ContactExportSubscriptionStatusFilterTests
 {
     [Test]
-    public void Constructor_Should_ThrowArgumentNullException_WhenProvidedCollectionIsNull()
+    public void Constructor_Should_ThrowArgumentNullException_WhenProvidedValueIsNull()
     {
         // Arrange & Act
         var act = () => new ContactExportSubscriptionStatusFilter(null!);

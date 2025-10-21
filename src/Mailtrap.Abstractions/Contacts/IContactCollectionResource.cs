@@ -97,19 +97,6 @@ public interface IContactCollectionResource : IRestResource
     public IContactEventCollectionResource Events(string contactId);
 
     /// <summary>
-    /// Gets collection of contact details.
-    /// </summary>
-    ///
-    /// <param name="cancellationToken">
-    /// Token to control operation cancellation.
-    /// </param>
-    ///
-    /// <returns>
-    /// Collection of contact details.
-    /// </returns>
-    public Task<IList<Contact>> GetAll(CancellationToken cancellationToken = default);
-
-    /// <summary>
     /// Creates a new contact with details specified by <paramref name="request"/>.
     /// </summary>
     ///
@@ -118,7 +105,7 @@ public interface IContactCollectionResource : IRestResource
     /// </param>
     ///
     /// <param name="cancellationToken">
-    /// <inheritdoc cref="GetAll(CancellationToken)" path="/param[@name='cancellationToken']"/>
+    /// Token to control operation cancellation.
     /// </param>
     ///
     /// <returns>

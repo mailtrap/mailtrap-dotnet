@@ -32,7 +32,8 @@ try
     IContactCollectionResource contactsResource = accountResource.Contacts();
 
     // Get all contacts for account
-    IList<Contact> contacts = await contactsResource.GetAll();
+    // TODO: Enable when GetAll is implemented
+    IList<Contact> contacts = /*await contactsResource.GetAll()*/ [];
 
     Contact? contact = contacts
         .FirstOrDefault(p => string.Equals(p.Email, contactEmail, StringComparison.OrdinalIgnoreCase));

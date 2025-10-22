@@ -21,6 +21,9 @@ Repository with sample projects with different usage scenarios.
 - [API Reference](xref:Mailtrap)  
 Detailed API reference.
 
+- [Code Snippets](xref:snippets.index)  
+Code snippets for base send mail operations
+
 
 <!-- ## Contributing
 We believe in the power of OSS and welcome any contributions to the library.  

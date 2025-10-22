@@ -6,11 +6,11 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageIcon>icon.png</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageProjectUrl>https://github.com/railsware/mailtrap-dotnet</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/railsware/mailtrap-dotnet</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/mailtrap/mailtrap-dotnet</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/mailtrap/mailtrap-dotnet</RepositoryUrl>
 
-    <!-- 
-      SourceLink generation settings 
+    <!--
+      SourceLink generation settings
       https://devblogs.microsoft.com/dotnet/producing-packages-with-source-link/
     -->
     <!-- Publish the repository URL in the built .nupkg (in the NuSpec <Repository> element) -->

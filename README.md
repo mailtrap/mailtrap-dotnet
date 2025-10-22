@@ -1,8 +1,8 @@
 ![Mailtrap](assets/img/mailtrap-logo.svg)
 
-[![GitHub Package Version](https://img.shields.io/github/v/release/railsware/mailtrap-dotnet?label=GitHub%20Packages)](https://github.com/orgs/railsware/packages/nuget/package/Mailtrap)
-[![CI](https://github.com/railsware/mailtrap-dotnet/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/railsware/mailtrap-dotnet/actions/workflows/build.yml)
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/railsware/mailtrap-dotnet/blob/main/LICENSE.md)
+[![GitHub Package Version](https://img.shields.io/github/v/release/mailtrap/mailtrap-dotnet?label=GitHub%20Packages)](https://github.com/orgs/mailtrap/packages/nuget/package/Mailtrap)
+[![CI](https://github.com/mailtrap/mailtrap-dotnet/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/mailtrap/mailtrap-dotnet/actions/workflows/build.yml)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/mailtrap/mailtrap-dotnet/blob/main/LICENSE.md)
 
 # Official Mailtrap .NET Client
 Welcome to the official [Mailtrap](https://mailtrap.io/) .NET Client repository.  
@@ -52,19 +52,19 @@ The Mailtrap .NET client packages are available through GitHub Packages.
 First, add the GitHub Packages source to your NuGet configuration:
 
 ```console
-dotnet nuget add source https://nuget.pkg.github.com/railsware/index.json --name github-railsware
+dotnet nuget add source https://nuget.pkg.github.com/mailtrap/index.json --name github-mailtrap
 ```
 
 Then add Mailtrap package:
 
 ```console
-dotnet add package Mailtrap -v 2.0.0 -s github-railsware
+dotnet add package Mailtrap -v 2.0.0 -s github-mailtrap
 ```
 
 Optionally, you can add Mailtrap.Abstractions package:
 
 ```console
-dotnet add package Mailtrap.Abstractions -v 2.0.0 -s github-railsware
+dotnet add package Mailtrap.Abstractions -v 2.0.0 -s github-mailtrap
 ```
 
 ### Configure
@@ -180,7 +180,7 @@ The repository includes comprehensive examples demonstrating various use cases a
 Each example includes detailed comments and demonstrates best practices for error handling, configuration, and resource management.
 
 ## Documentation
-Please visit [Documentation Portal](https://railsware.github.io/mailtrap-dotnet/) for detailed setup, configuration and usage instructions.
+Please visit [Documentation Portal](https://mailtrap.github.io/mailtrap-dotnet/) for detailed setup, configuration and usage instructions.
 
 
 ## Contributing

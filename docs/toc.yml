@@ -3,13 +3,12 @@
 
 - name: Cookbook
   href: cookbook/
-  
+
 - name: Reference
   uid: Mailtrap
 
 - name: Examples
-  href: https://github.com/railsware/mailtrap-dotnet/tree/main/examples
+  href: https://github.com/mailtrap/mailtrap-dotnet/tree/main/examples
 
 - name: GitHub
-  href: https://github.com/railsware/mailtrap-dotnet
-  
+  href: https://github.com/mailtrap/mailtrap-dotnet

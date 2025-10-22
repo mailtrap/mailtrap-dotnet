@@ -91,7 +91,7 @@ IMailtrapClient client = factory.CreateClient();
 
 
 ## What's next
-Additional examples of the Mailtrap API client factory configuration and usage can be found on [GitHub](https://github.com/railsware/mailtrap-dotnet/blob/main/examples/Mailtrap.Example.Factory/Program.cs)
+Additional examples of the Mailtrap API client factory configuration and usage can be found on [GitHub](https://github.com/mailtrap/mailtrap-dotnet/blob/main/examples/Mailtrap.Example.Factory/Program.cs)
 
 [!INCLUDE [cookbook-link](../includes/cookbook-link.md)]
 

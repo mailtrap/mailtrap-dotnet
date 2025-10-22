@@ -10,5 +10,14 @@
 - name: Examples
   href: https://github.com/mailtrap/mailtrap-dotnet/tree/main/examples
 
+- name: CodeSnippets
+  href: codesnippets/
+  items:
+  - uid: snippets.simple-send-email
+  - uid: snippets.simple-send-template-email
+  - uid: snippets.bulk-send-email
+  - uid: snippets.bulk-send-template-email
+  - uid: snippets.sandbox-send-template-email
+
 - name: GitHub
   href: https://github.com/mailtrap/mailtrap-dotnet

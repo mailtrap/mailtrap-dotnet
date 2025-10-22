@@ -9,6 +9,7 @@ Short example of sending a simple email.
 using Mailtrap;
 using Mailtrap.Emails.Requests;
 using Mailtrap.Emails.Responses;
+
 try
 {
     var apiToken = "<API-TOKEN>";

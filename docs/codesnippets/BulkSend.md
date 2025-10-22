@@ -9,6 +9,7 @@ Short example of sending email via bulk link.
 using Mailtrap;
 using Mailtrap.Emails.Requests;
 using Mailtrap.Emails.Responses;
+
 try
 {
     var apiToken = "<API-TOKEN>";

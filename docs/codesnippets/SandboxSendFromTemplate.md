@@ -9,6 +9,7 @@ Short example of sending email via sandbox link.
 using Mailtrap;
 using Mailtrap.Emails.Requests;
 using Mailtrap.Emails.Responses;
+
 try
 {
     var apiToken = "<API-TOKEN>";
@@ -20,7 +21,7 @@ try
         .From("hello@demomailtrap.co", "Mailtrap Test")
         .To("world@demomailtrap.co")
         .Template("<TEMPLATE-ID>")                        // ID of Email template
-        .TemplateVariables(new Dictionary<string, object> // Optional parameters
+        .TemplateVariables(new Dictionary<string, object> // Optional template  parameters
         {
             { "company_info_name", "Test_Company_info_name" },
             { "company_info_address", "Test_Company_info_address" },

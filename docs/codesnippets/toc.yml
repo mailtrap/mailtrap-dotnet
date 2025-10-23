@@ -1,0 +1,5 @@
+- uid: snippets.simple-send-email
+- uid: snippets.simple-send-template-email
+- uid: snippets.bulk-send-email
+- uid: snippets.bulk-send-template-email
+- uid: snippets.sandbox-send-template-email

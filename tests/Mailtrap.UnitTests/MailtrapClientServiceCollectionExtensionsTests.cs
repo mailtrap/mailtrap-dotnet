@@ -278,7 +278,12 @@ internal sealed class MailtrapClientServiceCollectionExtensionsTests
             s.ImplementationType == typeof(MailtrapClient));
 
         serviceCollection.Should().Contain(s =>
-            s.ServiceType == typeof(IEmailClient) &&
+            s.ServiceType == typeof(ISendEmailClient) &&
+            s.Lifetime == ServiceLifetime.Transient &&
+            s.ImplementationFactory != null);
+
+        serviceCollection.Should().Contain(s =>
+            s.ServiceType == typeof(IBatchEmailClient) &&
             s.Lifetime == ServiceLifetime.Transient &&
             s.ImplementationFactory != null);
     }

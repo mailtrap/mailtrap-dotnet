@@ -59,7 +59,7 @@ internal sealed class EmailClientFactoryTests
 
         var emailClientEndpointProviderMock = new Mock<IEmailClientEndpointProvider>();
         emailClientEndpointProviderMock
-            .Setup(x => x.GetSendRequestUri(isBulk, inboxId))
+            .Setup(x => x.GetRequestUri(false, isBulk, inboxId))
             .Returns(sendUri);
 
         var options = CreateOptions(isBulk, inboxId);
@@ -73,7 +73,7 @@ internal sealed class EmailClientFactoryTests
 
         // Assert
         result.Should().NotBeNull();
-        result.Should().BeOfType<EmailClient>();
+        result.Should().BeAssignableTo<ISendEmailClient>();
         result.ResourceUri.Should().Be(sendUri);
     }
 
@@ -85,7 +85,7 @@ internal sealed class EmailClientFactoryTests
 
         var emailClientEndpointProviderMock = new Mock<IEmailClientEndpointProvider>();
         emailClientEndpointProviderMock
-            .Setup(x => x.GetSendRequestUri(isBulk, inboxId))
+            .Setup(x => x.GetRequestUri(false, isBulk, inboxId))
             .Returns(sendUri);
 
         var options = CreateOptions(isBulk, inboxId);
@@ -99,7 +99,7 @@ internal sealed class EmailClientFactoryTests
 
         // Assert
         result.Should().NotBeNull();
-        result.Should().BeOfType<EmailClient>();
+        result.Should().BeAssignableTo<ISendEmailClient>();
         result.ResourceUri.Should().Be(sendUri);
     }
 
@@ -111,7 +111,7 @@ internal sealed class EmailClientFactoryTests
 
         var emailClientEndpointProviderMock = new Mock<IEmailClientEndpointProvider>();
         emailClientEndpointProviderMock
-            .Setup(x => x.GetSendRequestUri(false, null))
+            .Setup(x => x.GetRequestUri(false, false, null))
             .Returns(sendUri);
 
         var options = CreateOptions(isBulk, inboxId);
@@ -125,7 +125,7 @@ internal sealed class EmailClientFactoryTests
 
         // Assert
         result.Should().NotBeNull();
-        result.Should().BeOfType<EmailClient>();
+        result.Should().BeAssignableTo<ISendEmailClient>();
         result.ResourceUri.Should().Be(sendUri);
     }
 
@@ -137,7 +137,7 @@ internal sealed class EmailClientFactoryTests
 
         var emailClientEndpointProviderMock = new Mock<IEmailClientEndpointProvider>();
         emailClientEndpointProviderMock
-            .Setup(x => x.GetSendRequestUri(true, null))
+            .Setup(x => x.GetRequestUri(false, true, null))
             .Returns(sendUri);
 
         var options = CreateOptions(isBulk, inboxId);
@@ -151,7 +151,7 @@ internal sealed class EmailClientFactoryTests
 
         // Assert
         result.Should().NotBeNull();
-        result.Should().BeOfType<EmailClient>();
+        result.Should().BeAssignableTo<ISendEmailClient>();
         result.ResourceUri.Should().Be(sendUri);
     }
 
@@ -163,7 +163,7 @@ internal sealed class EmailClientFactoryTests
 
         var emailClientEndpointProviderMock = new Mock<IEmailClientEndpointProvider>();
         emailClientEndpointProviderMock
-            .Setup(x => x.GetSendRequestUri(false, inboxId))
+            .Setup(x => x.GetRequestUri(false, false, inboxId))
             .Returns(sendUri);
 
         var options = CreateOptions(isBulk, inboxId);
@@ -177,7 +177,138 @@ internal sealed class EmailClientFactoryTests
 
         // Assert
         result.Should().NotBeNull();
-        result.Should().BeOfType<EmailClient>();
+        result.Should().BeAssignableTo<ISendEmailClient>();
+        result.ResourceUri.Should().Be(sendUri);
+    }
+
+
+    [Test]
+    public void CreateBatch_ShouldReturnBatchEmailClient([Values] bool isBulk, [Random(2)] long inboxId)
+    {
+        // Arrange
+        var sendUri = new Uri("https://localhost/api/batch");
+
+        var emailClientEndpointProviderMock = new Mock<IEmailClientEndpointProvider>();
+        emailClientEndpointProviderMock
+            .Setup(x => x.GetRequestUri(true, isBulk, inboxId))
+            .Returns(sendUri);
+
+        var options = CreateOptions(isBulk, inboxId);
+        var emailClientFactory = new EmailClientFactory(
+            options,
+            emailClientEndpointProviderMock.Object,
+            Mock.Of<IRestResourceCommandFactory>());
+
+        // Act
+        var result = emailClientFactory.CreateBatch(isBulk, inboxId);
+
+        // Assert
+        result.Should().NotBeNull();
+        result.Should().BeAssignableTo<IBatchEmailClient>();
+        result.ResourceUri.Should().Be(sendUri);
+    }
+
+    [Test]
+    public void CreateBatchDefault_ShouldReturnBatchEmailClient([Values] bool isBulk, [Random(2)] long inboxId)
+    {
+        // Arrange
+        var sendUri = new Uri("https://localhost/api/batch");
+
+        var emailClientEndpointProviderMock = new Mock<IEmailClientEndpointProvider>();
+        emailClientEndpointProviderMock
+            .Setup(x => x.GetRequestUri(true, isBulk, inboxId))
+            .Returns(sendUri);
+
+        var options = CreateOptions(isBulk, inboxId);
+        var emailClientFactory = new EmailClientFactory(
+            options,
+            emailClientEndpointProviderMock.Object,
+            Mock.Of<IRestResourceCommandFactory>());
+
+        // Act
+        var result = emailClientFactory.CreateBatchDefault();
+
+        // Assert
+        result.Should().NotBeNull();
+        result.Should().BeAssignableTo<IBatchEmailClient>();
+        result.ResourceUri.Should().Be(sendUri);
+    }
+
+    [Test]
+    public void CreateBatchTransactional_ShouldReturnBatchEmailClient([Values] bool isBulk, [Random(2)] long inboxId)
+    {
+        // Arrange
+        var sendUri = new Uri("https://localhost/api/batch");
+
+        var emailClientEndpointProviderMock = new Mock<IEmailClientEndpointProvider>();
+        emailClientEndpointProviderMock
+            .Setup(x => x.GetRequestUri(true, false, null))
+            .Returns(sendUri);
+
+        var options = CreateOptions(isBulk, inboxId);
+        var emailClientFactory = new EmailClientFactory(
+            options,
+            emailClientEndpointProviderMock.Object,
+            Mock.Of<IRestResourceCommandFactory>());
+
+        // Act
+        var result = emailClientFactory.CreateBatchTransactional();
+
+        // Assert
+        result.Should().NotBeNull();
+        result.Should().BeAssignableTo<IBatchEmailClient>();
+        result.ResourceUri.Should().Be(sendUri);
+    }
+
+    [Test]
+    public void CreateBatchBulk_ShouldReturnBatchEmailClient([Values] bool isBulk, [Random(2)] long inboxId)
+    {
+        // Arrange
+        var sendUri = new Uri("https://localhost/api/batch");
+
+        var emailClientEndpointProviderMock = new Mock<IEmailClientEndpointProvider>();
+        emailClientEndpointProviderMock
+            .Setup(x => x.GetRequestUri(true, true, null))
+            .Returns(sendUri);
+
+        var options = CreateOptions(isBulk, inboxId);
+        var emailClientFactory = new EmailClientFactory(
+            options,
+            emailClientEndpointProviderMock.Object,
+            Mock.Of<IRestResourceCommandFactory>());
+
+        // Act
+        var result = emailClientFactory.CreateBatchBulk();
+
+        // Assert
+        result.Should().NotBeNull();
+        result.Should().BeAssignableTo<IBatchEmailClient>();
+        result.ResourceUri.Should().Be(sendUri);
+    }
+
+    [Test]
+    public void CreateBatchTest_ShouldReturnBatchEmailClient([Values] bool isBulk, [Random(2)] long inboxId)
+    {
+        // Arrange
+        var sendUri = new Uri("https://localhost/api/batch");
+
+        var emailClientEndpointProviderMock = new Mock<IEmailClientEndpointProvider>();
+        emailClientEndpointProviderMock
+            .Setup(x => x.GetRequestUri(true, false, inboxId))
+            .Returns(sendUri);
+
+        var options = CreateOptions(isBulk, inboxId);
+        var emailClientFactory = new EmailClientFactory(
+            options,
+            emailClientEndpointProviderMock.Object,
+            Mock.Of<IRestResourceCommandFactory>());
+
+        // Act
+        var result = emailClientFactory.CreateBatchTest(inboxId);
+
+        // Assert
+        result.Should().NotBeNull();
+        result.Should().BeAssignableTo<IBatchEmailClient>();
         result.ResourceUri.Should().Be(sendUri);
     }
 

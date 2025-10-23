@@ -8,27 +8,25 @@ internal sealed class SendEmailIntegrationTests
 
 
     [TestCaseSource(nameof(TestCasesForDefault))]
-    public async Task SendEmail_ShouldRouteToProperUrl_WhenDefaultClientIsUsed(SendEmailTestCase testCase)
+    public async Task SendEmail_Should_RouteToProperUrl_WhenDefaultClientIsUsed(SendEmailTestCase testCase)
     {
         // Arrange
         var request = CreateValidRequest();
         using var mockHttp = new MockHttpMessageHandler();
 
         var messageId = TestContext.CurrentContext.Random.NextGuid().ToString();
-        var response = new SendEmailResponse(true, [messageId]);
+        var response = SendEmailResponse.CreateSuccess(messageId);
         using var responseContent = JsonContent.Create(response);
 
         using var services = CreateServiceProvider(testCase.Config, testCase.SendUri, request, mockHttp, responseContent);
 
         var client = services.GetRequiredService<IMailtrapClient>();
 
-
         // Act
         var result = await client
             .Email()
             .Send(request)
             .ConfigureAwait(false);
-
 
         // Assert
         mockHttp.VerifyNoOutstandingExpectation();
@@ -42,26 +40,24 @@ internal sealed class SendEmailIntegrationTests
     }
 
     [TestCaseSource(nameof(TestCasesForDefault))]
-    public async Task SendEmail_ShouldRouteToProperUrl_WhenEmailClientIsUsed(SendEmailTestCase testCase)
+    public async Task SendEmail_Should_RouteToProperUrl_WhenEmailClientIsUsed(SendEmailTestCase testCase)
     {
         // Arrange
         var request = CreateValidRequest();
         using var mockHttp = new MockHttpMessageHandler();
 
         var messageId = TestContext.CurrentContext.Random.NextGuid().ToString();
-        var response = new SendEmailResponse(true, [messageId]);
+        var response = SendEmailResponse.CreateSuccess(messageId);
         using var responseContent = JsonContent.Create(response);
 
         using var services = CreateServiceProvider(testCase.Config, testCase.SendUri, request, mockHttp, responseContent);
 
-        var client = services.GetRequiredService<IEmailClient>();
-
+        var client = services.GetRequiredService<ISendEmailClient>();
 
         // Act
         var result = await client
             .Send(request)
             .ConfigureAwait(false);
-
 
         // Assert
         mockHttp.VerifyNoOutstandingExpectation();
@@ -75,14 +71,14 @@ internal sealed class SendEmailIntegrationTests
     }
 
     [TestCaseSource(nameof(TestCasesForNonDefault))]
-    public async Task SendEmail_ShouldRouteToProperUrl_WhenTransactionalClientIsUsed(MailtrapClientOptions config)
+    public async Task SendEmail_Should_RouteToProperUrl_WhenTransactionalClientIsUsed(MailtrapClientOptions config)
     {
         // Arrange
         var request = CreateValidRequest();
         using var mockHttp = new MockHttpMessageHandler();
 
         var messageId = TestContext.CurrentContext.Random.NextGuid().ToString();
-        var response = new SendEmailResponse(true, [messageId]);
+        var response = SendEmailResponse.CreateSuccess(messageId);
         using var responseContent = JsonContent.Create(response);
 
         var sendUri = EndpointsTestConstants.SendDefaultUrl
@@ -94,13 +90,11 @@ internal sealed class SendEmailIntegrationTests
 
         var client = services.GetRequiredService<IMailtrapClient>();
 
-
         // Act
         var result = await client
             .Transactional()
             .Send(request)
             .ConfigureAwait(false);
-
 
         // Assert
         mockHttp.VerifyNoOutstandingExpectation();
@@ -114,14 +108,14 @@ internal sealed class SendEmailIntegrationTests
     }
 
     [TestCaseSource(nameof(TestCasesForNonDefault))]
-    public async Task SendEmail_ShouldRouteToProperUrl_WhenBulkClientIsUsed(MailtrapClientOptions config)
+    public async Task SendEmail_Should_RouteToProperUrl_WhenBulkClientIsUsed(MailtrapClientOptions config)
     {
         // Arrange
         var request = CreateValidRequest();
         using var mockHttp = new MockHttpMessageHandler();
 
         var messageId = TestContext.CurrentContext.Random.NextGuid().ToString();
-        var response = new SendEmailResponse(true, [messageId]);
+        var response = SendEmailResponse.CreateSuccess(messageId);
         using var responseContent = JsonContent.Create(response);
 
         var sendUri = EndpointsTestConstants.BulkDefaultUrl
@@ -133,13 +127,11 @@ internal sealed class SendEmailIntegrationTests
 
         var client = services.GetRequiredService<IMailtrapClient>();
 
-
         // Act
         var result = await client
             .Bulk()
             .Send(request)
             .ConfigureAwait(false);
-
 
         // Assert
         mockHttp.VerifyNoOutstandingExpectation();
@@ -153,7 +145,7 @@ internal sealed class SendEmailIntegrationTests
     }
 
     [TestCaseSource(nameof(TestCasesForNonDefault))]
-    public async Task SendEmail_ShouldRouteToProperUrl_WhenTestClientIsUsed(MailtrapClientOptions config)
+    public async Task SendEmail_Should_RouteToProperUrl_WhenTestClientIsUsed(MailtrapClientOptions config)
     {
         // Arrange
         var random = TestContext.CurrentContext.Random;
@@ -162,7 +154,7 @@ internal sealed class SendEmailIntegrationTests
         using var mockHttp = new MockHttpMessageHandler();
 
         var messageId = random.NextGuid().ToString();
-        var response = new SendEmailResponse(true, [messageId]);
+        var response = SendEmailResponse.CreateSuccess(messageId);
         using var responseContent = JsonContent.Create(response);
 
         var inboxId = random.NextLong();
@@ -176,13 +168,11 @@ internal sealed class SendEmailIntegrationTests
 
         var client = services.GetRequiredService<IMailtrapClient>();
 
-
         // Act
         var result = await client
             .Test(inboxId)
             .Send(request)
             .ConfigureAwait(false);
-
 
         // Assert
         mockHttp.VerifyNoOutstandingExpectation();
@@ -196,6 +186,7 @@ internal sealed class SendEmailIntegrationTests
     }
 
 
+    #region Test Cases
 
     private static IEnumerable<SendEmailTestCase> TestCasesForDefault()
     {
@@ -252,6 +243,10 @@ internal sealed class SendEmailIntegrationTests
         yield return new(token) { InboxId = inboxId, UseBulkApi = true };
     }
 
+    #endregion
+
+    #region Setup Helpers
+
     private static SendEmailRequest CreateValidRequest()
     {
         return SendEmailRequest
@@ -289,4 +284,6 @@ internal sealed class SendEmailIntegrationTests
 
         return serviceCollection.BuildServiceProvider();
     }
+
+    #endregion
 }

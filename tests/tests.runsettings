@@ -78,7 +78,7 @@ Included items must then not match any entries in the exclude list to remain inc
                 <ModulePath>.*\.exe$</ModulePath>
               </Include>
               <Exclude>
-                <ModulePath>^Mailtrap.*Tests.*</ModulePath>
+                <ModulePath>.*\\Mailtrap\..*Tests\..*</ModulePath>
                 <ModulePath>.*CPPUnitTestFramework.*</ModulePath>
                 <ModulePath>.*TestAdapter.*</ModulePath>
                 <ModulePath>.*nunit.*</ModulePath>

@@ -11,7 +11,7 @@ internal sealed class EmailClientTests
     {
         var sendUri = new Uri("https://localhost/api/send");
 
-        var act = () => new EmailClient(null!, sendUri);
+        var act = () => new SendEmailClient(null!, sendUri);
 
         act.Should().Throw<ArgumentNullException>();
     }
@@ -21,7 +21,7 @@ internal sealed class EmailClientTests
     {
         var restResourceCommandFactoryMock = Mock.Of<IRestResourceCommandFactory>();
 
-        var act = () => new EmailClient(restResourceCommandFactoryMock, null!);
+        var act = () => new SendEmailClient(restResourceCommandFactoryMock, null!);
 
         act.Should().Throw<ArgumentNullException>();
     }
@@ -32,7 +32,7 @@ internal sealed class EmailClientTests
         var sendUri = new Uri("https://localhost/api/send");
         var restResourceCommandFactoryMock = Mock.Of<IRestResourceCommandFactory>();
 
-        var client = new EmailClient(restResourceCommandFactoryMock, sendUri);
+        var client = new SendEmailClient(restResourceCommandFactoryMock, sendUri);
 
         client.ResourceUri.Should().Be(sendUri);
     }
@@ -61,7 +61,7 @@ internal sealed class EmailClientTests
         var request = CreateValidRequest();
 
         var messageId = TestContext.CurrentContext.Random.NextGuid().ToString();
-        var response = new SendEmailResponse(true, [messageId]);
+        var response = SendEmailResponse.CreateSuccess(messageId);
 
         var restResourceCommandMock = new Mock<IRestResourceCommand<SendEmailResponse>>();
         restResourceCommandMock
@@ -73,7 +73,7 @@ internal sealed class EmailClientTests
             .Setup(f => f.CreatePost<SendEmailRequest, SendEmailResponse>(sendUri, request))
             .Returns(restResourceCommandMock.Object);
 
-        var client = new EmailClient(restResourceCommandFactoryMock.Object, sendUri);
+        var client = new SendEmailClient(restResourceCommandFactoryMock.Object, sendUri);
 
 
         // Act
@@ -90,7 +90,7 @@ internal sealed class EmailClientTests
     }
 
 
-    private static EmailClient CreateEmailClient()
+    private static SendEmailClient CreateEmailClient()
         => new(Mock.Of<IRestResourceCommandFactory>(), new Uri("https://localhost"));
 
     private static SendEmailRequest CreateValidRequest()

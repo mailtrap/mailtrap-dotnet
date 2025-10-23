@@ -15,7 +15,7 @@ internal sealed class EmailClientEndpointProviderTests
 
 
     [Test]
-    public void GetSendRequestUri_ShouldReturnSendDefaultUrl_WhenIsNotBulkAndInboxIdIsNull()
+    public void GetRequestUri_ShouldReturnSendDefaultUrl_WhenIsNotBulkAndInboxIdIsNull()
     {
         // Arrange
         var isBulk = false;
@@ -26,14 +26,14 @@ internal sealed class EmailClientEndpointProviderTests
                 UrlSegmentsTestConstants.SendEmailSegment);
 
         // Act
-        var result = _emailClientEndpointProvider.GetSendRequestUri(isBulk, inboxId);
+        var result = _emailClientEndpointProvider.GetRequestUri(false, isBulk, inboxId);
 
         // Assert
         result.Should().Be(expectedUrl);
     }
 
     [Test]
-    public void GetSendRequestUri_ShouldReturnBulkDefaultUrl_WhenIsBulkAndInboxIdIsNull()
+    public void GetRequestUri_ShouldReturnBulkDefaultUrl_WhenIsBulkAndInboxIdIsNull()
     {
         // Arrange
         var isBulk = true;
@@ -44,14 +44,14 @@ internal sealed class EmailClientEndpointProviderTests
                 UrlSegmentsTestConstants.SendEmailSegment);
 
         // Act
-        var result = _emailClientEndpointProvider.GetSendRequestUri(isBulk, inboxId);
+        var result = _emailClientEndpointProvider.GetRequestUri(false, isBulk, inboxId);
 
         // Assert
         result.Should().Be(expectedUrl);
     }
 
     [Test]
-    public void GetSendRequestUri_ShouldReturnTestDefaultUrl_WhenInboxIdIsNotNull([Values] bool isBulk)
+    public void GetRequestUri_ShouldReturnTestDefaultUrl_WhenInboxIdIsNotNull([Values] bool isBulk)
     {
         // Arrange
         long inboxId = 12345;
@@ -62,7 +62,62 @@ internal sealed class EmailClientEndpointProviderTests
             .Append(inboxId);
 
         // Act
-        var result = _emailClientEndpointProvider.GetSendRequestUri(isBulk, inboxId);
+        var result = _emailClientEndpointProvider.GetRequestUri(false, isBulk, inboxId);
+
+        // Assert
+        result.Should().Be(expectedUrl);
+    }
+
+
+    [Test]
+    public void GetRequestUri_ShouldReturnBatchDefaultUrl_WhenIsNotBulkAndInboxIdIsNull()
+    {
+        // Arrange
+        var isBulk = false;
+        long? inboxId = null;
+        var expectedUrl = EndpointsTestConstants.SendDefaultUrl
+            .Append(
+                UrlSegmentsTestConstants.ApiRootSegment,
+                UrlSegmentsTestConstants.BatchEmailSegment);
+
+        // Act
+        var result = _emailClientEndpointProvider.GetRequestUri(true, isBulk, inboxId);
+
+        // Assert
+        result.Should().Be(expectedUrl);
+    }
+
+    [Test]
+    public void GetRequestUri_ShouldReturnBatchBulkDefaultUrl_WhenIsBulkAndInboxIdIsNull()
+    {
+        // Arrange
+        var isBulk = true;
+        long? inboxId = null;
+        var expectedUrl = EndpointsTestConstants.BulkDefaultUrl
+            .Append(
+                UrlSegmentsTestConstants.ApiRootSegment,
+                UrlSegmentsTestConstants.BatchEmailSegment);
+
+        // Act
+        var result = _emailClientEndpointProvider.GetRequestUri(true, isBulk, inboxId);
+
+        // Assert
+        result.Should().Be(expectedUrl);
+    }
+
+    [Test]
+    public void GetRequestUri_ShouldReturnBatchTestDefaultUrl_WhenInboxIdIsNotNull([Values] bool isBulk)
+    {
+        // Arrange
+        long inboxId = 12345;
+        var expectedUrl = EndpointsTestConstants.TestDefaultUrl
+            .Append(
+                UrlSegmentsTestConstants.ApiRootSegment,
+                UrlSegmentsTestConstants.BatchEmailSegment)
+            .Append(inboxId);
+
+        // Act
+        var result = _emailClientEndpointProvider.GetRequestUri(true, isBulk, inboxId);
 
         // Assert
         result.Should().Be(expectedUrl);

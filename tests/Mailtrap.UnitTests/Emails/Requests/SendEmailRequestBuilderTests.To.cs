@@ -14,7 +14,7 @@ internal sealed class SendEmailRequestBuilderTests_To
     #region To
 
     [Test]
-    public void To_ShouldThrowArgumentNullException_WhenRequestIsNull()
+    public void To_Should_ThrowArgumentNullException_WhenRequestIsNull()
     {
         var act = () => SendEmailRequestBuilder.To(null!, _recipient1);
 
@@ -22,7 +22,7 @@ internal sealed class SendEmailRequestBuilderTests_To
     }
 
     [Test]
-    public void To_ShouldThrowArgumentNullException_WhenParamsIsNull()
+    public void To_Should_ThrowArgumentNullException_WhenParamsIsNull()
     {
         var request = SendEmailRequest.Create();
 
@@ -32,7 +32,7 @@ internal sealed class SendEmailRequestBuilderTests_To
     }
 
     [Test]
-    public void To_ShouldNotThrowException_WhenParamsIsEmpty()
+    public void To_Should_NotThrowException_WhenParamsIsEmpty()
     {
         var request = SendEmailRequest.Create();
 
@@ -42,13 +42,13 @@ internal sealed class SendEmailRequestBuilderTests_To
     }
 
     [Test]
-    public void To_ShouldAddRecipientsToCollection()
+    public void To_Should_AddRecipientsToCollection()
     {
         To_CreateAndValidate(_recipient1, _recipient2);
     }
 
     [Test]
-    public void To_ShouldAddRecipientsToCollection_WhenCalledMultipleTimes()
+    public void To_Should_AddRecipientsToCollection_WhenCalledMultipleTimes()
     {
         var recipient3 = new EmailAddress("recipient3@domain.com");
         var recipient4 = new EmailAddress("recipient4@domain.com", "Recipient 4");
@@ -63,7 +63,7 @@ internal sealed class SendEmailRequestBuilderTests_To
     }
 
     [Test]
-    public void To_ShouldNotAddRecipientsToCollection_WhenParamsIsEmpty()
+    public void To_Should_NotAddRecipientsToCollection_WhenParamsIsEmpty()
     {
         var request = To_CreateAndValidate(_recipient1, _recipient2);
 
@@ -82,7 +82,7 @@ internal sealed class SendEmailRequestBuilderTests_To
             .To(recipients);
 
         request.To.Should()
-            .HaveCount(2).And
+            .HaveCount(recipients.Length).And
             .ContainInOrder(recipients);
 
         return request;
@@ -94,7 +94,7 @@ internal sealed class SendEmailRequestBuilderTests_To
 
     #region To(email, displayName)
     [Test]
-    public void To_ShouldThrowArgumentNullException_WhenRequestIsNull_2()
+    public void To_Should_ThrowArgumentNullException_WhenRequestIsNull_2()
     {
         var request = SendEmailRequest.Create();
 
@@ -104,7 +104,7 @@ internal sealed class SendEmailRequestBuilderTests_To
     }
 
     [Test]
-    public void To_ShouldThrowArgumentNullException_WhenRecipientEmailIsNull()
+    public void To_Should_ThrowArgumentNullException_WhenRecipientEmailIsNull()
     {
         var request = SendEmailRequest.Create();
 
@@ -114,7 +114,7 @@ internal sealed class SendEmailRequestBuilderTests_To
     }
 
     [Test]
-    public void To_ShouldThrowArgumentNullException_WhenRecipientEmailIsEmpty()
+    public void To_Should_ThrowArgumentNullException_WhenRecipientEmailIsEmpty()
     {
         var request = SendEmailRequest.Create();
 
@@ -124,7 +124,7 @@ internal sealed class SendEmailRequestBuilderTests_To
     }
 
     [Test]
-    public void To_ShouldNotThrowException_WhenRecipientDisplayNameIsNull()
+    public void To_Should_NotThrowException_WhenRecipientDisplayNameIsNull()
     {
         var request = SendEmailRequest.Create();
 
@@ -134,7 +134,7 @@ internal sealed class SendEmailRequestBuilderTests_To
     }
 
     [Test]
-    public void To_ShouldNotThrowException_WhenRecipientDisplayNameIsEmpty()
+    public void To_Should_NotThrowException_WhenRecipientDisplayNameIsEmpty()
     {
         var request = SendEmailRequest.Create();
 
@@ -144,7 +144,7 @@ internal sealed class SendEmailRequestBuilderTests_To
     }
 
     [Test]
-    public void To_ShouldAddRecipientToCollection_WhenOnlyEmailProvided()
+    public void To_Should_AddRecipientToCollection_WhenOnlyEmailProvided()
     {
         var request = SendEmailRequest
             .Create()
@@ -158,7 +158,7 @@ internal sealed class SendEmailRequestBuilderTests_To
     }
 
     [Test]
-    public void To_ShouldAddRecipientToCollection_WhenFullInfoProvided()
+    public void To_Should_AddRecipientToCollection_WhenFullInfoProvided()
     {
         var request = SendEmailRequest
             .Create()

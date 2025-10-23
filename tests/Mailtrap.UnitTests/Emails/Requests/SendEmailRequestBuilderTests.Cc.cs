@@ -14,7 +14,7 @@ internal sealed class SendEmailRequestBuilderTests_Cc
     #region Cc
 
     [Test]
-    public void Cc_ShouldThrowArgumentNullException_WhenRequestIsNull()
+    public void Cc_Should_ThrowArgumentNullException_WhenRequestIsNull()
     {
         var act = () => SendEmailRequestBuilder.Cc(null!, _recipient1);
 
@@ -22,7 +22,7 @@ internal sealed class SendEmailRequestBuilderTests_Cc
     }
 
     [Test]
-    public void Cc_ShouldThrowArgumentNullException_WhenParamsIsNull()
+    public void Cc_Should_ThrowArgumentNullException_WhenParamsIsNull()
     {
         var request = SendEmailRequest.Create();
 
@@ -32,7 +32,7 @@ internal sealed class SendEmailRequestBuilderTests_Cc
     }
 
     [Test]
-    public void Cc_ShouldNotThrowException_WhenParamsIsEmpty()
+    public void Cc_Should_NotThrowException_WhenParamsIsEmpty()
     {
         var request = SendEmailRequest.Create();
 
@@ -42,13 +42,13 @@ internal sealed class SendEmailRequestBuilderTests_Cc
     }
 
     [Test]
-    public void Cc_ShouldAddRecipientsToCollection()
+    public void Cc_Should_AddRecipientsToCollection()
     {
         Cc_CreateAndValidate(_recipient1, _recipient2);
     }
 
     [Test]
-    public void Cc_ShouldAddRecipientsToCollection_WhenCalledMultipleTimes()
+    public void Cc_Should_AddRecipientsToCollection_WhenCalledMultipleTimes()
     {
         var recipient3 = new EmailAddress("recipient3@domain.com");
         var recipient4 = new EmailAddress("recipient4@domain.com", "Recipient 4");
@@ -63,7 +63,7 @@ internal sealed class SendEmailRequestBuilderTests_Cc
     }
 
     [Test]
-    public void Cc_ShouldNotAddRecipientsToCollection_WhenParamsIsEmpty()
+    public void Cc_Should_NotAddRecipientsToCollection_WhenParamsIsEmpty()
     {
         var request = Cc_CreateAndValidate(_recipient1, _recipient2);
 
@@ -95,7 +95,7 @@ internal sealed class SendEmailRequestBuilderTests_Cc
     #region Cc(email, displayName)
 
     [Test]
-    public void Cc_ShouldThrowArgumentNullException_WhenRequestIsNull_2()
+    public void Cc_Should_ThrowArgumentNullException_WhenRequestIsNull_2()
     {
         var request = SendEmailRequest.Create();
 
@@ -105,7 +105,7 @@ internal sealed class SendEmailRequestBuilderTests_Cc
     }
 
     [Test]
-    public void Cc_ShouldThrowArgumentNullException_WhenRecipientEmailIsNull()
+    public void Cc_Should_ThrowArgumentNullException_WhenRecipientEmailIsNull()
     {
         var request = SendEmailRequest.Create();
 
@@ -115,7 +115,7 @@ internal sealed class SendEmailRequestBuilderTests_Cc
     }
 
     [Test]
-    public void Cc_ShouldThrowArgumentNullException_WhenRecipientEmailIsEmpty()
+    public void Cc_Should_ThrowArgumentNullException_WhenRecipientEmailIsEmpty()
     {
         var request = SendEmailRequest.Create();
 
@@ -125,7 +125,7 @@ internal sealed class SendEmailRequestBuilderTests_Cc
     }
 
     [Test]
-    public void Cc_ShouldNotThrowException_WhenRecipientDisplayNameIsNull()
+    public void Cc_Should_NotThrowException_WhenRecipientDisplayNameIsNull()
     {
         var request = SendEmailRequest.Create();
 
@@ -135,7 +135,7 @@ internal sealed class SendEmailRequestBuilderTests_Cc
     }
 
     [TestCase]
-    public void Cc_ShouldNotThrowException_WhenRecipientDisplayNameIsEmpty()
+    public void Cc_Should_NotThrowException_WhenRecipientDisplayNameIsEmpty()
     {
         var request = SendEmailRequest.Create();
 
@@ -145,7 +145,7 @@ internal sealed class SendEmailRequestBuilderTests_Cc
     }
 
     [Test]
-    public void Cc_ShouldAddRecipientToCollection_WhenOnlyEmailProvided()
+    public void Cc_Should_AddRecipientToCollection_WhenOnlyEmailProvided()
     {
         var request = SendEmailRequest
             .Create()
@@ -159,7 +159,7 @@ internal sealed class SendEmailRequestBuilderTests_Cc
     }
 
     [Test]
-    public void Cc_ShouldAddRecipientToCollection_WhenFullInfoProvided()
+    public void Cc_Should_AddRecipientToCollection_WhenFullInfoProvided()
     {
         var request = SendEmailRequest
             .Create()

@@ -3,7 +3,7 @@ namespace Mailtrap.ContactImports.Models;
 /// <summary>
 /// Generic response object for contact import operations.
 /// </summary>
-public record ContactImport
+public sealed record ContactImport
 {
     /// <summary>
     /// Gets or sets created contact import identifier.

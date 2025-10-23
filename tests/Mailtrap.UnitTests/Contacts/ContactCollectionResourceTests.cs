@@ -47,6 +47,52 @@ internal sealed class ContactCollectionResourceTests
 
     #endregion
 
+    #region Exports
+
+    [Test]
+    public void Exports_ShouldReturnContactExportCollectionResource()
+    {
+        // Arrange
+        var client = CreateResource();
+
+        // Act
+        var result = client.Exports();
+
+        // Assert
+        ResourceValidator.Validate<IContactExportCollectionResource, ContactExportCollectionResource>(
+            result, client.ResourceUri.Append(UrlSegmentsTestConstants.ExportsSegment));
+    }
+
+    [Test]
+    public void Export_ShouldReturnContactExportResource()
+    {
+        // Arrange
+        var client = CreateResource();
+        var exportId = TestContext.CurrentContext.Random.NextLong();
+
+        // Act
+        var result = client.Export(exportId);
+
+        // Assert
+        ResourceValidator.Validate<IContactExportResource, ContactExportResource>(
+            result, client.ResourceUri.Append(UrlSegmentsTestConstants.ExportsSegment).Append(exportId));
+    }
+
+    [Test]
+    public void Export_ShouldThrowArgumentOutOfRangeException_WhenIdIsEqualOrLessThanZero([Values(0, -1)] long exportId)
+    {
+        // Arrange
+        var client = CreateResource();
+
+        // Act
+        var act = () => client.Export(exportId);
+
+        // Assert
+        act.Should().Throw<ArgumentOutOfRangeException>();
+    }
+
+    #endregion
+
     #region Imports
 
     [Test]

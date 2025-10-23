@@ -3,7 +3,7 @@ namespace Mailtrap.ContactImports.Requests;
 /// <summary>
 /// Generic request object for creating a contact import.
 /// </summary>
-public record CreateContactImportRequest : IValidatable
+public sealed record CreateContactImportRequest : IValidatable
 {
     /// <summary>
     /// Gets collection of <see cref="ContactImportRequest"/> for import.
@@ -41,9 +41,7 @@ public record CreateContactImportRequest : IValidatable
         Ensure.NotNullOrEmpty(contacts, nameof(contacts));
 
         // Defensive copy to prevent post-ctor mutation.
-        Contacts = contacts is List<ContactImportRequest> list
-                        ? new List<ContactImportRequest>(list)       // defensive copy when already a List<T>
-                        : new List<ContactImportRequest>(contacts);  // otherwise enumerate once
+        Contacts = contacts.Clone();
     }
 
     /// <summary>

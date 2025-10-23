@@ -5,6 +5,7 @@
 /// </summary>
 internal sealed class ContactCollectionResource : RestResource, IContactCollectionResource
 {
+    private const string ExportsSegment = "exports";
     private const string ImportsSegment = "imports";
     private const string ListsSegment = "lists";
     private const string FieldsSegment = "fields";
@@ -12,6 +13,12 @@ internal sealed class ContactCollectionResource : RestResource, IContactCollecti
 
     public ContactCollectionResource(IRestResourceCommandFactory restResourceCommandFactory, Uri resourceUri)
         : base(restResourceCommandFactory, resourceUri) { }
+
+    public IContactExportCollectionResource Exports()
+        => new ContactExportCollectionResource(RestResourceCommandFactory, ResourceUri.Append(ExportsSegment));
+
+    public IContactExportResource Export(long exportId)
+            => new ContactExportResource(RestResourceCommandFactory, ResourceUri.Append(ExportsSegment).Append(exportId));
 
     public IContactImportCollectionResource Imports()
         => new ContactImportCollectionResource(RestResourceCommandFactory, ResourceUri.Append(ImportsSegment));

@@ -1,0 +1,6 @@
+{
+  "id": 123,
+  "status": "finished",
+  "created_at": "2021-01-01T00:00:00Z",
+  "url": "http://example.com/export/1/download?token=abc123"
+}

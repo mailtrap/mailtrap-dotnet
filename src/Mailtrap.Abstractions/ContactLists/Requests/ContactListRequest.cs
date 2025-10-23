@@ -3,7 +3,7 @@ namespace Mailtrap.ContactLists.Requests;
 /// <summary>
 /// Generic request object for contact list CRUD operations.
 /// </summary>
-public record ContactListRequest : IValidatable
+public sealed record ContactListRequest : IValidatable
 {
     /// <summary>
     /// Gets or sets contact list name.

@@ -15,7 +15,7 @@ Section with detailed [setup instructions](xref:setup) and advanced [configurati
 - [Cookbook](xref:send-email)  
 Various use-cases and recipes for API features.
 
-- [Examples](https://github.com/railsware/mailtrap-dotnet/tree/main/examples)  
+- [Examples](https://github.com/mailtrap/mailtrap-dotnet/tree/main/examples)  
 Repository with sample projects with different usage scenarios.
 
 - [API Reference](xref:Mailtrap)  
@@ -24,8 +24,8 @@ Detailed API reference.
 
 <!-- ## Contributing
 We believe in the power of OSS and welcome any contributions to the library.  
-Please refer to [Contributing Guide](https://github.com/railsware/mailtrap-dotnet/tree/main?tab=contrib-ov-file#readme) for details. -->
+Please refer to [Contributing Guide](https://github.com/mailtrap/mailtrap-dotnet/tree/main?tab=contrib-ov-file#readme) for details. -->
 
 
 ## License
-Licensed under the [MIT License](https://github.com/railsware/mailtrap-dotnet/tree/main?tab=MIT-1-ov-file#readme).
+Licensed under the [MIT License](https://github.com/mailtrap/mailtrap-dotnet/tree/main?tab=MIT-1-ov-file#readme).

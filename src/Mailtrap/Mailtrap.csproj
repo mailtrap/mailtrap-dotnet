@@ -11,7 +11,7 @@
     <Authors>Railsware</Authors>
     <Company>Railsware Products Studio, LLC</Company>
     <PackageDescription>Official Mailtrap.io .NET Client</PackageDescription>
-    <RepositoryUrl>https://github.com/railsware/mailtrap-dotnet</RepositoryUrl>
+    <RepositoryUrl>https://github.com/mailtrap/mailtrap-dotnet</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>

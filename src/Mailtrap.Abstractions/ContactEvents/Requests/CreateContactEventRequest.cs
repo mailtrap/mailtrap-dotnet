@@ -55,9 +55,7 @@ public sealed record CreateContactEventRequest : IValidatable
         if (@params is not null)
         {
             // Defensive copy to prevent post-ctor mutation.
-            Params = @params is Dictionary<string, object?> dict
-                        ? new Dictionary<string, object?>(dict)         // defensive copy when already a Dictionary<TKey, TValue>
-                        : new Dictionary<string, object?>(@params);  // otherwise enumerate once
+            Params = @params.Clone();
         }
     }
 

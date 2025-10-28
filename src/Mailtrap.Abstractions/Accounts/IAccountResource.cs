@@ -184,4 +184,30 @@ public interface IAccountResource : IRestResource
     /// When <paramref name="emailTemplateId"/> is less than or equal to zero.
     /// </exception>
     public IEmailTemplateResource EmailTemplate(long emailTemplateId);
+
+    /// <summary>
+    /// Gets suppression collection resource for the account, represented by this resource instance.
+    /// </summary>
+    ///
+    /// <returns>
+    /// Suppression collection resource for the account, represented by this resource instance.
+    /// </returns>
+    public ISuppressionCollectionResource Suppressions();
+
+    /// <summary>
+    /// Gets resource for specific suppression, identified by <paramref name="suppressionId"/>.
+    /// </summary>
+    ///
+    /// <param name="suppressionId">
+    /// Suppression ID to get resource for.
+    /// </param>
+    ///
+    /// <returns>
+    /// Resource for the suppression with specified ID.
+    /// </returns>
+    ///
+    /// <exception cref="ArgumentOutOfRangeException">
+    /// When <paramref name="suppressionId"/> is null or empty.
+    /// </exception>
+    public ISuppressionResource Suppression(string suppressionId);
 }

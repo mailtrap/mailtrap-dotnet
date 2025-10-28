@@ -122,13 +122,15 @@ public static class MailtrapClientServiceCollectionExtensions
     {
         Ensure.NotNull(services, nameof(services));
 
-        services.AddOptions().PostConfigure<MailtrapClientOptions>(options =>
-        {
-            MailtrapClientOptionsValidator.Instance
-                .Validate(options)
-                .ToMailtrapValidationResult()
-                .EnsureValidity(nameof(MailtrapClientOptions));
-        });
+        services
+            .AddOptions()
+            .PostConfigure<MailtrapClientOptions>(options =>
+            {
+                MailtrapClientOptionsValidator.Instance
+                    .Validate(options)
+                    .ToMailtrapValidationResult()
+                    .EnsureValidity(nameof(MailtrapClientOptions));
+            });
 
         services.TryAddSingleton<IHttpClientProvider, T>();
         services.TryAddSingleton<IHttpRequestMessageFactory, HttpRequestMessageFactory>();
@@ -139,6 +141,7 @@ public static class MailtrapClientServiceCollectionExtensions
         services.TryAddSingleton<IEmailClientFactory, EmailClientFactory>();
 
         services.TryAddTransient(services => services.GetRequiredService<IEmailClientFactory>().CreateDefault());
+        services.TryAddTransient(services => services.GetRequiredService<IEmailClientFactory>().CreateBatchDefault());
 
         services.TryAddTransient<IMailtrapClient, MailtrapClient>();
 

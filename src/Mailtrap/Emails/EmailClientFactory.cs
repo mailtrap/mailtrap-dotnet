@@ -26,18 +26,34 @@ internal sealed class EmailClientFactory : IEmailClientFactory
     }
 
 
-    public IEmailClient Create(bool isBulk = false, long? inboxId = default)
+    public ISendEmailClient Create(bool isBulk = false, long? inboxId = default)
     {
-        var sendUri = _emailClientEndpointProvider.GetSendRequestUri(isBulk, inboxId);
+        var sendUri = _emailClientEndpointProvider.GetRequestUri(false, isBulk, inboxId);
 
-        return new EmailClient(_restResourceCommandFactory, sendUri);
+        return new SendEmailClient(_restResourceCommandFactory, sendUri);
     }
 
-    public IEmailClient CreateDefault() => Create(_clientConfiguration.UseBulkApi, _clientConfiguration.InboxId);
+    public ISendEmailClient CreateDefault() => Create(_clientConfiguration.UseBulkApi, _clientConfiguration.InboxId);
 
-    public IEmailClient CreateTransactional() => Create();
+    public ISendEmailClient CreateTransactional() => Create();
 
-    public IEmailClient CreateBulk() => Create(isBulk: true);
+    public ISendEmailClient CreateBulk() => Create(isBulk: true);
 
-    public IEmailClient CreateTest(long inboxId) => Create(inboxId: inboxId);
+    public ISendEmailClient CreateTest(long inboxId) => Create(inboxId: inboxId);
+
+
+    public IBatchEmailClient CreateBatch(bool isBulk = false, long? inboxId = default)
+    {
+        var batchUri = _emailClientEndpointProvider.GetRequestUri(true, isBulk, inboxId);
+
+        return new BatchEmailClient(_restResourceCommandFactory, batchUri);
+    }
+
+    public IBatchEmailClient CreateBatchDefault() => CreateBatch(_clientConfiguration.UseBulkApi, _clientConfiguration.InboxId);
+
+    public IBatchEmailClient CreateBatchTransactional() => CreateBatch();
+
+    public IBatchEmailClient CreateBatchBulk() => CreateBatch(isBulk: true);
+
+    public IBatchEmailClient CreateBatchTest(long inboxId) => CreateBatch(inboxId: inboxId);
 }

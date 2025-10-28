@@ -8,9 +8,12 @@ Please visit [documentation site](https://mailtrap.github.io/mailtrap-dotnet) fo
 ## Main Types
 * `Mailtrap.IMailtrapClient`
 * `Mailtrap.IMailtrapClientFactory`
-* `Mailtrap.Emails.IEmailClient`
+* `Mailtrap.Emails.ISendEmailClient`
+* `Mailtrap.Emails.IBatchEmailClient`
 * `Mailtrap.Emails.Requests.SendEmailRequest`
 * `Mailtrap.Emails.Responses.SendEmailResponse`
+* `Mailtrap.Emails.Requests.BatchEmailRequest`
+* `Mailtrap.Emails.Responses.BatchEmailResponse`
 
 
 ## Related Packages

@@ -2,14 +2,16 @@
 
 
 /// <summary>
-/// <see cref="IEmailClient"/> implementation.
+/// <see cref="IEmailClient{TRequest, TResponse}"/> generic implementation.
 /// </summary>
-internal sealed class EmailClient : RestResource, IEmailClient
+internal class EmailClient<TRequest, TResponse> : RestResource, IEmailClient<TRequest, TResponse>
+    where TRequest : class
+    where TResponse : class
 {
     /// <summary>
     /// Default instance constructor.
     /// </summary>
-    /// 
+    ///
     /// <exception cref="ArgumentNullException">
     /// When any of the parameters provided is <see langword="null"/>.
     /// </exception>
@@ -18,6 +20,6 @@ internal sealed class EmailClient : RestResource, IEmailClient
 
 
     /// <inheritdoc/>
-    public async Task<SendEmailResponse> Send(SendEmailRequest request, CancellationToken cancellationToken = default)
-        => await Create<SendEmailRequest, SendEmailResponse>(request, cancellationToken).ConfigureAwait(false);
+    public async Task<TResponse> Send(TRequest request, CancellationToken cancellationToken = default)
+        => await Create<TRequest, TResponse>(request, cancellationToken).ConfigureAwait(false);
 }

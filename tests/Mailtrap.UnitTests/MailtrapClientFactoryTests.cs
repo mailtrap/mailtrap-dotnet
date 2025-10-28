@@ -55,7 +55,7 @@ internal sealed class MailtrapClientFactoryTests
         var httpMethod = HttpMethod.Post;
         var sendUrl = EndpointsTestConstants.SendDefaultUrl.Append(UrlSegmentsTestConstants.ApiRootSegment, UrlSegmentsTestConstants.SendEmailSegment);
         var messageId = TestContext.CurrentContext.Random.GetString();
-        var response = new SendEmailResponse(true, [messageId]);
+        var response = SendEmailResponse.CreateSuccess(messageId);
         using var responseContent = JsonContent.Create(response);
 
         using var mockHttp = new MockHttpMessageHandler();
@@ -128,7 +128,7 @@ internal sealed class MailtrapClientFactoryTests
         var httpMethod = HttpMethod.Post;
         var sendUrl = EndpointsTestConstants.SendDefaultUrl.Append(UrlSegmentsTestConstants.ApiRootSegment, UrlSegmentsTestConstants.SendEmailSegment);
         var messageId = TestContext.CurrentContext.Random.GetString();
-        var response = new SendEmailResponse(true, [messageId]);
+        var response = SendEmailResponse.CreateSuccess(messageId);
         using var responseContent = JsonContent.Create(response);
 
         using var mockHttp = new MockHttpMessageHandler();

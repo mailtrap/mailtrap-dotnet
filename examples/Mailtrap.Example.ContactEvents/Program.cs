@@ -33,7 +33,8 @@ try
     IContactCollectionResource contactsResource = accountResource.Contacts();
 
     // Get all contacts for account
-    IList<Contact> contacts = await contactsResource.GetAll();
+    // TODO: Enable when GetAll is implemented
+    IList<Contact> contacts = /*await contactsResource.GetAll()*/ [];
 
     Contact? contact = contacts.Count > 0 ? contacts[0] : null;
     if (contact is null)

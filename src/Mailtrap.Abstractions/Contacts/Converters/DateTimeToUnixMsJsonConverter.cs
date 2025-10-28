@@ -1,3 +1,5 @@
+using System.Globalization;
+
 namespace Mailtrap.Contacts.Converters;
 
 /// <summary>
@@ -21,7 +23,7 @@ internal sealed class DateTimeToUnixMsNullableJsonConverter : JsonConverter<Date
                 return null;
             }
 
-            if (long.TryParse(stringValue, out var msFromString))
+            if (long.TryParse(stringValue, NumberStyles.Integer, CultureInfo.InvariantCulture, out var msFromString))
             {
                 return DateTimeOffset.FromUnixTimeMilliseconds(msFromString);
             }

@@ -1,6 +1,32 @@
 namespace Mailtrap.IntegrationTests.TestExtensions;
 
 /// <summary>
+/// Represents a disposable scope for working with a configured <see cref="IMailtrapClient"/> instance.
+/// </summary>
+/// <remarks>
+/// This class provides a convenient way to manage the lifetime of a <see cref="ServiceProvider"/>
+/// and its associated <see cref="IMailtrapClient"/> within tests.
+/// When disposed, it releases all resources created by the underlying service provider.
+/// </remarks>
+internal sealed class MailtrapClientScope(IMailtrapClient client, ServiceProvider provider) : IDisposable
+{
+    /// <summary>
+    /// Gets the configured Mailtrap client instance.
+    /// </summary>
+    ///
+    /// <value>
+    /// The <see cref="IMailtrapClient"/> instance resolved from the test service provider.
+    /// </value>
+    public IMailtrapClient Client { get; } = client;
+    private readonly ServiceProvider _provider = provider;
+
+    /// <summary>
+    /// Disposes the underlying <see cref="ServiceProvider"/>, releasing all resources associated with this scope.
+    /// </summary>
+    public void Dispose() => _provider.Dispose();
+}
+
+/// <summary>
 /// Provides helper methods to configure and create mock <see cref="IMailtrapClient"/> instances
 /// for integration testing purposes.
 /// </summary>
@@ -20,10 +46,14 @@ internal static class MockHttpHandlerHelpers
     /// <param name="queryParameterValue">Optional query parameter value to match. Ignored if name is <see langword="null"/> or empty.</param>
     /// <param name="content">Optional request content to match against.</param>
     /// <param name="isRequestExpectation">If <see langword="true"/>, configures as request expectation; otherwise, as backend definition.</param>
-    /// <returns>The configured <see cref="IMailtrapClient"/> instance.</returns>
+    /// <returns>
+    /// A <see cref="MailtrapClientScope"/> containing a configured <see cref="IMailtrapClient"/> instance
+    /// and its associated <see cref="ServiceProvider"/>.
+    /// Dispose the returned scope when finished to release resources.
+    /// </returns>
     /// <exception cref="ArgumentNullException">Thrown if any required argument is <see langword="null"/>.</exception>
     /// <exception cref="ArgumentException">Thrown if <paramref name="requestUri"/> is empty or whitespace.</exception>
-    internal static IMailtrapClient ConfigureWithQueryAndCreateClient<T>(
+    internal static MailtrapClientScope ConfigureWithQueryAndCreateClient<T>(
         this MockHttpMessageHandler mockHttp,
         HttpMethod httpMethod,
         string requestUri,
@@ -58,7 +88,7 @@ internal static class MockHttpHandlerHelpers
     }
 
     /// <inheritdoc cref="ConfigureWithQueryAndCreateClient{T}(MockHttpMessageHandler,HttpMethod,string,StringContent,HttpStatusCode,MailtrapClientOptions,string,string?,T,bool)" />
-    internal static IMailtrapClient ConfigureWithQueryAndCreateClient(
+    internal static MailtrapClientScope ConfigureWithQueryAndCreateClient(
         this MockHttpMessageHandler mockHttp,
         HttpMethod httpMethod,
         string requestUri,
@@ -91,10 +121,14 @@ internal static class MockHttpHandlerHelpers
     /// <param name="clientOptions">The Mailtrap client options.</param>
     /// <param name="content">Optional request content to match.</param>
     /// <param name="isRequestExpectation">If <see langword="true"/>, configures as request expectation; otherwise, as backend definition.</param>
-    /// <returns>The configured <see cref="IMailtrapClient"/> instance.</returns>
+    /// <returns>
+    /// A <see cref="MailtrapClientScope"/> containing a configured <see cref="IMailtrapClient"/> instance
+    /// and its associated <see cref="ServiceProvider"/>.
+    /// Dispose the returned scope when finished to release resources.
+    /// </returns>
     /// <exception cref="ArgumentNullException">Thrown if any required argument is <see langword="null"/>.</exception>
     /// <exception cref="ArgumentException">Thrown if <paramref name="requestUri"/> is empty or whitespace.</exception>
-    internal static IMailtrapClient ConfigureAndCreateClient<T>(this MockHttpMessageHandler mockHttp,
+    internal static MailtrapClientScope ConfigureAndCreateClient<T>(this MockHttpMessageHandler mockHttp,
         HttpMethod httpMethod,
         string requestUri,
         StringContent responseContent,
@@ -117,7 +151,7 @@ internal static class MockHttpHandlerHelpers
     }
 
     /// <inheritdoc cref="ConfigureAndCreateClient{T}(MockHttpMessageHandler,HttpMethod,string,StringContent,HttpStatusCode,MailtrapClientOptions,T,bool)" />
-    internal static IMailtrapClient ConfigureAndCreateClient(
+    internal static MailtrapClientScope ConfigureAndCreateClient(
         this MockHttpMessageHandler mockHttp,
         HttpMethod httpMethod,
         string requestUri,
@@ -189,13 +223,18 @@ internal static class MockHttpHandlerHelpers
     }
 
     /// <summary>
-    /// Builds a <see cref="IMailtrapClient"/> instance using the specified mock HTTP handler and client options.
+    /// Builds a <see cref="IMailtrapClient"/> instance using the specified mock HTTP handler and client options,
+    /// and wraps it in a disposable <see cref="MailtrapClientScope"/> to manage the underlying <see cref="ServiceProvider"/> lifetime.
     /// </summary>
     /// <param name="mockHttp">The mock HTTP message handler to inject into the client.</param>
     /// <param name="clientOptions">The Mailtrap client configuration options.</param>
-    /// <returns>A configured <see cref="IMailtrapClient"/> instance.</returns>
+    /// <returns>
+    /// A <see cref="MailtrapClientScope"/> containing a configured <see cref="IMailtrapClient"/> instance
+    /// and its associated <see cref="ServiceProvider"/>.
+    /// Dispose the returned scope when finished to release allocated resources.
+    /// </returns>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="mockHttp"/> or <paramref name="clientOptions"/> is <see langword="null"/>.</exception>
-    private static IMailtrapClient BuildClient(this MockHttpMessageHandler mockHttp, MailtrapClientOptions clientOptions)
+    private static MailtrapClientScope BuildClient(this MockHttpMessageHandler mockHttp, MailtrapClientOptions clientOptions)
     {
         ArgumentNullException.ThrowIfNull(mockHttp);
         ArgumentNullException.ThrowIfNull(clientOptions);
@@ -206,9 +245,10 @@ internal static class MockHttpHandlerHelpers
             .AddMailtrapClient(clientOptions)
             .ConfigurePrimaryHttpMessageHandler(() => mockHttp);
 
-        return serviceCollection
-            .BuildServiceProvider()
-            .GetRequiredService<IMailtrapClient>();
+        var provider = serviceCollection.BuildServiceProvider();
+        var client = provider.GetRequiredService<IMailtrapClient>();
+
+        return new MailtrapClientScope(client, provider);
     }
 
     /// <summary>

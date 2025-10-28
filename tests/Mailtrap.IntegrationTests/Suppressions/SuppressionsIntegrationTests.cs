@@ -38,16 +38,16 @@ internal sealed class SuppressionsIntegrationTests
         expectedResponse.Should().NotBeNull();
 
         using var mockHttp = new MockHttpMessageHandler();
-        var client = mockHttp.ConfigureWithQueryAndCreateClient(
-                        HttpMethod.Get,
-                        _resourceUri.AbsoluteUri,
-                        responseContent,
-                        HttpStatusCode.OK,
-                        _clientConfig,
-                        queryParameterName: "");
+        using var clientScope = mockHttp.ConfigureWithQueryAndCreateClient(
+            HttpMethod.Get,
+            _resourceUri.AbsoluteUri,
+            responseContent,
+            HttpStatusCode.OK,
+            _clientConfig,
+            queryParameterName: "");
 
         // Act
-        var result = await client
+        var result = await clientScope.Client
             .Account(_accountId)
             .Suppressions()
             .Fetch()
@@ -70,17 +70,17 @@ internal sealed class SuppressionsIntegrationTests
         expectedResponse.Should().NotBeNull();
 
         using var mockHttp = new MockHttpMessageHandler();
-        var client = mockHttp.ConfigureWithQueryAndCreateClient(
-                        HttpMethod.Get,
-                        _resourceUri.AbsoluteUri,
-                        responseContent,
-                        HttpStatusCode.OK,
-                        _clientConfig,
-                        queryParameterName: EmailQueryParameter,
-                        queryParameterValue: filter.Email);
+        using var clientScope = mockHttp.ConfigureWithQueryAndCreateClient(
+            HttpMethod.Get,
+            _resourceUri.AbsoluteUri,
+            responseContent,
+            HttpStatusCode.OK,
+            _clientConfig,
+            queryParameterName: EmailQueryParameter,
+            queryParameterValue: filter.Email);
 
         // Act
-        var result = await client
+        var result = await clientScope.Client
             .Account(_accountId)
             .Suppressions()
             .Fetch(filter)
@@ -105,15 +105,15 @@ internal sealed class SuppressionsIntegrationTests
         expectedResponse.Should().NotBeNull();
 
         using var mockHttp = new MockHttpMessageHandler();
-        var client = mockHttp.ConfigureAndCreateClient(
-                        HttpMethod.Delete,
-                        requestUri,
-                        responseContent,
-                        HttpStatusCode.OK,
-                        _clientConfig);
+        using var clientScope = mockHttp.ConfigureAndCreateClient(
+            HttpMethod.Delete,
+            requestUri,
+            responseContent,
+            HttpStatusCode.OK,
+            _clientConfig);
 
         // Act
-        var result = await client
+        var result = await clientScope.Client
             .Account(_accountId)
             .Suppression(suppressionId)
             .Delete()

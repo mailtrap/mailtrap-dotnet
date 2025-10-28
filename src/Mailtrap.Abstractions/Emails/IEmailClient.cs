@@ -2,24 +2,34 @@
 
 
 /// <summary>
-/// Mailtrap API client for sending emails.
+/// Base Mailtrap API client for sending emails.
 /// </summary>
-public interface IEmailClient : IRestResource
+/// <typeparam name="TRequest">
+/// The type of the email request object.
+/// One of <see cref="SendEmailRequest"/> or <see cref="BatchEmailRequest"/>.
+/// </typeparam>
+/// <typeparam name="TResponse">
+/// The type of the email response object.
+/// One of <see cref="SendEmailResponse"/> or <see cref="BatchEmailResponse"/>.
+/// </typeparam>
+public interface IEmailClient<TRequest, TResponse> : IRestResource
+    where TRequest : class
+    where TResponse : class
 {
     /// <summary>
     /// Sends email, represented by the <paramref name="request"/>, and returns send operation result.
     /// </summary>
-    /// 
+    ///
     /// <param name="request">
     /// Request object, containing email data.
     /// </param>
-    /// 
+    ///
     /// <param name="cancellationToken">
     /// Token to control operation cancellation.
     /// </param>
-    /// 
+    ///
     /// <returns>
-    /// <see cref="SendEmailResponse"/> instance with response data.
+    /// <typeparamref name="TResponse"/> instance with response data.
     /// </returns>
     ///
     /// <exception cref="ArgumentNullException">
@@ -33,15 +43,15 @@ public interface IEmailClient : IRestResource
     /// <exception cref="JsonException">
     /// When request serialization or API response deserialization fails for any reason.
     /// </exception>
-    /// 
+    ///
     /// <exception cref="TaskCanceledException">
     /// When operation is canceled by <paramref name="cancellationToken"/>.
     /// </exception>
-    /// 
+    ///
     /// <exception cref="OperationCanceledException">
     /// When operation is canceled by <paramref name="cancellationToken"/>.
     /// </exception>
-    /// 
+    ///
     /// <exception cref="HttpRequestException">
     /// When request to the API fails for any reason.
     /// </exception>
@@ -54,5 +64,5 @@ public interface IEmailClient : IRestResource
     /// Request is checked for validity before send.<br />
     /// <see cref="ArgumentException"/> is thrown if validation fails.
     /// </remarks>
-    public Task<SendEmailResponse> Send(SendEmailRequest request, CancellationToken cancellationToken = default);
+    public Task<TResponse> Send(TRequest request, CancellationToken cancellationToken = default);
 }

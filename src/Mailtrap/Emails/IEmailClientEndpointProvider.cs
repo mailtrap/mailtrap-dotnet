@@ -2,9 +2,9 @@
 
 
 /// <summary>
-/// Provider to get request URIs for <see cref="IEmailClient"/>.
+/// Provider to get request URIs for <see cref="EmailClient{TRequest, TResponse}"/>.
 /// </summary>
 internal interface IEmailClientEndpointProvider
 {
-    public Uri GetSendRequestUri(bool isBulk, long? inboxId);
+    public Uri GetRequestUri(bool isBatch, bool isBulk, long? inboxId);
 }

@@ -44,14 +44,14 @@ internal sealed class Program
                 .Email() // Default client, depends on configuration
                 .Send(request);
 
-            IEmailClient transactionalClient = mailtrapClient.Transactional();
+            ISendEmailClient transactionalClient = mailtrapClient.Transactional();
             response = await transactionalClient.Send(request);
 
-            IEmailClient bulkClient = mailtrapClient.Bulk();
+            ISendEmailClient bulkClient = mailtrapClient.Bulk();
             response = await bulkClient.Send(request);
 
             var inboxId = 1234;
-            IEmailClient testClient = mailtrapClient.Test(inboxId);
+            ISendEmailClient testClient = mailtrapClient.Test(inboxId);
             response = await testClient.Send(request);
         }
         catch (Exception ex)

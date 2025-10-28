@@ -76,7 +76,7 @@ internal sealed class Program
             TextBody = "Dear Bill,\n\nIt will be a great pleasure to see you on our blue planet next weekend.\n\nBest regards, John."
         };
 
-        // You can specify up to 1000 recipients in each of To, Cc and Bcc fields.
+        // You can specify up to 1000 recipients in total across the To, Cc, and Bcc fields.
         // At least one of recipient collections must contain at least one recipient.
         request.To.Add(to);
         request.Cc.Add(cc);
@@ -110,7 +110,7 @@ internal sealed class Program
             .Create()
             .From("john.doe@demomailtrap.com", "John Doe")
             .To("hero.bill@galaxy.net")
-            .Template("60dca11e-0bc2-42ea-91a8-5ff196acb3f9") // ID of template obtained from https://mailtrap.io/email_templates/
+            .Template("60dca11e-0bc2-42ea-91a8-5ff196acb3f9") // ID of template obtained/created via EmailTemplates API
             .TemplateVariables(new Dictionary<string, string>
             {
                 { "name", "Bill" },

@@ -53,7 +53,7 @@ jobs:
 
     # https://github.com/marketplace/actions/upload-a-build-artifact
     - name: Publish Artifacts - Binaries
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       if: ${{ inputs.upload_artifacts }}
       with:
         name: Binaries
@@ -64,7 +64,7 @@ jobs:
 
     # https://github.com/marketplace/actions/upload-a-build-artifact
     - name: Publish Artifacts - Test Results
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       if: ${{ inputs.upload_artifacts }}
       with:
         name: Test Results

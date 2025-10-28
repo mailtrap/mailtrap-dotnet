@@ -45,7 +45,7 @@ var request = new SendEmailRequest
     TextBody = "Dear Bill,\n\nIt will be a great pleasure to see you on our blue planet next weekend.\n\nBest regards, John."
 };
 
-// You can specify up to 1000 recipients in each of To, Cc and Bcc fields.
+// You can specify up to 1000 recipients in total across the To, Cc, and Bcc fields (i.e. To + CC + Bcc <=1000).
 // At least one of recipient collections must contain at least one recipient.
 var to = new EmailAddress("hero.bill@galaxy.net");
 request.To.Add(to);
@@ -297,7 +297,7 @@ catch (HttpRequestException hrex)
 {
    // handle HTTP errors
 }
-catch (OperationCancelledException ocex)
+catch (OperationCanceledException ocex)
 {
    // handle cancellation
 }
@@ -314,20 +314,20 @@ catch (Exception ex)
 Additionally, you can always use specific send API (transactional, bulk or test) explicitly, to route emails to:
 ```csharp
 var inboxId = 12345;
-IEmailClient emailClient = _mailtrapClient.Test(inboxId); // Emails will be sent using Email Testing API
-// IEmailClient emailClient = _mailtrapClient.Transactional(); // Emails will be sent using Email Sending API
-// IEmailClient emailClient = _mailtrapClient.Bulk(); // Emails will be sent using Bulk Sending API
+ISendEmailClient emailClient = _mailtrapClient.Test(inboxId); // Emails will be sent using Email Testing API
+// ISendEmailClient emailClient = _mailtrapClient.Transactional(); // Emails will be sent using Email Sending API
+// ISendEmailClient emailClient = _mailtrapClient.Bulk(); // Emails will be sent using Bulk Sending API
 
 var response = await emailClient.Send(request);
 ```
 
 > [!TIP]  
 > @Mailtrap.IMailtrapClient.Transactional, @Mailtrap.IMailtrapClient.Bulk and @Mailtrap.IMailtrapClient.Test(System.Int64)
-> are factory methods that will create new @Mailtrap.Emails.IEmailClient instance every time when called.  
-> Thus in case when you need to perform multiple `Send()` calls to the same endpoint it will be good idea
+> are factory methods that will create new @Mailtrap.Emails.ISendEmailClient instance every time when called.  
+> Thus, if you need to perform multiple `Send()` calls to the same endpoint, it will be a good idea
 > to spawn client once and then reuse it:
 > ```csharp
-> IEmailClient emailClient = _mailtrapClient.Bulk(); // Caching client instance
+> ISendEmailClient emailClient = _mailtrapClient.Bulk(); // Caching client instance
 > 
 > foreach(var request in requests)
 > {

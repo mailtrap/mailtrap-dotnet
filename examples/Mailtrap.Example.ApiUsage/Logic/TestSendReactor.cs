@@ -9,7 +9,7 @@ internal sealed class TestSendReactor : Reactor
 
     public async Task Send(long inboxId)
     {
-        IEmailClient emailClient = _mailtrapClient.Test(inboxId);
+        ISendEmailClient emailClient = _mailtrapClient.Test(inboxId);
 
         SendEmailRequest sendEmailRequest = SendEmailRequest
             .Create()

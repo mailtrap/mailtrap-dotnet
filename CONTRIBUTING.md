@@ -20,7 +20,7 @@ Also, by participating, you give your permission to license your contributions i
 Kindly consider searching for already existing issue or feature proposal before creating a new one.  
 Do not increase the entropy unnecessarily - the Universe will appreciate it.
 
-If it is still the case - please use [Issues](https://github.com/railsware/mailtrap-dotnet/issues) section of the repo to file an issue, 
+If it is still the case - please use [Issues](https://github.com/mailtrap/mailtrap-dotnet/issues) section of the repo to file an issue, 
 possible improvement or feature proposal.  
 
 
@@ -47,7 +47,7 @@ Thus you will need to follow steps below to create a new one:
 
 1. Clone the repo
 ```bat
-git clone https://github.com/railsware/mailtrap-dotnet.git
+git clone https://github.com/mailtrap/mailtrap-dotnet.git
 ```
 
 2. Create new branch
@@ -68,7 +68,7 @@ Usage of [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/#s
 
 5. Push to the remote.
 
-6. Finally, create a pull request to the [main](https://github.com/railsware/mailtrap-dotnet/tree/main) branch, 
+6. Finally, create a pull request to the [main](https://github.com/mailtrap/mailtrap-dotnet/tree/main) branch, 
 using the template provided.  
 Please consider providing detailed description what was changed and validating PR checklist to streamline the PR review.
 
@@ -90,7 +90,7 @@ You can improve SDK documentation in several ways.
 They are used to show inline help in IDE and to generate SDK API reference section of documentation website,
 thus are a crucial part of the SDK.
 
-#### Update markdown files in the [docs](https://github.com/railsware/mailtrap-dotnet/tree/main/docs) folder of the repo.  
+#### Update markdown files in the [docs](https://github.com/mailtrap/mailtrap-dotnet/tree/main/docs) folder of the repo.  
 Considering that [docfx](https://dotnet.github.io/docfx/docs/basic-concepts.html) tool is used to create documentation website
 from sources, please ensure that you are using [supported syntax](https://dotnet.github.io/docfx/docs/markdown.html).
 

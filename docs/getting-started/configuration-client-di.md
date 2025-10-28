@@ -166,7 +166,7 @@ IHost host = hostBuilder.Build();
 
 
 ## What's next
-Additional examples for client configuration within DI container can be found on [GitHub](https://github.com/railsware/mailtrap-dotnet/blob/main/examples/Mailtrap.Example.DependencyInjection/Program.cs)
+Additional examples for client configuration within DI container can be found on [GitHub](https://github.com/mailtrap/mailtrap-dotnet/blob/main/examples/Mailtrap.Example.DependencyInjection/Program.cs)
 
 [!INCLUDE [cookbook-link](../includes/cookbook-link.md)]
 

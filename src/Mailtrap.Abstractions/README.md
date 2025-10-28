@@ -2,7 +2,7 @@
 Provides abstractions for the Mailtrap .NET SDK.  
 Interfaces defined in this package are implemented by classes in the [Mailtrap](https://www.nuget.org/packages/Mailtrap) package.
 
-Please visit [documentation site](https://railsware.github.io/mailtrap-dotnet) for detailed documentation and usage examples.
+Please visit [documentation site](https://mailtrap.github.io/mailtrap-dotnet) for detailed documentation and usage examples.
 
 
 ## Main Types
@@ -22,4 +22,4 @@ Please visit [documentation site](https://railsware.github.io/mailtrap-dotnet) f
 
 ## Contributing
 `Mailtrap.Abstractions` package is released as open source under the [MIT license](https://licenses.nuget.org/MIT).
-Bug reports and contributions are welcome at the [GitHub repository](https://github.com/railsware/mailtrap-dotnet).
+Bug reports and contributions are welcome at the [GitHub repository](https://github.com/mailtrap/mailtrap-dotnet).

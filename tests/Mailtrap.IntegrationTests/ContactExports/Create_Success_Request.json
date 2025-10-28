@@ -1,0 +1,17 @@
+{
+  "filters": [
+    {
+      "name": "list_id",
+      "operator": "equal",
+      "value": [
+        101,
+        102
+      ]
+    },
+    {
+      "name": "subscription_status",
+      "operator": "equal",
+      "value": "subscribed"
+    }
+  ]
+}

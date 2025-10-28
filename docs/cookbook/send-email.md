@@ -337,4 +337,4 @@ var response = await emailClient.Send(request);
 
 
 ## See also
-More examples available [here](https://github.com/railsware/mailtrap-dotnet/tree/main/examples).
+More examples available [here](https://github.com/mailtrap/mailtrap-dotnet/tree/main/examples).

@@ -66,6 +66,6 @@ internal sealed class DateTimeToUnixMsNullableJsonConverterTests
         var json = "\"not a number\"";
         // Act & Assert
         var act = () => JsonSerializer.Deserialize<DateTimeOffset?>(json, _options);
-        act.Should().Throw<JsonException>().WithMessage("*Expected number for Unix time milliseconds*");
+        act.Should().Throw<JsonException>().WithMessage("*could not be parsed as Unix time milliseconds*");
     }
 }

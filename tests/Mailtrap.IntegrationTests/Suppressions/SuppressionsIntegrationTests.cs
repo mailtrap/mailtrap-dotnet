@@ -116,7 +116,8 @@ internal sealed class SuppressionsIntegrationTests
         var result = await client
             .Account(_accountId)
             .Suppression(suppressionId)
-            .Delete();
+            .Delete()
+            .ConfigureAwait(false);
 
         // Assert
         mockHttp.VerifyNoOutstandingExpectation();

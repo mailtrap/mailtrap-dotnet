@@ -9,11 +9,11 @@ public interface ISuppressionCollectionResource : IRestResource
     /// <summary>
     /// List and search suppressions
     /// </summary>
-    /// <param name="cancellationToken">
-    /// Token to control operation cancellation.
-    /// </param>
     /// <param name="filter">
     /// Optional filter to apply when fetching suppressions.
+    /// </param>
+    /// <param name="cancellationToken">
+    /// Token to control operation cancellation.
     /// </param>
     /// <returns>
     /// Collection of suppression details.

@@ -206,7 +206,7 @@ public interface IAccountResource : IRestResource
     /// Resource for the suppression with specified ID.
     /// </returns>
     ///
-    /// <exception cref="ArgumentOutOfRangeException">
+    /// <exception cref="ArgumentNullException">
     /// When <paramref name="suppressionId"/> is null or empty.
     /// </exception>
     public ISuppressionResource Suppression(string suppressionId);

@@ -401,7 +401,7 @@ internal sealed class AccountResourceTests
     }
 
     [Test]
-    public void Suppression_ShouldThrowArgumentNullException_WhenIdWhenIdIsNullOrEmpty([Values(null!, "")] string suppressionId)
+    public void Suppression_ShouldThrowArgumentNullException_WhenIdIsNullOrEmpty([Values(null!, "")] string suppressionId)
     {
         // Arrange
         var client = CreateResource();

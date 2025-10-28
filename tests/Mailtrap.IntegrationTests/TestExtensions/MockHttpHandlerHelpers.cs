@@ -17,11 +17,11 @@ internal static class MockHttpHandlerHelpers
     /// <param name="responseStatusCode">The HTTP status code to return in the response.</param>
     /// <param name="clientOptions">The configuration options for the Mailtrap client.</param>
     /// <param name="queryParameterName">Query parameter name to match. If empty, performs exact match.</param>
-    /// <param name="queryParameterValue">Optional query parameter value to match. Ignored if name is <c>null</c> or empty.</param>
+    /// <param name="queryParameterValue">Optional query parameter value to match. Ignored if name is <see langword="null"/> or empty.</param>
     /// <param name="content">Optional request content to match against.</param>
-    /// <param name="isRequestExpectation">If <c>true</c>, configures as request expectation; otherwise, as backend definition.</param>
+    /// <param name="isRequestExpectation">If <see langword="true"/>, configures as request expectation; otherwise, as backend definition.</param>
     /// <returns>The configured <see cref="IMailtrapClient"/> instance.</returns>
-    /// <exception cref="ArgumentNullException">Thrown if any required argument is <c>null</c>.</exception>
+    /// <exception cref="ArgumentNullException">Thrown if any required argument is <see langword="null"/>.</exception>
     /// <exception cref="ArgumentException">Thrown if <paramref name="requestUri"/> is empty or whitespace.</exception>
     internal static IMailtrapClient ConfigureWithQueryAndCreateClient<T>(
         this MockHttpMessageHandler mockHttp,
@@ -90,9 +90,9 @@ internal static class MockHttpHandlerHelpers
     /// <param name="responseStatusCode">The HTTP status code to return in the response.</param>
     /// <param name="clientOptions">The Mailtrap client options.</param>
     /// <param name="content">Optional request content to match.</param>
-    /// <param name="isRequestExpectation">If <c>true</c>, configures as request expectation; otherwise, as backend definition.</param>
+    /// <param name="isRequestExpectation">If <see langword="true"/>, configures as request expectation; otherwise, as backend definition.</param>
     /// <returns>The configured <see cref="IMailtrapClient"/> instance.</returns>
-    /// <exception cref="ArgumentNullException">Thrown if any required argument is <c>null</c>.</exception>
+    /// <exception cref="ArgumentNullException">Thrown if any required argument is <see langword="null"/>.</exception>
     /// <exception cref="ArgumentException">Thrown if <paramref name="requestUri"/> is empty or whitespace.</exception>
     internal static IMailtrapClient ConfigureAndCreateClient<T>(this MockHttpMessageHandler mockHttp,
         HttpMethod httpMethod,
@@ -145,15 +145,15 @@ internal static class MockHttpHandlerHelpers
     /// <param name="content">Optional request body to match against.</param>
     /// <param name="queryParameterName">
     /// Optional query parameter name to match.
-    /// Adds exact match if value is empty string.
-    /// Adds normal match if value is non-empty.
-    /// Ignored if <langword>null</langword>.
+    /// If <see langword="null"/>, query parameter matching is skipped.
+    /// If empty string or whitespace, performs exact query string matching.
+    /// If non-empty with a non-null value, matches the specific query parameter.
     /// </param>
     /// <param name="queryParameterValue">
     /// Optional query parameter value to match.
-    /// Ignored if <paramref name="queryParameterName"/> is <langword>null</langword> or empty.
+    /// Ignored if <paramref name="queryParameterName"/> is <see langword="null"/> or empty.
     /// </param>
-    /// <exception cref="ArgumentNullException">Thrown if <paramref name="mockRequest"/>, <paramref name="responseContent"/>, or <paramref name="clientOptions"/> is <c>null</c>.</exception>
+    /// <exception cref="ArgumentNullException">Thrown if <paramref name="mockRequest"/>, <paramref name="responseContent"/>, or <paramref name="clientOptions"/> is <see langword="null"/>.</exception>
     private static void ConfigureMockRequest<T>(this MockedRequest mockRequest,
         StringContent responseContent,
         HttpStatusCode responseStatusCode,
@@ -194,7 +194,7 @@ internal static class MockHttpHandlerHelpers
     /// <param name="mockHttp">The mock HTTP message handler to inject into the client.</param>
     /// <param name="clientOptions">The Mailtrap client configuration options.</param>
     /// <returns>A configured <see cref="IMailtrapClient"/> instance.</returns>
-    /// <exception cref="ArgumentNullException">Thrown if <paramref name="mockHttp"/> or <paramref name="clientOptions"/> is <c>null</c>.</exception>
+    /// <exception cref="ArgumentNullException">Thrown if <paramref name="mockHttp"/> or <paramref name="clientOptions"/> is <see langword="null"/>.</exception>
     private static IMailtrapClient BuildClient(this MockHttpMessageHandler mockHttp, MailtrapClientOptions clientOptions)
     {
         ArgumentNullException.ThrowIfNull(mockHttp);
@@ -215,11 +215,11 @@ internal static class MockHttpHandlerHelpers
     /// Configures a mock request definition as either a request expectation or a backend handler.
     /// </summary>
     /// <param name="mockHttp">The mock HTTP message handler to configure.</param>
-    /// <param name="isRequestExpectation">If <c>true</c>, creates a request expectation; otherwise, creates a backend definition.</param>
+    /// <param name="isRequestExpectation">If <see langword="true"/>, creates a request expectation; otherwise, creates a backend definition.</param>
     /// <param name="httpMethod">The HTTP method to match.</param>
     /// <param name="requestUri">The request URI to match.</param>
     /// <returns>A <see cref="MockedRequest"/> object representing the configured mock request.</returns>
-    /// <exception cref="ArgumentNullException">Thrown if <paramref name="mockHttp"/> or <paramref name="httpMethod"/> is <c>null</c>.</exception>
+    /// <exception cref="ArgumentNullException">Thrown if <paramref name="mockHttp"/> or <paramref name="httpMethod"/> is <see langword="null"/>.</exception>
     /// <exception cref="ArgumentException">Thrown if <paramref name="requestUri"/> is empty or whitespace.</exception>
     private static MockedRequest ConfigureExpectation(
         this MockHttpMessageHandler mockHttp,

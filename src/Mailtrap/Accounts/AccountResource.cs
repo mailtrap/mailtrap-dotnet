@@ -6,40 +6,34 @@ namespace Mailtrap.Accounts;
 
 internal sealed class AccountResource : RestResource, IAccountResource
 {
-    private const string BillingSegment = "billing";
-    private const string PermissionsSegment = "permissions";
-    private const string AccessesSegment = "account_accesses";
-    private const string SendingDomainsSegment = "sending_domains";
-
-
     public AccountResource(IRestResourceCommandFactory restResourceCommandFactory, Uri resourceUri)
         : base(restResourceCommandFactory, resourceUri) { }
 
 
     public IBillingResource Billing()
-        => new BillingResource(RestResourceCommandFactory, ResourceUri.Append(BillingSegment));
+        => new BillingResource(RestResourceCommandFactory, ResourceUri.Append(UrlSegments.BillingSegment));
 
 
     public IPermissionsResource Permissions()
-        => new PermissionsResource(RestResourceCommandFactory, ResourceUri.Append(PermissionsSegment));
+        => new PermissionsResource(RestResourceCommandFactory, ResourceUri.Append(UrlSegments.PermissionsSegment));
 
     #region Account Accesses
 
     public IAccountAccessCollectionResource Accesses()
-        => new AccountAccessCollectionResource(RestResourceCommandFactory, ResourceUri.Append(AccessesSegment));
+        => new AccountAccessCollectionResource(RestResourceCommandFactory, ResourceUri.Append(UrlSegments.AccessesSegment));
 
     public IAccountAccessResource Access(long accessId)
-        => new AccountAccessResource(RestResourceCommandFactory, ResourceUri.Append(AccessesSegment).Append(accessId));
+        => new AccountAccessResource(RestResourceCommandFactory, ResourceUri.Append(UrlSegments.AccessesSegment).Append(accessId));
 
     #endregion
 
     #region Sending Domains
 
     public ISendingDomainCollectionResource SendingDomains()
-        => new SendingDomainCollectionResource(RestResourceCommandFactory, ResourceUri.Append(SendingDomainsSegment));
+        => new SendingDomainCollectionResource(RestResourceCommandFactory, ResourceUri.Append(UrlSegments.SendingDomainsSegment));
 
     public ISendingDomainResource SendingDomain(long domainId)
-        => new SendingDomainResource(RestResourceCommandFactory, ResourceUri.Append(SendingDomainsSegment).Append(domainId));
+        => new SendingDomainResource(RestResourceCommandFactory, ResourceUri.Append(UrlSegments.SendingDomainsSegment).Append(domainId));
 
     #endregion
 

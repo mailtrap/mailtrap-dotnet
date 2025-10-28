@@ -7,7 +7,7 @@ namespace Mailtrap.Suppressions.Models;
 public sealed record SuppressionFilter
 {
     /// <summary>
-    /// Gets or sets a email address of suppressions that will be returned by fetch.<br />
+    /// Gets or sets an email address of suppressions that will be returned by fetch.<br />
     /// If specified, only suppressions with particular email address are returned.
     /// </summary>
     ///

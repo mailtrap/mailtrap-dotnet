@@ -26,7 +26,7 @@ internal sealed class DateTimeToUnixMsNullableJsonConverter : JsonConverter<Date
                 return DateTimeOffset.FromUnixTimeMilliseconds(msFromString);
             }
 
-            throw new JsonException($"Expected number for Unix time milliseconds but got string.");
+            throw new JsonException($"String value '{stringValue}' could not be parsed as Unix time milliseconds.");
         }
 
         if (reader.TokenType != JsonTokenType.Number)

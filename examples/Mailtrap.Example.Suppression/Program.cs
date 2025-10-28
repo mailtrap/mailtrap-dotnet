@@ -56,7 +56,7 @@ try
     // Get resource for specific suppression
     ISuppressionResource suppressionResource = accountResource.Suppression(suppression.Id);
 
-    // Get attachment details
+    // Delete the suppression
     Suppression? deletedSuppressionDetails = await suppressionResource.Delete();
 
     logger.LogInformation("Deleted suppression: {Suppression}", deletedSuppressionDetails);

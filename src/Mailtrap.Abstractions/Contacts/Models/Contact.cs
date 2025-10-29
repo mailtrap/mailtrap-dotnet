@@ -65,7 +65,7 @@ public sealed record Contact
     /// Contact creation date and time.
     /// </value>
     [JsonPropertyName("created_at")]
-    [JsonConverter(typeof(DateTimeToUnixMsNullableJsonConverter))]
+    [JsonConverter(typeof(NullableDateTimeOffsetUnixMsConverter))]
     public DateTimeOffset? CreatedAt { get; set; }
 
     /// <summary>
@@ -76,6 +76,6 @@ public sealed record Contact
     /// Contact's update date and time.
     /// </value>
     [JsonPropertyName("updated_at")]
-    [JsonConverter(typeof(DateTimeToUnixMsNullableJsonConverter))]
+    [JsonConverter(typeof(NullableDateTimeOffsetUnixMsConverter))]
     public DateTimeOffset? UpdatedAt { get; set; }
 }

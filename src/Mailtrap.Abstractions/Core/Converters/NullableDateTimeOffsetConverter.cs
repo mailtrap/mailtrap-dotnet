@@ -4,7 +4,7 @@ namespace Mailtrap.Core.Converters;
 
 /// <summary>
 /// JSON converter for nullable <see cref="DateTimeOffset"/>.
-/// Supports to read both ISO 8601 string format and Unix time in milliseconds.
+/// Supports reading both ISO 8601 string format and Unix time in milliseconds.
 /// Writes only ISO 8601 string format. To write Unix time in milliseconds please use <see cref="NullableDateTimeOffsetUnixMsConverter"/>
 /// Empty or whitespace strings are treated as <see langword="null"/>.
 /// </summary>

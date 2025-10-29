@@ -13,13 +13,13 @@ internal sealed class NullableDateTimeOffsetUnixMsConverterTests
     [Test]
     public void Write_NullValue_SerializesAsNull()
     {
-        //Arrange
+        // Arrange
         DateTimeOffset? value = null;
 
-        //Act
+        // Act
         var json = JsonSerializer.Serialize(value, _options);
 
-        //Assert
+        // Assert
         json.Should().Be("null");
     }
 
@@ -34,15 +34,15 @@ internal sealed class NullableDateTimeOffsetUnixMsConverterTests
         json.Should().Be(expectedMs.ToString(CultureInfo.InvariantCulture));
     }
 
-    [TestCase("\"\"", null)]
-    [TestCase("\"  \"", null)]
-    public void Read_ShouldReturnNull_WhenEmptyOrWhitespaceString(string json, DateTimeOffset? expected)
+    [TestCase("\"\"")]
+    [TestCase("\"  \"")]
+    public void Read_ShouldReturnNull_WhenEmptyOrWhitespaceString(string json)
     {
         // Act
         var result = JsonSerializer.Deserialize<DateTimeOffset?>(json, _options);
 
         // Assert
-        result.Should().Be(expected);
+        result.Should().BeNull();
     }
 
     [Test]

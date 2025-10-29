@@ -109,7 +109,7 @@ internal sealed class NullableDateTimeOffsetConverterTests
     }
 
     [Test]
-    public void Read_ShouldReturnNull_ForJsonNullElement()
+    public void Read_ShouldThrowJsonException_ForJsonNullElement()
     {
         // Arrange
         const string json = "null";

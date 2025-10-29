@@ -111,7 +111,7 @@ internal sealed class ContactsIntegrationTests
         // Assert
         mockHttp.VerifyNoOutstandingExpectation();
 
-        result.ShouldBeEquivalentToContactResponse(expectedResponse);
+        result.ShouldBeEquivalentToResponse(expectedResponse);
     }
 
     [Test]
@@ -191,7 +191,7 @@ internal sealed class ContactsIntegrationTests
         // Assert
         mockHttp.VerifyNoOutstandingExpectation();
 
-        result.ShouldBeEquivalentToContactResponse(expectedResponse);
+        result.ShouldBeEquivalentToResponse(expectedResponse);
     }
 
     [Test]
@@ -236,7 +236,7 @@ internal sealed class ContactsIntegrationTests
         // Assert
         mockHttp.VerifyNoOutstandingExpectation();
 
-        result.ShouldBeEquivalentToContactResponse(expectedResponse);
+        result.ShouldBeEquivalentToResponse(expectedResponse);
     }
 
     [Test]

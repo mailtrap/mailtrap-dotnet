@@ -1,0 +1,20 @@
+[
+  {
+    "id": "111111f3-1276-417b-86e1-8e66f1381111",
+    "type": "hard bounce",
+    "created_at": "2024-12-26T09:40:44.161Z",
+    "email": "recipient1@example.com",
+    "sending_stream": "transactional",
+    "domain_name": "sender.com",
+    "message_bounce_category": null,
+    "message_category": "Welcome email1",
+    "message_client_ip": "123.123.123.123",
+    "message_created_at": "2024-12-26T07:10:00.889Z",
+    "message_esp_response": "550 5.1.1 The email account that you tried to reach does not exist.",
+    "message_esp_server_type": "Postfix",
+    "message_outgoing_ip": "1.1.1.1",
+    "message_recipient_mx_name": "Other Providers",
+    "message_sender_email": "hello@sender.com",
+    "message_subject": "Welcome!"
+  }
+]

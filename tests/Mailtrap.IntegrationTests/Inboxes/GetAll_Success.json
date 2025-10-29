@@ -56,7 +56,7 @@
     "email_domain": "localhost",
     "emails_count": 0,
     "emails_unread_count": 0,
-    "last_message_sent_at": null,
+    "last_message_sent_at": "",
     "smtp_ports": [
       25,
       465,

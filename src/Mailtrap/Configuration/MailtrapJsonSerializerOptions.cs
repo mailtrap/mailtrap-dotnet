@@ -8,7 +8,8 @@ internal static class MailtrapJsonSerializerOptions
         DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
         Converters =
         {
-            new StringEnumJsonConverterFactory()
+            new StringEnumJsonConverterFactory(),
+            new NullableDateTimeOffsetConverter()
         }
     };
 

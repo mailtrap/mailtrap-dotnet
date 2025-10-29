@@ -54,6 +54,7 @@ global using Mailtrap.Projects;
 global using Mailtrap.Projects.Requests;
 global using Mailtrap.SendingDomains;
 global using Mailtrap.SendingDomains.Requests;
+global using Mailtrap.Suppressions;
 global using Mailtrap.TestingMessages;
 global using Mailtrap.TestingMessages.Requests;
 global using Mailtrap.UnitTests.TestConstants;

@@ -87,7 +87,7 @@ internal sealed class NullableDateTimeOffsetUnixMsConverterTests
     }
 
     [Test]
-    public void Read_InvalidTokenType_ThrowsException()
+    public void Read_InvalidStringFormat_ThrowsException()
     {
         // Arrange
         var json = "\"not a number\"";

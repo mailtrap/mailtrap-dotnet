@@ -13,15 +13,15 @@ internal sealed class NullableDateTimeOffsetConverterTests
 
 
     [Test]
-    [TestCase("\"\"", null)]
-    [TestCase("\"   \"", null)]
-    public void Read_ShouldReturnNull_WhenEmptyOrWhitespaceString(string json, DateTimeOffset? expected)
+    [TestCase("\"\"")]
+    [TestCase("\"   \"")]
+    public void Read_ShouldReturnNull_WhenEmptyOrWhitespaceString(string json)
     {
         // Act
         var result = JsonSerializer.Deserialize<DateTimeOffset?>(json, _options);
 
         // Assert
-        result.Should().Be(expected);
+        result.Should().BeNull();
     }
 
     [Test]

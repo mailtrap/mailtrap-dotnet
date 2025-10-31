@@ -13,7 +13,7 @@ using Mailtrap.Emails.Responses;
 try
 {
     var apiToken = "<API-TOKEN>";
-    var sandboxId = <SANDBOX-ID>;                        // ID of sandbox
+    var inboxId = <INBOX-ID>;                             // ID of sandbox
     using var mailtrapClientFactory = new MailtrapClientFactory(apiToken);
     IMailtrapClient mailtrapClient = mailtrapClientFactory.CreateClient();
     SendEmailRequest request = SendEmailRequest
@@ -30,7 +30,7 @@ try
             { "company_info_country", "Test_Company_info_country" }
         });
     SendEmailResponse? response = await mailtrapClient
-        .Test(sandboxId)
+        .Test(inboxId)
         .Send(request);
 }
 catch (Exception ex)

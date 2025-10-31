@@ -14,6 +14,7 @@
     <PackageVersion Include="System.Text.Json" Version="9.0.10" />
     <!-- 3rd party -->
     <PackageVersion Include="FluentValidation" Version="11.11.0" />
+    <PackageVersion Include="MinVer" Version="6.0.0" />
     <!-- Testing -->
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.0.0" />
     <PackageVersion Include="NUnit" Version="4.4.0" />

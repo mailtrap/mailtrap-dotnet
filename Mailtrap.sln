@@ -57,6 +57,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{CD08E7CB-C
 		CONTRIBUTING.md = CONTRIBUTING.md
 		LICENSE.md = LICENSE.md
 		README.md = README.md
+        UPGRADE-3.0.md = UPGRADE-3.0.md
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mailtrap.Example.DependencyInjection", "examples\Mailtrap.Example.DependencyInjection\Mailtrap.Example.DependencyInjection.csproj", "{4457969D-4981-4F27-A304-A242DEC9FD92}"

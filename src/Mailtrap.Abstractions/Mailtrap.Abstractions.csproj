@@ -7,7 +7,7 @@
     <Title>Mailtrap Client Abstractions</Title>
     <PackageId>Mailtrap.Abstractions</PackageId>
     <PackageTags>mailtrap; sdk; client; abstractions; email; smtp</PackageTags>
-    <Version>2.0.0</Version>
+    <!-- Now MinVer will handle it <Version>2.0.0</Version> -->
     <Authors>Railsware</Authors>
     <Company>Railsware Products Studio, LLC</Company>
     <PackageDescription>Official Mailtrap.io .NET Client Abstractions</PackageDescription>

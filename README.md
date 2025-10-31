@@ -168,8 +168,6 @@ try
     using var mailtrapClientFactory = new MailtrapClientFactory(apiToken);
     IMailtrapClient mailtrapClient = mailtrapClientFactory.CreateClient();
 
-    SendEmailRequest request = FullyFeaturedRequest();
-
     SendEmailResponse? response = await SendEmailAsync(mailtrapClient, FullyFeaturedRequest());
     Console.Out.Write(response);
 
@@ -276,12 +274,12 @@ private static SendEmailRequest TemplateBasedRequest()
 - **[Project Management](examples/Mailtrap.Example.Project/)** - Project management.
 
 #### Contacts Management
-- **[Contacts Management](examples/Mailtrap.Example.Contacts/)** - Contacts management,
-- **[Contact Events](examples/Mailtrap.Example.ContactsEvents/)** - Contact Events management,
-- **[Contact Exports](examples/Mailtrap.Example.ContactsExports/)** - Contact Exports management,
-- **[Contact Imports](examples/Mailtrap.Example.ContactsImports/)** - Contact Imports management,
-- **[Contact Fields](examples/Mailtrap.Example.ContactsFields/)** - Contact Fields management,
-- **[Contact Lists](examples/Mailtrap.Example.ContactsLists/)** - Contact Lists management.
+- **[Contacts Management](examples/Mailtrap.Example.Contact/)** - Contacts management,
+- **[Contact Events](examples/Mailtrap.Example.ContactEvents/)** - Contact Events management,
+- **[Contact Exports](examples/Mailtrap.Example.ContactExports/)** - Contact Exports management,
+- **[Contact Imports](examples/Mailtrap.Example.ContactImports/)** - Contact Imports management,
+- **[Contact Fields](examples/Mailtrap.Example.ContactFields/)** - Contact Fields management,
+- **[Contact Lists](examples/Mailtrap.Example.ContactLists/)** - Contact Lists management.
 
 #### General
 - **[Account Access](examples/Mailtrap.Example.AccountAccess/)** - Account access management,

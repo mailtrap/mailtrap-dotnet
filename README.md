@@ -123,12 +123,14 @@ var apiToken = "<API-TOKEN>";
 var inboxId = <INBOX-ID>; // Only needed for sandbox
 using var mailtrapClientFactory = new MailtrapClientFactory(apiToken);
 IMailtrapClient mailtrapClient = mailtrapClientFactory.CreateClient();
+
 SendEmailRequest request = SendEmailRequest
     .Create()
     .From("hello@demomailtrap.co", "Mailtrap Test")
     .To("world@demomailtrap.co")
     .Subject("You are awesome!")
     .Text("Congrats for sending test email with Mailtrap!");
+
 SendEmailResponse? response = await mailtrapClient
     .Test(inboxId)
     .Send(request);
@@ -224,7 +226,8 @@ private static SendEmailRequest FullyFeaturedRequest()
             content: Convert.ToBase64String(File.ReadAllBytes("./preview.pdf")),
             fileName: "preview.pdf",
             disposition: DispositionType.Attachment,
-            mimeType: MediaTypeNames.Application.Pdf);
+            mimeType: MediaTypeNames.Application.Pdf
+        );
 }
 
 private static SendEmailRequest TemplateBasedRequest()

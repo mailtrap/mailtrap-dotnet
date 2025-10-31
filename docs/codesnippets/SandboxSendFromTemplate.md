@@ -13,7 +13,7 @@ using Mailtrap.Emails.Responses;
 try
 {
     var apiToken = "<API-TOKEN>";
-    var inboxId = <INBOX-ID>;                             // ID of sandbox
+    var inboxId = <INBOX-ID>;                             // ID of the inbox to send test emails to.
     using var mailtrapClientFactory = new MailtrapClientFactory(apiToken);
     IMailtrapClient mailtrapClient = mailtrapClientFactory.CreateClient();
     SendEmailRequest request = SendEmailRequest

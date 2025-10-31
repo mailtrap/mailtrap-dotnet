@@ -210,9 +210,9 @@ private static SendEmailRequest FullyFeaturedRequest()
         .Html(
             @"<html>
                 <body>
-                    <p><br> Hey </br>
+                    <p><br>Hey!</br>
                     Learn the best practices of building HTML emails and play with ready-to-go templates.</p>
-                    <p><a href=""https://mailtrap.io\/blog/build-html-email/""> Mailtrap\'s Guide on How to Build HTML Email</a> is live on our blog</p>
+                    <p><a href=""https://mailtrap.io/blog/build-html-email/""> Mailtrap's Guide on How to Build HTML Email</a> is live on our blog</p>
                     <img src=""cid:logo"">
                 </body>
             </html>"

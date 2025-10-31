@@ -1,49 +1,49 @@
-# Change Log
+# Changelog
 
 ## [Unreleased]
 
 ### Features
-- **Batch Email Support** — Add Batch Email functionality.
-- **Contacts API** — Add Contacts functionality.
-- **Contact Exports API** — Add Contact Exports functionality.
-- **Contact Events API** — Add Contact Events functionality.
-- **Contact Fields API** — Add Contact Fields functionality.
-- **Contact Imports API** — Add Contact Imports  functionality.
-- **Contact Lists API** — Add Contact Lists functionality.
-- **Email Templates API** — Add Email Templates functionality.
-- **Suppressions API** — Add Suppression Management functionality.
+- **Batch Email Support** — Added batch email functionality.
+- **Contacts API** — Added contacts management functionality.
+- **Contact Exports API** — Added contact exports functionality.
+- **Contact Events API** — Added contact events functionality.
+- **Contact Fields API** — Added contact fields functionality.
+- **Contact Imports API** — Added contact imports functionality.
+- **Contact Lists API** — Added contact lists functionality.
+- **Email Templates API** — Added email templates functionality.
+- **Suppressions API** — Added suppression management functionality.
 
 ### Fixes & Maintenance
-- Add example code snippets to documentation.
-- Update organization references from `railsware` → `mailtrap`.
+- Added example code snippets to documentation.
+- Updated organization references from `railsware` → `mailtrap`.
 
 
 ## [2.0.0] – 2025-08-22
 
 ### Features
-- **Domain Management** — Add support of `Delete` for Sending Domain functionality.
+- **Domain Management** — Added support for `Delete` on Sending Domains.
 
 ### Misc
-- Add contributing instructions.
-- Update documentation templates and copyright.
+- Added contributing instructions.
+- Updated documentation templates and copyright.
 - Minor README and CI/CD pipeline updates.
-- Adjuste NuGet publishing configuration and install instructions.
+- Adjusted NuGet publishing configuration and install instructions.
 
 
 ## [1.0.1] – 2024-12-10
 
 ### Features
-- **ReplyTo Support** — Add `ReplyTo` support to Send Email API.
-- **Mailtrap Client Factory** — Add factory for client creation.
-- **Attachments API** — Add Attachments functionality.
-- **Testing Messages API** — Add Testing Messages API functionality.
-- **Inboxes API** — Add Inboxes functionality.
-- **Projects API** — Add Projects functionality.
-- **Sending Domains API** — Add Sending Domains functionality.
-- **Account Access API** — Add Account Access functionality.
-- **Permissions API** — Add Permissions functionality.
-- **Billing API** — Add Billing functionality.
-- **Accounts API** — Add Accounts functionality.
+- **ReplyTo Support** — Added `ReplyTo` support to Send Email API.
+- **Mailtrap Client Factory** — Added factory for client creation.
+- **Attachments API** — Added Attachments functionality.
+- **Testing Messages API** — Added Testing Messages API functionality.
+- **Inboxes API** — Added Inboxes functionality.
+- **Projects API** — Added Projects functionality.
+- **Sending Domains API** — Added Sending Domains functionality.
+- **Account Access API** — Added Account Access functionality.
+- **Permissions API** — Added Permissions functionality.
+- **Billing API** — Added Billing functionality.
+- **Accounts API** — Added Accounts functionality.
 
 
 ## [1.0.0] – 2024-10-08
@@ -64,7 +64,7 @@
 - Set up CI/CD, documentation, and packaging.
 
 
-## sPrevious Infrastructure Updates
+## Previous Infrastructure Updates
 - Added contributing guidelines and PR templates.
 - Updated NuGet publishing configuration.
 - Adjusted code ownership and metadata files.
@@ -79,6 +79,8 @@
 | 1.0.1 | 2024-12-10 | Multi-API support (Accounts, Projects, Billing, Inboxes) |
 | 2.0.0 | 2025-08-22 | Domain management improvements |
 | Unreleased | — | Contacts ecosystem (Lists, Imports, Events, Templates, Exports) |
-| Unreleased | — | Batch email + Contact Exports |
+|  | — | Batch email |
+|  | — | Suppressions Management |
+|  | — | Email Templates Management |
 
 ---

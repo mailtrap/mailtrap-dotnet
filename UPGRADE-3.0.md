@@ -3,9 +3,9 @@ UPGRADE FROM 2.x TO 3.0 (.NET)
 
 ### Summary
 
-This release contains a **BC BREAK** refactor of the email client surface:
+This release contains a **BREAKING CHANGE** refactor of the email client surface:
 
-- `IEmailClient` has been refactored to be a **base interface** `IEmailClient<TRequest, TResponse>` and defines a common contract for both single and batch email clients.
+- `IEmailClient` has been refactored into a generic base interface `IEmailClient<TRequest, TResponse>` that defines a common contract for both single and batch email clients.
 - Two specialized interfaces were introduced:
   - `ISendEmailClient` — for single-send (`SendEmailRequest` / `SendEmailResponse`).
   - `IBatchEmailClient` — for batch sends (`BatchEmailRequest` / `BatchEmailResponse`).
@@ -49,7 +49,7 @@ The split clarifies **single-send vs batch-send** behavior and request/response 
 
   public interface IBatchEmailClient : IEmailClient<BatchEmailRequest, BatchEmailResponse> { }
   ```
-  > **Migration note:** All direct usages of `IEmailClient` should now be replaced with `ISendEmailClient` or `IBatchEmailClient` depending on your use case.
+  > **Migration note:** Replace direct usages of `IEmailClient` with `ISendEmailClient` or `IBatchEmailClient` as appropriate.
 
 ---
 
@@ -111,7 +111,8 @@ The split clarifies **single-send vs batch-send** behavior and request/response 
   ```csharp
   using Mailtrap.Emails.Requests;
 
-  var batchRequest = new BatchEmailRequest()
+  var batchRequest = BatchEmailRequest
+      .Create()
       .Base(b => b
           .From("sender@example.com")
           .Subject("Greetings"))
@@ -143,39 +144,36 @@ ___Before (v2.x)___:
 
 ```csharp
 // Example using old IEmailClient directly
-var client = new MailtrapClient(apiKey);
-var emailClient = client.Email();
+IMailtrapClient client = new MailtrapClient(apiKey);
+IEmailClient emailClient = client.Email();
 
 await emailClient.Send(new SendEmailRequest
-{
-    To = new List<string> { "user@example.com" },
-    Subject = "Welcome!",
-    Html = "<p>Hello!</p>"
-});
+    {
+        To = new List<string> { "user@example.com" },
+        Subject = "Welcome!",
+        Html = "<p>Hello!</p>"
+    });
 ```
 
 ___After (v3.0)___:
-
+Prefer the specialized interface
 ```csharp
-// Prefer the specialized interface
-
-await emailClient.Send(sendRequest);
 var client = new MailtrapClient(apiKey);
 
 // Single email
 var sendClient = client.Email(); // Transactional(), Bulk(), Test() -> ISendEmailClient
 await sendClient.Send(new SendEmailRequest
-{
-    To = new List<string> { "user@example.com" },
-    Subject = "Welcome!",
-    Html = "<p>Hello!</p>"
-});
+    {
+        To = new List<string> { "user@example.com" },
+        Subject = "Welcome!",
+        Html = "<p>Hello!</p>"
+    });
 
 // Batch email
-var batchRequest = new BatchEmailRequest()
+var batchRequest = BatchEmailRequest
+    .Create()
     .Requests(
-        r => r.To("first@example.com").Subject("Hi 1"),
-        r => r.To("second@example.com").Subject("Hi 2")
+        r => r.To("user@example.com").Subject("Welcome on board")
     );
 
 await client
@@ -234,7 +232,7 @@ await client
 
 ### Quick migration checklist (2.x → 3.x)
 - [ ] Update NuGet package to 3.0.0 (or the appropriate prerelease).
-- [ ] Search codebase for `IEmailClient` and replace wit either `ISendEmailClient` or `IBatchEmailClient`.
+- [ ] Search codebase for `IEmailClient` and replace with either `ISendEmailClient` or `IBatchEmailClient`.
 - [ ] Replace usages of batch sends that used `Email()`/`Bulk()`/`Transactional()`/`Test()` with the new Batch* methods.
 - [ ] Update DI registrations & factories to return the new interfaces.
 - [ ] Use `BatchEmailRequestBuilder` for building batch requests.

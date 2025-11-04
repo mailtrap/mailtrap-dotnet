@@ -1,6 +1,6 @@
 # Changelog
 
-## [Unreleased]
+## [3.0.0] - 2025-11-04
 
 ### Features
 - **Batch Email Support** — Added batch email functionality.
@@ -78,9 +78,6 @@
 | 1.0.0 | 2024-10-08 | Send email + XML docs |
 | 1.0.1 | 2024-12-10 | Multi-API support (Accounts, Projects, Billing, Inboxes) |
 | 2.0.0 | 2025-08-22 | Domain management improvements |
-| Unreleased | — | Contacts ecosystem (Lists, Imports, Events, Exports) |
-|  | — | Batch email |
-|  | — | Suppressions Management |
-|  | — | Email Templates Management |
+| 3.0.0 | 2025-11-04 | Contacts ecosystem (Lists, Imports, Events, Exports), Batch email, Suppressions Management, Email Templates Management |
 
 ---

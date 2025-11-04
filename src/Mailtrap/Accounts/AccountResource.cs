@@ -6,37 +6,38 @@ namespace Mailtrap.Accounts;
 
 internal sealed class AccountResource : RestResource, IAccountResource
 {
-    private const string BillingSegment = "billing";
-    private const string PermissionsSegment = "permissions";
-    private const string AccessesSegment = "account_accesses";
-    private const string SendingDomainsSegment = "sending_domains";
-
-
     public AccountResource(IRestResourceCommandFactory restResourceCommandFactory, Uri resourceUri)
         : base(restResourceCommandFactory, resourceUri) { }
 
 
     public IBillingResource Billing()
-        => new BillingResource(RestResourceCommandFactory, ResourceUri.Append(BillingSegment));
+        => new BillingResource(RestResourceCommandFactory, ResourceUri.Append(UrlSegments.BillingSegment));
 
 
     public IPermissionsResource Permissions()
-        => new PermissionsResource(RestResourceCommandFactory, ResourceUri.Append(PermissionsSegment));
+        => new PermissionsResource(RestResourceCommandFactory, ResourceUri.Append(UrlSegments.PermissionsSegment));
 
+    #region Account Accesses
 
     public IAccountAccessCollectionResource Accesses()
-        => new AccountAccessCollectionResource(RestResourceCommandFactory, ResourceUri.Append(AccessesSegment));
+        => new AccountAccessCollectionResource(RestResourceCommandFactory, ResourceUri.Append(UrlSegments.AccessesSegment));
 
     public IAccountAccessResource Access(long accessId)
-        => new AccountAccessResource(RestResourceCommandFactory, ResourceUri.Append(AccessesSegment).Append(accessId));
+        => new AccountAccessResource(RestResourceCommandFactory, ResourceUri.Append(UrlSegments.AccessesSegment).Append(accessId));
 
+    #endregion
+
+    #region Sending Domains
 
     public ISendingDomainCollectionResource SendingDomains()
-        => new SendingDomainCollectionResource(RestResourceCommandFactory, ResourceUri.Append(SendingDomainsSegment));
+        => new SendingDomainCollectionResource(RestResourceCommandFactory, ResourceUri.Append(UrlSegments.SendingDomainsSegment));
 
     public ISendingDomainResource SendingDomain(long domainId)
-        => new SendingDomainResource(RestResourceCommandFactory, ResourceUri.Append(SendingDomainsSegment).Append(domainId));
+        => new SendingDomainResource(RestResourceCommandFactory, ResourceUri.Append(UrlSegments.SendingDomainsSegment).Append(domainId));
 
+    #endregion
+
+    #region Projects
 
     public IProjectCollectionResource Projects()
         => new ProjectCollectionResource(RestResourceCommandFactory, ResourceUri.Append(UrlSegments.ProjectsSegment));
@@ -44,6 +45,9 @@ internal sealed class AccountResource : RestResource, IAccountResource
     public IProjectResource Project(long projectId)
         => new ProjectResource(RestResourceCommandFactory, ResourceUri.Append(UrlSegments.ProjectsSegment).Append(projectId));
 
+    #endregion
+
+    #region Inboxes
 
     // Passing account resource URI is expected, since we need to append both:
     // inboxes and projects segments to it for different scenarios.
@@ -53,6 +57,9 @@ internal sealed class AccountResource : RestResource, IAccountResource
     public IInboxResource Inbox(long inboxId)
         => new InboxResource(RestResourceCommandFactory, ResourceUri.Append(UrlSegments.InboxesSegment).Append(inboxId));
 
+    #endregion
+
+    #region Contacts
 
     public IContactCollectionResource Contacts()
         => new ContactCollectionResource(RestResourceCommandFactory, ResourceUri.Append(UrlSegments.ContactsSegment));
@@ -62,17 +69,33 @@ internal sealed class AccountResource : RestResource, IAccountResource
         Ensure.NotNullOrEmpty(idOrEmail, nameof(idOrEmail));
         var encoded = Uri.EscapeDataString(idOrEmail);
 
-        return new ContactResource(
-                    RestResourceCommandFactory,
-                    ResourceUri
-                        .Append(UrlSegments.ContactsSegment)
-                        .Append(encoded));
+        return new ContactResource(RestResourceCommandFactory, ResourceUri.Append(UrlSegments.ContactsSegment).Append(encoded));
     }
 
+    #endregion
+
+    #region Email Templates
 
     public IEmailTemplateCollectionResource EmailTemplates()
         => new EmailTemplateCollectionResource(RestResourceCommandFactory, ResourceUri.Append(UrlSegments.EmailTemplatesSegment));
 
     public IEmailTemplateResource EmailTemplate(long emailTemplateId)
         => new EmailTemplateResource(RestResourceCommandFactory, ResourceUri.Append(UrlSegments.EmailTemplatesSegment).Append(emailTemplateId));
+
+    #endregion
+
+    #region Suppressions
+
+    public ISuppressionCollectionResource Suppressions()
+        => new SuppressionCollectionResource(RestResourceCommandFactory, ResourceUri.Append(UrlSegments.SuppressionsSegment));
+
+    public ISuppressionResource Suppression(string suppressionId)
+    {
+        Ensure.NotNullOrEmpty(suppressionId, nameof(suppressionId));
+        var encoded = Uri.EscapeDataString(suppressionId);
+
+        return new SuppressionResource(RestResourceCommandFactory, ResourceUri.Append(UrlSegments.SuppressionsSegment).Append(encoded));
+    }
+
+    #endregion
 }

@@ -66,7 +66,7 @@ internal sealed class ContactEventIntegrationTests
         var result = await client.Account(_accountId).Contacts().Events(_contactId).Create(request).ConfigureAwait(false);
 
         mockHttp.VerifyNoOutstandingExpectation();
-        result.ShouldBeEquivalentToContactResponse(expectedResponse);
+        result.ShouldBeEquivalentToResponse(expectedResponse);
     }
 
     [Test]

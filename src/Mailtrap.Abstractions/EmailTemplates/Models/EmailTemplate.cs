@@ -100,7 +100,7 @@ public sealed record EmailTemplate
     /// </value>
     [JsonPropertyName("created_at")]
     [JsonPropertyOrder(8)]
-    public DateTimeOffset CreatedAt { get; set; } = DateTimeOffset.MinValue;
+    public DateTimeOffset? CreatedAt { get; set; }
 
     /// <summary>
     /// Gets or sets the email template date and time of update.
@@ -110,5 +110,5 @@ public sealed record EmailTemplate
     /// </value>
     [JsonPropertyName("updated_at")]
     [JsonPropertyOrder(9)]
-    public DateTimeOffset UpdatedAt { get; set; } = DateTimeOffset.MinValue;
+    public DateTimeOffset? UpdatedAt { get; set; }
 }

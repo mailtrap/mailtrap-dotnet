@@ -369,6 +369,52 @@ internal sealed class AccountResourceTests
 
     #endregion
 
+    #region Suppressions
+
+    [Test]
+    public void Suppressions_ShouldReturnSuppressionCollectionResource()
+    {
+        // Arrange
+        var client = CreateResource();
+
+        // Act
+        var result = client.Suppressions();
+
+        // Assert
+        ResourceValidator.Validate<ISuppressionCollectionResource, SuppressionCollectionResource>(
+            result, client.ResourceUri.Append(UrlSegmentsTestConstants.SuppressionsSegment));
+    }
+
+    [Test]
+    public void Suppression_ShouldReturnSuppressionResource()
+    {
+        // Arrange
+        var client = CreateResource();
+        var suppressionId = TestContext.CurrentContext.Random.NextGuid().ToString();
+
+        // Act
+        var result = client.Suppression(suppressionId);
+
+        // Assert
+        ResourceValidator.Validate<ISuppressionResource, SuppressionResource>(
+            result, client.ResourceUri.Append(UrlSegmentsTestConstants.SuppressionsSegment).Append(suppressionId));
+    }
+
+    [Test]
+    public void Suppression_ShouldThrowArgumentNullException_WhenIdIsNullOrEmpty([Values(null!, "")] string suppressionId)
+    {
+        // Arrange
+        var client = CreateResource();
+
+        // Act
+        var act = () => client.Suppression(suppressionId);
+
+        // Assert
+        act.Should().Throw<ArgumentNullException>();
+    }
+
+    #endregion
+
 
     private AccountResource CreateResource() => new(_commandFactoryMock, _resourceUri);
 }

@@ -25,22 +25,26 @@ To get the most out of this official Mailtrap.io .NET SDK:
 
 The Mailtrap .NET client packages are available through GitHub Packages.
 
-Add the GitHub Packages source to your NuGet configuration:
+To add the GitHub Packages source to your NuGet configuration it is required to [authenticate to GitHub Packages](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-nuget-registry#authenticating-to-github-packages).
 
 ```bash
-dotnet nuget add source https://nuget.pkg.github.com/mailtrap/index.json --name github-mailtrap
+dotnet nuget add source https://nuget.pkg.github.com/mailtrap/index.json --name github-mailtrap --username GITHUB_USERNAME --password GITHUB_PAT --store-password-in-clear-text
 ```
+
+Replace GITHUB_USERNAME with the username to be used when connecting to an authenticated source.
+
+Replace GITHUB_PAT with the personal access token that is granted at least `read:packages` scope.
 
 Then add the Mailtrap package:
 
 ```bash
-dotnet add package Mailtrap -v 2.0.0 -s github-mailtrap
+dotnet add package Mailtrap -v 3.0.0 -s github-mailtrap
 ```
 
 Optionally, you can add the Mailtrap.Abstractions package:
 
 ```bash
-dotnet add package Mailtrap.Abstractions -v 2.0.0 -s github-mailtrap
+dotnet add package Mailtrap.Abstractions -v 3.0.0 -s github-mailtrap
 ```
 
 ---

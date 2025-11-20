@@ -264,79 +264,50 @@ private static SendEmailRequest TemplateBasedRequest()
 }
 ```
 
-### Other examples
-
-#### Email API/SMTP
-- **[Email Sending](examples/Mailtrap.Example.Email.Send/)** - Send an email (Transactional and Bulk streams), Send an email with a template and/or with attachments,
-- **[Batch Email Sending](examples/Mailtrap.Example.Email.BatchSend/)** - Batch email sending, sending with a template and/or with attachments.
-
-#### Email Sandbox (Testing)
-- **[Email Sending](examples/Mailtrap.Example.Email.Send/)** - Send an email, send an email with a template,
-- **[Testing Messages](examples/Mailtrap.Example.TestingMessage/)** - Message management,
-- **[Attachments](examples/Mailtrap.Example.Attachment/)** - Working with email attachments in testing messages,
-- **[Inbox Management](examples/Mailtrap.Example.Inbox/)** - Inbox management,
-- **[Project Management](examples/Mailtrap.Example.Project/)** - Project management.
-
-#### Contacts Management
-- **[Contacts Management](examples/Mailtrap.Example.Contact/)** - Contacts management,
-- **[Contact Events](examples/Mailtrap.Example.ContactEvents/)** - Contact Events management,
-- **[Contact Exports](examples/Mailtrap.Example.ContactExports/)** - Contact Exports management,
-- **[Contact Imports](examples/Mailtrap.Example.ContactImports/)** - Contact Imports management,
-- **[Contact Fields](examples/Mailtrap.Example.ContactFields/)** - Contact Fields management,
-- **[Contact Lists](examples/Mailtrap.Example.ContactLists/)** - Contact Lists management.
-
-#### General
-- **[Account Access](examples/Mailtrap.Example.AccountAccess/)** - Account access management,
-- **[Permissions](examples/Mailtrap.Example.Permissions/)** - Permissions management,
-- **[Account Management](examples/Mailtrap.Example.Account/)** - List accounts you have access to,
-- **[Billing](examples/Mailtrap.Example.Billing/)** - Billing information and usage statistics,
-- **[Sending Domains](examples/Mailtrap.Example.SendingDomain/)** - Domain verification,
-- **[Email Templates](examples/Mailtrap.Example.EmailTemplates/)** - Email Templates management,
-- **[Comprehensive API Usage](examples/Mailtrap.Example.ApiUsage/)** - Complete example showcasing multiple API features together.
-
-#### Configuration & Setup
-- **[Dependency Injection](examples/Mailtrap.Example.DependencyInjection/)** - Integration with ASP.NET Core DI container and configuration
-- **[Factory Pattern](examples/Mailtrap.Example.Factory/)** - Using standalone client factory for scenarios without DI container
-
-Each example includes detailed comments and demonstrates best practices for error handling, configuration, and resource management.
-
----
-
-## Supported functionality
-
-Currently, with this SDK, you can:
+## Supported functionality & Examples
 
 ### Email API/SMTP
 
-- Send an email (Transactional and Bulk streams)
-- Send an email with a template
-- Send emails with attachments
-- Send batch of emails (Transactional and Bulk streams, with template and attachments)
-- Sending domain management
+- Send an email (Transactional and Bulk streams) – [`examples/Mailtrap.Example.Email.Send`](examples/Mailtrap.Example.Email.Send/)
+- Send an email with a template – [`examples/Mailtrap.Example.Email.Send`](examples/Mailtrap.Example.Email.Send/)
+- Send emails with attachments – [`examples/Mailtrap.Example.Email.Send`](examples/Mailtrap.Example.Email.Send/)
+- Batch send (Transactional and Bulk streams) – [`examples/Mailtrap.Example.Email.BatchSend`](examples/Mailtrap.Example.Email.BatchSend/)
+- Sending domain management – [`examples/Mailtrap.Example.SendingDomain`](examples/Mailtrap.Example.SendingDomain/)
+- Suppressions management – [`examples/Mailtrap.Example.Suppression`](examples/Mailtrap.Example.Suppression/)
 
 ### Email Sandbox (Testing)
 
-- Send an email
-- Send an email with a template
-- Message management
-- Inbox management
-- Project management
+- Send an email – [`examples/Mailtrap.Example.Email.Send`](examples/Mailtrap.Example.Email.Send/)
+- Send an email with a template – [`examples/Mailtrap.Example.Email.Send`](examples/Mailtrap.Example.Email.Send/)
+- Message management – [`examples/Mailtrap.Example.TestingMessage`](examples/Mailtrap.Example.TestingMessage/)
+- Attachments in testing messages – [`examples/Mailtrap.Example.Attachment`](examples/Mailtrap.Example.Attachment/)
+- Inbox management – [`examples/Mailtrap.Example.Inbox`](examples/Mailtrap.Example.Inbox/)
+- Project management – [`examples/Mailtrap.Example.Project`](examples/Mailtrap.Example.Project/)
 
 ### Contacts Management
 
-- Contacts management
-- Fields management
-- Lists management
-- Import/Export management
-- Events management
+- Contacts management – [`examples/Mailtrap.Example.Contact`](examples/Mailtrap.Example.Contact/)
+- Contact lists management – [`examples/Mailtrap.Example.ContactLists`](examples/Mailtrap.Example.ContactLists/)
+- Contact fields management – [`examples/Mailtrap.Example.ContactFields`](examples/Mailtrap.Example.ContactFields/)
+- Contact import management – [`examples/Mailtrap.Example.ContactImports`](examples/Mailtrap.Example.ContactImports/)
+- Contact export management – [`examples/Mailtrap.Example.ContactExports`](examples/Mailtrap.Example.ContactExports/)
+- Contact events management – [`examples/Mailtrap.Example.ContactEvents`](examples/Mailtrap.Example.ContactEvents/)
 
 ### General
 
-- Email Templates management
-- Account access management
-- Permissions management
-- Billing information and usage statistics
-- Domain verification
+- Email Templates management – [`examples/Mailtrap.Example.EmailTemplates`](examples/Mailtrap.Example.EmailTemplates/)
+- Account access management – [`examples/Mailtrap.Example.AccountAccess`](examples/Mailtrap.Example.AccountAccess/)
+- Permissions management – [`examples/Mailtrap.Example.Permissions`](examples/Mailtrap.Example.Permissions/)
+- Accounts management – [`examples/Mailtrap.Example.Account`](examples/Mailtrap.Example.Account/)
+- Billing information – [`examples/Mailtrap.Example.Billing`](examples/Mailtrap.Example.Billing/)
+- Comprehensive API Usage – [`examples/Mailtrap.Example.ApiUsage`](examples/Mailtrap.Example.ApiUsage/)
+
+### Configuration & Setup
+
+- Dependency Injection – [`examples/Mailtrap.Example.DependencyInjection`](examples/Mailtrap.Example.DependencyInjection/)
+- Factory Pattern – [`examples/Mailtrap.Example.Factory`](examples/Mailtrap.Example.Factory/)
+
+Each example includes detailed comments and demonstrates best practices for error handling, configuration, and resource management.
 
 ---
 

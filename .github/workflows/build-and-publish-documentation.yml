@@ -24,7 +24,7 @@ jobs:
     steps:
       # https://github.com/marketplace/actions/checkout
       - name: Checkout Sources
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
   
       # https://github.com/marketplace/actions/setup-net-core-sdk
       - name: Setup .NET

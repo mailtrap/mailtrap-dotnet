@@ -1,1 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk"/>
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Http" VersionOverride="10.0.1" />
+  </ItemGroup></Project >

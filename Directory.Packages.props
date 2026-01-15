@@ -11,7 +11,7 @@
     <PackageVersion Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="10.0.1" />
     <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="8.0.0" />
     <PackageVersion Include="System.Net.Http.Json" Version="8.0.1" />
-    <PackageVersion Include="System.Text.Json" Version="10.0.1" />
+    <PackageVersion Include="System.Text.Json" Version="10.0.2" />
     <!-- 3rd party -->
     <PackageVersion Include="FluentValidation" Version="11.12.0" />
     <PackageVersion Include="MinVer" Version="7.0.0" />

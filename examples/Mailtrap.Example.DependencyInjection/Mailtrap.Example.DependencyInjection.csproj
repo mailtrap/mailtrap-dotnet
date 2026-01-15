@@ -2,5 +2,6 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Http" VersionOverride="10.0.1" />
     <PackageReference Include="Microsoft.Extensions.Http.Resilience" />
+  <PackageReference Include="System.Text.Json" VersionOverride="10.0.2" />
   </ItemGroup>
 </Project>

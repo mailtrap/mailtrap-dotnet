@@ -26,7 +26,7 @@
     <!-- Do NOT update FluentAssertions to major version 8 and above, since it does not provide
     permissive license anymore -->
     <!-- https://github.com/fluentassertions/fluentassertions/issues/2955 -->
-    <PackageVersion Include="FluentAssertions" Version="7.2.0" />
+    <PackageVersion Include="FluentAssertions" Version="7.2.1" />
     <PackageVersion Include="FluentAssertions.Analyzers" Version="0.34.1" />
   </ItemGroup>
 </Project>

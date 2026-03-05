@@ -1,0 +1,75 @@
+tests/Mailtrap.IntegrationTests/TestConstants/UrlSegmentsTestConstants.cs
+  679630e82efc12bc 29
+src/Mailtrap/Stats/StatsResource.cs
+  679630e82efc12bc 1-105
+src/Mailtrap/Core/Constants/UrlSegments.cs
+  679630e82efc12bc 17
+Mailtrap.sln
+  679630e82efc12bc 109-110,221-224,256
+src/Mailtrap/GlobalUsings.cs
+  679630e82efc12bc 71-72
+src/Mailtrap.Abstractions/Accounts/IAccountResource.cs
+  679630e82efc12bc 213-222
+src/Mailtrap.Abstractions/Stats/Models/SendingStatGroup.cs
+  679630e82efc12bc 1-23
+src/Mailtrap.Abstractions/Stats/IStatsResource.cs
+  679630e82efc12bc 1-88
+tests/Mailtrap.IntegrationTests/Stats/ByDomains_Success.json
+  679630e82efc12bc 1-32
+src/Mailtrap.Abstractions/Stats/Models/StatsFilter.cs
+  679630e82efc12bc 1-38
+src/Mailtrap/Accounts/AccountResource.cs
+  679630e82efc12bc 101-107
+src/Mailtrap.Abstractions/GlobalUsings.cs
+  679630e82efc12bc 71-72
+tests/Mailtrap.IntegrationTests/Stats/ByEmailServiceProviders_Success.json
+  679630e82efc12bc 1-17
+tests/Mailtrap.IntegrationTests/Stats/ByDate_Success.json
+  679630e82efc12bc 1-17
+tests/Mailtrap.IntegrationTests/Stats/ByCategories_Success.json
+  679630e82efc12bc 1-17
+tests/Mailtrap.UnitTests/Stats/StatsResourceTests.cs
+  679630e82efc12bc 1-52
+tests/Mailtrap.IntegrationTests/Stats/Get_Forbidden.json
+  679630e82efc12bc 1-3
+examples/Mailtrap.Example.Stats/Stats.cs
+  679630e82efc12bc 1-66,81-87
+tests/Mailtrap.IntegrationTests/Stats/StatsIntegrationTests.cs
+  679630e82efc12bc 1-251
+tests/Mailtrap.UnitTests/GlobalUsings.cs
+  679630e82efc12bc 57
+tests/Mailtrap.IntegrationTests/Stats/Get_Success.json
+  679630e82efc12bc 1-12
+examples/Mailtrap.Example.Stats/Mailtrap.Example.Stats.csproj
+  679630e82efc12bc 1
+examples/Mailtrap.Example.Stats/Properties/launchSettings.json
+  679630e82efc12bc 1-10
+examples/Mailtrap.Example.Stats/appsettings.json
+  679630e82efc12bc 1-14,16-17
+src/Mailtrap.Abstractions/Stats/Models/SendingStats.cs
+  679630e82efc12bc 1-78
+tests/Mailtrap.IntegrationTests/GlobalUsings.cs
+  679630e82efc12bc 39
+tests/Mailtrap.UnitTests/TestConstants/UrlSegmentsTestConstants.cs
+  679630e82efc12bc 26
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.8",
+  "base_commit_sha": "a69365a5d855909ef4a52a046c3e03d015db33c8",
+  "prompts": {
+    "679630e82efc12bc": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f306d859-3456-4286-928e-8dd4e0105ee7",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Piotr Bednarz <piotr.bednarz@railsware.com>",
+      "messages": [],
+      "total_additions": 981,
+      "total_deletions": 100,
+      "accepted_lines": 868,
+      "overriden_lines": 2
+    }
+  }
+}

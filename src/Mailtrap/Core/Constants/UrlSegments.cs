@@ -14,4 +14,5 @@ internal static class UrlSegments
     internal static string ContactsSegment { get; } = "contacts";
     internal static string EmailTemplatesSegment { get; } = "email_templates";
     internal static string SuppressionsSegment { get; } = "suppressions";
+    internal static string StatsSegment { get; } = "stats";
 }

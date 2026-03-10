@@ -1,0 +1,12 @@
+{
+  "delivery_count": 150,
+  "delivery_rate": 0.95,
+  "bounce_count": 8,
+  "bounce_rate": 0.05,
+  "open_count": 120,
+  "open_rate": 0.8,
+  "click_count": 60,
+  "click_rate": 0.5,
+  "spam_count": 2,
+  "spam_rate": 0.013
+}

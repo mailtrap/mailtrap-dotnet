@@ -1,0 +1,17 @@
+[
+  {
+    "email_service_provider": "Gmail",
+    "stats": {
+      "delivery_count": 80,
+      "delivery_rate": 0.97,
+      "bounce_count": 2,
+      "bounce_rate": 0.03,
+      "open_count": 70,
+      "open_rate": 0.88,
+      "click_count": 35,
+      "click_rate": 0.5,
+      "spam_count": 1,
+      "spam_rate": 0.013
+    }
+  }
+]

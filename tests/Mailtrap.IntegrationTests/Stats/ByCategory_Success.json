@@ -1,0 +1,17 @@
+[
+  {
+    "category": "Welcome email",
+    "stats": {
+      "delivery_count": 100,
+      "delivery_rate": 0.97,
+      "bounce_count": 3,
+      "bounce_rate": 0.03,
+      "open_count": 85,
+      "open_rate": 0.85,
+      "click_count": 45,
+      "click_rate": 0.53,
+      "spam_count": 0,
+      "spam_rate": 0.0
+    }
+  }
+]

@@ -210,4 +210,14 @@ public interface IAccountResource : IRestResource
     /// When <paramref name="suppressionId"/> is null or empty.
     /// </exception>
     public ISuppressionResource Suppression(string suppressionId);
+
+
+    /// <summary>
+    /// Gets sending statistics resource for the account, represented by this resource instance.
+    /// </summary>
+    ///
+    /// <returns>
+    /// Sending statistics resource for the account, represented by this resource instance.
+    /// </returns>
+    public IStatsResource Stats();
 }

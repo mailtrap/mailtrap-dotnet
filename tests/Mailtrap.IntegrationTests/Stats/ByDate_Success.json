@@ -1,0 +1,17 @@
+[
+  {
+    "date": "2026-01-01",
+    "stats": {
+      "delivery_count": 5,
+      "delivery_rate": 1.0,
+      "bounce_count": 0,
+      "bounce_rate": 0.0,
+      "open_count": 4,
+      "open_rate": 0.8,
+      "click_count": 2,
+      "click_rate": 0.5,
+      "spam_count": 0,
+      "spam_rate": 0.0
+    }
+  }
+]

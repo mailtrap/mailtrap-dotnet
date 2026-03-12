@@ -293,6 +293,10 @@ private static SendEmailRequest TemplateBasedRequest()
 - Contact export management – [`examples/Mailtrap.Example.ContactExports`](examples/Mailtrap.Example.ContactExports/)
 - Contact events management – [`examples/Mailtrap.Example.ContactEvents`](examples/Mailtrap.Example.ContactEvents/)
 
+### Stats API
+
+- Email sending statistics – [`examples/Mailtrap.Example.Stats`](examples/Mailtrap.Example.Stats/)
+
 ### General
 
 - Email Templates management – [`examples/Mailtrap.Example.EmailTemplates`](examples/Mailtrap.Example.EmailTemplates/)

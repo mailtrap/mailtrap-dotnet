@@ -1,5 +1,8 @@
 # Changelog
 
+## [Unreleased]
+- **Stats API** - Added sending statistics functionality.
+
 ## [3.0.0] - 2025-11-04
 
 ### Features

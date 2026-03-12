@@ -1,0 +1,32 @@
+[
+  {
+    "sending_domain_id": 1,
+    "stats": {
+      "delivery_count": 100,
+      "delivery_rate": 0.96,
+      "bounce_count": 4,
+      "bounce_rate": 0.04,
+      "open_count": 80,
+      "open_rate": 0.8,
+      "click_count": 40,
+      "click_rate": 0.5,
+      "spam_count": 1,
+      "spam_rate": 0.01
+    }
+  },
+  {
+    "sending_domain_id": 2,
+    "stats": {
+      "delivery_count": 50,
+      "delivery_rate": 0.93,
+      "bounce_count": 4,
+      "bounce_rate": 0.07,
+      "open_count": 40,
+      "open_rate": 0.8,
+      "click_count": 20,
+      "click_rate": 0.5,
+      "spam_count": 1,
+      "spam_rate": 0.02
+    }
+  }
+]

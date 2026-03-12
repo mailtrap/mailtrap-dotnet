@@ -98,4 +98,11 @@ internal sealed class AccountResource : RestResource, IAccountResource
     }
 
     #endregion
+
+    #region Stats
+
+    public IStatsResource Stats()
+        => new StatsResource(RestResourceCommandFactory, ResourceUri.Append(UrlSegments.StatsSegment));
+
+    #endregion
 }

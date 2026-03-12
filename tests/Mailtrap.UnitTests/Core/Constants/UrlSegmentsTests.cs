@@ -1,4 +1,4 @@
-﻿namespace Mailtrap.UnitTests.Core.Constants;
+namespace Mailtrap.UnitTests.Core.Constants;
 
 
 [TestFixture]
@@ -20,5 +20,11 @@ internal sealed class UrlSegmentsTests
     public void InboxesSegment_ShouldContainCorrectValue()
     {
         UrlSegments.InboxesSegment.Should().Be(UrlSegmentsTestConstants.InboxesSegment);
+    }
+
+    [Test]
+    public void EmailLogsSegment_ShouldContainCorrectValue()
+    {
+        UrlSegments.EmailLogsSegment.Should().Be(UrlSegmentsTestConstants.EmailLogsSegment);
     }
 }

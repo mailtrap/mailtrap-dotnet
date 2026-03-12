@@ -1,7 +1,8 @@
 # Changelog
 
 ## [Unreleased]
-- **Stats API** - Added sending statistics functionality.
+- **Email Logs API** — List email logs with filters and cursor-based pagination; get message details with events.
+- **Stats API** — Added sending statistics functionality.
 
 ## [3.0.0] - 2025-11-04
 

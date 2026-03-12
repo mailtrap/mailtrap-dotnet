@@ -1,4 +1,4 @@
-﻿namespace Mailtrap.Accounts;
+namespace Mailtrap.Accounts;
 
 
 /// <summary>
@@ -220,4 +220,30 @@ public interface IAccountResource : IRestResource
     /// Sending statistics resource for the account, represented by this resource instance.
     /// </returns>
     public IStatsResource Stats();
+
+    /// <summary>
+    /// Gets email logs collection resource for the account, represented by this resource instance.
+    /// </summary>
+    ///
+    /// <returns>
+    /// Email logs collection resource for the account.
+    /// </returns>
+    public IEmailLogCollectionResource EmailLogs();
+
+    /// <summary>
+    /// Gets resource for a specific email log message, identified by <paramref name="sendingMessageId"/> (UUID).
+    /// </summary>
+    ///
+    /// <param name="sendingMessageId">
+    /// Message UUID to get resource for.
+    /// </param>
+    ///
+    /// <returns>
+    /// Resource for the email log message with specified ID.
+    /// </returns>
+    ///
+    /// <exception cref="ArgumentNullException">
+    /// When <paramref name="sendingMessageId"/> is null or empty.
+    /// </exception>
+    public IEmailLogResource EmailLog(string sendingMessageId);
 }

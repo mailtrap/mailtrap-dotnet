@@ -1,0 +1,38 @@
+README.md
+  807ce6040cb806f3 157-183,304-305
+CHANGELOG.md
+  807ce6040cb806f3 4-5
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.10",
+  "base_commit_sha": "13f7024f6230cb910f3c352f1cf75f89b147e0b5",
+  "prompts": {
+    "807ce6040cb806f3": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "12f53f95-0790-4eb3-a49c-dd9fc2b3aa14",
+        "model": "default"
+      },
+      "human_author": "Marcin Klocek <marcin.klocek@railsware.com>",
+      "messages": [],
+      "total_additions": 36,
+      "total_deletions": 5,
+      "accepted_lines": 36,
+      "overriden_lines": 0
+    },
+    "a7210b66fcd2a0aa": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "96cd1ebb-5298-4438-9005-c33f4614a04a",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": null,
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 3,
+      "overriden_lines": 0
+    }
+  }
+}

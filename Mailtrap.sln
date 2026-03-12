@@ -1,4 +1,4 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
@@ -107,6 +107,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mailtrap.Example.Suppression", "examples\Mailtrap.Example.Suppression\Mailtrap.Example.Suppression.csproj", "{11894B20-F780-4FC9-8140-3601EBF54C10}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mailtrap.Example.Stats", "examples\Mailtrap.Example.Stats\Mailtrap.Example.Stats.csproj", "{B3E7A1C2-4D5F-6E8A-9B0C-1D2E3F4A5B6C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mailtrap.Example.EmailLogs", "examples\Mailtrap.Example.EmailLogs\Mailtrap.Example.EmailLogs.csproj", "{C4F8B2D3-5E6A-7F9B-0C1D-2E3F4A5B6C7D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -222,6 +224,10 @@ Global
 		{B3E7A1C2-4D5F-6E8A-9B0C-1D2E3F4A5B6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3E7A1C2-4D5F-6E8A-9B0C-1D2E3F4A5B6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3E7A1C2-4D5F-6E8A-9B0C-1D2E3F4A5B6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4F8B2D3-5E6A-7F9B-0C1D-2E3F4A5B6C7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4F8B2D3-5E6A-7F9B-0C1D-2E3F4A5B6C7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4F8B2D3-5E6A-7F9B-0C1D-2E3F4A5B6C7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4F8B2D3-5E6A-7F9B-0C1D-2E3F4A5B6C7D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -254,6 +260,7 @@ Global
 		{8791C343-7B1E-4206-A954-A0CFD573E460} = {09E18837-1DDE-4EAF-80EC-DA55557C81EB}
 		{11894B20-F780-4FC9-8140-3601EBF54C10} = {09E18837-1DDE-4EAF-80EC-DA55557C81EB}
 		{B3E7A1C2-4D5F-6E8A-9B0C-1D2E3F4A5B6C} = {09E18837-1DDE-4EAF-80EC-DA55557C81EB}
+		{C4F8B2D3-5E6A-7F9B-0C1D-2E3F4A5B6C7D} = {09E18837-1DDE-4EAF-80EC-DA55557C81EB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0FF614CC-FEBC-4C66-B3FC-FCB73EE511D7}

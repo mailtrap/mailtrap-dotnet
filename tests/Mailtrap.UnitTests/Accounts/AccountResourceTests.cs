@@ -1,4 +1,4 @@
-﻿using AccountAccessResource = Mailtrap.AccountAccesses.AccountAccessResource;
+using AccountAccessResource = Mailtrap.AccountAccesses.AccountAccessResource;
 
 
 namespace Mailtrap.UnitTests.Accounts;
@@ -408,6 +408,53 @@ internal sealed class AccountResourceTests
 
         // Act
         var act = () => client.Suppression(suppressionId);
+
+        // Assert
+        act.Should().Throw<ArgumentNullException>();
+    }
+
+    #endregion
+
+
+    #region Email Logs
+
+    [Test]
+    public void EmailLogs_ShouldReturnEmailLogCollectionResource()
+    {
+        // Arrange
+        var client = CreateResource();
+
+        // Act
+        var result = client.EmailLogs();
+
+        // Assert
+        ResourceValidator.Validate<IEmailLogCollectionResource, EmailLogCollectionResource>(
+            result, client.ResourceUri.Append(UrlSegmentsTestConstants.EmailLogsSegment));
+    }
+
+    [Test]
+    public void EmailLog_ShouldReturnEmailLogResource()
+    {
+        // Arrange
+        var client = CreateResource();
+        var messageId = TestContext.CurrentContext.Random.NextGuid().ToString();
+
+        // Act
+        var result = client.EmailLog(messageId);
+
+        // Assert
+        ResourceValidator.Validate<IEmailLogResource, EmailLogResource>(
+            result, client.ResourceUri.Append(UrlSegmentsTestConstants.EmailLogsSegment).Append(messageId));
+    }
+
+    [Test]
+    public void EmailLog_ShouldThrowArgumentNullException_WhenIdIsNullOrEmpty([Values(null!, "")] string sendingMessageId)
+    {
+        // Arrange
+        var client = CreateResource();
+
+        // Act
+        var act = () => client.EmailLog(sendingMessageId);
 
         // Assert
         act.Should().Throw<ArgumentNullException>();

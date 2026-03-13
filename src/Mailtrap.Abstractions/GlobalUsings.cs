@@ -46,6 +46,8 @@ global using Mailtrap.ContactEvents;
 global using Mailtrap.ContactEvents.Models;
 global using Mailtrap.ContactEvents.Requests;
 global using Mailtrap.ContactEvents.Validators;
+global using Mailtrap.EmailLogs;
+global using Mailtrap.EmailLogs.Models;
 global using Mailtrap.Emails;
 global using Mailtrap.Emails.Extensions;
 global using Mailtrap.Emails.Models;

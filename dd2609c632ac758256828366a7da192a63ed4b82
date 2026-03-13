@@ -1,0 +1,108 @@
+examples/Mailtrap.Example.EmailLogs/Program.cs
+  807ce6040cb806f3 24,29,32,34-35,61
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogFilterOperatorEqualNotEqual.cs
+  807ce6040cb806f3 1-13
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogMessageEventSuspension.cs
+  807ce6040cb806f3 1-17
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogCiStringFilter.cs
+  807ce6040cb806f3 1-36
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogsFilterClause.cs
+  807ce6040cb806f3 21,25,28,31
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogsListResponse.cs
+  807ce6040cb806f3 13
+src/Mailtrap.Abstractions/GlobalSuppressions.cs
+  807ce6040cb806f3 19-22
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogMessageEvent.cs
+  807ce6040cb806f3 5-6,12,16,21,23-24
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogMessageEventClick.cs
+  807ce6040cb806f3 9-11
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogMessageEventDelivery.cs
+  807ce6040cb806f3 9-11
+examples/Mailtrap.Example.EmailLogs/Mailtrap.Example.EmailLogs.csproj
+  807ce6040cb806f3 1
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogEventsFilter.cs
+  807ce6040cb806f3 1-34
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogCiStringOptionalFilter.cs
+  807ce6040cb806f3 1-35
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogMessageEventBounce.cs
+  807ce6040cb806f3 5,9-11
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogMessageEventOpen.cs
+  807ce6040cb806f3 9-11
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogStatusFilter.cs
+  807ce6040cb806f3 1-34
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogFilterOperatorIp.cs
+  807ce6040cb806f3 1-17
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogFilterOperatorCiStringOptional.cs
+  807ce6040cb806f3 1-21
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogExactStringFilter.cs
+  807ce6040cb806f3 1-35
+src/Mailtrap.Abstractions/EmailLogs/Models/IEmailLogFilterField.cs
+  807ce6040cb806f3 1-10
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogFilterOperatorNumber.cs
+  807ce6040cb806f3 1-15
+src/Mailtrap/Core/Extensions/UriExtensions.cs
+  807ce6040cb806f3 82,113
+tests/Mailtrap.UnitTests/EmailLogs/EmailLogsListFilterTests.cs
+  807ce6040cb806f3 36,46-64,69,71-72,88,96-110
+CHANGELOG.md
+  807ce6040cb806f3 4-5
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogMessageEventUnsubscribe.cs
+  807ce6040cb806f3 9-11
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogStringFilter.cs
+  807ce6040cb806f3 1-35
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogMessage.cs
+  807ce6040cb806f3 58,62,83,87,108,112
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogEventType.cs
+  807ce6040cb806f3 1-27
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogMessageEventReject.cs
+  807ce6040cb806f3 5,9-11
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogFilterOperatorEvents.cs
+  807ce6040cb806f3 1-13
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogFilterOperatorCi.cs
+  807ce6040cb806f3 1-17
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogMessageEventSpam.cs
+  807ce6040cb806f3 9-11
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogSendingDomainIdFilter.cs
+  807ce6040cb806f3 1-35
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogSendingStreamFilter.cs
+  807ce6040cb806f3 1-35
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogMessageEventSoftBounce.cs
+  807ce6040cb806f3 1-17
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogsListFilter.cs
+  807ce6040cb806f3 8,23,25,28,30,33,35,38,40,43,45,48,50,53,55,58,60,63,65,68,70,73,75,78,80,83,85,88,90,93,95,98,116,120,124,128,132,136,140,144,148,152,156,160,164,168,172,178,180,185,187
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogNumberFilter.cs
+  807ce6040cb806f3 1-22
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.10",
+  "base_commit_sha": "dd2609c632ac758256828366a7da192a63ed4b82",
+  "prompts": {
+    "807ce6040cb806f3": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "12f53f95-0790-4eb3-a49c-dd9fc2b3aa14",
+        "model": "default"
+      },
+      "human_author": null,
+      "messages": [],
+      "total_additions": 1053,
+      "total_deletions": 212,
+      "accepted_lines": 618,
+      "overriden_lines": 0
+    },
+    "a7210b66fcd2a0aa": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "96cd1ebb-5298-4438-9005-c33f4614a04a",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": null,
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 3,
+      "overriden_lines": 0
+    }
+  }
+}

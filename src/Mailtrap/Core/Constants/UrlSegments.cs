@@ -1,4 +1,4 @@
-﻿namespace Mailtrap.Core.Constants;
+namespace Mailtrap.Core.Constants;
 
 
 internal static class UrlSegments
@@ -15,4 +15,5 @@ internal static class UrlSegments
     internal static string EmailTemplatesSegment { get; } = "email_templates";
     internal static string SuppressionsSegment { get; } = "suppressions";
     internal static string StatsSegment { get; } = "stats";
+    internal static string EmailLogsSegment { get; } = "email_logs";
 }

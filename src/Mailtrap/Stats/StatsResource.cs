@@ -96,17 +96,17 @@ internal sealed class StatsResource : RestResource, IStatsResource
 
         foreach (var stream in filter.SendingStreams)
         {
-            uri = uri.AppendQueryParameter(SendingStreamsParam, Uri.EscapeDataString(stream));
+            uri = uri.AppendQueryParameter(SendingStreamsParam, stream);
         }
 
         foreach (var category in filter.Categories)
         {
-            uri = uri.AppendQueryParameter(CategoriesParam, Uri.EscapeDataString(category));
+            uri = uri.AppendQueryParameter(CategoriesParam, category);
         }
 
         foreach (var provider in filter.EmailServiceProviders)
         {
-            uri = uri.AppendQueryParameter(EmailServiceProvidersParam, Uri.EscapeDataString(provider));
+            uri = uri.AppendQueryParameter(EmailServiceProvidersParam, provider);
         }
 
         return uri;

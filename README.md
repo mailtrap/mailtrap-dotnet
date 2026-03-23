@@ -274,6 +274,8 @@ private static SendEmailRequest TemplateBasedRequest()
 - Batch send (Transactional and Bulk streams) – [`examples/Mailtrap.Example.Email.BatchSend`](examples/Mailtrap.Example.Email.BatchSend/)
 - Sending domain management – [`examples/Mailtrap.Example.SendingDomain`](examples/Mailtrap.Example.SendingDomain/)
 - Suppressions management – [`examples/Mailtrap.Example.Suppression`](examples/Mailtrap.Example.Suppression/)
+- Email logs (list with filters and pagination; get message details with events) – [`examples/Mailtrap.Example.EmailLogs`](examples/Mailtrap.Example.EmailLogs/)
+- Email sending statistics – [`examples/Mailtrap.Example.Stats`](examples/Mailtrap.Example.Stats/)
 
 ### Email Sandbox (Testing)
 
@@ -292,10 +294,6 @@ private static SendEmailRequest TemplateBasedRequest()
 - Contact import management – [`examples/Mailtrap.Example.ContactImports`](examples/Mailtrap.Example.ContactImports/)
 - Contact export management – [`examples/Mailtrap.Example.ContactExports`](examples/Mailtrap.Example.ContactExports/)
 - Contact events management – [`examples/Mailtrap.Example.ContactEvents`](examples/Mailtrap.Example.ContactEvents/)
-
-### Stats API
-
-- Email sending statistics – [`examples/Mailtrap.Example.Stats`](examples/Mailtrap.Example.Stats/)
 
 ### General
 

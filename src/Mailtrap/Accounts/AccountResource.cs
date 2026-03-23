@@ -1,4 +1,4 @@
-﻿using AccountAccessResource = Mailtrap.AccountAccesses.AccountAccessResource;
+using AccountAccessResource = Mailtrap.AccountAccesses.AccountAccessResource;
 
 
 namespace Mailtrap.Accounts;
@@ -103,6 +103,21 @@ internal sealed class AccountResource : RestResource, IAccountResource
 
     public IStatsResource Stats()
         => new StatsResource(RestResourceCommandFactory, ResourceUri.Append(UrlSegments.StatsSegment));
+
+    #endregion
+
+    #region Email Logs
+
+    public IEmailLogCollectionResource EmailLogs()
+        => new EmailLogCollectionResource(RestResourceCommandFactory, ResourceUri.Append(UrlSegments.EmailLogsSegment));
+
+    public IEmailLogResource EmailLog(string sendingMessageId)
+    {
+        Ensure.NotNullOrEmpty(sendingMessageId, nameof(sendingMessageId));
+        var encoded = Uri.EscapeDataString(sendingMessageId);
+
+        return new EmailLogResource(RestResourceCommandFactory, ResourceUri.Append(UrlSegments.EmailLogsSegment).Append(encoded));
+    }
 
     #endregion
 }

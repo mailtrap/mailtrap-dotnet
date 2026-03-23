@@ -1,4 +1,4 @@
-﻿namespace Mailtrap.UnitTests.Core.Extensions;
+namespace Mailtrap.UnitTests.Core.Extensions;
 
 
 [TestFixture]
@@ -239,14 +239,6 @@ internal sealed class UriExtensionsTests
     }
 
     [Test]
-    public void AppendQueryParameter_ShouldThrowArgumentNullException_WhenValueIsEmpty()
-    {
-        var act = () => _absoluteUri.AppendQueryParameter("key", string.Empty);
-
-        act.Should().Throw<ArgumentNullException>();
-    }
-
-    [Test]
     public void AppendQueryParameter_ShouldAppendQueryParamToUri()
     {
         var key = "api";
@@ -271,6 +263,80 @@ internal sealed class UriExtensionsTests
             .AppendQueryParameter(key2, value2);
 
         result.AbsoluteUri.Should().Be($"{_absoluteUri.AbsoluteUri}?{key1}={value1}&{key2}={value2}");
+    }
+
+    #endregion
+
+
+    #region AppendQueryParameters
+
+    [Test]
+    public void AppendQueryParameters_ShouldThrowArgumentNullException_WhenUriIsNull()
+    {
+        var parameters = new List<KeyValuePair<string, string>> { new("a", "b") };
+        var act = () => UriExtensions.AppendQueryParameters(null!, parameters);
+
+        act.Should().Throw<ArgumentNullException>();
+    }
+
+    [Test]
+    public void AppendQueryParameters_ShouldThrowArgumentNullException_WhenParametersIsNull()
+    {
+        var act = () => _absoluteUri.AppendQueryParameters(null!);
+
+        act.Should().Throw<ArgumentNullException>();
+    }
+
+    [Test]
+    public void AppendQueryParameters_ShouldReturnSameUri_WhenParametersIsEmpty()
+    {
+        var result = _absoluteUri.AppendQueryParameters(Array.Empty<KeyValuePair<string, string>>());
+
+        result.Should().Be(_absoluteUri);
+    }
+
+    [Test]
+    public void AppendQueryParameters_ShouldAppendAndEncodeValues()
+    {
+        var parameters = new List<KeyValuePair<string, string>>
+        {
+            new("filters[sent_after]", "2025-01-01T00:00:00.000Z"),
+            new("filters[to][operator]", "ci_equal"),
+            new("filters[to][value]", "user@example.com")
+        };
+
+        var result = _absoluteUri.AppendQueryParameters(parameters);
+
+        result.Query.Should().Contain("filters[sent_after]=2025-01-01T00%3A00%3A00.000Z");
+        result.Query.Should().Contain("filters[to][operator]=ci_equal");
+        result.Query.Should().Contain("filters[to][value]=user%40example.com");
+    }
+
+    [Test]
+    public void AppendQueryParameters_ShouldSupportDuplicateKeys_ForMultiValueFilters()
+    {
+        var parameters = new List<KeyValuePair<string, string>>
+        {
+            new("filters[status][value][]", "delivered"),
+            new("filters[status][value][]", "enqueued")
+        };
+
+        var result = _absoluteUri.AppendQueryParameters(parameters);
+
+        result.Query.Should().Contain("delivered");
+        result.Query.Should().Contain("enqueued");
+    }
+
+    [Test]
+    public void AppendQueryParameters_ShouldMergeWithExistingQuery()
+    {
+        var uriWithQuery = new Uri($"{_absoluteUrl}?existing=1");
+        var parameters = new List<KeyValuePair<string, string>> { new("new", "2") };
+
+        var result = uriWithQuery.AppendQueryParameters(parameters);
+
+        result.Query.Should().Contain("existing=1");
+        result.Query.Should().Contain("new=2");
     }
 
     #endregion

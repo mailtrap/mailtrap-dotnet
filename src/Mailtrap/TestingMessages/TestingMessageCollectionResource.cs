@@ -1,4 +1,4 @@
-﻿namespace Mailtrap.TestingMessages;
+namespace Mailtrap.TestingMessages;
 
 
 internal sealed class TestingMessageCollectionResource : RestResource, ITestingMessageCollectionResource
@@ -36,7 +36,7 @@ internal sealed class TestingMessageCollectionResource : RestResource, ITestingM
 
         if (!string.IsNullOrEmpty(filter?.SearchFilter))
         {
-            var searchFilter = filter?.SearchFilter!;
+            var searchFilter = filter?.SearchFilter;
             uri = uri.AppendQueryParameter(SearchFilterQueryParameter, searchFilter);
         }
 

@@ -1,0 +1,51 @@
+CHANGELOG.md
+  7d7f10d61518e58f 3-9
+README.md
+  7d7f10d61518e58f 47
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.22",
+  "base_commit_sha": "edc4e18ed5cc9ab831bfbe1b0cd6577ac30b7ef0",
+  "prompts": {
+    "01e1ddf12cc832b2": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "65b1d54c-97e0-4cf5-ab14-6b0ad1d503dc",
+        "model": "default"
+      },
+      "human_author": "Marcin Klocek <marcin.klocek@railsware.com>",
+      "messages": [],
+      "total_additions": 172,
+      "total_deletions": 124,
+      "accepted_lines": 130,
+      "overriden_lines": 0
+    },
+    "7d7f10d61518e58f": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "8c917bcc-61ea-4e08-b23d-0bd0c23b3b82",
+        "model": "default"
+      },
+      "human_author": "Marcin Klocek <marcin.klocek@railsware.com>",
+      "messages": [],
+      "total_additions": 9,
+      "total_deletions": 2,
+      "accepted_lines": 8,
+      "overriden_lines": 0
+    },
+    "aa81591d62b21a60": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "d62591f4-a444-4582-b80e-5d927607df4a",
+        "model": "default"
+      },
+      "human_author": "Marcin Klocek <marcin.klocek@railsware.com>",
+      "messages": [],
+      "total_additions": 2,
+      "total_deletions": 2,
+      "accepted_lines": 1,
+      "overriden_lines": 0
+    }
+  }
+}

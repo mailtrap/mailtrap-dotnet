@@ -20,7 +20,7 @@ internal sealed class TestingMessageJsonTests
             }
             """;
 
-        var message = JsonSerializer.Deserialize<TestingMessage>(json);
+        var message = JsonSerializer.Deserialize<TestingMessage>(json, MailtrapJsonSerializerOptions.NotIndented);
 
         message.Should().NotBeNull();
         message!.BlacklistsReportInfo.Result.Should().Be(BlacklistReportResult.Error);
@@ -38,7 +38,7 @@ internal sealed class TestingMessageJsonTests
             }
             """;
 
-        var message = JsonSerializer.Deserialize<TestingMessage>(json);
+        var message = JsonSerializer.Deserialize<TestingMessage>(json, MailtrapJsonSerializerOptions.NotIndented);
 
         message.Should().NotBeNull();
         message!.BlacklistsReportInfo.Result.Should().Be(BlacklistReportResult.Unknown);

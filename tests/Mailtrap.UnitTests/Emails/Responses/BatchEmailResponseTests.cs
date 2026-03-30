@@ -1,4 +1,4 @@
-﻿namespace Mailtrap.UnitTests.Emails.Responses;
+namespace Mailtrap.UnitTests.Emails.Responses;
 
 
 [TestFixture]
@@ -163,7 +163,7 @@ internal sealed class BatchEmailResponseTests
         var deserialized = JsonSerializer.Deserialize<BatchEmailResponse>(json, options);
 
         deserialized.Should().NotBeNull();
-        deserialized!.Success.Should().BeTrue();
+        deserialized.Success.Should().BeTrue();
         deserialized.Errors.Should().BeEmpty();
         deserialized.Responses.Should().HaveCount(2);
         deserialized.Responses[0].MessageIds.Should().BeEquivalentTo(messageIds);

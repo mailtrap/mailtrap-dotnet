@@ -1,4 +1,4 @@
-﻿namespace Mailtrap.UnitTests.Core.Http;
+namespace Mailtrap.UnitTests.Core.Http;
 
 
 [TestFixture]
@@ -26,9 +26,9 @@ internal sealed class HttpRequestContentFactoryTests
         using var content = factory.CreateStringContent(string.Empty);
 
         content.Should().NotBeNull();
-        content!.Headers.Should().ContainKey("Content-Type");
-        content!.Headers.ContentType.Should().NotBeNull();
-        content!.Headers.ContentType!.MediaType.Should().Be(MimeTypes.Application.Json);
+        content.Headers.Should().ContainKey("Content-Type");
+        content.Headers.ContentType.Should().NotBeNull();
+        content.Headers.ContentType!.MediaType.Should().Be(MimeTypes.Application.Json);
     }
 
     [Test]

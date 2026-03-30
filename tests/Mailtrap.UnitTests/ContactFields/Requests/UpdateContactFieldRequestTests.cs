@@ -1,4 +1,4 @@
-﻿namespace Mailtrap.UnitTests.ContactFields.Requests;
+namespace Mailtrap.UnitTests.ContactFields.Requests;
 
 
 [TestFixture]
@@ -22,7 +22,7 @@ internal sealed class UpdateContactFieldRequestTests
     [Test]
     public void Constructor_ShouldThrowArgumentException_WhenNameAndMergeTagIsNull()
     {
-        var act = () => new UpdateContactFieldRequest(null!, null!);
+        var act = () => new UpdateContactFieldRequest(null, null);
 
         act.Should().Throw<ArgumentException>();
     }
@@ -57,7 +57,7 @@ internal sealed class UpdateContactFieldRequestTests
         var mergeTag = TestContext.CurrentContext.Random.GetString(5);
 
         // Act
-        var request = new UpdateContactFieldRequest(null!, mergeTag);
+        var request = new UpdateContactFieldRequest(null, mergeTag);
 
         // Assert
         request.Name.Should().Be(null);
@@ -85,7 +85,7 @@ internal sealed class UpdateContactFieldRequestTests
         var name = TestContext.CurrentContext.Random.GetString(5);
 
         // Act
-        var request = new UpdateContactFieldRequest(name, null!);
+        var request = new UpdateContactFieldRequest(name, null);
 
         // Assert
         request.Name.Should().Be(name);
@@ -125,7 +125,7 @@ internal sealed class UpdateContactFieldRequestTests
     public void Validate_ShouldPass_WhenProvidedNameIsNull()
     {
         // Arrange
-        var name = (string)null!;
+        string? name = null;
         var mergeTag = TestContext.CurrentContext.Random.GetString(10);
         var request = new UpdateContactFieldRequest(name, mergeTag);
 
@@ -156,7 +156,7 @@ internal sealed class UpdateContactFieldRequestTests
     {
         // Arrange
         var name = TestContext.CurrentContext.Random.GetString(10);
-        var request = new UpdateContactFieldRequest(name, null!);
+        var request = new UpdateContactFieldRequest(name, null);
 
         // Act
         var result = request.Validate();

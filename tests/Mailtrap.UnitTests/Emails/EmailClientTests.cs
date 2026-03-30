@@ -1,4 +1,4 @@
-﻿namespace Mailtrap.UnitTests.Emails;
+namespace Mailtrap.UnitTests.Emails;
 
 
 [TestFixture]
@@ -85,8 +85,8 @@ internal sealed class EmailClientTests
             .NotBeNull().And
             .BeEquivalentTo(response);
 
-        result!.Success.Should().BeTrue();
-        result!.MessageIds.Should().ContainSingle(m => m == messageId);
+        result.Success.Should().BeTrue();
+        result.MessageIds.Should().ContainSingle(m => m == messageId);
     }
 
 

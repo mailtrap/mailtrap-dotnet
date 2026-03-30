@@ -1,4 +1,4 @@
-﻿namespace Mailtrap.IntegrationTests.ContactFields;
+namespace Mailtrap.IntegrationTests.ContactFields;
 
 
 [TestFixture]
@@ -7,9 +7,9 @@ internal sealed class ContactFieldIntegrationTests
     private const string Feature = "ContactFields";
 
     private readonly long _accountId;
-    private readonly Uri _resourceUri = null!;
-    private readonly MailtrapClientOptions _clientConfig = null!;
-    private readonly JsonSerializerOptions _jsonSerializerOptions = null!;
+    private readonly Uri _resourceUri;
+    private readonly MailtrapClientOptions _clientConfig;
+    private readonly JsonSerializerOptions _jsonSerializerOptions;
 
 
     public ContactFieldIntegrationTests()

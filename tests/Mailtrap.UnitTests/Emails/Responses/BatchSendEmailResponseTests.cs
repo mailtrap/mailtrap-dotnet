@@ -1,4 +1,4 @@
-﻿namespace Mailtrap.UnitTests.Emails.Responses;
+namespace Mailtrap.UnitTests.Emails.Responses;
 
 
 [TestFixture]
@@ -76,9 +76,9 @@ internal sealed class BatchSendEmailResponseTests
         var response = JsonSerializer.Deserialize<BatchSendEmailResponse>(responseText, MailtrapJsonSerializerOptions.NotIndented);
 
         response.Should().NotBeNull();
-        response!.Success.Should().BeFalse();
-        response!.MessageIds.Should().BeEmpty();
-        response!.Errors.Should()
+        response.Success.Should().BeFalse();
+        response.MessageIds.Should().BeEmpty();
+        response.Errors.Should()
             .NotBeNull().And
             .HaveCount(3).And
             .ContainInOrder("error 1", "error 2", "error 3");
@@ -102,9 +102,9 @@ internal sealed class BatchSendEmailResponseTests
 
         // Assert
         response.Should().NotBeNull();
-        response!.Success.Should().BeFalse();
-        response!.Errors.Should().BeEmpty();
-        response!.MessageIds.Should()
+        response.Success.Should().BeFalse();
+        response.Errors.Should().BeEmpty();
+        response.MessageIds.Should()
             .NotBeNull().And
             .HaveCount(2).And
             .ContainInOrder("id1", "id2");
@@ -130,12 +130,12 @@ internal sealed class BatchSendEmailResponseTests
         var response = JsonSerializer.Deserialize<BatchSendEmailResponse>(responseText, MailtrapJsonSerializerOptions.NotIndented);
 
         response.Should().NotBeNull();
-        response!.Success.Should().BeFalse();
-        response!.MessageIds.Should()
+        response.Success.Should().BeFalse();
+        response.MessageIds.Should()
             .NotBeNull().And
             .HaveCount(2).And
             .ContainInOrder("id1", "id2");
-        response!.Errors.Should()
+        response.Errors.Should()
             .NotBeNull().And
             .HaveCount(3).And
             .ContainInOrder("error 1", "error 2", "error 3");
@@ -153,7 +153,7 @@ internal sealed class BatchSendEmailResponseTests
         var deserialized = JsonSerializer.Deserialize<BatchSendEmailResponse>(json, options);
 
         deserialized.Should().NotBeNull();
-        deserialized!.Success.Should().BeFalse();
+        deserialized.Success.Should().BeFalse();
         deserialized.MessageIds.Should().BeEquivalentTo(messageIds);
         deserialized.Errors.Should().BeEquivalentTo(errors);
     }

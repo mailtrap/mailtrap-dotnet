@@ -1,4 +1,4 @@
-﻿namespace Mailtrap.UnitTests.Emails.Requests;
+namespace Mailtrap.UnitTests.Emails.Requests;
 
 
 [TestFixture(TestOf = typeof(EmailRequestBuilder))]
@@ -20,7 +20,7 @@ internal sealed class EmailRequestBuilderTests_Category
     {
         var request = EmailRequest.Create();
 
-        var act = () => request.Category(null!);
+        var act = () => request.Category(null);
 
         act.Should().NotThrow();
     }

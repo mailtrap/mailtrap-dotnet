@@ -38,13 +38,13 @@ Replace GITHUB_PAT with the personal access token that is granted at least `read
 Then add the Mailtrap package:
 
 ```bash
-dotnet add package Mailtrap -v 3.1.0 -s github-mailtrap
+dotnet add package Mailtrap -v 3.1.1 -s github-mailtrap
 ```
 
 Optionally, you can add the Mailtrap.Abstractions package:
 
 ```bash
-dotnet add package Mailtrap.Abstractions -v 3.1.0 -s github-mailtrap
+dotnet add package Mailtrap.Abstractions -v 3.1.1 -s github-mailtrap
 ```
 
 ---

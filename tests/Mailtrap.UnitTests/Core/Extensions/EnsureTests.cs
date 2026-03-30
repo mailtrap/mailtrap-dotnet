@@ -1,4 +1,4 @@
-﻿namespace Mailtrap.UnitTests.Core.Extensions;
+namespace Mailtrap.UnitTests.Core.Extensions;
 
 
 [TestFixture]
@@ -31,7 +31,7 @@ internal sealed class EnsureTests
         string? paramValue = null;
         var message = "Message";
 
-        var act = () => Ensure.NotNullOrEmpty(paramValue!, nameof(paramValue), message);
+        var act = () => Ensure.NotNullOrEmpty(paramValue, nameof(paramValue), message);
 
         act.Should().Throw<ArgumentNullException>().WithMessage(message + "*");
     }

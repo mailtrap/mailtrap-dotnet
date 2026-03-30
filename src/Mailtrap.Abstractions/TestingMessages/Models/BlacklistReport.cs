@@ -1,10 +1,9 @@
-﻿namespace Mailtrap.TestingMessages.Models;
+namespace Mailtrap.TestingMessages.Models;
 
 
 /// <summary>
 /// Represents blacklist report for email message.
 /// </summary>
-[JsonConverter(typeof(BlacklistReportJsonConverter))]
 public sealed record BlacklistReport
 {
     /// <summary>

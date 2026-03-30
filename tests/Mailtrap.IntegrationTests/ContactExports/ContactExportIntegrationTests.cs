@@ -1,4 +1,4 @@
-﻿namespace Mailtrap.IntegrationTests.ContactExports;
+namespace Mailtrap.IntegrationTests.ContactExports;
 
 
 [TestFixture]
@@ -7,9 +7,9 @@ internal sealed class ContactExportIntegrationTests
     private const string Feature = "ContactExports";
 
     private readonly long _accountId;
-    private readonly Uri _resourceUri = null!;
-    private readonly MailtrapClientOptions _clientConfig = null!;
-    private readonly JsonSerializerOptions _jsonSerializerOptions = null!;
+    private readonly Uri _resourceUri;
+    private readonly MailtrapClientOptions _clientConfig;
+    private readonly JsonSerializerOptions _jsonSerializerOptions;
 
 
     public ContactExportIntegrationTests()

@@ -1,4 +1,4 @@
-﻿namespace Mailtrap.IntegrationTests.ContactEvents;
+namespace Mailtrap.IntegrationTests.ContactEvents;
 
 
 [TestFixture]
@@ -8,9 +8,9 @@ internal sealed class ContactEventIntegrationTests
 
     private readonly long _accountId;
     private readonly string _contactId;
-    private readonly Uri _resourceUri = null!;
-    private readonly MailtrapClientOptions _clientConfig = null!;
-    private readonly JsonSerializerOptions _jsonSerializerOptions = null!;
+    private readonly Uri _resourceUri;
+    private readonly MailtrapClientOptions _clientConfig;
+    private readonly JsonSerializerOptions _jsonSerializerOptions;
 
 
     public ContactEventIntegrationTests()
@@ -39,11 +39,11 @@ internal sealed class ContactEventIntegrationTests
         var requestUri = _resourceUri.AbsoluteUri;
 
         var requestContent = await Feature.LoadFileToString(fileName + "_Request");
-        var request = JsonSerializer.Deserialize<CreateContactEventRequest>(requestContent, _jsonSerializerOptions)!;
+        var request = JsonSerializer.Deserialize<CreateContactEventRequest>(requestContent, _jsonSerializerOptions);
         request.Should().NotBeNull();
 
         using var responseContent = await Feature.LoadFileToStringContent(fileName + "_Response");
-        var expectedResponse = (await responseContent.DeserializeStringContentAsync<ContactEvent>(_jsonSerializerOptions))!;
+        var expectedResponse = await responseContent.DeserializeStringContentAsync<ContactEvent>(_jsonSerializerOptions);
         expectedResponse.Should().NotBeNull();
 
         using var mockHttp = new MockHttpMessageHandler();

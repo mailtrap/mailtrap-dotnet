@@ -1,4 +1,4 @@
-﻿namespace Mailtrap.IntegrationTests.Projects;
+namespace Mailtrap.IntegrationTests.Projects;
 
 
 [TestFixture]
@@ -8,9 +8,9 @@ internal sealed class ProjectsIntegrationTests
 
 
     private readonly long _accountId;
-    private readonly Uri _resourceUri = null!;
-    private readonly MailtrapClientOptions _clientConfig = null!;
-    private readonly JsonSerializerOptions _jsonSerializerOptions = null!;
+    private readonly Uri _resourceUri;
+    private readonly MailtrapClientOptions _clientConfig;
+    private readonly JsonSerializerOptions _jsonSerializerOptions;
 
 
     public ProjectsIntegrationTests()

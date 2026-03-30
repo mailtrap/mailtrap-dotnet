@@ -1,4 +1,4 @@
-﻿namespace Mailtrap.IntegrationTests.Emails;
+namespace Mailtrap.IntegrationTests.Emails;
 
 
 [TestFixture]
@@ -35,8 +35,8 @@ internal sealed class SendEmailIntegrationTests
             .NotBeNull().And
             .BeEquivalentTo(response);
 
-        result!.Success.Should().BeTrue();
-        result!.MessageIds.Should().ContainSingle(m => m == messageId);
+        result.Success.Should().BeTrue();
+        result.MessageIds.Should().ContainSingle(m => m == messageId);
     }
 
     [TestCaseSource(nameof(TestCasesForDefault))]
@@ -66,8 +66,8 @@ internal sealed class SendEmailIntegrationTests
             .NotBeNull().And
             .BeEquivalentTo(response);
 
-        result!.Success.Should().BeTrue();
-        result!.MessageIds.Should().ContainSingle(m => m == messageId);
+        result.Success.Should().BeTrue();
+        result.MessageIds.Should().ContainSingle(m => m == messageId);
     }
 
     [TestCaseSource(nameof(TestCasesForNonDefault))]
@@ -103,8 +103,8 @@ internal sealed class SendEmailIntegrationTests
             .NotBeNull().And
             .BeEquivalentTo(response);
 
-        result!.Success.Should().BeTrue();
-        result!.MessageIds.Should().ContainSingle(m => m == messageId);
+        result.Success.Should().BeTrue();
+        result.MessageIds.Should().ContainSingle(m => m == messageId);
     }
 
     [TestCaseSource(nameof(TestCasesForNonDefault))]
@@ -140,8 +140,8 @@ internal sealed class SendEmailIntegrationTests
             .NotBeNull().And
             .BeEquivalentTo(response);
 
-        result!.Success.Should().BeTrue();
-        result!.MessageIds.Should().ContainSingle(m => m == messageId);
+        result.Success.Should().BeTrue();
+        result.MessageIds.Should().ContainSingle(m => m == messageId);
     }
 
     [TestCaseSource(nameof(TestCasesForNonDefault))]
@@ -181,8 +181,8 @@ internal sealed class SendEmailIntegrationTests
             .NotBeNull().And
             .BeEquivalentTo(response);
 
-        result!.Success.Should().BeTrue();
-        result!.MessageIds.Should().ContainSingle(m => m == messageId);
+        result.Success.Should().BeTrue();
+        result.MessageIds.Should().ContainSingle(m => m == messageId);
     }
 
 

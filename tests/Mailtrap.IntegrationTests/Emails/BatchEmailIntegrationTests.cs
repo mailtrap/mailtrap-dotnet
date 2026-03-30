@@ -1,4 +1,4 @@
-﻿namespace Mailtrap.IntegrationTests.Emails;
+namespace Mailtrap.IntegrationTests.Emails;
 
 
 [TestFixture]
@@ -70,8 +70,8 @@ internal sealed class BatchEmailIntegrationTests
             .NotBeNull().And
             .BeEquivalentTo(response);
 
-        result!.Success.Should().BeTrue();
-        result!.Responses.Should().HaveCount(2);
+        result.Success.Should().BeTrue();
+        result.Responses.Should().HaveCount(2);
     }
 
     [TestCaseSource(nameof(TestCasesForNonDefault))]
@@ -109,8 +109,8 @@ internal sealed class BatchEmailIntegrationTests
             .NotBeNull().And
             .BeEquivalentTo(response);
 
-        result!.Success.Should().BeTrue();
-        result!.Responses.Should().HaveCount(2);
+        result.Success.Should().BeTrue();
+        result.Responses.Should().HaveCount(2);
     }
 
     [TestCaseSource(nameof(TestCasesForNonDefault))]
@@ -148,8 +148,8 @@ internal sealed class BatchEmailIntegrationTests
             .NotBeNull().And
             .BeEquivalentTo(response);
 
-        result!.Success.Should().BeTrue();
-        result!.Responses.Should().HaveCount(2);
+        result.Success.Should().BeTrue();
+        result.Responses.Should().HaveCount(2);
     }
 
     [TestCaseSource(nameof(TestCasesForNonDefault))]
@@ -190,8 +190,8 @@ internal sealed class BatchEmailIntegrationTests
             .NotBeNull().And
             .BeEquivalentTo(response);
 
-        result!.Success.Should().BeTrue();
-        result!.Responses.Should().HaveCount(2);
+        result.Success.Should().BeTrue();
+        result.Responses.Should().HaveCount(2);
     }
 
     #region Test Cases

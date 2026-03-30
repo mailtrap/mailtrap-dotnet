@@ -1,4 +1,4 @@
-﻿namespace Mailtrap.IntegrationTests.Inboxes;
+namespace Mailtrap.IntegrationTests.Inboxes;
 
 
 [TestFixture]
@@ -14,9 +14,9 @@ internal sealed class InboxesIntegrationTests
 
 
     private readonly long _accountId;
-    private readonly Uri _resourceUri = null!;
-    private readonly MailtrapClientOptions _clientConfig = null!;
-    private readonly JsonSerializerOptions _jsonSerializerOptions = null!;
+    private readonly Uri _resourceUri;
+    private readonly MailtrapClientOptions _clientConfig;
+    private readonly JsonSerializerOptions _jsonSerializerOptions;
 
 
     public InboxesIntegrationTests()

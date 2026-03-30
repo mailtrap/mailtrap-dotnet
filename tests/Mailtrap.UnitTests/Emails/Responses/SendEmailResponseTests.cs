@@ -1,4 +1,4 @@
-﻿namespace Mailtrap.UnitTests.Emails.Responses;
+namespace Mailtrap.UnitTests.Emails.Responses;
 
 
 [TestFixture]
@@ -39,11 +39,11 @@ internal sealed class SendEmailResponseTests
         var response = JsonSerializer.Deserialize<SendEmailResponse>(responseText, MailtrapJsonSerializerOptions.NotIndented);
 
         response.Should().NotBeNull();
-        response!.Success.Should().BeTrue();
-        response!.MessageIds.Should()
+        response.Success.Should().BeTrue();
+        response.MessageIds.Should()
             .NotBeNull().And
             .HaveCount(1);
-        response!.MessageIds!.Single().Should().Be(messageId);
+        response.MessageIds!.Single().Should().Be(messageId);
     }
 
     [Test]
@@ -57,7 +57,7 @@ internal sealed class SendEmailResponseTests
         var deserialized = JsonSerializer.Deserialize<SendEmailResponse>(json, options);
 
         deserialized.Should().NotBeNull();
-        deserialized!.Success.Should().BeTrue();
+        deserialized.Success.Should().BeTrue();
         deserialized.MessageIds.Should().BeEquivalentTo(messageIds);
     }
 }

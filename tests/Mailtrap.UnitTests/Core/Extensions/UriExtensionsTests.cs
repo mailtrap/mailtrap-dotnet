@@ -233,7 +233,7 @@ internal sealed class UriExtensionsTests
     [Test]
     public void AppendQueryParameter_ShouldThrowArgumentNullException_WhenValueIsNull()
     {
-        var act = () => _absoluteUri.AppendQueryParameter("key", null!);
+        var act = () => _absoluteUri.AppendQueryParameter("key", null);
 
         act.Should().Throw<ArgumentNullException>();
     }

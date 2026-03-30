@@ -1,4 +1,4 @@
-﻿namespace Mailtrap.TestingMessages.Models;
+namespace Mailtrap.TestingMessages.Models;
 
 
 /// <summary>
@@ -239,6 +239,7 @@ public sealed record TestingMessage
     /// </value>
     [JsonPropertyName("blacklists_report_info")]
     [JsonPropertyOrder(21)]
+    [JsonConverter(typeof(BlacklistReportJsonConverter))]
     public BlacklistReport BlacklistsReportInfo { get; set; } = new(); // Can't use JSON Populate here, since it uses custom converter
 
     /// <summary>

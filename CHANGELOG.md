@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.1.1] - 2026-03-30
+
+### Fixes & Maintenance
+
+- **Testing messages** — Fixed a stack overflow when deserializing `blacklists_report_info` from the API (object vs. boolean shapes).
+- Build/analyzer: resolved IDE0370 suppressions in testing message code and tests.
+
 ## [3.1.0] - 2026-03-23
 
 ### Features

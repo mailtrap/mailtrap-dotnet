@@ -1,0 +1,80 @@
+tests/Mailtrap.UnitTests/TestConstants/UrlSegmentsTestConstants.cs
+  9556882df39b8757 29-30
+src/Mailtrap.Abstractions/IMailtrapOrganizationClient.cs
+  9556882df39b8757 1-31
+tests/Mailtrap.IntegrationTests/GlobalUsings.cs
+  9556882df39b8757 38-39
+src/Mailtrap/MailtrapOrganizationClient.cs
+  9556882df39b8757 1-20
+tests/Mailtrap.IntegrationTests/Organizations/GetAll_Success.json
+  9556882df39b8757 1-4
+src/Mailtrap/MailtrapClientServiceCollectionExtensions.cs
+  9556882df39b8757 147
+src/Mailtrap.Abstractions/Organizations/Models/SubAccount.cs
+  9556882df39b8757 1-23
+src/Mailtrap.Abstractions/Organizations/Requests/CreateSubAccountRequest.cs
+  9556882df39b8757 1-26
+src/Mailtrap.Abstractions/Organizations/IOrganizationSubAccountCollectionResource.cs
+  9556882df39b8757 1-38
+src/Mailtrap/GlobalUsings.cs
+  9556882df39b8757 68-70
+src/Mailtrap/Organizations/OrganizationSubAccountCollectionResource.cs
+  9556882df39b8757 1-15
+src/Mailtrap/Core/Constants/UrlSegments.cs
+  9556882df39b8757 20-21
+src/Mailtrap.Abstractions/IMailtrapClientFactory.cs
+  9556882df39b8757 30-42
+tests/Mailtrap.IntegrationTests/TestConstants/UrlSegmentsTestConstants.cs
+  9556882df39b8757 31-32
+tests/Mailtrap.UnitTests/Organizations/OrganizationSubAccountCollectionResourceTests.cs
+  9556882df39b8757 1-47
+CHANGELOG.md
+  9556882df39b8757 13-15
+src/Mailtrap.Abstractions/Organizations/Models/SubAccountAttributes.cs
+  9556882df39b8757 1-15
+src/Mailtrap.Abstractions/Organizations/IOrganizationResource.cs
+  9556882df39b8757 1-17
+tests/Mailtrap.UnitTests/Organizations/CreateSubAccountRequestValidatorTests.cs
+  9556882df39b8757 1-39
+src/Mailtrap/Organizations/OrganizationResource.cs
+  9556882df39b8757 1-12
+tests/Mailtrap.UnitTests/GlobalUsings.cs
+  9556882df39b8757 57-60
+tests/Mailtrap.IntegrationTests/Organizations/Create_Success.json
+  9556882df39b8757 1
+src/Mailtrap.Abstractions/Organizations/Validators/CreateSubAccountRequestValidator.cs
+  9556882df39b8757 1-22
+tests/Mailtrap.IntegrationTests/Organizations/OrganizationsIntegrationTests.cs
+  9556882df39b8757 1-91
+src/Mailtrap.Abstractions/GlobalUsings.cs
+  9556882df39b8757 69-72
+tests/Mailtrap.IntegrationTests/TestExtensions/MockHttpHandlerHelpers.cs
+  9556882df39b8757 11,21-26,256,258
+src/Mailtrap/MailtrapClientFactory.cs
+  9556882df39b8757 159-161
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.4",
+  "base_commit_sha": "54ce25b596dfd91d1483d15f0777631f347be109",
+  "prompts": {
+    "9556882df39b8757": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "7afc9376-d354-4f74-aac1-dfa376569b97",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Igor Dobryn",
+      "messages": [],
+      "total_additions": 450,
+      "total_deletions": 6,
+      "accepted_lines": 478,
+      "overriden_lines": 0
+    }
+  },
+  "humans": {
+    "h_c133502bfb58a4": {
+      "author": "Igor Dobryn"
+    }
+  }
+}

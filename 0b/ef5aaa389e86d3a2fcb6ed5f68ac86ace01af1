@@ -1,0 +1,60 @@
+tests/Mailtrap.IntegrationTests/ApiTokens/ApiTokensIntegrationTests.cs
+  9556882df39b8757 1-60
+tests/Mailtrap.UnitTests/ApiTokens/ApiTokenCollectionResourceTests.cs
+  9556882df39b8757 1-53
+src/Mailtrap/ApiTokens/ApiTokenCollectionResource.cs
+  9556882df39b8757 1-12
+src/Mailtrap/Core/Constants/UrlSegments.cs
+  9556882df39b8757 19
+tests/Mailtrap.UnitTests/TestConstants/UrlSegmentsTestConstants.cs
+  9556882df39b8757 28
+src/Mailtrap.Abstractions/ApiTokens/Models/ApiTokenAccess.cs
+  9556882df39b8757 5-7
+src/Mailtrap.Abstractions/ApiTokens/Models/ApiToken.cs
+  9556882df39b8757 1-76
+src/Mailtrap/Accounts/AccountResource.cs
+  9556882df39b8757 123-129
+src/Mailtrap.Abstractions/GlobalUsings.cs
+  9556882df39b8757 14-15
+tests/Mailtrap.IntegrationTests/TestConstants/UrlSegmentsTestConstants.cs
+  9556882df39b8757 30
+tests/Mailtrap.IntegrationTests/GlobalUsings.cs
+  9556882df39b8757 10-11
+src/Mailtrap.Abstractions/Accounts/IAccountResource.cs
+  9556882df39b8757 249-257
+src/Mailtrap/GlobalUsings.cs
+  9556882df39b8757 16-17
+src/Mailtrap.Abstractions/ApiTokens/IApiTokenCollectionResource.cs
+  9556882df39b8757 1-21
+tests/Mailtrap.IntegrationTests/ApiTokens/GetAll_Success.json
+  9556882df39b8757 1-35
+tests/Mailtrap.UnitTests/GlobalUsings.cs
+  9556882df39b8757 14-15
+CHANGELOG.md
+  9556882df39b8757 3-8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.4",
+  "base_commit_sha": "0bef5aaa389e86d3a2fcb6ed5f68ac86ace01af1",
+  "prompts": {
+    "9556882df39b8757": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "7afc9376-d354-4f74-aac1-dfa376569b97",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Igor Dobryn",
+      "messages": [],
+      "total_additions": 337,
+      "total_deletions": 5,
+      "accepted_lines": 292,
+      "overriden_lines": 0
+    }
+  },
+  "humans": {
+    "h_c133502bfb58a4": {
+      "author": "Igor Dobryn"
+    }
+  }
+}

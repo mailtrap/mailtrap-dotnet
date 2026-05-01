@@ -144,6 +144,7 @@ public static class MailtrapClientServiceCollectionExtensions
         services.TryAddTransient(services => services.GetRequiredService<IEmailClientFactory>().CreateBatchDefault());
 
         services.TryAddTransient<IMailtrapClient, MailtrapClient>();
+        services.TryAddTransient<IMailtrapOrganizationClient, MailtrapOrganizationClient>();
 
         return services;
     }

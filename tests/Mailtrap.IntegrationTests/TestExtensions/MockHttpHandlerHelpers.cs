@@ -8,7 +8,7 @@ namespace Mailtrap.IntegrationTests.TestExtensions;
 /// and its associated <see cref="IMailtrapClient"/> within tests.
 /// When disposed, it releases all resources created by the underlying service provider.
 /// </remarks>
-internal sealed class MailtrapClientScope(IMailtrapClient client, ServiceProvider provider) : IDisposable
+internal sealed class MailtrapClientScope(IMailtrapClient client, IMailtrapOrganizationClient organizationClient, ServiceProvider provider) : IDisposable
 {
     /// <summary>
     /// Gets the configured Mailtrap client instance.
@@ -18,6 +18,12 @@ internal sealed class MailtrapClientScope(IMailtrapClient client, ServiceProvide
     /// The <see cref="IMailtrapClient"/> instance resolved from the test service provider.
     /// </value>
     public IMailtrapClient Client { get; } = client;
+
+    /// <summary>
+    /// Gets the configured Mailtrap organization client instance.
+    /// </summary>
+    public IMailtrapOrganizationClient OrganizationClient { get; } = organizationClient;
+
     private readonly ServiceProvider _provider = provider;
 
     /// <summary>
@@ -247,8 +253,9 @@ internal static class MockHttpHandlerHelpers
 
         var provider = serviceCollection.BuildServiceProvider();
         var client = provider.GetRequiredService<IMailtrapClient>();
+        var organizationClient = provider.GetRequiredService<IMailtrapOrganizationClient>();
 
-        return new MailtrapClientScope(client, provider);
+        return new MailtrapClientScope(client, organizationClient, provider);
     }
 
     /// <summary>

@@ -10,6 +10,9 @@
   - `IAccountResource.ApiToken(id).GetDetails()` — `GET /api/accounts/{account_id}/api_tokens/{id}`
   - `IAccountResource.ApiToken(id).Delete()` — `DELETE /api/accounts/{account_id}/api_tokens/{id}`
   - `IAccountResource.ApiToken(id).Reset()` — `POST /api/accounts/{account_id}/api_tokens/{id}/reset`
+- **Organizations API** — Added new top-level `IMailtrapOrganizationClient` (spawned via `MailtrapClientFactory.CreateOrganizationClient()`) for organization-scoped operations:
+  - `IOrganizationResource.SubAccounts().GetAll()` — `GET /api/organizations/{organization_id}/sub_accounts`
+  - `IOrganizationResource.SubAccounts().Create(request)` — `POST /api/organizations/{organization_id}/sub_accounts`
 
 ## [3.1.1] - 2026-03-30
 

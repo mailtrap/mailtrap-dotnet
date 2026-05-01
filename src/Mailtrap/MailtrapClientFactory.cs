@@ -156,6 +156,9 @@ public sealed class MailtrapClientFactory : IMailtrapClientFactory
     /// <inheritdoc/>
     public IMailtrapClient CreateClient() => _serviceProvider.GetRequiredService<IMailtrapClient>();
 
+    /// <inheritdoc/>
+    public IMailtrapOrganizationClient CreateOrganizationClient() => _serviceProvider.GetRequiredService<IMailtrapOrganizationClient>();
+
     #endregion
 
 

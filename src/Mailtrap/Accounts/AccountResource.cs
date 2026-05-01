@@ -120,4 +120,18 @@ internal sealed class AccountResource : RestResource, IAccountResource
     }
 
     #endregion
+
+    #region API Tokens
+
+    public IApiTokenCollectionResource ApiTokens()
+        => new ApiTokenCollectionResource(RestResourceCommandFactory, ResourceUri.Append(UrlSegments.ApiTokensSegment));
+
+    public IApiTokenResource ApiToken(long apiTokenId)
+    {
+        Ensure.GreaterThanZero(apiTokenId, nameof(apiTokenId));
+
+        return new ApiTokenResource(RestResourceCommandFactory, ResourceUri.Append(UrlSegments.ApiTokensSegment).Append(apiTokenId));
+    }
+
+    #endregion
 }

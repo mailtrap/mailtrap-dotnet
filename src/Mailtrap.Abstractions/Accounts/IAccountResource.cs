@@ -246,4 +246,30 @@ public interface IAccountResource : IRestResource
     /// When <paramref name="sendingMessageId"/> is null or empty.
     /// </exception>
     public IEmailLogResource EmailLog(string sendingMessageId);
+
+    /// <summary>
+    /// Gets API token collection resource for the account, represented by this resource instance.
+    /// </summary>
+    ///
+    /// <returns>
+    /// API token collection resource for the account, represented by this resource instance.
+    /// </returns>
+    public IApiTokenCollectionResource ApiTokens();
+
+    /// <summary>
+    /// Gets resource for specific API token, identified by <paramref name="apiTokenId"/>.
+    /// </summary>
+    ///
+    /// <param name="apiTokenId">
+    /// ID of API token to get resource for.
+    /// </param>
+    ///
+    /// <returns>
+    /// Resource for the API token with specified ID.
+    /// </returns>
+    ///
+    /// <exception cref="ArgumentOutOfRangeException">
+    /// When <paramref name="apiTokenId"/> is less than or equal to zero.
+    /// </exception>
+    public IApiTokenResource ApiToken(long apiTokenId);
 }

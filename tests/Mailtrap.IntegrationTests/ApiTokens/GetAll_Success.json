@@ -1,0 +1,35 @@
+[
+  {
+    "id": 12345,
+    "name": "Production token",
+    "last_4_digits": "x7k9",
+    "created_by": "user@example.com",
+    "expires_at": null,
+    "resources": [
+      {
+        "resource_type": "account",
+        "resource_id": 3229,
+        "access_level": 100
+      }
+    ]
+  },
+  {
+    "id": 12346,
+    "name": "Read-only token",
+    "last_4_digits": "ab12",
+    "created_by": "owner@example.com",
+    "expires_at": "2026-12-31T23:59:59Z",
+    "resources": [
+      {
+        "resource_type": "project",
+        "resource_id": 99,
+        "access_level": 10
+      },
+      {
+        "resource_type": "inbox",
+        "resource_id": 4567,
+        "access_level": 10
+      }
+    ]
+  }
+]

@@ -25,4 +25,5 @@ internal static class UrlSegmentsTestConstants
     internal static string BatchEmailSegment { get; } = "batch";
     internal static string StatsSegment { get; } = "stats";
     internal static string EmailLogsSegment { get; } = "email_logs";
+    internal static string ApiTokensSegment { get; } = "api_tokens";
 }

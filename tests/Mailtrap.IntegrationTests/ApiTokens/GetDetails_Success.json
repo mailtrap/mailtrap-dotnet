@@ -1,0 +1,14 @@
+{
+  "id": 12345,
+  "name": "Production token",
+  "last_4_digits": "x7k9",
+  "created_by": "user@example.com",
+  "expires_at": null,
+  "resources": [
+    {
+      "resource_type": "account",
+      "resource_id": 3229,
+      "access_level": 100
+    }
+  ]
+}

@@ -1,5 +1,16 @@
 # Changelog
 
+## [Unreleased]
+
+### Features
+
+- **API Tokens API** — Added full CRUD support:
+  - `IAccountResource.ApiTokens().GetAll()` — `GET /api/accounts/{account_id}/api_tokens`
+  - `IAccountResource.ApiTokens().Create(request)` — `POST /api/accounts/{account_id}/api_tokens`
+  - `IAccountResource.ApiToken(id).GetDetails()` — `GET /api/accounts/{account_id}/api_tokens/{id}`
+  - `IAccountResource.ApiToken(id).Delete()` — `DELETE /api/accounts/{account_id}/api_tokens/{id}`
+  - `IAccountResource.ApiToken(id).Reset()` — `POST /api/accounts/{account_id}/api_tokens/{id}/reset`
+
 ## [3.1.1] - 2026-03-30
 
 ### Fixes & Maintenance

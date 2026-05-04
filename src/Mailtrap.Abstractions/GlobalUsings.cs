@@ -88,4 +88,9 @@ global using Mailtrap.TestingMessages.Converters;
 global using Mailtrap.TestingMessages.Models;
 global using Mailtrap.TestingMessages.Requests;
 global using Mailtrap.TestingMessages.Responses;
+global using Mailtrap.Webhooks;
+global using Mailtrap.Webhooks.Models;
+global using Mailtrap.Webhooks.Requests;
+global using Mailtrap.Webhooks.Responses;
+global using Mailtrap.Webhooks.Validators;
 

@@ -134,4 +134,18 @@ internal sealed class AccountResource : RestResource, IAccountResource
     }
 
     #endregion
+
+    #region Webhooks
+
+    public IWebhookCollectionResource Webhooks()
+        => new WebhookCollectionResource(RestResourceCommandFactory, ResourceUri.Append(UrlSegments.WebhooksSegment));
+
+    public IWebhookResource Webhook(long webhookId)
+    {
+        Ensure.GreaterThanZero(webhookId, nameof(webhookId));
+
+        return new WebhookResource(RestResourceCommandFactory, ResourceUri.Append(UrlSegments.WebhooksSegment).Append(webhookId));
+    }
+
+    #endregion
 }

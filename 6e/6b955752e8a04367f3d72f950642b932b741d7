@@ -1,0 +1,78 @@
+src/Mailtrap/Webhooks/WebhookCollectionResource.cs
+  85f08628b232f1f9 1-25
+src/Mailtrap.Abstractions/Webhooks/Models/WebhookSendingStream.cs
+  85f08628b232f1f9 1-26
+src/Mailtrap/Webhooks/WebhookResource.cs
+  85f08628b232f1f9 1-32
+src/Mailtrap/Core/Constants/UrlSegments.cs
+  85f08628b232f1f9 22
+src/Mailtrap.Abstractions/Webhooks/IWebhookResource.cs
+  85f08628b232f1f9 1-51
+src/Mailtrap/Webhooks/Requests/CreateWebhookRequestDto.cs
+  85f08628b232f1f9 1-23
+src/Mailtrap.Abstractions/Webhooks/Responses/CreateWebhookResponse.cs
+  85f08628b232f1f9 1-27
+src/Mailtrap.Abstractions/Webhooks/Validators/UpdateWebhookRequestValidator.cs
+  85f08628b232f1f9 1-27
+src/Mailtrap.Abstractions/Accounts/IAccountResource.cs
+  85f08628b232f1f9 275-301
+src/Mailtrap.Abstractions/Webhooks/Models/WebhookPayloadFormat.cs
+  85f08628b232f1f9 1-26
+src/Mailtrap/Accounts/AccountResource.cs
+  85f08628b232f1f9 137-150
+src/Mailtrap.Abstractions/Webhooks/Requests/CreateWebhookRequest.cs
+  85f08628b232f1f9 1-105
+src/Mailtrap/Webhooks/Responses/WebhookResponseDto.cs
+  85f08628b232f1f9 1-13
+src/Mailtrap.Abstractions/GlobalUsings.cs
+  85f08628b232f1f9 91-95
+src/Mailtrap/GlobalUsings.cs
+  85f08628b232f1f9 88-91
+src/Mailtrap.Abstractions/GlobalSuppressions.cs
+  85f08628b232f1f9 25-27
+src/Mailtrap.Abstractions/Webhooks/Models/WebhookType.cs
+  85f08628b232f1f9 1-26
+src/Mailtrap.Abstractions/Webhooks/Models/WebhookEventType.cs
+  85f08628b232f1f9 1-53
+src/Mailtrap.Abstractions/Webhooks/Models/Webhook.cs
+  85f08628b232f1f9 1-100
+src/Mailtrap.Abstractions/Webhooks/Requests/UpdateWebhookRequest.cs
+  85f08628b232f1f9 1-67
+src/Mailtrap.Abstractions/Webhooks/Validators/CreateWebhookRequestValidator.cs
+  85f08628b232f1f9 1-42
+src/Mailtrap.Abstractions/Webhooks/IWebhookCollectionResource.cs
+  85f08628b232f1f9 1-42
+src/Mailtrap/Webhooks/Requests/UpdateWebhookRequestDto.cs
+  85f08628b232f1f9 1-23
+src/Mailtrap/Webhooks/Requests/WebhookRequestExtensions.cs
+  85f08628b232f1f9 1-9
+src/Mailtrap/Webhooks/Responses/WebhookListResponseDto.cs
+  85f08628b232f1f9 1-13
+src/Mailtrap/Webhooks/Responses/CreateWebhookResponseDto.cs
+  85f08628b232f1f9 1-13
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.4",
+  "base_commit_sha": "6e6b955752e8a04367f3d72f950642b932b741d7",
+  "prompts": {
+    "85f08628b232f1f9": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "da1761c5-8747-4b8f-8230-4a3e27092bd2",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Igor Dobryn",
+      "messages": [],
+      "total_additions": 877,
+      "total_deletions": 80,
+      "accepted_lines": 797,
+      "overriden_lines": 0
+    }
+  },
+  "humans": {
+    "h_c133502bfb58a4": {
+      "author": "Igor Dobryn"
+    }
+  }
+}

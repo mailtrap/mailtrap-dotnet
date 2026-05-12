@@ -1,0 +1,57 @@
+examples/Mailtrap.Example.Webhooks/Properties/launchSettings.json
+  s_b6080831d1075d::t_72c811acd61a2d 1-10
+examples/Mailtrap.Example.SubAccount/Properties/launchSettings.json
+  s_b6080831d1075d::t_cc5762c57a0fdb 1-10
+README.md
+  s_b6080831d1075d::t_76182b6c3dfc81 305-306
+  s_b6080831d1075d::t_03c5bc8af6eb1d 279
+examples/Mailtrap.Example.ApiTokens/Properties/launchSettings.json
+  s_b6080831d1075d::t_37d8b9ebe9585c 1-10
+examples/Mailtrap.Example.SubAccount/Program.cs
+  s_b6080831d1075d::t_bf9293cf5f90a2 1-61
+examples/Mailtrap.Example.ApiTokens/appsettings.json
+  s_b6080831d1075d::t_07465e668e48a5 1-17
+examples/Mailtrap.Example.ApiTokens/Program.cs
+  s_b6080831d1075d::t_77dec00c7af1eb 1-83
+examples/Mailtrap.Example.Webhooks/Mailtrap.Example.Webhooks.csproj
+  s_b6080831d1075d::t_0b8b89b08c90a3 1
+examples/Mailtrap.Example.SubAccount/appsettings.json
+  s_b6080831d1075d::t_5a6dd66740ed04 1-17
+examples/Mailtrap.Example.Webhooks/appsettings.json
+  s_b6080831d1075d::t_d00d0f3cd28aee 1-17
+examples/Mailtrap.Example.ApiTokens/Mailtrap.Example.ApiTokens.csproj
+  s_b6080831d1075d::t_7bb78027b0362b 1
+examples/Mailtrap.Example.SubAccount/Mailtrap.Example.SubAccount.csproj
+  s_b6080831d1075d::t_2fd9c3859ef12f 1
+examples/Mailtrap.Example.Webhooks/Program.cs
+  s_b6080831d1075d::t_7beccbb3d94e6b 79
+  s_b6080831d1075d::t_a2d476754002a3 1-78,80-91
+Mailtrap.sln
+  s_b6080831d1075d::t_d9750a933ba08d 282-284
+  s_b6080831d1075d::t_923aebe6f35eb7 237-248
+  s_b6080831d1075d::t_b6e0a972e67889 113-118
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.4",
+  "base_commit_sha": "824f461fc97e4ad2de76af4ff5d7a7bdd8e12957",
+  "prompts": {},
+  "humans": {
+    "h_32e79f74e8df76": {
+      "author": "Igor Dobryn <igor.dobryn@railsware.com>"
+    },
+    "h_c133502bfb58a4": {
+      "author": "Igor Dobryn"
+    }
+  },
+  "sessions": {
+    "s_b6080831d1075d": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "ed652f00-fec9-4caf-83bc-f31ffe30c1c1",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Igor Dobryn <igor.dobryn@railsware.com>"
+    }
+  }
+}

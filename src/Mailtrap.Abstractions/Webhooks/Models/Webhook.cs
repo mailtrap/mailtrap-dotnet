@@ -71,7 +71,7 @@ public record Webhook
     /// </value>
     [JsonPropertyName("sending_stream")]
     [JsonPropertyOrder(6)]
-    public WebhookSendingStream? SendingStream { get; set; }
+    public SendingStream? SendingStream { get; set; }
 
     /// <summary>
     /// Gets or sets the domain ID the webhook is scoped to.<br/>

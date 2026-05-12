@@ -1,8 +1,8 @@
-namespace Mailtrap.EmailLogs.Models;
+namespace Mailtrap.Core.Models;
 
 
 /// <summary>
-/// Represents the sending stream for an email log message.
+/// Represents an email sending stream.
 /// </summary>
 public sealed record SendingStream : StringEnum<SendingStream>
 {

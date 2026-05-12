@@ -65,7 +65,7 @@ public sealed record CreateWebhookRequest : IValidatable
     [JsonPropertyName("sending_stream")]
     [JsonPropertyOrder(5)]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-    public WebhookSendingStream? SendingStream { get; set; }
+    public SendingStream? SendingStream { get; set; }
 
     /// <summary>
     /// Gets the list of event types to subscribe to.<br/>

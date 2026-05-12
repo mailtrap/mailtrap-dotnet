@@ -1,6 +1,7 @@
 using Mailtrap;
 using Mailtrap.Accounts;
 using Mailtrap.Webhooks;
+using Mailtrap.Core.Models;
 using Mailtrap.Webhooks.Models;
 using Mailtrap.Webhooks.Requests;
 using Mailtrap.Webhooks.Responses;
@@ -40,7 +41,7 @@ try
         WebhookType = WebhookType.EmailSending,
         Active = true,
         PayloadFormat = WebhookPayloadFormat.Json,
-        SendingStream = WebhookSendingStream.Transactional
+        SendingStream = SendingStream.Transactional
     };
     createRequest.EventTypes.Add(WebhookEventType.Delivery);
     createRequest.EventTypes.Add(WebhookEventType.Bounce);

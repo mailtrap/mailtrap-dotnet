@@ -1,0 +1,36 @@
+src/Mailtrap.Abstractions/Core/Models/SendingStream.cs
+  s_b6080831d1075d::t_f5b90c536f6e65 1-5
+src/Mailtrap.Abstractions/GlobalSuppressions.cs
+  s_b6080831d1075d::t_197285faca6a25 18
+src/Mailtrap.Abstractions/Webhooks/Models/Webhook.cs
+  s_b6080831d1075d::t_3819741ff7bdb6 74
+examples/Mailtrap.Example.Webhooks/Program.cs
+  s_b6080831d1075d::t_4d4a264720b7c2 44
+  s_b6080831d1075d::t_56184b3e619ea4 4
+src/Mailtrap.Abstractions/Webhooks/Requests/CreateWebhookRequest.cs
+  s_b6080831d1075d::t_ca4095c9b046e5 68
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.4",
+  "base_commit_sha": "072507950ef7270de56c74eb15efb5b24021d04c",
+  "prompts": {},
+  "humans": {
+    "h_32e79f74e8df76": {
+      "author": "Igor Dobryn <igor.dobryn@railsware.com>"
+    },
+    "h_c133502bfb58a4": {
+      "author": "Igor Dobryn"
+    }
+  },
+  "sessions": {
+    "s_b6080831d1075d": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "ed652f00-fec9-4caf-83bc-f31ffe30c1c1",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Igor Dobryn <igor.dobryn@railsware.com>"
+    }
+  }
+}

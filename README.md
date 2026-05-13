@@ -276,6 +276,7 @@ private static SendEmailRequest TemplateBasedRequest()
 - Suppressions management – [`examples/Mailtrap.Example.Suppression`](examples/Mailtrap.Example.Suppression/)
 - Email logs (list with filters and pagination; get message details with events) – [`examples/Mailtrap.Example.EmailLogs`](examples/Mailtrap.Example.EmailLogs/)
 - Email sending statistics – [`examples/Mailtrap.Example.Stats`](examples/Mailtrap.Example.Stats/)
+- Webhooks management – [`examples/Mailtrap.Example.Webhooks`](examples/Mailtrap.Example.Webhooks/)
 
 ### Email Sandbox (Testing)
 
@@ -301,6 +302,8 @@ private static SendEmailRequest TemplateBasedRequest()
 - Account access management – [`examples/Mailtrap.Example.AccountAccess`](examples/Mailtrap.Example.AccountAccess/)
 - Permissions management – [`examples/Mailtrap.Example.Permissions`](examples/Mailtrap.Example.Permissions/)
 - Accounts management – [`examples/Mailtrap.Example.Account`](examples/Mailtrap.Example.Account/)
+- Sub accounts management – [`examples/Mailtrap.Example.SubAccount`](examples/Mailtrap.Example.SubAccount/)
+- API tokens management – [`examples/Mailtrap.Example.ApiTokens`](examples/Mailtrap.Example.ApiTokens/)
 - Billing information – [`examples/Mailtrap.Example.Billing`](examples/Mailtrap.Example.Billing/)
 - Comprehensive API Usage – [`examples/Mailtrap.Example.ApiUsage`](examples/Mailtrap.Example.ApiUsage/)
 

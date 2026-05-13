@@ -120,4 +120,32 @@ internal sealed class AccountResource : RestResource, IAccountResource
     }
 
     #endregion
+
+    #region API Tokens
+
+    public IApiTokenCollectionResource ApiTokens()
+        => new ApiTokenCollectionResource(RestResourceCommandFactory, ResourceUri.Append(UrlSegments.ApiTokensSegment));
+
+    public IApiTokenResource ApiToken(long apiTokenId)
+    {
+        Ensure.GreaterThanZero(apiTokenId, nameof(apiTokenId));
+
+        return new ApiTokenResource(RestResourceCommandFactory, ResourceUri.Append(UrlSegments.ApiTokensSegment).Append(apiTokenId));
+    }
+
+    #endregion
+
+    #region Webhooks
+
+    public IWebhookCollectionResource Webhooks()
+        => new WebhookCollectionResource(RestResourceCommandFactory, ResourceUri.Append(UrlSegments.WebhooksSegment));
+
+    public IWebhookResource Webhook(long webhookId)
+    {
+        Ensure.GreaterThanZero(webhookId, nameof(webhookId));
+
+        return new WebhookResource(RestResourceCommandFactory, ResourceUri.Append(UrlSegments.WebhooksSegment).Append(webhookId));
+    }
+
+    #endregion
 }

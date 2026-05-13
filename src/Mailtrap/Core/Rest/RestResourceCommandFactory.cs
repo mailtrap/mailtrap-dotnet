@@ -78,6 +78,13 @@ internal sealed class RestResourceCommandFactory : IRestResourceCommandFactory
             resourceUri,
             request);
 
+    public IRestResourceCommand<TResponse> CreatePost<TResponse>(Uri resourceUri)
+        => new PostWithoutBodyRestResourceCommand<TResponse>(
+            _httpClientProvider,
+            _httpRequestMessageFactory,
+            _httpResponseHandlerFactory,
+            resourceUri);
+
     public IRestResourceCommand<TResponse> CreatePut<TRequest, TResponse>(Uri resourceUri, TRequest request)
         where TRequest : class
         => new PutRestResourceCommand<TRequest, TResponse>(

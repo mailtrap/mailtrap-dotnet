@@ -27,4 +27,17 @@ public interface IMailtrapClientFactory : IDisposable
     /// Each call to this method is guaranteed to return a new instance of <see cref="IMailtrapClient"/>.
     /// </remarks>
     public IMailtrapClient CreateClient();
+
+    /// <summary>
+    /// Creates new instance of <see cref="IMailtrapOrganizationClient"/> for organization-scoped operations.
+    /// </summary>
+    ///
+    /// <returns>
+    /// New <see cref="IMailtrapOrganizationClient"/> instance.
+    /// </returns>
+    ///
+    /// <exception cref="ObjectDisposedException">
+    /// When factory was disposed.
+    /// </exception>
+    public IMailtrapOrganizationClient CreateOrganizationClient();
 }

@@ -1,0 +1,17 @@
+CHANGELOG.md
+  h_32e79f74e8df76 5,7
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.8",
+  "base_commit_sha": "b6d188eb003986b0bca4a723a046d76c2e225637",
+  "prompts": {},
+  "humans": {
+    "h_32e79f74e8df76": {
+      "author": "Igor Dobryn <igor.dobryn@railsware.com>"
+    },
+    "h_c133502bfb58a4": {
+      "author": "Igor Dobryn"
+    }
+  }
+}

@@ -2,17 +2,10 @@
 
 ## [Unreleased]
 
-### Features
+## [3.2.0] - 2026-05-14
 
-- **API Tokens API** — Added full CRUD support:
-  - `IAccountResource.ApiTokens().GetAll()` — `GET /api/accounts/{account_id}/api_tokens`
-  - `IAccountResource.ApiTokens().Create(request)` — `POST /api/accounts/{account_id}/api_tokens`
-  - `IAccountResource.ApiToken(id).GetDetails()` — `GET /api/accounts/{account_id}/api_tokens/{id}`
-  - `IAccountResource.ApiToken(id).Delete()` — `DELETE /api/accounts/{account_id}/api_tokens/{id}`
-  - `IAccountResource.ApiToken(id).Reset()` — `POST /api/accounts/{account_id}/api_tokens/{id}/reset`
-- **Organizations API** — Added new top-level `IMailtrapOrganizationClient` (spawned via `MailtrapClientFactory.CreateOrganizationClient()`) for organization-scoped operations:
-  - `IOrganizationResource.SubAccounts().GetAll()` — `GET /api/organizations/{organization_id}/sub_accounts`
-  - `IOrganizationResource.SubAccounts().Create(request)` — `POST /api/organizations/{organization_id}/sub_accounts`
+- Add api token, webhook and sub account endpoints by @IgorDobryn in https://github.com/mailtrap/mailtrap-dotnet/pull/240
+
 
 ## [3.1.1] - 2026-03-30
 

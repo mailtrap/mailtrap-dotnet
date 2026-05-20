@@ -1,0 +1,60 @@
+tests/Mailtrap.UnitTests/GlobalUsings.cs
+  s_0449bc88abf963::t_e79ea373b04799 71
+tests/Mailtrap.UnitTests/Webhooks/WebhookSignatureTests.cs
+  s_90bdbe53f77753::t_4f559adb44e345 92-93
+  s_0449bc88abf963::t_fc74987b56b27c 1-59,61-72,74-91,94-198
+  s_90bdbe53f77753::t_66917b9978a462 60
+  s_90bdbe53f77753::t_a04f8b8a156a29 73
+examples/Mailtrap.Example.WebhookSignature/appsettings.json
+  s_90bdbe53f77753::t_26d2d592819d1d 1-9
+src/Mailtrap.Abstractions/Webhooks/WebhookSignature.cs
+  s_0449bc88abf963::t_5bd75066d684ed 1-137,139-142,144-147,149-175
+  s_90bdbe53f77753::t_d1f34190abe2ee 138,143,148
+examples/Mailtrap.Example.WebhookSignature/Mailtrap.Example.WebhookSignature.csproj
+  s_90bdbe53f77753::t_a5361bbe28cd08 1
+examples/Mailtrap.Example.WebhookSignature/Program.cs
+  s_90bdbe53f77753::t_9885ee6a5675b0 1-14,19-20
+  s_90bdbe53f77753::t_82a30031992f56 15-18,21-25
+README.md
+  s_90bdbe53f77753::t_728646fa4a239c 280
+  s_90bdbe53f77753::t_8b0274f4644324 320,325-332,334-335,338
+  s_0449bc88abf963::t_ccf642d8947ae8 318-319,321-324,333,336-337,339
+Mailtrap.sln
+  679630e82efc12bc 229-232,280
+  s_b6080831d1075d::t_923aebe6f35eb7 237-238,241-244,247-248
+  s_b6080831d1075d::t_d9750a933ba08d 283-284
+examples/Mailtrap.Example.WebhookSignature/Properties/launchSettings.json
+  s_90bdbe53f77753::t_b4e0d236c97dea 1-10
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.11",
+  "base_commit_sha": "03fb0baf572f40d1cae3043d643064eac5435190",
+  "prompts": {},
+  "sessions": {
+    "s_0449bc88abf963": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "209ab809-bbe5-4b88-a3d1-6277ee8cddf5",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Maciej Walusiak <maciej.walusiak@railsware.com>"
+    },
+    "s_90bdbe53f77753": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "67c23e88-9814-49c9-a2b6-b42e90252a0e",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": null
+    },
+    "s_b6080831d1075d": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "ed652f00-fec9-4caf-83bc-f31ffe30c1c1",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Igor Dobryn <igor.dobryn@railsware.com>"
+    }
+  }
+}

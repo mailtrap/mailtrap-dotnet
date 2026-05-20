@@ -1,0 +1,44 @@
+CHANGELOG.md
+  s_0449bc88abf963::t_3ef184ad256e2f 5-8
+src/Mailtrap.Abstractions/Webhooks/WebhookSignature.cs
+  s_0449bc88abf963::t_5bd75066d684ed 1-137,139-142,144-147,149-175
+  s_90bdbe53f77753::t_d1f34190abe2ee 138,143,148
+examples/Mailtrap.Example.Webhooks/Program.cs
+  s_0449bc88abf963::t_affdd5232d69ec 87-136,140-146
+  s_90bdbe53f77753::t_41e1dd655cdf31 137-139
+  s_0449bc88abf963::t_9cabd036ad4c25 1
+README.md
+  s_0449bc88abf963::t_ccf642d8947ae8 318-345
+  s_0449bc88abf963::t_5bc21a99ece5ed 280
+tests/Mailtrap.UnitTests/GlobalUsings.cs
+  s_0449bc88abf963::t_e79ea373b04799 71
+tests/Mailtrap.UnitTests/Webhooks/WebhookSignatureTests.cs
+  s_90bdbe53f77753::t_4f559adb44e345 92-93
+  s_90bdbe53f77753::t_66917b9978a462 60
+  s_90bdbe53f77753::t_a04f8b8a156a29 73
+  s_0449bc88abf963::t_fc74987b56b27c 1-59,61-72,74-91,94-198
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.11",
+  "base_commit_sha": "c91e7485acf62bcc82d81282615f6e2e8700481f",
+  "prompts": {},
+  "sessions": {
+    "s_0449bc88abf963": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "209ab809-bbe5-4b88-a3d1-6277ee8cddf5",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Maciej Walusiak <maciej.walusiak@railsware.com>"
+    },
+    "s_90bdbe53f77753": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "67c23e88-9814-49c9-a2b6-b42e90252a0e",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Maciej Walusiak <maciej.walusiak@railsware.com>"
+    }
+  }
+}

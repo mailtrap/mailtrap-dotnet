@@ -68,6 +68,7 @@ global using Mailtrap.Suppressions;
 global using Mailtrap.TestingMessages;
 global using Mailtrap.TestingMessages.Requests;
 global using Mailtrap.UnitTests.TestConstants;
+global using Mailtrap.Webhooks;
 global using Mailtrap.UnitTests.TestExtensions;
 global using Microsoft.Extensions.Configuration;
 global using Microsoft.Extensions.DependencyInjection;

@@ -1,0 +1,20 @@
+examples/Mailtrap.Example.WebhookSignature/Program.cs
+  s_a907e0cf970afa::t_9d73c5b912a4cc 1,7-9,11,13-34
+  s_a907e0cf970afa::t_61fe7c7836c2c4 5
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.1",
+  "base_commit_sha": "783e34cd3343344707e61c75fc81ff82be475112",
+  "prompts": {},
+  "sessions": {
+    "s_a907e0cf970afa": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "a609038c-f688-402a-a84e-55b5ac1bed6d",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Maciej Walusiak <maciej.walusiak@railsware.com>"
+    }
+  }
+}

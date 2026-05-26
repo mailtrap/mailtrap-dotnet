@@ -315,28 +315,6 @@ private static SendEmailRequest TemplateBasedRequest()
 
 Each example includes detailed comments and demonstrates best practices for error handling, configuration, and resource management.
 
-### Verifying webhook signatures
-
-Mailtrap signs every outbound webhook with HMAC-SHA256 and sends the lowercase hex digest in the `Mailtrap-Signature` header. Verify the signature against the raw request body using the `signing_secret` returned when you created the webhook:
-
-```csharp
-using Mailtrap.Webhooks;
-
-// `payload` must be the unparsed request body — do NOT re-serialize the
-// parsed JSON, as that may reorder keys and invalidate the signature.
-var valid = WebhookSignature.Verify(
-    payload,
-    request.Headers["Mailtrap-Signature"].ToString(),
-    Environment.GetEnvironmentVariable("MAILTRAP_WEBHOOK_SIGNING_SECRET")!);
-
-if (!valid)
-{
-    return Results.Unauthorized();
-}
-```
-
-The helper performs a constant-time comparison and returns `false` (rather than throwing) for empty, missing, or malformed signatures.
-
 ---
 
 ## Documentation

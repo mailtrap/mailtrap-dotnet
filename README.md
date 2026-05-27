@@ -277,6 +277,7 @@ private static SendEmailRequest TemplateBasedRequest()
 - Email logs (list with filters and pagination; get message details with events) – [`examples/Mailtrap.Example.EmailLogs`](examples/Mailtrap.Example.EmailLogs/)
 - Email sending statistics – [`examples/Mailtrap.Example.Stats`](examples/Mailtrap.Example.Stats/)
 - Webhooks management – [`examples/Mailtrap.Example.Webhooks`](examples/Mailtrap.Example.Webhooks/)
+- Verifying webhook signatures – [`examples/Mailtrap.Example.WebhookSignature`](examples/Mailtrap.Example.WebhookSignature/)
 
 ### Email Sandbox (Testing)
 

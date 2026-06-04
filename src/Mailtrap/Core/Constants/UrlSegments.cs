@@ -20,4 +20,5 @@ internal static class UrlSegments
     internal static string OrganizationsSegment { get; } = "organizations";
     internal static string SubAccountsSegment { get; } = "sub_accounts";
     internal static string WebhooksSegment { get; } = "webhooks";
+    internal static string EmailCampaignsSegment { get; } = "email_campaigns";
 }

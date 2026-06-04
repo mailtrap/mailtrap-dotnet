@@ -148,4 +148,25 @@ internal sealed class AccountResource : RestResource, IAccountResource
     }
 
     #endregion
+
+    #region Email Campaigns
+
+    // Email campaigns are exposed on the account resource for ergonomic discoverability, but - unlike every
+    // sibling resource above - their API path is token-scoped and NOT account-scoped: it is "/api/email_campaigns",
+    // not "/api/accounts/{account_id}/email_campaigns" (the account is resolved server-side from the API token).
+    // We therefore build the path from the API root instead of appending to this resource's account-scoped URI.
+    private static Uri EmailCampaignsRootUri
+        => Endpoints.ApiDefaultUrl.Append(UrlSegments.ApiRootSegment, UrlSegments.EmailCampaignsSegment);
+
+    public IEmailCampaignCollectionResource EmailCampaigns()
+        => new EmailCampaignCollectionResource(RestResourceCommandFactory, EmailCampaignsRootUri);
+
+    public IEmailCampaignResource EmailCampaign(long emailCampaignId)
+    {
+        Ensure.GreaterThanZero(emailCampaignId, nameof(emailCampaignId));
+
+        return new EmailCampaignResource(RestResourceCommandFactory, EmailCampaignsRootUri.Append(emailCampaignId));
+    }
+
+    #endregion
 }

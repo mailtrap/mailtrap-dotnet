@@ -299,4 +299,35 @@ public interface IAccountResource : IRestResource
     /// When <paramref name="webhookId"/> is less than or equal to zero.
     /// </exception>
     public IWebhookResource Webhook(long webhookId);
+
+
+    /// <summary>
+    /// Gets email campaign collection resource for the account, represented by this resource instance.
+    /// </summary>
+    ///
+    /// <returns>
+    /// Email campaign collection resource for the account, represented by this resource instance.
+    /// </returns>
+    ///
+    /// <remarks>
+    /// Email campaigns are token-scoped: the account is resolved server-side from the API token.
+    /// </remarks>
+    public IEmailCampaignCollectionResource EmailCampaigns();
+
+    /// <summary>
+    /// Gets resource for specific email campaign, identified by <paramref name="emailCampaignId"/>.
+    /// </summary>
+    ///
+    /// <param name="emailCampaignId">
+    /// ID of email campaign to get resource for.
+    /// </param>
+    ///
+    /// <returns>
+    /// Resource for the email campaign with specified ID.
+    /// </returns>
+    ///
+    /// <exception cref="ArgumentOutOfRangeException">
+    /// When <paramref name="emailCampaignId"/> is less than or equal to zero.
+    /// </exception>
+    public IEmailCampaignResource EmailCampaign(long emailCampaignId);
 }

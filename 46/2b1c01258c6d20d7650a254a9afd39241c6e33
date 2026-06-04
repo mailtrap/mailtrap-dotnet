@@ -1,0 +1,54 @@
+tests/Mailtrap.UnitTests/EmailCampaigns/Requests/UpdateEmailCampaignRequestTests.cs
+  s_58fe9233586fc8::t_7e997e6c69091d 8,10-11,13-15
+  s_58fe9233586fc8::t_8277dd240adf71 1-7,9,12,16-65
+tests/Mailtrap.IntegrationTests/EmailCampaigns/Delete_Success.json
+  s_58fe9233586fc8::t_6fb70e3260441b 1-36
+tests/Mailtrap.UnitTests/EmailCampaigns/EmailCampaignRequestValidatorTests.cs
+  s_58fe9233586fc8::t_ea3a0da279e0c0 1-103
+tests/Mailtrap.IntegrationTests/EmailCampaigns/Create_Unprocessable.json
+  s_58fe9233586fc8::t_538afc5bb11451 1-7
+tests/Mailtrap.UnitTests/EmailCampaigns/Requests/CreateEmailCampaignRequestTests.cs
+  s_58fe9233586fc8::t_75cf409cde1421 8,10-16
+  s_58fe9233586fc8::t_1d14e7ac725006 1-7,9,17-45
+tests/Mailtrap.IntegrationTests/EmailCampaigns/GetAll_Success.json
+  s_58fe9233586fc8::t_bae91d4dbffd74 1-48
+tests/Mailtrap.UnitTests/EmailCampaigns/EmailCampaignResourceTests.cs
+  s_58fe9233586fc8::t_8ef35d250b27fc 1-65
+tests/Mailtrap.IntegrationTests/EmailCampaigns/GetStats_Success.json
+  s_58fe9233586fc8::t_4596bd4add3e8e 1-17
+tests/Mailtrap.IntegrationTests/EmailCampaigns/EmailCampaignIntegrationTests.cs
+  s_58fe9233586fc8::t_1a1610249f50e3 500
+  s_58fe9233586fc8::t_2b4c94b814cbee 1-499,501-641
+tests/Mailtrap.UnitTests/EmailCampaigns/EmailCampaignCollectionResourceTests.cs
+  s_58fe9233586fc8::t_d409a6668a38e8 1-64
+tests/Mailtrap.IntegrationTests/EmailCampaigns/GetDetails_Success.json
+  s_58fe9233586fc8::t_a69b7962da5401 1-36
+tests/Mailtrap.IntegrationTests/EmailCampaigns/Update_Success.json
+  s_58fe9233586fc8::t_7db6681ff79927 1-36
+tests/Mailtrap.IntegrationTests/TestConstants/UrlSegmentsTestConstants.cs
+  s_58fe9233586fc8::t_e11b16a18b6586 33
+tests/Mailtrap.IntegrationTests/EmailCampaigns/Create_Success.json
+  s_58fe9233586fc8::t_a4ee9da3e69a35 1-36
+tests/Mailtrap.UnitTests/GlobalUsings.cs
+  s_58fe9233586fc8::t_b0986034b8492e 44-47
+tests/Mailtrap.UnitTests/TestConstants/UrlSegmentsTestConstants.cs
+  s_58fe9233586fc8::t_7ce73fa6f0d6fd 31
+tests/Mailtrap.IntegrationTests/GlobalUsings.cs
+  s_58fe9233586fc8::t_ff9fd9f778cdb7 31-32
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.2",
+  "base_commit_sha": "462b1c01258c6d20d7650a254a9afd39241c6e33",
+  "prompts": {},
+  "sessions": {
+    "s_58fe9233586fc8": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "3847246e-f700-4f6a-8a56-da302e2f8404",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Maciej Walusiak <maciej.walusiak@railsware.com>"
+    }
+  }
+}

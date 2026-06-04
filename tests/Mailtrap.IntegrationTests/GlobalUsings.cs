@@ -28,6 +28,8 @@ global using Mailtrap.ContactFields.Models;
 global using Mailtrap.ContactFields.Requests;
 global using Mailtrap.ContactEvents.Models;
 global using Mailtrap.ContactEvents.Requests;
+global using Mailtrap.EmailCampaigns.Models;
+global using Mailtrap.EmailCampaigns.Requests;
 global using Mailtrap.Emails;
 global using Mailtrap.Emails.Requests;
 global using Mailtrap.Emails.Responses;

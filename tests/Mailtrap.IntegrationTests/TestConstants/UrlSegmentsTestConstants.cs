@@ -30,4 +30,5 @@ internal static class UrlSegmentsTestConstants
     internal static string ApiTokensSegment { get; } = "api_tokens";
     internal static string OrganizationsSegment { get; } = "organizations";
     internal static string SubAccountsSegment { get; } = "sub_accounts";
+    internal static string EmailCampaignsSegment { get; } = "email_campaigns";
 }

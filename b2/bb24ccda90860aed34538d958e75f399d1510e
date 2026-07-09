@@ -1,0 +1,32 @@
+src/Mailtrap.Abstractions/ContactLists/IContactListCollectionResource.cs
+  s_d562da60dc1773::t_dc9f5968e0bee8 12-17,25
+  s_d562da60dc1773::t_679d0c8d633d6b 36
+tests/Mailtrap.UnitTests/GlobalUsings.cs
+  s_d562da60dc1773::t_ae2a4f6d25b589 38
+src/Mailtrap/ContactLists/ContactListCollectionResource.cs
+  s_d562da60dc1773::t_9a275bee7bbf67 8-10,14-15,19-26
+tests/Mailtrap.UnitTests/ContactLists/ContactListCollectionResourceTests.cs
+  s_d562da60dc1773::t_f01c843c58773d 51-104
+src/Mailtrap.Abstractions/ContactLists/Models/ContactListListFilter.cs
+  s_d562da60dc1773::t_8d114c3975f5fb 1-19
+examples/Mailtrap.Example.ContactLists/Program.cs
+  s_d562da60dc1773::t_6f2c921eea032d 38-42
+README.md
+  s_d562da60dc1773::t_c6fd2544c9cc57 294
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "b2bb24ccda90860aed34538d958e75f399d1510e",
+  "prompts": {},
+  "sessions": {
+    "s_d562da60dc1773": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "0c94c3a5-75e7-49f4-ae2a-aeeef6ebf18c",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": null
+    }
+  }
+}

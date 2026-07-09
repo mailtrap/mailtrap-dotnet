@@ -61,6 +61,13 @@ jobs:
         with:
           tag: ${{ steps.bump.outputs.tag }}
 
+      - name: Update version in README.md install commands
+        if: steps.notes.outputs.release_notes != ''
+        env:
+          NEXT: ${{ steps.bump.outputs.next }}
+        run: |
+          sed -i -E "s/(dotnet add package [^ ]+ -v )[0-9]+\.[0-9]+\.[0-9]+/\1${NEXT}/g" README.md
+
       - name: Prepend new section to CHANGELOG.md
         if: steps.notes.outputs.release_notes != ''
         uses: railsware/github-actions/prepend-changelog@master

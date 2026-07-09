@@ -291,7 +291,7 @@ private static SendEmailRequest TemplateBasedRequest()
 ### Contacts Management
 
 - Contacts management – [`examples/Mailtrap.Example.Contact`](examples/Mailtrap.Example.Contact/)
-- Contact lists management – [`examples/Mailtrap.Example.ContactLists`](examples/Mailtrap.Example.ContactLists/)
+- Contact lists management (list with optional name search filter — case-insensitive prefix match) – [`examples/Mailtrap.Example.ContactLists`](examples/Mailtrap.Example.ContactLists/)
 - Contact fields management – [`examples/Mailtrap.Example.ContactFields`](examples/Mailtrap.Example.ContactFields/)
 - Contact import management – [`examples/Mailtrap.Example.ContactImports`](examples/Mailtrap.Example.ContactImports/)
 - Contact export management – [`examples/Mailtrap.Example.ContactExports`](examples/Mailtrap.Example.ContactExports/)

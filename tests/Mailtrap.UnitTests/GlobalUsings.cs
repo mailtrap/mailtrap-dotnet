@@ -35,6 +35,7 @@ global using Mailtrap.ContactExports.Validators;
 global using Mailtrap.ContactImports;
 global using Mailtrap.ContactImports.Requests;
 global using Mailtrap.ContactLists;
+global using Mailtrap.ContactLists.Models;
 global using Mailtrap.ContactLists.Requests;
 global using Mailtrap.ContactFields;
 global using Mailtrap.ContactFields.Models;

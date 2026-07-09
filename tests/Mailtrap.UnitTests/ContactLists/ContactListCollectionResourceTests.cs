@@ -48,5 +48,59 @@ internal sealed class ContactListCollectionResourceTests
 
     #endregion
 
+
+    #region GetAll
+
+    [Test]
+    public async Task GetAll_ShouldNotAppendQueryParameters_WhenFilterIsNull()
+    {
+        // Arrange
+        var commandFactoryMock = new Mock<IRestResourceCommandFactory>();
+        var commandMock = new Mock<IRestResourceCommand<IList<ContactList>>>();
+        commandMock
+            .Setup(c => c.Execute(It.IsAny<CancellationToken>()))
+            .ReturnsAsync([]);
+        commandFactoryMock
+            .Setup(f => f.CreateGet<IList<ContactList>>(It.IsAny<Uri>()))
+            .Returns(commandMock.Object);
+
+        var resource = new ContactListCollectionResource(commandFactoryMock.Object, _resourceUri);
+
+        // Act
+        await resource.GetAll();
+
+        // Assert
+        commandFactoryMock.Verify(f => f.CreateGet<IList<ContactList>>(_resourceUri), Times.Once);
+    }
+
+    [Test]
+    public async Task GetAll_ShouldAppendSearchQueryParameter_WhenFilterSearchIsProvided()
+    {
+        // Arrange
+        var commandFactoryMock = new Mock<IRestResourceCommandFactory>();
+        var commandMock = new Mock<IRestResourceCommand<IList<ContactList>>>();
+        commandMock
+            .Setup(c => c.Execute(It.IsAny<CancellationToken>()))
+            .ReturnsAsync([]);
+
+        Uri? capturedUri = null;
+        commandFactoryMock
+            .Setup(f => f.CreateGet<IList<ContactList>>(It.IsAny<Uri>()))
+            .Callback<Uri, string[]>((uri, _) => capturedUri = uri)
+            .Returns(commandMock.Object);
+
+        var resource = new ContactListCollectionResource(commandFactoryMock.Object, _resourceUri);
+        var filter = new ContactListListFilter { Search = "news" };
+
+        // Act
+        await resource.GetAll(filter);
+
+        // Assert
+        capturedUri.Should().NotBeNull();
+        capturedUri!.Query.Should().Be("?search=news");
+    }
+
+    #endregion
+
     private ContactListCollectionResource CreateResource() => new(_commandFactoryMock, _resourceUri);
 }

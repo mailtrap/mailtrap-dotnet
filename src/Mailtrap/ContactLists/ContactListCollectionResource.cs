@@ -11,7 +11,10 @@ internal sealed class ContactListCollectionResource : RestResource, IContactList
     public ContactListCollectionResource(IRestResourceCommandFactory restResourceCommandFactory, Uri resourceUri)
         : base(restResourceCommandFactory, resourceUri) { }
 
-    public async Task<IList<ContactList>> GetAll(ContactListListFilter? filter = null, CancellationToken cancellationToken = default)
+    public async Task<IList<ContactList>> GetAll(CancellationToken cancellationToken = default)
+        => await GetList<ContactList>(CreateListUri(null), cancellationToken).ConfigureAwait(false);
+
+    public async Task<IList<ContactList>> GetAll(ContactListListFilter filter, CancellationToken cancellationToken = default)
         => await GetList<ContactList>(CreateListUri(filter), cancellationToken).ConfigureAwait(false);
 
     public async Task<ContactList> Create(ContactListRequest request, CancellationToken cancellationToken = default)
@@ -20,8 +23,8 @@ internal sealed class ContactListCollectionResource : RestResource, IContactList
 
     private Uri CreateListUri(ContactListListFilter? filter)
     {
-        return filter?.Search is not null && !string.IsNullOrWhiteSpace(filter.Search)
-            ? ResourceUri.AppendQueryParameter(SearchQueryParameter, filter.Search)
+        return !string.IsNullOrWhiteSpace(filter?.Search)
+            ? ResourceUri.AppendQueryParameter(SearchQueryParameter, filter!.Search)
             : ResourceUri;
     }
 }

@@ -52,7 +52,7 @@ internal sealed class ContactListCollectionResourceTests
     #region GetAll
 
     [Test]
-    public async Task GetAll_ShouldNotAppendQueryParameters_WhenFilterIsNull()
+    public async Task GetAll_ShouldNotAppendQueryParameters_WhenCalledWithoutFilter()
     {
         // Arrange
         var commandFactoryMock = new Mock<IRestResourceCommandFactory>();
@@ -68,6 +68,29 @@ internal sealed class ContactListCollectionResourceTests
 
         // Act
         await resource.GetAll();
+
+        // Assert
+        commandFactoryMock.Verify(f => f.CreateGet<IList<ContactList>>(_resourceUri), Times.Once);
+    }
+
+    [Test]
+    public async Task GetAll_ShouldNotAppendQueryParameters_WhenFilterSearchIsEmpty()
+    {
+        // Arrange
+        var commandFactoryMock = new Mock<IRestResourceCommandFactory>();
+        var commandMock = new Mock<IRestResourceCommand<IList<ContactList>>>();
+        commandMock
+            .Setup(c => c.Execute(It.IsAny<CancellationToken>()))
+            .ReturnsAsync([]);
+        commandFactoryMock
+            .Setup(f => f.CreateGet<IList<ContactList>>(It.IsAny<Uri>()))
+            .Returns(commandMock.Object);
+
+        var resource = new ContactListCollectionResource(commandFactoryMock.Object, _resourceUri);
+        var filter = new ContactListListFilter { Search = "   " };
+
+        // Act
+        await resource.GetAll(filter);
 
         // Assert
         commandFactoryMock.Verify(f => f.CreateGet<IList<ContactList>>(_resourceUri), Times.Once);

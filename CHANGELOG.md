@@ -1,3 +1,16 @@
+## [3.2.1] - 2026-07-10
+
+## What's Changed
+* Release v3.2.0 by @IgorDobryn in https://github.com/mailtrap/mailtrap-dotnet/pull/241
+* MT-22022: Add webhook signature verification helper by @Rabsztok in https://github.com/mailtrap/mailtrap-dotnet/pull/242
+* Add draft-release workflow placeholder by @IgorDobryn in https://github.com/mailtrap/mailtrap-dotnet/pull/243
+* Implement draft release workflow by @IgorDobryn in https://github.com/mailtrap/mailtrap-dotnet/pull/244
+
+## New Contributors
+* @Rabsztok made their first contribution in https://github.com/mailtrap/mailtrap-dotnet/pull/242
+
+**Full Changelog**: https://github.com/mailtrap/mailtrap-dotnet/compare/v3.2.0...v3.2.1
+
 ## [3.2.0] - 2026-05-14
 
 - Add api token, webhook and sub account endpoints by @IgorDobryn in https://github.com/mailtrap/mailtrap-dotnet/pull/240

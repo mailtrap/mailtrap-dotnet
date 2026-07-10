@@ -1,7 +1,3 @@
-# Changelog
-
-## [Unreleased]
-
 ## [3.2.0] - 2026-05-14
 
 - Add api token, webhook and sub account endpoints by @IgorDobryn in https://github.com/mailtrap/mailtrap-dotnet/pull/240

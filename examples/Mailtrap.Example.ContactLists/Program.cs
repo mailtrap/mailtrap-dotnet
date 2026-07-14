@@ -35,6 +35,11 @@ try
     // Get all contact lists for account
     IList<ContactList> contactLists = await contactListsResource.GetAll();
 
+    // Filter contact lists by name (case-insensitive prefix match)
+    var searchFilter = new ContactListListFilter { Search = "news" };
+    IList<ContactList> matchingContactLists = await contactListsResource.GetAll(searchFilter);
+    logger.LogInformation("Found {Count} contact list(s) matching search filter.", matchingContactLists.Count);
+
     ContactList? contactList = contactLists.Count > 0 ? contactLists[0] : null;
 
     if (contactList is null)

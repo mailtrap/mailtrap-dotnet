@@ -1,0 +1,26 @@
+{
+  "data": {
+    "id": 9,
+    "name": "Escalate urgent tickets",
+    "created_at": "2026-05-08T10:30:00.000Z",
+    "updated_at": "2026-05-08T12:15:00.000Z",
+    "conditions": [
+      {
+        "match_type": "header",
+        "operator": "equal",
+        "value": "high",
+        "header_key": "X-Priority-Level"
+      },
+      {
+        "match_type": "recipient",
+        "operator": "starts_with",
+        "value": "support",
+        "header_key": null
+      }
+    ],
+    "destinations": [
+      { "email": "oncall@example.com" },
+      { "email": "lead@example.com" }
+    ]
+  }
+}

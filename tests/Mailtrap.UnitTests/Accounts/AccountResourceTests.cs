@@ -323,6 +323,7 @@ internal sealed class AccountResourceTests
     #endregion
 
 
+#pragma warning disable CS0618
     #region Email Templates
 
     [Test]
@@ -362,6 +363,53 @@ internal sealed class AccountResourceTests
 
         // Act
         var act = () => client.EmailTemplate(emailTemplateId);
+
+        // Assert
+        act.Should().Throw<ArgumentOutOfRangeException>();
+    }
+
+    #endregion
+#pragma warning restore CS0618
+
+    #region Templates
+
+    [Test]
+    public void Templates_ShouldReturnTemplateCollectionResource()
+    {
+        // Arrange
+        var client = CreateResource();
+
+        // Act
+        var result = client.Templates();
+
+        // Assert
+        ResourceValidator.Validate<ITemplateCollectionResource, TemplateCollectionResource>(
+            result, client.ResourceUri.Append(UrlSegmentsTestConstants.TemplatesSegment));
+    }
+
+    [Test]
+    public void Template_ShouldReturnTemplateResource()
+    {
+        // Arrange
+        var client = CreateResource();
+        var templateId = TestContext.CurrentContext.Random.NextLong(1, long.MaxValue);
+
+        // Act
+        var result = client.Template(templateId);
+
+        // Assert
+        ResourceValidator.Validate<ITemplateResource, TemplateResource>(
+            result, client.ResourceUri.Append(UrlSegmentsTestConstants.TemplatesSegment).Append(templateId));
+    }
+
+    [Test]
+    public void Template_ShouldThrowOutOfRangeException_WhenIdIsEqualOrLessThanZero([Values(0, -1)] long templateId)
+    {
+        // Arrange
+        var client = CreateResource();
+
+        // Act
+        var act = () => client.Template(templateId);
 
         // Assert
         act.Should().Throw<ArgumentOutOfRangeException>();

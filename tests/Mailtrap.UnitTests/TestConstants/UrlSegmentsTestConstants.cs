@@ -14,6 +14,7 @@ internal static class UrlSegmentsTestConstants
     internal static string MessagesSegment { get; } = "messages";
     internal static string AttachmentsSegment { get; } = "attachments";
     internal static string EmailTemplatesSegment { get; } = "email_templates";
+    internal static string TemplatesSegment { get; } = "templates";
     internal static string SuppressionsSegment { get; } = "suppressions";
     internal static string TrackingOptOutsSegment { get; } = "tracking_opt_outs";
     internal static string SendEmailSegment { get; } = "send";

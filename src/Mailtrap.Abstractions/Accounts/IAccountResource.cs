@@ -166,6 +166,7 @@ public interface IAccountResource : IRestResource
     /// <returns>
     /// Email template collection resource for the account, represented by this resource instance.
     /// </returns>
+    [Obsolete("Use IAccountResource.Templates(), which serves the paginated /api/templates surface.")]
     public IEmailTemplateCollectionResource EmailTemplates();
 
     /// <summary>
@@ -183,7 +184,34 @@ public interface IAccountResource : IRestResource
     /// <exception cref="ArgumentOutOfRangeException">
     /// When <paramref name="emailTemplateId"/> is less than or equal to zero.
     /// </exception>
+    [Obsolete("Use IAccountResource.Templates(), which serves the paginated /api/templates surface.")]
     public IEmailTemplateResource EmailTemplate(long emailTemplateId);
+
+    /// <summary>
+    /// Gets template collection resource for the account, represented by this resource instance.
+    /// </summary>
+    ///
+    /// <returns>
+    /// Template collection resource for the account, represented by this resource instance.
+    /// </returns>
+    public ITemplateCollectionResource Templates();
+
+    /// <summary>
+    /// Gets resource for specific template, identified by <paramref name="templateId"/>.
+    /// </summary>
+    ///
+    /// <param name="templateId">
+    /// ID of template to get resource for.
+    /// </param>
+    ///
+    /// <returns>
+    /// Resource for the template with specified ID.
+    /// </returns>
+    ///
+    /// <exception cref="ArgumentOutOfRangeException">
+    /// When <paramref name="templateId"/> is less than or equal to zero.
+    /// </exception>
+    public ITemplateResource Template(long templateId);
 
     /// <summary>
     /// Gets suppression collection resource for the account, represented by this resource instance.

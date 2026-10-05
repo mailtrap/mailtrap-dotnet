@@ -1,3 +1,4 @@
+#pragma warning disable CS0618
 namespace Mailtrap.IntegrationTests.EmailTemplates;
 
 
@@ -431,3 +432,4 @@ internal sealed class EmailTemplateIntegrationTests
         mockHttp.VerifyNoOutstandingExpectation();
     }
 }
+#pragma warning restore CS0618

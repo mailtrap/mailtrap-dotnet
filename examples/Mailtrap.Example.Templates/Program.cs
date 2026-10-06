@@ -35,27 +35,17 @@ try
     logger.LogInformation("Found {Count} templates on the first page.", page.Data.Count);
     logger.LogInformation("Next page token: {NextToken}", page.Pagination?.NextToken);
 
-    Template? template = page.Data.Count > 0 ? page.Data[0] : null;
-
-    if (template is null)
+    // Create a dedicated template so the update and delete below never touch an existing one
+    var createTemplateRequest = new CreateTemplateRequest
     {
-        logger.LogWarning("No template found. Creating.");
-
-        // Create template
-        var createTemplateRequest = new CreateTemplateRequest
-        {
-            Name = "MyFirstTemplate",
-            Category = "TestCategory",
-            Subject = "TestSubject",
-            BodyHtml = "<h1>This is HTML body</h1>",
-            BodyText = "This is text body"
-        };
-        template = await templatesResource.Create(createTemplateRequest);
-    }
-    else
-    {
-        logger.LogInformation("Template {Name} found.", template.Name);
-    }
+        Name = "MyFirstTemplate",
+        Category = "TestCategory",
+        Subject = "TestSubject",
+        BodyHtml = "<h1>This is HTML body</h1>",
+        BodyText = "This is text body"
+    };
+    Template template = await templatesResource.Create(createTemplateRequest);
+    logger.LogInformation("Created template {Name} with Id {Id}.", template.Name, template.Id);
 
     // Get resource for specific template
     ITemplateResource templateResource = accountResource.Template(template.Id);

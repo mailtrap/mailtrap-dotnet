@@ -234,6 +234,37 @@ internal sealed class TemplateIntegrationTests
     }
 
     [Test]
+    public async Task GetDetails_NullBody_Success()
+    {
+        // Arrange
+        var templateId = 26730;
+        var requestUri = _resourceUri.Append(templateId).AbsoluteUri;
+
+        using var responseContent = await Feature.LoadFileToStringContent();
+
+        using var mockHttp = new MockHttpMessageHandler();
+        mockHttp
+            .Expect(HttpMethod.Get, requestUri)
+            .Respond(HttpStatusCode.OK, responseContent);
+
+        using var services = BuildServices(mockHttp);
+        var client = services.GetRequiredService<IMailtrapClient>();
+
+        // Act
+        var result = await client
+            .Account(_accountId)
+            .Template(templateId)
+            .GetDetails()
+            .ConfigureAwait(false);
+
+        // Assert
+        mockHttp.VerifyNoOutstandingExpectation();
+
+        result.BodyHtml.Should().BeNull();
+        result.BodyText.Should().Be("Welcome");
+    }
+
+    [Test]
     public async Task Update_Success()
     {
         // Arrange

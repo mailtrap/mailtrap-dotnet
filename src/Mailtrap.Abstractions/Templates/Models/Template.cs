@@ -73,11 +73,11 @@ public sealed record Template
     /// Template body text must be no longer than 10_000_000 characters.
     /// </remarks>
     /// <value>
-    /// Template's body text.
+    /// Template's body text, or <see langword="null"/> when the template has none.
     /// </value>
     [JsonPropertyName("body_text")]
     [JsonPropertyOrder(6)]
-    public string BodyText { get; set; } = string.Empty;
+    public string? BodyText { get; set; }
 
     /// <summary>
     /// Gets or sets the template body HTML.
@@ -86,11 +86,11 @@ public sealed record Template
     /// Template body HTML must be no longer than 10_000_000 characters.
     /// </remarks>
     /// <value>
-    /// Template's body HTML.
+    /// Template's body HTML, or <see langword="null"/> when the template has none.
     /// </value>
     [JsonPropertyName("body_html")]
     [JsonPropertyOrder(7)]
-    public string BodyHtml { get; set; } = string.Empty;
+    public string? BodyHtml { get; set; }
 
     /// <summary>
     /// Gets or sets the template creation date and time.

@@ -4,6 +4,9 @@ namespace Mailtrap.Templates;
 /// <summary>
 /// Represents Template resource, served by the <c>/api/templates</c> endpoints.
 /// </summary>
+/// <remarks>
+/// The endpoints are experimental: their request and response shapes may change before general availability.
+/// </remarks>
 public interface ITemplateResource : IRestResource
 {
     /// <summary>

@@ -1,5 +1,4 @@
-﻿#pragma warning disable CS0618
-using Mailtrap;
+﻿using Mailtrap;
 using Mailtrap.Accounts;
 using Mailtrap.EmailTemplates;
 using Mailtrap.EmailTemplates.Models;
@@ -79,4 +78,3 @@ catch (Exception ex)
     Environment.ExitCode = 1;
     return;
 }
-#pragma warning restore CS0618

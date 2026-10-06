@@ -76,11 +76,9 @@ internal sealed class AccountResource : RestResource, IAccountResource
 
     #region Email Templates
 
-    [Obsolete("Use IAccountResource.Templates(), which serves the paginated /api/templates surface.")]
     public IEmailTemplateCollectionResource EmailTemplates()
         => new EmailTemplateCollectionResource(RestResourceCommandFactory, ResourceUri.Append(UrlSegments.EmailTemplatesSegment));
 
-    [Obsolete("Use IAccountResource.Templates(), which serves the paginated /api/templates surface.")]
     public IEmailTemplateResource EmailTemplate(long emailTemplateId)
         => new EmailTemplateResource(RestResourceCommandFactory, ResourceUri.Append(UrlSegments.EmailTemplatesSegment).Append(emailTemplateId));
 

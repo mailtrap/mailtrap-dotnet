@@ -323,7 +323,6 @@ internal sealed class AccountResourceTests
     #endregion
 
 
-#pragma warning disable CS0618
     #region Email Templates
 
     [Test]
@@ -369,7 +368,6 @@ internal sealed class AccountResourceTests
     }
 
     #endregion
-#pragma warning restore CS0618
 
     #region Templates
 

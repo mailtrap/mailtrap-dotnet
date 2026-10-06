@@ -309,7 +309,7 @@ private static SendEmailRequest TemplateBasedRequest()
 ### General
 
 - Templates management (experimental) – [`examples/Mailtrap.Example.Templates`](examples/Mailtrap.Example.Templates/)
-- Email Templates management – [`examples/Mailtrap.Example.EmailTemplates`](examples/Mailtrap.Example.EmailTemplates/) (deprecated)
+- Email Templates management – [`examples/Mailtrap.Example.EmailTemplates`](examples/Mailtrap.Example.EmailTemplates/)
 - Account access management – [`examples/Mailtrap.Example.AccountAccess`](examples/Mailtrap.Example.AccountAccess/)
 - Permissions management – [`examples/Mailtrap.Example.Permissions`](examples/Mailtrap.Example.Permissions/)
 - Accounts management – [`examples/Mailtrap.Example.Account`](examples/Mailtrap.Example.Account/)

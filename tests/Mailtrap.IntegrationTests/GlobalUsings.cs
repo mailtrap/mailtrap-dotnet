@@ -52,6 +52,8 @@ global using Mailtrap.Stats.Models;
 global using Mailtrap.Suppressions.Models;
 global using Mailtrap.Suppressions.Requests;
 global using Mailtrap.Suppressions.Responses;
+global using Mailtrap.Templates.Models;
+global using Mailtrap.Templates.Requests;
 global using Mailtrap.TrackingOptOuts.Models;
 global using Mailtrap.TrackingOptOuts.Requests;
 global using Mailtrap.TrackingOptOuts.Responses;

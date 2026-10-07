@@ -1,0 +1,13 @@
+{
+  "data": {
+    "id": 26732,
+    "uuid": "018dd5e3-f6d2-7c00-8f9b-e5c3f2d8a134",
+    "name": "My Template",
+    "subject": "Promotional Email",
+    "category": "Promotional",
+    "body_html": "<div>Template Body</div>",
+    "body_text": "Template Body",
+    "created_at": "2026-05-05T09:00:00.000Z",
+    "updated_at": "2026-05-05T09:00:00.000Z"
+  }
+}

@@ -162,6 +162,9 @@ public interface IAccountResource : IRestResource
     /// <summary>
     /// Gets email template collection resource for the account, represented by this resource instance.
     /// </summary>
+    /// <remarks>
+    /// For the paginated, experimental <c>/api/templates</c> endpoints, see <see cref="Templates"/>.
+    /// </remarks>
     ///
     /// <returns>
     /// Email template collection resource for the account, represented by this resource instance.
@@ -184,6 +187,42 @@ public interface IAccountResource : IRestResource
     /// When <paramref name="emailTemplateId"/> is less than or equal to zero.
     /// </exception>
     public IEmailTemplateResource EmailTemplate(long emailTemplateId);
+
+    /// <summary>
+    /// Gets template collection resource for the account, represented by this resource instance.
+    /// </summary>
+    ///
+    /// <remarks>
+    /// The <c>/api/templates</c> endpoints are experimental: their request and response shapes may change
+    /// before general availability.
+    /// </remarks>
+    ///
+    /// <returns>
+    /// Template collection resource for the account, represented by this resource instance.
+    /// </returns>
+    public ITemplateCollectionResource Templates();
+
+    /// <summary>
+    /// Gets resource for specific template, identified by <paramref name="templateId"/>.
+    /// </summary>
+    ///
+    /// <remarks>
+    /// The <c>/api/templates</c> endpoints are experimental: their request and response shapes may change
+    /// before general availability.
+    /// </remarks>
+    ///
+    /// <param name="templateId">
+    /// ID of template to get resource for.
+    /// </param>
+    ///
+    /// <returns>
+    /// Resource for the template with specified ID.
+    /// </returns>
+    ///
+    /// <exception cref="ArgumentOutOfRangeException">
+    /// When <paramref name="templateId"/> is less than or equal to zero.
+    /// </exception>
+    public ITemplateResource Template(long templateId);
 
     /// <summary>
     /// Gets suppression collection resource for the account, represented by this resource instance.

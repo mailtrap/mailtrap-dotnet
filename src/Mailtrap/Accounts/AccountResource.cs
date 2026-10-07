@@ -84,6 +84,20 @@ internal sealed class AccountResource : RestResource, IAccountResource
 
     #endregion
 
+    #region Templates
+
+    public ITemplateCollectionResource Templates()
+        => new TemplateCollectionResource(RestResourceCommandFactory, ResourceUri.Append(UrlSegments.TemplatesSegment));
+
+    public ITemplateResource Template(long templateId)
+    {
+        Ensure.GreaterThanZero(templateId, nameof(templateId));
+
+        return new TemplateResource(RestResourceCommandFactory, ResourceUri.Append(UrlSegments.TemplatesSegment).Append(templateId));
+    }
+
+    #endregion
+
     #region Suppressions
 
     public ISuppressionCollectionResource Suppressions()

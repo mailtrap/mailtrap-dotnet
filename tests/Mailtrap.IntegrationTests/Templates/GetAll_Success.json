@@ -1,0 +1,35 @@
+{
+  "data": [
+    {
+      "id": 26730,
+      "uuid": "018dd5e3-f6d2-7c00-8f9b-e5c3f2d8a132",
+      "name": "Welcome",
+      "subject": "Welcome aboard",
+      "category": "Onboarding",
+      "body_html": "<div>Welcome</div>",
+      "body_text": "Welcome",
+      "created_at": "2026-05-01T09:00:00.000Z",
+      "updated_at": "2026-05-02T09:00:00.000Z"
+    },
+    {
+      "id": 26731,
+      "uuid": "018dd5e3-f6d2-7c00-8f9b-e5c3f2d8a133",
+      "name": "Receipt",
+      "subject": "Your receipt",
+      "category": "Billing",
+      "body_html": "<div>Receipt</div>",
+      "body_text": "Receipt",
+      "created_at": "2026-05-03T09:00:00.000Z",
+      "updated_at": "2026-05-04T09:00:00.000Z"
+    }
+  ],
+  "pagination": {
+    "token": 1,
+    "prev_token": null,
+    "next_token": 2,
+    "first_url": "https://mailtrap.io/api/accounts/1/templates?token=1",
+    "prev_url": null,
+    "current_url": "https://mailtrap.io/api/accounts/1/templates?token=1",
+    "next_url": "https://mailtrap.io/api/accounts/1/templates?token=2"
+  }
+}

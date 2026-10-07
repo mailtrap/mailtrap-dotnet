@@ -20,7 +20,8 @@ public sealed record TemplateListFilter
     /// </summary>
     ///
     /// <value>
-    /// Number of templates per page. Defaults to <c>50</c> and is capped at <c>100</c> by the API.
+    /// Number of templates per page. The API clamps the value rather than rejecting it:
+    /// below <c>1</c> becomes <c>50</c> and above <c>100</c> becomes <c>100</c>.
     /// </value>
     public int? PerPage { get; set; }
 }

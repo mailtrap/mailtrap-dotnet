@@ -57,7 +57,8 @@ public sealed record UpdateTemplateRequest : IValidatable
     /// Template body HTML must be no longer than 10_000_000 characters.
     /// </remarks>
     /// <value>
-    /// Template body HTML, or <see langword="null"/> to leave unchanged.
+    /// Template body HTML, or <see langword="null"/> to leave unchanged.<br/>
+    /// An empty string clears the body HTML.
     /// </value>
     [JsonPropertyName("body_html")]
     [JsonPropertyOrder(4)]
@@ -71,7 +72,8 @@ public sealed record UpdateTemplateRequest : IValidatable
     /// Template body text must be no longer than 10_000_000 characters.
     /// </remarks>
     /// <value>
-    /// Template body text, or <see langword="null"/> to leave unchanged.
+    /// Template body text, or <see langword="null"/> to leave unchanged.<br/>
+    /// An empty string clears the body text.
     /// </value>
     [JsonPropertyName("body_text")]
     [JsonPropertyOrder(5)]

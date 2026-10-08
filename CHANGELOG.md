@@ -1,3 +1,13 @@
+## [3.7.0] - 2026-10-07
+
+## What's Changed
+* Add Templates resources for the paginated /api/templates endpoints by @izikaj in https://github.com/mailtrap/mailtrap-dotnet/pull/261
+
+## New Contributors
+* @izikaj made their first contribution in https://github.com/mailtrap/mailtrap-dotnet/pull/261
+
+**Full Changelog**: https://github.com/mailtrap/mailtrap-dotnet/compare/v3.6.0...v3.7.0
+
 ## [3.6.0] - 2026-08-28
 
 ## What's Changed

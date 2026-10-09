@@ -27,6 +27,8 @@
 
 [assembly: SuppressMessage("Usage", "CA2227:Collection properties should be read only", Justification = "DTO; nullable setter required to omit unset collections from the request body", Scope = "type", Target = "~T:Mailtrap.Inbound.Requests.ReplyInboundMessageRequest")]
 [assembly: SuppressMessage("Usage", "CA2227:Collection properties should be read only", Justification = "DTO; nullable setter required to omit unset collections from the request body", Scope = "type", Target = "~T:Mailtrap.Inbound.Requests.ForwardInboundMessageRequest")]
+[assembly: SuppressMessage("Usage", "CA2227:Collection properties should be read only", Justification = "DTO; nullable setter required to omit unset collections from the request body", Scope = "type", Target = "~T:Mailtrap.Inbound.Requests.CreateInboundForwardRuleRequest")]
+[assembly: SuppressMessage("Usage", "CA2227:Collection properties should be read only", Justification = "DTO; nullable setter required to distinguish 'unchanged' from 'set to empty' on PATCH", Scope = "type", Target = "~T:Mailtrap.Inbound.Requests.UpdateInboundForwardRuleRequest")]
 [assembly: SuppressMessage("Design", "CA1056:URI-like properties should not be strings", Justification = "API returns string; signed/temporary URL", Scope = "member", Target = "~P:Mailtrap.Inbound.Models.InboundMessage.RawMessageUrl")]
 [assembly: SuppressMessage("Design", "CA1056:URI-like properties should not be strings", Justification = "API returns string; signed/temporary URL", Scope = "member", Target = "~P:Mailtrap.Inbound.Models.InboundAttachment.DownloadUrl")]
 

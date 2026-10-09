@@ -282,7 +282,7 @@ private static SendEmailRequest TemplateBasedRequest()
 
 ### Inbound Email
 
-- Inbound folders, inboxes, messages, and threads (CRUD, pagination, reply/reply-all/forward) – [`examples/Mailtrap.Example.Inbound`](examples/Mailtrap.Example.Inbound/)
+- Inbound folders, inboxes, forward rules, messages, and threads (CRUD, pagination, thread search, reply/reply-all/forward) – [`examples/Mailtrap.Example.Inbound`](examples/Mailtrap.Example.Inbound/)
 
 ### Email Sandbox (Testing)
 

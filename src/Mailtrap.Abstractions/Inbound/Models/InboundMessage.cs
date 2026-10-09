@@ -196,6 +196,17 @@ public sealed record InboundMessage
     public IList<InboundAttachment> Attachments { get; } = [];
 
     /// <summary>
+    /// Gets the forward outcomes.
+    /// </summary>
+    ///
+    /// <value>
+    /// Forward outcomes.
+    /// </value>
+    [JsonPropertyName("forwards")]
+    [JsonObjectCreationHandling(JsonObjectCreationHandling.Populate)]
+    public IList<ForwardOutcome> Forwards { get; } = [];
+
+    /// <summary>
     /// Gets or sets the signed URL to download the raw <c>.eml</c> message (get-by-id only).
     /// </summary>
     ///

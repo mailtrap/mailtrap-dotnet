@@ -29,6 +29,7 @@ internal sealed class InboundReactor
         InboundFolder folder = await ProcessFolders(inbound);
         InboundInbox inbox = await ProcessInboxes(inbound.Folder(folder.Id));
 
+        await ProcessForwardRules(inbound.Inbox(inbox.Id));
         await ProcessMessages(inbound.Inbox(inbox.Id));
         await ProcessThreads(inbound.Inbox(inbox.Id));
 
@@ -70,6 +71,37 @@ internal sealed class InboundReactor
         return inbox;
     }
 
+    private async Task ProcessForwardRules(IInboundInboxContentResource inboxContent)
+    {
+        InboundForwardRule rule = await inboxContent.ForwardRules().Create(new CreateInboundForwardRuleRequest
+        {
+            Name = "Copy billing mail to finance",
+            Conditions =
+            [
+                new InboundForwardRuleCondition
+                {
+                    MatchType = ForwardRuleMatchType.Sender,
+                    Operator = ForwardRuleOperator.EndsWith,
+                    Value = "@billing.example.com"
+                }
+            ],
+            Destinations = [new InboundForwardRuleDestination { Email = "finance@example.com" }]
+        });
+        _logger.LogInformation("Created forward rule: Id={Id}, Name={Name}", rule.Id, rule.Name);
+
+        IList<InboundForwardRule> rules = await inboxContent.ForwardRules().GetAll();
+        _logger.LogInformation("Inbox has {Count} forward rule(s).", rules.Count);
+
+        IInboundForwardRuleResource ruleResource = inboxContent.ForwardRule(rule.Id);
+
+        InboundForwardRule details = await ruleResource.GetDetails();
+        _logger.LogInformation("Forward rule details: Name={Name}", details.Name);
+
+        await ruleResource.Update(new UpdateInboundForwardRuleRequest { Name = "Copy billing mail to finance (renamed)" });
+
+        await ruleResource.Delete();
+    }
+
     private async Task ProcessMessages(IInboundInboxContentResource inboxContent)
     {
         // List received messages. Pass the previous page's LastId to fetch the next page.
@@ -86,6 +118,12 @@ internal sealed class InboundReactor
         // Get a single message with its body and attachment download URLs.
         InboundMessage message = await messageResource.GetDetails();
         _logger.LogInformation("Message subject: {Subject}", message.Subject);
+
+        foreach (ForwardOutcome forward in message.Forwards)
+        {
+            _logger.LogInformation("Forwarded by rule {RuleId} to {Destination}: {Status} {Reason}",
+                forward.RuleId, forward.Destination, forward.Status, forward.Reason);
+        }
 
         // Reply to a message (sends a real email to the original sender).
         SendMessageResult reply = await messageResource.Reply(new ReplyInboundMessageRequest
@@ -114,6 +152,9 @@ internal sealed class InboundReactor
         InboundThreadsListResponse threads = await inboxContent.Threads().List();
         _logger.LogInformation("Inbox has {Total} thread(s).", threads.TotalCount);
 
+        InboundThreadsListResponse found = await inboxContent.Threads().List(lastId: null, search: "acme");
+        _logger.LogInformation("Found {Total} thread(s) matching 'acme'.", found.TotalCount);
+
         if (threads.Data.Count == 0)
         {
             return;
@@ -124,6 +165,17 @@ internal sealed class InboundReactor
         // Get a single thread with its messages embedded (oldest first).
         InboundThread thread = await threadResource.GetDetails();
         _logger.LogInformation("Thread has {Count} message(s).", thread.Messages.Count);
+
+        foreach (InboundThreadMessage threadMessage in thread.Messages)
+        {
+            if (threadMessage.Delivery is not null)
+            {
+                _logger.LogInformation("Sent to {To}: {Status}", threadMessage.Delivery.To, threadMessage.Delivery.Status);
+            }
+
+            _logger.LogInformation("Message {Id} was forwarded to {Count} destination(s).",
+                threadMessage.Id, threadMessage.Forwards.Count);
+        }
 
         // Delete a thread (inbound messages are removed; sent messages are preserved).
         await threadResource.Delete();

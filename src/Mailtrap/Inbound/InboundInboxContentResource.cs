@@ -28,4 +28,14 @@ internal sealed class InboundInboxContentResource : RestResource, IInboundInboxC
 
         return new InboundThreadResource(RestResourceCommandFactory, ResourceUri.Append(UrlSegments.ThreadsSegment).Append(encoded));
     }
+
+    public IInboundForwardRuleCollectionResource ForwardRules()
+        => new InboundForwardRuleCollectionResource(RestResourceCommandFactory, ResourceUri.Append(UrlSegments.ForwardRulesSegment));
+
+    public IInboundForwardRuleResource ForwardRule(long forwardRuleId)
+    {
+        Ensure.GreaterThanZero(forwardRuleId, nameof(forwardRuleId));
+
+        return new InboundForwardRuleResource(RestResourceCommandFactory, ResourceUri.Append(UrlSegments.ForwardRulesSegment).Append(forwardRuleId));
+    }
 }

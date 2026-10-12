@@ -52,6 +52,11 @@ try
         "Created Sub Account: Id={Id}, Name={Name}",
         createdSubAccount.Id,
         createdSubAccount.Name);
+
+    // Delete the sub account permanently, together with all its data.
+    // Deleting the last sub account of the organization deletes the organization as well.
+    await organizationResource.SubAccount(createdSubAccount.Id).Delete();
+    logger.LogInformation("Deleted Sub Account: Id={Id}", createdSubAccount.Id);
 }
 catch (Exception ex)
 {

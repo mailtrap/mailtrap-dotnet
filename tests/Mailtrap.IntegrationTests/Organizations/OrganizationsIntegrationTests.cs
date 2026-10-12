@@ -88,4 +88,39 @@ internal sealed class OrganizationsIntegrationTests
 
         result.Should().BeEquivalentTo(expectedResponse);
     }
+
+    [Test]
+    public async Task Delete_Success()
+    {
+        // Arrange
+        var httpMethod = HttpMethod.Delete;
+        var subAccountId = TestContext.CurrentContext.Random.NextLong();
+        var requestUri = _resourceUri.Append(subAccountId).AbsoluteUri;
+
+        using var mockHttp = new MockHttpMessageHandler();
+        mockHttp
+            .Expect(httpMethod, requestUri)
+            .WithHeaders("Authorization", $"Bearer {_clientConfig.ApiToken}")
+            .WithHeaders("Accept", MimeTypes.Application.Json)
+            .WithHeaders("User-Agent", HeaderValues.UserAgent.ToString())
+            .Respond(HttpStatusCode.NoContent);
+
+        var serviceCollection = new ServiceCollection();
+        serviceCollection
+            .AddMailtrapClient(_clientConfig)
+            .ConfigurePrimaryHttpMessageHandler(() => mockHttp);
+
+        using var services = serviceCollection.BuildServiceProvider();
+        var client = services.GetRequiredService<IMailtrapOrganizationClient>();
+
+        // Act
+        await client
+            .Organization(_organizationId)
+            .SubAccount(subAccountId)
+            .Delete()
+            .ConfigureAwait(false);
+
+        // Assert
+        mockHttp.VerifyNoOutstandingExpectation();
+    }
 }

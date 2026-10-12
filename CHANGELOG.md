@@ -1,3 +1,11 @@
+## [3.8.0] - 2026-10-12
+
+## What's Changed
+* Add inbound forward rules, forward outcomes, thread delivery and search by @mklocek in https://github.com/mailtrap/mailtrap-dotnet/pull/260
+
+
+**Full Changelog**: https://github.com/mailtrap/mailtrap-dotnet/compare/v3.7.0...v3.8.0
+
 ## [3.7.0] - 2026-10-07
 
 ## What's Changed

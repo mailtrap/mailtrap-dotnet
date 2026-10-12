@@ -29,7 +29,7 @@ public interface IInboundResource : IRestResource
     public IInboundFolderResource Folder(long folderId);
 
     /// <summary>
-    /// Gets the message and thread resources for a specific inbox, identified by <paramref name="inboxId"/>.
+    /// Gets the message, thread, and forward rule resources for a specific inbox, identified by <paramref name="inboxId"/>.
     /// </summary>
     ///
     /// <param name="inboxId">
@@ -37,7 +37,7 @@ public interface IInboundResource : IRestResource
     /// </param>
     ///
     /// <returns>
-    /// Resource exposing the messages and threads of the inbox with the specified ID.
+    /// Resource exposing the messages, threads, and forward rules of the inbox with the specified ID.
     /// </returns>
     ///
     /// <remarks>

@@ -4,22 +4,37 @@
       "id": "msg_1",
       "inbox_id": 201,
       "from": "customer@example.com",
-      "to": ["support@inbound-mailtrap.io"],
+      "to": [
+        "support@inbound-mailtrap.io"
+      ],
       "subject": "Support request",
       "rfc_message_id": "<abc123@example.com>",
       "size": 2048,
       "received_at": "2026-07-30T10:15:00Z",
-      "thread_id": "thr_1"
+      "thread_id": "thr_1",
+      "forwards": [
+        {
+          "rule_id": 7,
+          "rule_name": "Copy to support team",
+          "destination": "team@example.com",
+          "status": "forwarded",
+          "reason": null,
+          "message_id": "f47ac10b-58cc-4372-a567-0e02b2c3d479"
+        }
+      ]
     },
     {
       "id": "msg_2",
       "inbox_id": 201,
       "from": "another@example.com",
-      "to": ["support@inbound-mailtrap.io"],
+      "to": [
+        "support@inbound-mailtrap.io"
+      ],
       "subject": "Question about billing",
       "size": 1536,
       "received_at": "2026-07-30T11:20:00Z",
-      "thread_id": "thr_2"
+      "thread_id": "thr_2",
+      "forwards": []
     }
   ],
   "total_count": 2,

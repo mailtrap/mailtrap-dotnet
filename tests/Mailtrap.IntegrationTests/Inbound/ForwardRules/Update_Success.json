@@ -1,0 +1,20 @@
+{
+  "data": {
+    "id": 7,
+    "name": "Copy billing mail to finance",
+    "created_at": "2026-05-08T10:30:00.000Z",
+    "updated_at": "2026-05-08T12:15:00.000Z",
+    "conditions": [
+      {
+        "match_type": "sender",
+        "operator": "ends_with",
+        "value": "@billing.example.com",
+        "header_key": null
+      }
+    ],
+    "destinations": [
+      { "email": "finance@example.com" },
+      { "email": "accounting@example.com" }
+    ]
+  }
+}

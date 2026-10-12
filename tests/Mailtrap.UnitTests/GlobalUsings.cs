@@ -59,6 +59,8 @@ global using Mailtrap.EmailTemplates;
 global using Mailtrap.EmailTemplates.Models;
 global using Mailtrap.EmailTemplates.Requests;
 global using Mailtrap.Inbound;
+global using Mailtrap.Inbound.Models;
+global using Mailtrap.Inbound.Requests;
 global using Mailtrap.Inboxes;
 global using Mailtrap.Inboxes.Requests;
 global using Mailtrap.Organizations;

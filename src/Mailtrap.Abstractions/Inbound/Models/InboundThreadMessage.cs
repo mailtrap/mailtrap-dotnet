@@ -194,32 +194,23 @@ public sealed record InboundThreadMessage
     public IList<InboundAttachment> Attachments { get; } = [];
 
     /// <summary>
-    /// Gets or sets the delivery status (outbound messages only).
+    /// Gets or sets the delivery outcome (outbound messages only).
     /// </summary>
     ///
     /// <value>
-    /// Delivery status, or <see langword="null"/> for inbound messages.
+    /// Delivery outcome.
     /// </value>
-    [JsonPropertyName("delivery_status")]
-    public EmailLogStatus? DeliveryStatus { get; set; }
+    [JsonPropertyName("delivery")]
+    public ThreadMessageDelivery? Delivery { get; set; }
 
     /// <summary>
-    /// Gets or sets the timestamp when the message was delivered (outbound messages only).
+    /// Gets the forward outcomes (inbound messages only).
     /// </summary>
     ///
     /// <value>
-    /// Timestamp when the message was delivered.
+    /// Forward outcomes.
     /// </value>
-    [JsonPropertyName("delivered_at")]
-    public DateTimeOffset? DeliveredAt { get; set; }
-
-    /// <summary>
-    /// Gets or sets the timestamp when the message hard-bounced, if it did (outbound messages only).
-    /// </summary>
-    ///
-    /// <value>
-    /// Timestamp when the message hard-bounced.
-    /// </value>
-    [JsonPropertyName("bounced_at")]
-    public DateTimeOffset? BouncedAt { get; set; }
+    [JsonPropertyName("forwards")]
+    [JsonObjectCreationHandling(JsonObjectCreationHandling.Populate)]
+    public IList<ForwardOutcome> Forwards { get; } = [];
 }

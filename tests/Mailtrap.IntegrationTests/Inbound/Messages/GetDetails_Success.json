@@ -2,13 +2,21 @@
   "id": "1700000000000123",
   "inbox_id": 201,
   "from": "customer@example.com",
-  "to": ["support@inbound-mailtrap.io"],
-  "cc": ["cc@example.com"],
+  "to": [
+    "support@inbound-mailtrap.io"
+  ],
+  "cc": [
+    "cc@example.com"
+  ],
   "reply_to": "customer@example.com",
   "subject": "Support request",
   "rfc_message_id": "<abc123@example.com>",
-  "references": ["<ref1@example.com>"],
-  "headers": { "X-Custom-Header": "value" },
+  "references": [
+    "<ref1@example.com>"
+  ],
+  "headers": {
+    "X-Custom-Header": "value"
+  },
   "size": 2048,
   "html_size": 1200,
   "text_size": 400,
@@ -28,5 +36,15 @@
   "raw_message_url": "https://example.com/raw/msg_1",
   "raw_message_expires_at": "2026-07-30T12:15:00Z",
   "html_body": "<p>Hello, I need help.</p>",
-  "text_body": "Hello, I need help."
+  "text_body": "Hello, I need help.",
+  "forwards": [
+    {
+      "rule_id": 8,
+      "rule_name": "Archive",
+      "destination": "archive@example.com",
+      "status": "rejected",
+      "reason": "fetch_failed",
+      "message_id": null
+    }
+  ]
 }

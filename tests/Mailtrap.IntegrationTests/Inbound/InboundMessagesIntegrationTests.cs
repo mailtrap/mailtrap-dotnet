@@ -50,6 +50,11 @@ internal sealed class InboundMessagesIntegrationTests
         result.LastId.Should().Be("msg_2");
         result.Data[0].ThreadId.Should().Be("thr_1");
         result.Data[0].RfcMessageId.Should().Be("<abc123@example.com>");
+        result.Data[0].Forwards.Should().ContainSingle();
+        result.Data[0].Forwards[0].RuleId.Should().Be(7);
+        result.Data[0].Forwards[0].Status.Should().Be(ForwardOutcomeStatus.Forwarded);
+        result.Data[0].Forwards[0].MessageId.Should().Be("f47ac10b-58cc-4372-a567-0e02b2c3d479");
+        result.Data[1].Forwards.Should().BeEmpty();
     }
 
     [Test]
@@ -109,6 +114,13 @@ internal sealed class InboundMessagesIntegrationTests
         result.Attachments.Should().ContainSingle();
         result.Attachments[0].DownloadUrl.Should().Be("https://example.com/download/att_1");
         result.ThreadId.Should().Be("thr_1");
+        result.Forwards.Should().ContainSingle();
+        result.Forwards[0].RuleId.Should().Be(8);
+        result.Forwards[0].RuleName.Should().Be("Archive");
+        result.Forwards[0].Destination.Should().Be("archive@example.com");
+        result.Forwards[0].Status.Should().Be(ForwardOutcomeStatus.Rejected);
+        result.Forwards[0].Reason.Should().Be("fetch_failed");
+        result.Forwards[0].MessageId.Should().BeNull();
     }
 
     [Test]

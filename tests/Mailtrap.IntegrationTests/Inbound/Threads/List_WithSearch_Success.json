@@ -1,0 +1,20 @@
+{
+  "data": [
+    {
+      "id": "thr_3",
+      "subject": "Acme order",
+      "message_count": 1,
+      "size": 1024,
+      "first_message_at": "2026-07-30T10:15:00Z",
+      "last_received_at": "2026-07-30T10:15:00Z",
+      "last_sent_at": null,
+      "last_activity_at": "2026-07-30T10:15:00Z",
+      "last_message_id": "msg_5",
+      "senders": ["buyer@acme.example"],
+      "recipients": ["support@inbound-mailtrap.io"],
+      "attachments": []
+    }
+  ],
+  "total_count": 3,
+  "last_id": null
+}

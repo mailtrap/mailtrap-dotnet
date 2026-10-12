@@ -2,7 +2,7 @@ namespace Mailtrap.Inbound;
 
 
 /// <summary>
-/// Represents access to the messages and threads of an inbound inbox.
+/// Represents access to the messages, threads, and forward rules of an inbound inbox.
 /// </summary>
 public interface IInboundInboxContentResource : IRestResource
 {
@@ -49,4 +49,26 @@ public interface IInboundInboxContentResource : IRestResource
     /// Resource for the thread with the specified ID.
     /// </returns>
     public IInboundThreadResource Thread(string threadId);
+
+    /// <summary>
+    /// Gets the forward rule collection resource for this inbox.
+    /// </summary>
+    ///
+    /// <returns>
+    /// Forward rule collection resource for this inbox.
+    /// </returns>
+    public IInboundForwardRuleCollectionResource ForwardRules();
+
+    /// <summary>
+    /// Gets the resource for a specific forward rule of this inbox, identified by <paramref name="forwardRuleId"/>.
+    /// </summary>
+    ///
+    /// <param name="forwardRuleId">
+    /// ID of the forward rule to get resource for.
+    /// </param>
+    ///
+    /// <returns>
+    /// Resource for the forward rule with the specified ID.
+    /// </returns>
+    public IInboundForwardRuleResource ForwardRule(long forwardRuleId);
 }

@@ -85,30 +85,14 @@ internal sealed class StatsResource : RestResource, IStatsResource
         Ensure.NotNullOrEmpty(filter.StartDate, nameof(filter.StartDate));
         Ensure.NotNullOrEmpty(filter.EndDate, nameof(filter.EndDate));
 
-        var uri = baseUri
+        return baseUri
             .AppendQueryParameter(StartDateParam, filter.StartDate)
-            .AppendQueryParameter(EndDateParam, filter.EndDate);
-
-        foreach (var id in filter.SendingDomainIds)
-        {
-            uri = uri.AppendQueryParameter(SendingDomainIdsParam, id.ToString(CultureInfo.InvariantCulture));
-        }
-
-        foreach (var stream in filter.SendingStreams)
-        {
-            uri = uri.AppendQueryParameter(SendingStreamsParam, stream);
-        }
-
-        foreach (var category in filter.Categories)
-        {
-            uri = uri.AppendQueryParameter(CategoriesParam, category);
-        }
-
-        foreach (var provider in filter.EmailServiceProviders)
-        {
-            uri = uri.AppendQueryParameter(EmailServiceProvidersParam, provider);
-        }
-
-        return uri;
+            .AppendQueryParameter(EndDateParam, filter.EndDate)
+            .AppendQueryParameters(
+                SendingDomainIdsParam,
+                filter.SendingDomainIds.Select(id => id.ToString(CultureInfo.InvariantCulture)))
+            .AppendQueryParameters(SendingStreamsParam, filter.SendingStreams)
+            .AppendQueryParameters(CategoriesParam, filter.Categories)
+            .AppendQueryParameters(EmailServiceProvidersParam, filter.EmailServiceProviders);
     }
 }

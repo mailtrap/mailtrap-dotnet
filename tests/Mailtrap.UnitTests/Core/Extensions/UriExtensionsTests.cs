@@ -339,6 +339,46 @@ internal sealed class UriExtensionsTests
         result.Query.Should().Contain("new=2");
     }
 
+    [Test]
+    public void AppendQueryParameters_WithKey_ShouldThrowArgumentNullException_WhenUriIsNull()
+    {
+        var act = () => UriExtensions.AppendQueryParameters(null!, "sources[]", ["campaigns"]);
+
+        act.Should().Throw<ArgumentNullException>();
+    }
+
+    [Test]
+    public void AppendQueryParameters_WithKey_ShouldThrowArgumentNullException_WhenValuesIsNull()
+    {
+        var act = () => _absoluteUri.AppendQueryParameters("sources[]", null!);
+
+        act.Should().Throw<ArgumentNullException>();
+    }
+
+    [Test]
+    public void AppendQueryParameters_WithKey_ShouldThrowArgumentNullException_WhenKeyIsEmpty()
+    {
+        var act = () => _absoluteUri.AppendQueryParameters(string.Empty, ["campaigns"]);
+
+        act.Should().Throw<ArgumentNullException>();
+    }
+
+    [Test]
+    public void AppendQueryParameters_WithKey_ShouldReturnSameUri_WhenValuesIsEmpty()
+    {
+        var result = _absoluteUri.AppendQueryParameters("sources[]", []);
+
+        result.Should().Be(_absoluteUri);
+    }
+
+    [Test]
+    public void AppendQueryParameters_WithKey_ShouldAppendKeyOncePerValue()
+    {
+        var result = _absoluteUri.AppendQueryParameters("sources[]", ["campaigns", "auto mations"]);
+
+        result.Query.Should().Be("?sources[]=campaigns&sources[]=auto%20mations");
+    }
+
     #endregion
 
 

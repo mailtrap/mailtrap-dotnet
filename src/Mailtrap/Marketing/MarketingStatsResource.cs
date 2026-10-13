@@ -34,25 +34,13 @@ internal sealed class MarketingStatsResource : RestResource, IMarketingStatsReso
         Ensure.NotNullOrEmpty(filter.StartDate, nameof(filter.StartDate));
         Ensure.NotNullOrEmpty(filter.EndDate, nameof(filter.EndDate));
 
-        var uri = ResourceUri
+        return ResourceUri
             .AppendQueryParameter(StartDateParam, filter.StartDate)
-            .AppendQueryParameter(EndDateParam, filter.EndDate);
-
-        foreach (var id in filter.SendingDomainIds)
-        {
-            uri = uri.AppendQueryParameter(SendingDomainIdsParam, id.ToString(CultureInfo.InvariantCulture));
-        }
-
-        foreach (var source in filter.Sources)
-        {
-            uri = uri.AppendQueryParameter(SourcesParam, source);
-        }
-
-        foreach (var provider in filter.EmailServiceProviders)
-        {
-            uri = uri.AppendQueryParameter(EmailServiceProvidersParam, provider);
-        }
-
-        return uri;
+            .AppendQueryParameter(EndDateParam, filter.EndDate)
+            .AppendQueryParameters(
+                SendingDomainIdsParam,
+                filter.SendingDomainIds.Select(id => id.ToString(CultureInfo.InvariantCulture)))
+            .AppendQueryParameters(SourcesParam, filter.Sources)
+            .AppendQueryParameters(EmailServiceProvidersParam, filter.EmailServiceProviders);
     }
 }

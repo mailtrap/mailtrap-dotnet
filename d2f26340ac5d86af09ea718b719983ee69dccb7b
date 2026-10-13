@@ -1,0 +1,111 @@
+src/Mailtrap.Abstractions/TrackingOptOuts/ITrackingOptOutCollectionResource.cs
+  s_a416a2bbf03afd::t_c6631bc61138da 1-47
+src/Mailtrap/TrackingOptOuts/TrackingOptOutCollectionResource.cs
+  s_a416a2bbf03afd::t_b2e2a647e7a45e 1-61
+tests/Mailtrap.IntegrationTests/Suppressions/Create_Success.json
+  s_a416a2bbf03afd::t_e2f48e10eefe95 1-10
+src/Mailtrap/Suppressions/SuppressionCollectionResource.cs
+  s_a416a2bbf03afd::t_231100c16e7619 16-22
+tests/Mailtrap.IntegrationTests/Suppressions/SuppressionsIntegrationTests.cs
+  s_a416a2bbf03afd::t_53129412bf73c1 96-131
+  s_a416a2bbf03afd::t_5eb3df9cf69d67 132-134
+tests/Mailtrap.UnitTests/TrackingOptOuts/TrackingOptOutResourceTests.cs
+  s_a416a2bbf03afd::t_152fb77621a453 1-51
+src/Mailtrap.Abstractions/TrackingOptOuts/ITrackingOptOutResource.cs
+  s_a416a2bbf03afd::t_c6631bc61138da 1-22
+src/Mailtrap/MailtrapClient.cs
+  s_a416a2bbf03afd::t_8942205ab84934 98-121
+tests/Mailtrap.IntegrationTests/TrackingOptOuts/Create_Success.json
+  s_a416a2bbf03afd::t_c37d04a5f73983 1-8
+tests/Mailtrap.IntegrationTests/TrackingOptOuts/Fetch_WithFilter_Success.json
+  s_a416a2bbf03afd::t_c37d04a5f73983 1-17
+src/Mailtrap.Abstractions/Suppressions/ISuppressionCollectionResource.cs
+  s_a416a2bbf03afd::t_707ca88e962b49 25-41
+src/Mailtrap.Abstractions/TrackingOptOuts/Models/TrackingOptOut.cs
+  s_a416a2bbf03afd::t_7ac08512d8eee3 1-17,20-29,31-53
+  s_a416a2bbf03afd::t_3648703ad01685 18-19,30
+src/Mailtrap.Abstractions/TrackingOptOuts/Models/TrackingOptOutFilter.cs
+  s_a416a2bbf03afd::t_7ac08512d8eee3 1-44
+Mailtrap.sln
+  s_a416a2bbf03afd::t_ba255a423bf790 125-126,545-556,596
+src/Mailtrap.Abstractions/IMailtrapClient.cs
+  s_a416a2bbf03afd::t_5b723b1a1bf8a7 135
+  s_a416a2bbf03afd::t_f1bf2cf630e708 107-134,136-138
+tests/Mailtrap.UnitTests/TrackingOptOuts/CreateTrackingOptOutRequestValidatorTests.cs
+  s_a416a2bbf03afd::t_a05c43aacf82b5 1-46
+src/Mailtrap.Abstractions/GlobalUsings.cs
+  s_a416a2bbf03afd::t_f8600613ee386d 96,100
+  s_a416a2bbf03afd::t_99a4b07ef39da4 95,97-99
+src/Mailtrap/Suppressions/Responses/SuppressionResponseDto.cs
+  s_a416a2bbf03afd::t_6ac81fb526ba23 9-15
+  s_a416a2bbf03afd::t_06d4b5ada79e6f 1-8,16-20
+README.md
+  s_a416a2bbf03afd::t_a31629cbc1028e 277
+src/Mailtrap.Abstractions/Suppressions/Requests/CreateSuppressionRequest.cs
+  s_a416a2bbf03afd::t_06d4b5ada79e6f 1-6,8-53,63
+  s_a416a2bbf03afd::t_ed4d26b38b0731 7,54-62
+tests/Mailtrap.UnitTests/GlobalUsings.cs
+  s_a416a2bbf03afd::t_6e043c2409cf0e 77
+  s_a416a2bbf03afd::t_00d9d794eef2dc 74-76,78-79
+tests/Mailtrap.IntegrationTests/TrackingOptOuts/Fetch_WithoutFilter_Success.json
+  s_a416a2bbf03afd::t_c37d04a5f73983 1-17
+examples/Mailtrap.Example.TrackingOptOut/Mailtrap.Example.TrackingOptOut.csproj
+  s_a416a2bbf03afd::t_7881576e597f4e 1
+src/Mailtrap.Abstractions/TrackingOptOuts/Models/TrackingOptOutList.cs
+  s_a416a2bbf03afd::t_7ac08512d8eee3 1-32
+tests/Mailtrap.UnitTests/TrackingOptOuts/TrackingOptOutCollectionResourceTests.cs
+  s_a416a2bbf03afd::t_152fb77621a453 1-50
+src/Mailtrap/Core/Constants/UrlSegments.cs
+  s_a416a2bbf03afd::t_f1bf2cf630e708 19
+examples/Mailtrap.Example.TrackingOptOut/Program.cs
+  s_a416a2bbf03afd::t_5a5430e0a448ea 1-64
+src/Mailtrap.Abstractions/TrackingOptOuts/Validators/CreateTrackingOptOutRequestValidator.cs
+  s_a416a2bbf03afd::t_4dec0bea548c4c 1-28
+tests/Mailtrap.IntegrationTests/TestConstants/UrlSegmentsTestConstants.cs
+  s_a416a2bbf03afd::t_e2f48e10eefe95 23
+src/Mailtrap.Abstractions/Suppressions/Validators/CreateSuppressionRequestValidator.cs
+  s_a416a2bbf03afd::t_4dec0bea548c4c 1-32
+src/Mailtrap/GlobalUsings.cs
+  s_a416a2bbf03afd::t_99a4b07ef39da4 93-98
+examples/Mailtrap.Example.TrackingOptOut/appsettings.json
+  s_a416a2bbf03afd::t_7881576e597f4e 1-17
+examples/Mailtrap.Example.Suppression/Program.cs
+  s_a416a2bbf03afd::t_258ab580bd3b17 32-43
+  s_a416a2bbf03afd::t_37ba98ad85cfcf 3,6
+src/Mailtrap.Abstractions/TrackingOptOuts/Requests/CreateTrackingOptOutRequest.cs
+  s_a416a2bbf03afd::t_7ac08512d8eee3 1-6,8-29,39
+  s_a416a2bbf03afd::t_ed4d26b38b0731 7,30-38
+examples/Mailtrap.Example.TrackingOptOut/Properties/launchSettings.json
+  s_a416a2bbf03afd::t_5a5430e0a448ea 1-10
+tests/Mailtrap.IntegrationTests/TrackingOptOuts/Delete_Success.json
+  s_a416a2bbf03afd::t_c37d04a5f73983 1-6
+tests/Mailtrap.UnitTests/Suppressions/CreateSuppressionRequestValidatorTests.cs
+  s_a416a2bbf03afd::t_a05c43aacf82b5 1-68
+src/Mailtrap/TrackingOptOuts/Responses/TrackingOptOutResponseDto.cs
+  s_a416a2bbf03afd::t_6ac81fb526ba23 9-15
+  s_a416a2bbf03afd::t_c6631bc61138da 1-8,16-20
+tests/Mailtrap.UnitTests/TestConstants/UrlSegmentsTestConstants.cs
+  s_a416a2bbf03afd::t_c1dd59826a7006 18
+src/Mailtrap/TrackingOptOuts/TrackingOptOutResource.cs
+  s_a416a2bbf03afd::t_b2e2a647e7a45e 1-12
+tests/Mailtrap.IntegrationTests/GlobalUsings.cs
+  s_a416a2bbf03afd::t_1e17ff189e12ae 53-57
+tests/Mailtrap.IntegrationTests/TrackingOptOuts/TrackingOptOutsIntegrationTests.cs
+  s_a416a2bbf03afd::t_b7a5d0534782f0 1-180
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.24",
+  "base_commit_sha": "d2f26340ac5d86af09ea718b719983ee69dccb7b",
+  "prompts": {},
+  "sessions": {
+    "s_a416a2bbf03afd": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "73aab1cf-cfd1-42b8-b656-f26905d319ee",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Marcin Klocek <marcin.klocek@railsware.com>"
+    }
+  }
+}

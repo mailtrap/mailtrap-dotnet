@@ -1,0 +1,85 @@
+src/Mailtrap.Abstractions/SendingDomains/Requests/UpdateSendingDomainRequest.cs
+  s_a416a2bbf03afd::t_a8265d708b8ffb 1-70
+tests/Mailtrap.IntegrationTests/SendingDomains/GetDetails_Success.json
+  s_a416a2bbf03afd::t_e61d5d42825437 59
+src/Mailtrap.Abstractions/SendingDomains/Requests/CreateCompanyInfoRequestValidator.cs
+  s_a416a2bbf03afd::t_46a8a1a8feb1a2 1-17
+tests/Mailtrap.IntegrationTests/TestConstants/UrlSegmentsTestConstants.cs
+  s_a416a2bbf03afd::t_efd60459b44a4f 17-18
+src/Mailtrap/SendingDomains/Requests/SendingDomainRequestExtensions.cs
+  s_a416a2bbf03afd::t_5b9079ee977f19 14-19
+src/Mailtrap.Abstractions/IMailtrapClient.cs
+  s_a416a2bbf03afd::t_7c99aa257829e1 84-106
+src/Mailtrap/GlobalUsings.cs
+  s_a416a2bbf03afd::t_0cf0cfe4756eb3 88
+src/Mailtrap/SendingDomains/Requests/UpdateCompanyInfoRequestDto.cs
+  s_a416a2bbf03afd::t_12f28c899c7b72 1-20
+src/Mailtrap.Abstractions/SendingDomains/Requests/UpdateCompanyInfoRequest.cs
+  s_a416a2bbf03afd::t_3f95454b5960aa 1-129
+tests/Mailtrap.IntegrationTests/SendingDomains/Create_Success.json
+  s_a416a2bbf03afd::t_e61d5d42825437 59
+examples/Mailtrap.Example.SendingDomain/SendingDomain.cs
+  s_a416a2bbf03afd::t_0cb315beca1039 58-69,71-92
+  s_a416a2bbf03afd::t_0a871372944f30 70
+src/Mailtrap/Core/Constants/UrlSegments.cs
+  s_a416a2bbf03afd::t_1c1fdfd2feac66 10-11
+src/Mailtrap/SendingDomains/Responses/CompanyInfoResponseDto.cs
+  s_a416a2bbf03afd::t_28f90f637431dd 1-13
+src/Mailtrap/MailtrapClient.cs
+  s_a416a2bbf03afd::t_8846e4a5a7a265 79-97
+src/Mailtrap/SendingDomains/Requests/UpdateSendingDomainRequestDto.cs
+  s_a416a2bbf03afd::t_66d5411e6a60d9 1-20
+src/Mailtrap/SendingDomains/Requests/CreateCompanyInfoRequestDto.cs
+  s_a416a2bbf03afd::t_9c787abb1f8ee9 1-23
+src/Mailtrap/SendingDomains/SendingDomainResource.cs
+  s_a416a2bbf03afd::t_2e5a9c6a61ef77 16-22
+src/Mailtrap/SendingDomains/CompanyInfoResource.cs
+  s_a416a2bbf03afd::t_59d7b8aaeffe94 1-34
+tests/Mailtrap.IntegrationTests/SendingDomains/SendingDomainIntegrationTests.cs
+  s_a416a2bbf03afd::t_233217d28edd7a 461-528
+README.md
+  s_a416a2bbf03afd::t_b50d460c82b615 275
+tests/Mailtrap.IntegrationTests/SendingDomains/GetAll_Success.json
+  s_a416a2bbf03afd::t_e61d5d42825437 61
+src/Mailtrap.Abstractions/SendingDomains/Models/CompanyInfoLevel.cs
+  s_a416a2bbf03afd::t_e0212d8f2f1486 1-26
+src/Mailtrap.Abstractions/SendingDomains/ICompanyInfoResource.cs
+  s_a416a2bbf03afd::t_dc39f39002ed41 1-56
+src/Mailtrap.Abstractions/SendingDomains/Models/SendingDomain.cs
+  s_a416a2bbf03afd::t_99911410a2dd20 198-209
+tests/Mailtrap.IntegrationTests/CompanyInfo/CompanyInfoIntegrationTests.cs
+  s_a416a2bbf03afd::t_feca73e00207ab 1-184
+tests/Mailtrap.IntegrationTests/CompanyInfo/Update_Success.json
+  s_a416a2bbf03afd::t_091061ea3eba46 1-14
+tests/Mailtrap.IntegrationTests/GlobalUsings.cs
+  s_a416a2bbf03afd::t_6280bf38c3465a 49
+tests/Mailtrap.IntegrationTests/SendingDomains/Update_Success.json
+  s_a416a2bbf03afd::t_e61d5d42825437 1-72
+tests/Mailtrap.IntegrationTests/CompanyInfo/GetDetails_Success.json
+  s_a416a2bbf03afd::t_091061ea3eba46 1-14
+src/Mailtrap.Abstractions/SendingDomains/Requests/CreateCompanyInfoRequest.cs
+  s_a416a2bbf03afd::t_c91a6b305791d7 1-131
+src/Mailtrap.Abstractions/SendingDomains/Models/CompanyInfo.cs
+  s_a416a2bbf03afd::t_3f96d7c7a5fe3a 1-118
+src/Mailtrap.Abstractions/SendingDomains/ISendingDomainResource.cs
+  s_a416a2bbf03afd::t_3c20041f0d51f5 23-38
+  s_a416a2bbf03afd::t_5336d3986c2068 22
+tests/Mailtrap.IntegrationTests/CompanyInfo/Create_Success.json
+  s_a416a2bbf03afd::t_091061ea3eba46 1-14
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.24",
+  "base_commit_sha": "6178066ca207ef92cb66cd7eea348e228e2bac09",
+  "prompts": {},
+  "sessions": {
+    "s_a416a2bbf03afd": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "73aab1cf-cfd1-42b8-b656-f26905d319ee",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Marcin Klocek <marcin.klocek@railsware.com>"
+    }
+  }
+}

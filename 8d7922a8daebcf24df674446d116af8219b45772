@@ -1,0 +1,123 @@
+tests/Mailtrap.UnitTests/Inbound/InboundForwardRuleRequestValidatorTests.cs
+  s_ea02f2a89792e1::t_2de886d489444e 1-104
+src/Mailtrap.Abstractions/Inbound/Validators/CreateInboundForwardRuleRequestValidator.cs
+  s_ea02f2a89792e1::t_dd9f6d8b6262ea 20
+  s_ea02f2a89792e1::t_2bfded2fd82825 17-19
+  s_ea02f2a89792e1::t_ff3c3d7665575b 21-23
+  s_ea02f2a89792e1::t_88f7c3af494c16 1-16,24-29
+src/Mailtrap.Abstractions/Inbound/Validators/UpdateInboundForwardRuleRequestValidator.cs
+  s_ea02f2a89792e1::t_6ba9012e87bc2a 22
+  s_ea02f2a89792e1::t_5b83d9946ab609 19-21
+  s_ea02f2a89792e1::t_3992a9b73f94ca 23-25
+  s_ea02f2a89792e1::t_726a13dd63be0a 1-18,26-32
+README.md
+  s_ea02f2a89792e1::t_ed52bfc25b5099 285
+src/Mailtrap.Abstractions/GlobalSuppressions.cs
+  s_ea02f2a89792e1::t_4b1a20627ca2e6 30-31
+src/Mailtrap.Abstractions/Inbound/IInboundForwardRuleCollectionResource.cs
+  s_ea02f2a89792e1::t_f9f21f69be4e54 1-38
+src/Mailtrap.Abstractions/Inbound/IInboundForwardRuleResource.cs
+  s_ea02f2a89792e1::t_03a5764b637a2b 1-51
+src/Mailtrap.Abstractions/Inbound/IInboundInboxContentResource.cs
+  s_ea02f2a89792e1::t_c82e9930e65233 5,52-73
+src/Mailtrap.Abstractions/Inbound/IInboundResource.cs
+  s_ea02f2a89792e1::t_cadf344680941f 32,40
+src/Mailtrap.Abstractions/Inbound/IInboundThreadCollectionResource.cs
+  s_ea02f2a89792e1::t_c9ad87d407e752 25-43
+src/Mailtrap.Abstractions/Inbound/Models/ForwardOutcome.cs
+  s_ea02f2a89792e1::t_9f8af7990c1aca 1-68
+src/Mailtrap.Abstractions/Inbound/Models/ForwardOutcomeStatus.cs
+  s_ea02f2a89792e1::t_ca8caedbe49534 1-18
+src/Mailtrap.Abstractions/Inbound/Models/ForwardRuleMatchType.cs
+  s_ea02f2a89792e1::t_693563548c1487 1-23
+src/Mailtrap.Abstractions/Inbound/Models/ForwardRuleOperator.cs
+  s_ea02f2a89792e1::t_ff02d7ed48fdc7 1-43
+src/Mailtrap.Abstractions/Inbound/Models/InboundForwardRule.cs
+  s_ea02f2a89792e1::t_a96f5607e63a9a 1-70
+src/Mailtrap.Abstractions/Inbound/Models/InboundForwardRuleCondition.cs
+  s_ea02f2a89792e1::t_0c4ab959eb36c8 1-50
+src/Mailtrap.Abstractions/Inbound/Models/InboundForwardRuleDestination.cs
+  s_ea02f2a89792e1::t_1e9b62a7be39ae 1-18
+src/Mailtrap.Abstractions/Inbound/Models/InboundMessage.cs
+  s_ea02f2a89792e1::t_e34c630b5f45cb 198-208
+src/Mailtrap.Abstractions/Inbound/Models/InboundThreadMessage.cs
+  s_ea02f2a89792e1::t_108c88502af366 197,201,203-204,207,211,213-215
+src/Mailtrap.Abstractions/Inbound/Models/ThreadMessageDelivery.cs
+  s_ea02f2a89792e1::t_23674e97607b93 1-48
+src/Mailtrap.Abstractions/Inbound/Requests/CreateInboundForwardRuleRequest.cs
+  s_ea02f2a89792e1::t_19a5f1cc59a5c8 1-49
+src/Mailtrap.Abstractions/Inbound/Requests/UpdateInboundForwardRuleRequest.cs
+  s_ea02f2a89792e1::t_f63a5ffac79ee1 1-50
+src/Mailtrap.Abstractions/Inbound/Validators/InboundForwardRuleConditionValidator.cs
+  s_ea02f2a89792e1::t_5c8868c151b5fa 1-27
+src/Mailtrap/Core/Constants/UrlSegments.cs
+  s_ea02f2a89792e1::t_b89d73fa948a61 34
+src/Mailtrap/Inbound/InboundForwardRuleCollectionResource.cs
+  s_ea02f2a89792e1::t_4eafe47c96c72d 1-25
+src/Mailtrap/Inbound/InboundForwardRuleResource.cs
+  s_ea02f2a89792e1::t_70a6a1efb78921 1-28
+src/Mailtrap/Inbound/InboundInboxContentResource.cs
+  s_ea02f2a89792e1::t_759a152c269102 31-40
+src/Mailtrap/Inbound/InboundThreadCollectionResource.cs
+  s_ea02f2a89792e1::t_0fde87680dbf2c 7,15-17,19-31,33
+src/Mailtrap/Inbound/Responses/InboundForwardRuleListResponseDto.cs
+  s_ea02f2a89792e1::t_e9d8faa3dfe8fd 1-12
+src/Mailtrap/Inbound/Responses/InboundForwardRuleResponseDto.cs
+  s_ea02f2a89792e1::t_7246d3f706cdcf 1-12
+tests/Mailtrap.IntegrationTests/Inbound/ForwardRules/Create_Success.json
+  s_ea02f2a89792e1::t_384dddc8ef4226 1-19
+tests/Mailtrap.IntegrationTests/Inbound/ForwardRules/GetAll_Success.json
+  s_ea02f2a89792e1::t_a08cd8d64818c8 1-31
+tests/Mailtrap.IntegrationTests/Inbound/ForwardRules/GetDetails_Success.json
+  s_ea02f2a89792e1::t_d63ac910e38ea2 1-26
+tests/Mailtrap.IntegrationTests/Inbound/ForwardRules/Update_ClearConditions_Success.json
+  s_ea02f2a89792e1::t_7f38e63dadb974 1-12
+tests/Mailtrap.IntegrationTests/Inbound/ForwardRules/Update_Success.json
+  s_ea02f2a89792e1::t_e5e8141fe7254e 1-20
+tests/Mailtrap.IntegrationTests/Inbound/InboundForwardRulesIntegrationTests.cs
+  s_ea02f2a89792e1::t_3840a83d9dbb59 1-268
+tests/Mailtrap.IntegrationTests/Inbound/InboundMessagesIntegrationTests.cs
+  s_ea02f2a89792e1::t_c8e27869f6fbe7 53-57,117-123
+tests/Mailtrap.IntegrationTests/Inbound/InboundThreadsIntegrationTests.cs
+  s_ea02f2a89792e1::t_1d3e4995c65541 52-120,145-175
+tests/Mailtrap.IntegrationTests/Inbound/Messages/GetDetails_Success.json
+  s_ea02f2a89792e1::t_a792519652480c 5-10,14-19,39-49
+tests/Mailtrap.IntegrationTests/Inbound/Messages/List_Success.json
+  s_ea02f2a89792e1::t_91c03db9192042 7-9,14-24,30-32,36-37
+tests/Mailtrap.IntegrationTests/Inbound/Threads/GetDetails_Success.json
+  s_ea02f2a89792e1::t_692b4a2590f31a 4,14-17,27-45,57-62
+tests/Mailtrap.IntegrationTests/Inbound/Threads/List_WithSearchAndCursor_Success.json
+  s_ea02f2a89792e1::t_9bd8549f34de58 1-20
+tests/Mailtrap.IntegrationTests/Inbound/Threads/List_WithSearch_Success.json
+  s_ea02f2a89792e1::t_500c61c15bc14d 1-20
+tests/Mailtrap.IntegrationTests/TestConstants/UrlSegmentsTestConstants.cs
+  s_ea02f2a89792e1::t_1ac1cddd31c334 46
+tests/Mailtrap.UnitTests/GlobalUsings.cs
+  s_ea02f2a89792e1::t_7a60600fdef15c 62-63
+tests/Mailtrap.UnitTests/Inbound/InboundForwardRuleCollectionResourceTests.cs
+  s_ea02f2a89792e1::t_df69a7013b0c89 1-43
+tests/Mailtrap.UnitTests/Inbound/InboundForwardRuleResourceTests.cs
+  s_ea02f2a89792e1::t_09d09a6009291e 1-44
+tests/Mailtrap.UnitTests/Inbound/InboundInboxContentResourceTests.cs
+  s_ea02f2a89792e1::t_51b4deec685c88 40-65
+tests/Mailtrap.UnitTests/TestConstants/UrlSegmentsTestConstants.cs
+  s_ea02f2a89792e1::t_0b3ca0ed7edd44 40
+examples/Mailtrap.Example.Inbound/InboundReactor.cs
+  s_ea02f2a89792e1::t_38199652e84ffe 32,74-104,122-127,155-157,169-179
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "8d7922a8daebcf24df674446d116af8219b45772",
+  "prompts": {},
+  "sessions": {
+    "s_ea02f2a89792e1": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "87ceb478-60a1-47fe-84f9-1458c02d71bf",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Marcin Klocek <marcin.klocek@railsware.com>"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+src/Mailtrap.Abstractions/Templates/Models/TemplateListFilter.cs
+  s_07bca0b2e8b630::t_d09592cdcd98a5 23-24
+src/Mailtrap.Abstractions/Templates/Requests/UpdateTemplateRequest.cs
+  s_07bca0b2e8b630::t_8bd17eb9998382 60-61,75-76
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "3b8b4a92fa9880876906e827e6b191703d3ba1de",
+  "prompts": {},
+  "sessions": {
+    "s_07bca0b2e8b630": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "0a006bd6-afbf-4cb8-bd79-d3e271bf6624",
+        "model": "claude-fable-5-1"
+      },
+      "human_author": "IzikAJ <izikaj@gmail.com>"
+    }
+  }
+}

@@ -23,9 +23,9 @@ try
     // so the resource hangs off the client root rather than off an account.
     IMarketingStatsResource marketingStatsResource = mailtrapClient.MarketingStats();
 
-    // The last 30 days.
+    // The last 30 days (both start and end dates are inclusive).
     DateTime today = DateTime.UtcNow.Date;
-    string startDate = today.AddDays(-30).ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
+    string startDate = today.AddDays(-29).ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
     string endDate = today.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
 
     // Get aggregated stats for campaigns and automations together.
@@ -46,6 +46,7 @@ try
         StartDate = startDate,
         EndDate = endDate,
         Sources = { "campaigns" },
+        // Replace with your own sending domain ID: an ID outside the account returns 400.
         SendingDomainIds = { 3938 },
         EmailServiceProviders = { "Google" }
     };

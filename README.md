@@ -296,6 +296,7 @@ private static SendEmailRequest TemplateBasedRequest()
 ### Email Marketing
 
 - Email campaigns management (CRUD, lifecycle actions, and statistics) – [`examples/Mailtrap.Example.EmailCampaigns`](examples/Mailtrap.Example.EmailCampaigns/)
+- Email Marketing statistics (campaigns and automations) – [`examples/Mailtrap.Example.MarketingStats`](examples/Mailtrap.Example.MarketingStats/)
 
 ### Contacts Management
 

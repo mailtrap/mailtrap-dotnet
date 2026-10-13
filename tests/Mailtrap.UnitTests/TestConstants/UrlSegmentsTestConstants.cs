@@ -41,4 +41,6 @@ internal static class UrlSegmentsTestConstants
     internal static string ForwardRulesSegment { get; } = "forward_rules";
 
     internal static string EmailCampaignsSegment { get; } = "email_campaigns";
+
+    internal static string MarketingSegment { get; } = "marketing";
 }

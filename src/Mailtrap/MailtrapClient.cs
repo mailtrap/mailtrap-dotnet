@@ -76,6 +76,18 @@ internal sealed class MailtrapClient : RestResource, IMailtrapClient
 
 
 
+    #region Marketing
+
+    /// <inheritdoc/>
+    public IMarketingStatsResource MarketingStats()
+        => new MarketingStatsResource(
+            RestResourceCommandFactory,
+            ResourceUri.Append(UrlSegments.MarketingSegment, UrlSegments.StatsSegment));
+
+    #endregion
+
+
+
     #region Company Info
 
     /// <inheritdoc/>

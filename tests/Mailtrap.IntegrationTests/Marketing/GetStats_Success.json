@@ -1,0 +1,17 @@
+{
+  "data": {
+    "delivery_count": 1450,
+    "delivery_rate": 0.9667,
+    "bounce_count": 50,
+    "bounce_rate": 0.0333,
+    "open_count": 820,
+    "open_rate": 0.5655,
+    "click_count": 310,
+    "click_rate": 0.2138,
+    "spam_count": 5,
+    "spam_rate": 0.0034,
+    "unsubscription_count": 12,
+    "unsubscription_rate": 0.0083,
+    "sent_count": 1500
+  }
+}

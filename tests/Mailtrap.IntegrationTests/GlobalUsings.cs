@@ -41,6 +41,7 @@ global using Mailtrap.Inbound.Models;
 global using Mailtrap.Inbound.Requests;
 global using Mailtrap.Inboxes.Models;
 global using Mailtrap.Inboxes.Requests;
+global using Mailtrap.Marketing.Models;
 global using Mailtrap.Organizations.Models;
 global using Mailtrap.Organizations.Requests;
 global using Mailtrap.IntegrationTests.TestConstants;

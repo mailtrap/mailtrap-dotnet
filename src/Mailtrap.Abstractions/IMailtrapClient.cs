@@ -81,6 +81,21 @@ public interface IMailtrapClient : IRestResource
 
 
 
+    #region Marketing
+
+    /// <summary>
+    /// Gets the token-scoped Email Marketing statistics resource.
+    /// </summary>
+    ///
+    /// <returns>
+    /// Email Marketing statistics resource.
+    /// </returns>
+    public IMarketingStatsResource MarketingStats();
+
+    #endregion
+
+
+
     #region Company Info
 
     /// <summary>

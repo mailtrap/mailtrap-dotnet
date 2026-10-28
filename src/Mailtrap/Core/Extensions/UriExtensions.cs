@@ -116,6 +116,28 @@ internal static class UriExtensions
         return uri;
     }
 
+    /// <summary>
+    /// Appends the same query parameter once per value (e.g. <c>sources[]=a&amp;sources[]=b</c>).
+    /// Values are encoded via <see cref="AppendQueryParameter"/>.
+    /// </summary>
+    ///
+    /// <exception cref="ArgumentNullException">
+    /// When <paramref name="uri"/> or <paramref name="values"/> is <see langword="null"/>.<br />
+    /// When provided <paramref name="key"/> is <see langword="null"/> or <see cref="string.Empty"/>.
+    /// </exception>
+    internal static Uri AppendQueryParameters(this Uri uri, string key, IEnumerable<string> values)
+    {
+        Ensure.NotNull(uri, nameof(uri));
+        Ensure.NotNull(values, nameof(values));
+
+        foreach (var value in values)
+        {
+            uri = uri.AppendQueryParameter(key, value);
+        }
+
+        return uri;
+    }
+
     /// <exception cref = "ArgumentNullException" >
     /// When provided <paramref name="url"/> is <see langword="null"/>.
     /// </exception>

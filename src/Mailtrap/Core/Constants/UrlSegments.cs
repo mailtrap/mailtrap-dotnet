@@ -40,4 +40,6 @@ internal static class UrlSegments
     internal static string CancelSegment { get; } = "cancel";
     internal static string TerminateSegment { get; } = "terminate";
     internal static string ResetSegment { get; } = "reset";
+
+    internal static string MarketingSegment { get; } = "marketing";
 }

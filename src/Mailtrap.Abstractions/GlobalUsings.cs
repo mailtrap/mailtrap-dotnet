@@ -76,6 +76,8 @@ global using Mailtrap.Inbound.Validators;
 global using Mailtrap.Inboxes;
 global using Mailtrap.Inboxes.Models;
 global using Mailtrap.Inboxes.Requests;
+global using Mailtrap.Marketing;
+global using Mailtrap.Marketing.Models;
 global using Mailtrap.Organizations;
 global using Mailtrap.Organizations.Models;
 global using Mailtrap.Organizations.Requests;

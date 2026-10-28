@@ -148,6 +148,24 @@ internal sealed class MailtrapClientTests
             .Be(client.ResourceUri.Append(UrlSegmentsTestConstants.AccountsSegment).Append(accountId));
     }
 
+    [Test]
+    public void MarketingStats_ShouldReturnMarketingStatsResource()
+    {
+        // Arrange
+        var client = new MailtrapClient(Mock.Of<IEmailClientFactory>(), _commandFactoryMock);
+
+        // Act
+        var result = client.MarketingStats();
+
+        // Assert
+        result.Should()
+            .NotBeNull().And
+            .BeOfType<MarketingStatsResource>();
+
+        result.ResourceUri.Should()
+            .Be(client.ResourceUri.Append(UrlSegmentsTestConstants.MarketingSegment, UrlSegmentsTestConstants.StatsSegment));
+    }
+
 
     [Test]
     public void BatchEmail_ShouldReturnDefaultBatchEmailClient()

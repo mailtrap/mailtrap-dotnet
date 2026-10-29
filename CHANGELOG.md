@@ -1,3 +1,11 @@
+## [3.9.0] - 2026-10-29
+
+## What's Changed
+* Add Email Marketing stats (GET /api/marketing/stats) by @Rabsztok in https://github.com/mailtrap/mailtrap-dotnet/pull/264
+
+
+**Full Changelog**: https://github.com/mailtrap/mailtrap-dotnet/compare/v3.8.0...v3.9.0
+
 ## [3.8.0] - 2026-10-12
 
 ## What's Changed

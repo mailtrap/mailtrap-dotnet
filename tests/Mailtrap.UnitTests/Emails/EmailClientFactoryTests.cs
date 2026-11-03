@@ -52,24 +52,24 @@ internal sealed class EmailClientFactoryTests
 
 
     [Test]
-    public void Create_ShouldReturnEmailClient([Values] bool isBulk, [Random(2)] long inboxId)
+    public void Create_ShouldReturnEmailClient([Values] bool isBulk, [Random(2)] long sandboxId)
     {
         // Arrange
         var sendUri = new Uri("https://localhost/api/send");
 
         var emailClientEndpointProviderMock = new Mock<IEmailClientEndpointProvider>();
         emailClientEndpointProviderMock
-            .Setup(x => x.GetRequestUri(false, isBulk, inboxId))
+            .Setup(x => x.GetRequestUri(false, isBulk, sandboxId))
             .Returns(sendUri);
 
-        var options = CreateOptions(isBulk, inboxId);
+        var options = CreateOptions(isBulk, sandboxId);
         var emailClientFactory = new EmailClientFactory(
             options,
             emailClientEndpointProviderMock.Object,
             Mock.Of<IRestResourceCommandFactory>());
 
         // Act
-        var result = emailClientFactory.Create(isBulk, inboxId);
+        var result = emailClientFactory.Create(isBulk, sandboxId);
 
         // Assert
         result.Should().NotBeNull();
@@ -78,17 +78,17 @@ internal sealed class EmailClientFactoryTests
     }
 
     [Test]
-    public void CreateDefault_ShouldReturnEmailClient([Values] bool isBulk, [Random(2)] long inboxId)
+    public void CreateDefault_ShouldReturnEmailClient([Values] bool isBulk, [Random(2)] long sandboxId)
     {
         // Arrange
         var sendUri = new Uri("https://localhost/api/send");
 
         var emailClientEndpointProviderMock = new Mock<IEmailClientEndpointProvider>();
         emailClientEndpointProviderMock
-            .Setup(x => x.GetRequestUri(false, isBulk, inboxId))
+            .Setup(x => x.GetRequestUri(false, isBulk, sandboxId))
             .Returns(sendUri);
 
-        var options = CreateOptions(isBulk, inboxId);
+        var options = CreateOptions(isBulk, sandboxId);
         var emailClientFactory = new EmailClientFactory(
             options,
             emailClientEndpointProviderMock.Object,
@@ -104,7 +104,7 @@ internal sealed class EmailClientFactoryTests
     }
 
     [Test]
-    public void CreateTransactional_ShouldReturnEmailClient([Values] bool isBulk, [Random(2)] long inboxId)
+    public void CreateTransactional_ShouldReturnEmailClient([Values] bool isBulk, [Random(2)] long sandboxId)
     {
         // Arrange
         var sendUri = new Uri("https://localhost/api/send");
@@ -114,7 +114,7 @@ internal sealed class EmailClientFactoryTests
             .Setup(x => x.GetRequestUri(false, false, null))
             .Returns(sendUri);
 
-        var options = CreateOptions(isBulk, inboxId);
+        var options = CreateOptions(isBulk, sandboxId);
         var emailClientFactory = new EmailClientFactory(
             options,
             emailClientEndpointProviderMock.Object,
@@ -130,7 +130,7 @@ internal sealed class EmailClientFactoryTests
     }
 
     [Test]
-    public void CreateBulk_ShouldReturnEmailClient([Values] bool isBulk, [Random(2)] long inboxId)
+    public void CreateBulk_ShouldReturnEmailClient([Values] bool isBulk, [Random(2)] long sandboxId)
     {
         // Arrange
         var sendUri = new Uri("https://localhost/api/send");
@@ -140,7 +140,7 @@ internal sealed class EmailClientFactoryTests
             .Setup(x => x.GetRequestUri(false, true, null))
             .Returns(sendUri);
 
-        var options = CreateOptions(isBulk, inboxId);
+        var options = CreateOptions(isBulk, sandboxId);
         var emailClientFactory = new EmailClientFactory(
             options,
             emailClientEndpointProviderMock.Object,
@@ -156,24 +156,24 @@ internal sealed class EmailClientFactoryTests
     }
 
     [Test]
-    public void CreateTest_ShouldReturnEmailClient([Values] bool isBulk, [Random(2)] long inboxId)
+    public void CreateSandbox_ShouldReturnEmailClient([Values] bool isBulk, [Random(2)] long sandboxId)
     {
         // Arrange
         var sendUri = new Uri("https://localhost/api/send");
 
         var emailClientEndpointProviderMock = new Mock<IEmailClientEndpointProvider>();
         emailClientEndpointProviderMock
-            .Setup(x => x.GetRequestUri(false, false, inboxId))
+            .Setup(x => x.GetRequestUri(false, false, sandboxId))
             .Returns(sendUri);
 
-        var options = CreateOptions(isBulk, inboxId);
+        var options = CreateOptions(isBulk, sandboxId);
         var emailClientFactory = new EmailClientFactory(
             options,
             emailClientEndpointProviderMock.Object,
             Mock.Of<IRestResourceCommandFactory>());
 
         // Act
-        var result = emailClientFactory.CreateTest(inboxId);
+        var result = emailClientFactory.CreateSandbox(sandboxId);
 
         // Assert
         result.Should().NotBeNull();
@@ -183,24 +183,24 @@ internal sealed class EmailClientFactoryTests
 
 
     [Test]
-    public void CreateBatch_ShouldReturnBatchEmailClient([Values] bool isBulk, [Random(2)] long inboxId)
+    public void CreateBatch_ShouldReturnBatchEmailClient([Values] bool isBulk, [Random(2)] long sandboxId)
     {
         // Arrange
         var sendUri = new Uri("https://localhost/api/batch");
 
         var emailClientEndpointProviderMock = new Mock<IEmailClientEndpointProvider>();
         emailClientEndpointProviderMock
-            .Setup(x => x.GetRequestUri(true, isBulk, inboxId))
+            .Setup(x => x.GetRequestUri(true, isBulk, sandboxId))
             .Returns(sendUri);
 
-        var options = CreateOptions(isBulk, inboxId);
+        var options = CreateOptions(isBulk, sandboxId);
         var emailClientFactory = new EmailClientFactory(
             options,
             emailClientEndpointProviderMock.Object,
             Mock.Of<IRestResourceCommandFactory>());
 
         // Act
-        var result = emailClientFactory.CreateBatch(isBulk, inboxId);
+        var result = emailClientFactory.CreateBatch(isBulk, sandboxId);
 
         // Assert
         result.Should().NotBeNull();
@@ -209,17 +209,17 @@ internal sealed class EmailClientFactoryTests
     }
 
     [Test]
-    public void CreateBatchDefault_ShouldReturnBatchEmailClient([Values] bool isBulk, [Random(2)] long inboxId)
+    public void CreateBatchDefault_ShouldReturnBatchEmailClient([Values] bool isBulk, [Random(2)] long sandboxId)
     {
         // Arrange
         var sendUri = new Uri("https://localhost/api/batch");
 
         var emailClientEndpointProviderMock = new Mock<IEmailClientEndpointProvider>();
         emailClientEndpointProviderMock
-            .Setup(x => x.GetRequestUri(true, isBulk, inboxId))
+            .Setup(x => x.GetRequestUri(true, isBulk, sandboxId))
             .Returns(sendUri);
 
-        var options = CreateOptions(isBulk, inboxId);
+        var options = CreateOptions(isBulk, sandboxId);
         var emailClientFactory = new EmailClientFactory(
             options,
             emailClientEndpointProviderMock.Object,
@@ -235,7 +235,7 @@ internal sealed class EmailClientFactoryTests
     }
 
     [Test]
-    public void CreateBatchTransactional_ShouldReturnBatchEmailClient([Values] bool isBulk, [Random(2)] long inboxId)
+    public void CreateBatchTransactional_ShouldReturnBatchEmailClient([Values] bool isBulk, [Random(2)] long sandboxId)
     {
         // Arrange
         var sendUri = new Uri("https://localhost/api/batch");
@@ -245,7 +245,7 @@ internal sealed class EmailClientFactoryTests
             .Setup(x => x.GetRequestUri(true, false, null))
             .Returns(sendUri);
 
-        var options = CreateOptions(isBulk, inboxId);
+        var options = CreateOptions(isBulk, sandboxId);
         var emailClientFactory = new EmailClientFactory(
             options,
             emailClientEndpointProviderMock.Object,
@@ -261,7 +261,7 @@ internal sealed class EmailClientFactoryTests
     }
 
     [Test]
-    public void CreateBatchBulk_ShouldReturnBatchEmailClient([Values] bool isBulk, [Random(2)] long inboxId)
+    public void CreateBatchBulk_ShouldReturnBatchEmailClient([Values] bool isBulk, [Random(2)] long sandboxId)
     {
         // Arrange
         var sendUri = new Uri("https://localhost/api/batch");
@@ -271,7 +271,7 @@ internal sealed class EmailClientFactoryTests
             .Setup(x => x.GetRequestUri(true, true, null))
             .Returns(sendUri);
 
-        var options = CreateOptions(isBulk, inboxId);
+        var options = CreateOptions(isBulk, sandboxId);
         var emailClientFactory = new EmailClientFactory(
             options,
             emailClientEndpointProviderMock.Object,
@@ -287,24 +287,24 @@ internal sealed class EmailClientFactoryTests
     }
 
     [Test]
-    public void CreateBatchTest_ShouldReturnBatchEmailClient([Values] bool isBulk, [Random(2)] long inboxId)
+    public void CreateBatchSandbox_ShouldReturnBatchEmailClient([Values] bool isBulk, [Random(2)] long sandboxId)
     {
         // Arrange
         var sendUri = new Uri("https://localhost/api/batch");
 
         var emailClientEndpointProviderMock = new Mock<IEmailClientEndpointProvider>();
         emailClientEndpointProviderMock
-            .Setup(x => x.GetRequestUri(true, false, inboxId))
+            .Setup(x => x.GetRequestUri(true, false, sandboxId))
             .Returns(sendUri);
 
-        var options = CreateOptions(isBulk, inboxId);
+        var options = CreateOptions(isBulk, sandboxId);
         var emailClientFactory = new EmailClientFactory(
             options,
             emailClientEndpointProviderMock.Object,
             Mock.Of<IRestResourceCommandFactory>());
 
         // Act
-        var result = emailClientFactory.CreateBatchTest(inboxId);
+        var result = emailClientFactory.CreateBatchSandbox(sandboxId);
 
         // Assert
         result.Should().NotBeNull();

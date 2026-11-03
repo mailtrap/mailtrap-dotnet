@@ -158,7 +158,7 @@ internal sealed class SendEmailIntegrationTests
         using var responseContent = JsonContent.Create(response);
 
         var sandboxId = random.NextLong();
-        var sendUri = EndpointsTestConstants.TestDefaultUrl
+        var sendUri = EndpointsTestConstants.SandboxDefaultUrl
             .Append(
                 UrlSegmentsTestConstants.ApiRootSegment,
                 UrlSegmentsTestConstants.SendEmailSegment)
@@ -198,7 +198,7 @@ internal sealed class SendEmailIntegrationTests
                 UrlSegmentsTestConstants.ApiRootSegment,
                 UrlSegmentsTestConstants.SendEmailSegment)
             .AbsoluteUri;
-        var sandboxUri = EndpointsTestConstants.TestDefaultUrl
+        var sandboxUri = EndpointsTestConstants.SandboxDefaultUrl
             .Append(
                 UrlSegmentsTestConstants.ApiRootSegment,
                 UrlSegmentsTestConstants.SendEmailSegment)

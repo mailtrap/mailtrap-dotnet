@@ -26,9 +26,9 @@ internal sealed class EmailClientFactory : IEmailClientFactory
     }
 
 
-    public ISendEmailClient Create(bool isBulk = false, long? inboxId = default)
+    public ISendEmailClient Create(bool isBulk = false, long? sandboxId = default)
     {
-        var sendUri = _emailClientEndpointProvider.GetRequestUri(false, isBulk, inboxId);
+        var sendUri = _emailClientEndpointProvider.GetRequestUri(false, isBulk, sandboxId);
 
         return new SendEmailClient(_restResourceCommandFactory, sendUri);
     }
@@ -39,12 +39,12 @@ internal sealed class EmailClientFactory : IEmailClientFactory
 
     public ISendEmailClient CreateBulk() => Create(isBulk: true);
 
-    public ISendEmailClient CreateTest(long inboxId) => Create(inboxId: inboxId);
+    public ISendEmailClient CreateSandbox(long sandboxId) => Create(sandboxId: sandboxId);
 
 
-    public IBatchEmailClient CreateBatch(bool isBulk = false, long? inboxId = default)
+    public IBatchEmailClient CreateBatch(bool isBulk = false, long? sandboxId = default)
     {
-        var batchUri = _emailClientEndpointProvider.GetRequestUri(true, isBulk, inboxId);
+        var batchUri = _emailClientEndpointProvider.GetRequestUri(true, isBulk, sandboxId);
 
         return new BatchEmailClient(_restResourceCommandFactory, batchUri);
     }
@@ -55,5 +55,5 @@ internal sealed class EmailClientFactory : IEmailClientFactory
 
     public IBatchEmailClient CreateBatchBulk() => CreateBatch(isBulk: true);
 
-    public IBatchEmailClient CreateBatchTest(long inboxId) => CreateBatch(inboxId: inboxId);
+    public IBatchEmailClient CreateBatchSandbox(long sandboxId) => CreateBatch(sandboxId: sandboxId);
 }

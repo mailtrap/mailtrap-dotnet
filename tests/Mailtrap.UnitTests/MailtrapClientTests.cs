@@ -100,7 +100,7 @@ internal sealed class MailtrapClientTests
         var sandboxId = 123;
         var emailClient = Mock.Of<ISendEmailClient>();
         emailClientFactoryMock
-            .Setup(f => f.CreateTest(sandboxId))
+            .Setup(f => f.CreateSandbox(sandboxId))
             .Returns(emailClient);
         var client = new MailtrapClient(emailClientFactoryMock.Object, _commandFactoryMock);
 
@@ -229,7 +229,7 @@ internal sealed class MailtrapClientTests
         var sandboxId = 123;
         var emailClient = Mock.Of<IBatchEmailClient>();
         emailClientFactoryMock
-            .Setup(f => f.CreateBatchTest(sandboxId))
+            .Setup(f => f.CreateBatchSandbox(sandboxId))
             .Returns(emailClient);
         var client = new MailtrapClient(emailClientFactoryMock.Object, _commandFactoryMock);
 

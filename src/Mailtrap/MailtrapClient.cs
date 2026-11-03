@@ -143,7 +143,7 @@ internal sealed class MailtrapClient : RestResource, IMailtrapClient
     public ISendEmailClient Bulk() => _emailClientFactory.CreateBulk();
 
     /// <inheritdoc/>
-    public ISendEmailClient Sandbox(long sandboxId) => _emailClientFactory.CreateTest(sandboxId);
+    public ISendEmailClient Sandbox(long sandboxId) => _emailClientFactory.CreateSandbox(sandboxId);
 
     /// <inheritdoc/>
     [Obsolete("Test(long) is deprecated and will be removed in a future major release; use Sandbox(long) instead.")]
@@ -165,7 +165,7 @@ internal sealed class MailtrapClient : RestResource, IMailtrapClient
     public IBatchEmailClient BatchBulk() => _emailClientFactory.CreateBatchBulk();
 
     /// <inheritdoc/>
-    public IBatchEmailClient BatchSandbox(long sandboxId) => _emailClientFactory.CreateBatchTest(sandboxId);
+    public IBatchEmailClient BatchSandbox(long sandboxId) => _emailClientFactory.CreateBatchSandbox(sandboxId);
 
     /// <inheritdoc/>
     [Obsolete("BatchTest(long) is deprecated and will be removed in a future major release; use BatchSandbox(long) instead.")]

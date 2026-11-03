@@ -6,5 +6,5 @@
 /// </summary>
 internal interface IEmailClientEndpointProvider
 {
-    public Uri GetRequestUri(bool isBatch, bool isBulk, long? inboxId);
+    public Uri GetRequestUri(bool isBatch, bool isBulk, long? sandboxId);
 }

@@ -167,7 +167,7 @@ internal sealed class BatchEmailIntegrationTests
         using var responseContent = JsonContent.Create(response);
 
         var sandboxId = random.NextLong();
-        var sendUri = EndpointsTestConstants.TestDefaultUrl
+        var sendUri = EndpointsTestConstants.SandboxDefaultUrl
             .Append(
                 UrlSegmentsTestConstants.ApiRootSegment,
                 UrlSegmentsTestConstants.BatchEmailSegment)
@@ -206,7 +206,7 @@ internal sealed class BatchEmailIntegrationTests
                 UrlSegmentsTestConstants.ApiRootSegment,
                 UrlSegmentsTestConstants.BatchEmailSegment)
             .AbsoluteUri;
-        var sandboxUri = EndpointsTestConstants.TestDefaultUrl
+        var sandboxUri = EndpointsTestConstants.SandboxDefaultUrl
             .Append(
                 UrlSegmentsTestConstants.ApiRootSegment,
                 UrlSegmentsTestConstants.BatchEmailSegment)

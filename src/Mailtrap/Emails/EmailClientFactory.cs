@@ -33,7 +33,7 @@ internal sealed class EmailClientFactory : IEmailClientFactory
         return new SendEmailClient(_restResourceCommandFactory, sendUri);
     }
 
-    public ISendEmailClient CreateDefault() => Create(_clientConfiguration.UseBulkApi, _clientConfiguration.InboxId);
+    public ISendEmailClient CreateDefault() => Create(_clientConfiguration.UseBulkApi, _clientConfiguration.SandboxId);
 
     public ISendEmailClient CreateTransactional() => Create();
 
@@ -49,7 +49,7 @@ internal sealed class EmailClientFactory : IEmailClientFactory
         return new BatchEmailClient(_restResourceCommandFactory, batchUri);
     }
 
-    public IBatchEmailClient CreateBatchDefault() => CreateBatch(_clientConfiguration.UseBulkApi, _clientConfiguration.InboxId);
+    public IBatchEmailClient CreateBatchDefault() => CreateBatch(_clientConfiguration.UseBulkApi, _clientConfiguration.SandboxId);
 
     public IBatchEmailClient CreateBatchTransactional() => CreateBatch();
 

@@ -7,11 +7,11 @@ internal sealed class AttachmentReactor : Reactor
         : base(mailtrapClient, logger) { }
 
 
-    public async Task Process(long accountId, long inboxId, long messageId)
+    public async Task Process(long accountId, long sandboxId, long messageId)
     {
         ITestingMessageResource messageResource = _mailtrapClient
             .Account(accountId)
-            .Inbox(inboxId)
+            .Sandbox(sandboxId)
             .Message(messageId);
 
         // Get resource for attachments collection

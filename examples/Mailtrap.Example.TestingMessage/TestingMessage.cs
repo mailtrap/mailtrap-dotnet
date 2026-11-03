@@ -24,15 +24,15 @@ IMailtrapClient mailtrapClient = host.Services.GetRequiredService<IMailtrapClien
 try
 {
     var accountId = 12345;
-    var inboxId = 54321;
+    var sandboxId = 54321;
     IInboxResource inboxResource = mailtrapClient
         .Account(accountId)
-        .Inbox(inboxId);
+        .Sandbox(sandboxId);
 
     // Get resource for message collection
     ITestingMessageCollectionResource messagesResource = inboxResource.Messages();
 
-    // Fetch messages from the inbox
+    // Fetch messages from the sandbox
     var messageFilter = new TestingMessageFilter
     {
         SearchFilter = "Supervision request"
@@ -52,7 +52,7 @@ try
         logger.LogInformation("Message: {Message}", message);
     }
 
-    // Fetch messages from the inbox
+    // Fetch messages from the sandbox
     messageFilter = new TestingMessageFilter
     {
         SearchFilter = "Greetings"

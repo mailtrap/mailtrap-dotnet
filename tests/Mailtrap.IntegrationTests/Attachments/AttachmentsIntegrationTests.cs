@@ -70,7 +70,7 @@ internal sealed class AttachmentsIntegrationTests
         // Act
         var result = await client
             .Account(_accountId)
-            .Inbox(_inboxId)
+            .Sandbox(_inboxId)
             .Message(_messageId)
             .Attachments()
             .Fetch()
@@ -125,7 +125,7 @@ internal sealed class AttachmentsIntegrationTests
         // Act
         var result = await client
             .Account(_accountId)
-            .Inbox(_inboxId)
+            .Sandbox(_inboxId)
             .Message(_messageId)
             .Attachments()
             .Fetch(filter)
@@ -175,7 +175,7 @@ internal sealed class AttachmentsIntegrationTests
         // Act
         var result = await client
             .Account(_accountId)
-            .Inbox(_inboxId)
+            .Sandbox(_inboxId)
             .Message(_messageId)
             .Attachment(attachmentId)
             .GetDetails()

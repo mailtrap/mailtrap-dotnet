@@ -126,7 +126,7 @@ HostApplicationBuilder hostBuilder = Host.CreateApplicationBuilder(args);
 // Creating new instance of `MailtrapClientOptions`
 var config = new MailtrapClientOptions("<API_TOKEN>")
 {
-    InboxId = 4321
+    SandboxId = 4321
 };
         
 // Adding Mailtrap API client to the container

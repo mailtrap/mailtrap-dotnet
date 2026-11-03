@@ -81,7 +81,7 @@ internal sealed class TestingMessagesIntegrationTests
         // Act
         var result = await client
             .Account(_accountId)
-            .Inbox(_inboxId)
+            .Sandbox(_inboxId)
             .Messages()
             .Fetch()
             .ConfigureAwait(false);
@@ -143,7 +143,7 @@ internal sealed class TestingMessagesIntegrationTests
         // Act
         var result = await client
             .Account(_accountId)
-            .Inbox(_inboxId)
+            .Sandbox(_inboxId)
             .Messages()
             .Fetch(filter)
             .ConfigureAwait(false);
@@ -203,7 +203,7 @@ internal sealed class TestingMessagesIntegrationTests
         // Act
         var result = await client
             .Account(_accountId)
-            .Inbox(_inboxId)
+            .Sandbox(_inboxId)
             .Messages()
             .Fetch(filter)
             .ConfigureAwait(false);
@@ -262,7 +262,7 @@ internal sealed class TestingMessagesIntegrationTests
         // Act
         var result = await client
             .Account(_accountId)
-            .Inbox(_inboxId)
+            .Sandbox(_inboxId)
             .Messages()
             .Fetch(filter)
             .ConfigureAwait(false);
@@ -311,7 +311,7 @@ internal sealed class TestingMessagesIntegrationTests
         // Act
         var result = await client
             .Account(_accountId)
-            .Inbox(_inboxId)
+            .Sandbox(_inboxId)
             .Message(messageId)
             .GetDetails()
             .ConfigureAwait(false);
@@ -361,7 +361,7 @@ internal sealed class TestingMessagesIntegrationTests
         // Act
         var result = await client
             .Account(_accountId)
-            .Inbox(_inboxId)
+            .Sandbox(_inboxId)
             .Message(messageId)
             .Update(request)
             .ConfigureAwait(false);
@@ -405,7 +405,7 @@ internal sealed class TestingMessagesIntegrationTests
         // Act
         var result = await client
             .Account(_accountId)
-            .Inbox(_inboxId)
+            .Sandbox(_inboxId)
             .Message(messageId)
             .Delete()
             .ConfigureAwait(false);
@@ -458,7 +458,7 @@ internal sealed class TestingMessagesIntegrationTests
         // Act
         var result = await client
             .Account(_accountId)
-            .Inbox(_inboxId)
+            .Sandbox(_inboxId)
             .Message(messageId)
             .Forward(request)
             .ConfigureAwait(false);
@@ -476,7 +476,7 @@ internal sealed class TestingMessagesIntegrationTests
     {
         Task<TestingMessageHeaders> Act(IMailtrapClient client, long messageId) => client
             .Account(_accountId)
-            .Inbox(_inboxId)
+            .Sandbox(_inboxId)
             .Message(messageId)
             .GetHeaders();
 
@@ -488,7 +488,7 @@ internal sealed class TestingMessagesIntegrationTests
     {
         Task<TestingMessageSpamReport> Act(IMailtrapClient client, long messageId) => client
             .Account(_accountId)
-            .Inbox(_inboxId)
+            .Sandbox(_inboxId)
             .Message(messageId)
             .GetSpamReport();
 
@@ -500,7 +500,7 @@ internal sealed class TestingMessagesIntegrationTests
     {
         Task<TestingMessageHtmlReport> Act(IMailtrapClient client, long messageId) => client
             .Account(_accountId)
-            .Inbox(_inboxId)
+            .Sandbox(_inboxId)
             .Message(messageId)
             .GetHtmlAnalysisReport();
 
@@ -513,7 +513,7 @@ internal sealed class TestingMessagesIntegrationTests
     {
         Task<string> Act(IMailtrapClient client, long messageId) => client
             .Account(_accountId)
-            .Inbox(_inboxId)
+            .Sandbox(_inboxId)
             .Message(messageId)
             .GetTextBody();
 
@@ -530,7 +530,7 @@ internal sealed class TestingMessagesIntegrationTests
     {
         Task<string> Act(IMailtrapClient client, long messageId) => client
             .Account(_accountId)
-            .Inbox(_inboxId)
+            .Sandbox(_inboxId)
             .Message(messageId)
             .GetHtmlBody();
 
@@ -547,7 +547,7 @@ internal sealed class TestingMessagesIntegrationTests
     {
         Task<string> Act(IMailtrapClient client, long messageId) => client
             .Account(_accountId)
-            .Inbox(_inboxId)
+            .Sandbox(_inboxId)
             .Message(messageId)
             .GetHtmlSource();
 
@@ -565,7 +565,7 @@ internal sealed class TestingMessagesIntegrationTests
     {
         Task<string> Act(IMailtrapClient client, long messageId) => client
             .Account(_accountId)
-            .Inbox(_inboxId)
+            .Sandbox(_inboxId)
             .Message(messageId)
             .AsRaw();
 
@@ -582,7 +582,7 @@ internal sealed class TestingMessagesIntegrationTests
     {
         Task<string> Act(IMailtrapClient client, long messageId) => client
             .Account(_accountId)
-            .Inbox(_inboxId)
+            .Sandbox(_inboxId)
             .Message(messageId)
             .AsEml();
 

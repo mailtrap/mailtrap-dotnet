@@ -288,10 +288,10 @@ catch (Exception ex)
 > [!IMPORTANT]
 > @Mailtrap.IMailtrapClient.BatchEmail will use the batch send API as defined in client configuration.
 
-Additionally, you can always use specific send API (transactional, bulk or test) explicitly, to route emails to:
+Additionally, you can always use specific send API (transactional, bulk or sandbox) explicitly, to route emails to:
 ```csharp
-var inboxId = 12345;
-IBatchEmailClient batchEmailClient = _mailtrapClient.BatchTest(inboxId); // Batch Emails will be sent using Email Testing API
+var sandboxId = 12345;
+IBatchEmailClient batchEmailClient = _mailtrapClient.BatchSandbox(sandboxId); // Batch Emails will be sent using Email Sandbox API
 // IBatchEmailClient batchEmailClient = _mailtrapClient.BatchTransactional(); // Batch Emails will be sent using Email Sending API
 // IBatchEmailClient batchEmailClient = _mailtrapClient.BatchBulk(); // Batch Emails will be sent using Bulk Sending API
 
@@ -299,7 +299,7 @@ var response = await batchEmailClient.Send(request);
 ```
 
 > [!TIP]  
-> @Mailtrap.IMailtrapClient.BatchTransactional, @Mailtrap.IMailtrapClient.BatchBulk and @Mailtrap.IMailtrapClient.BatchTest(System.Int64)
+> @Mailtrap.IMailtrapClient.BatchTransactional, @Mailtrap.IMailtrapClient.BatchBulk and @Mailtrap.IMailtrapClient.BatchSandbox(System.Int64)
 > are factory methods that will create new @Mailtrap.Emails.IBatchEmailClient instance every time when called.  
 > Thus, if you need to perform multiple `Send()` calls to the same endpoint, it will be a good idea
 > to spawn client once and then reuse it:

@@ -12,7 +12,7 @@ internal sealed class MailtrapClientOptionsTests
         options.ApiToken.Should().BeEmpty();
         options.PrettyJson.Should().BeFalse();
         options.UseBulkApi.Should().BeFalse();
-        options.InboxId.Should().BeNull();
+        options.SandboxId.Should().BeNull();
     }
 
     [Test]
@@ -70,7 +70,24 @@ internal sealed class MailtrapClientOptionsTests
         target.ApiToken.Should().BeSameAs(source.ApiToken);
         target.PrettyJson.Should().Be(source.PrettyJson);
         target.UseBulkApi.Should().Be(source.UseBulkApi);
-        target.InboxId.Should().Be(source.InboxId);
+        target.SandboxId.Should().Be(source.SandboxId);
+    }
+
+    [TestCase("SandboxId")]
+    [TestCase("InboxId")]
+    public void Bind_ShouldSetSandboxId_FromConfigurationKey(string key)
+    {
+        var options = BindOptions(new() { [key] = "1234" });
+
+        options.SandboxId.Should().Be(1234);
+    }
+
+    [Test]
+    public void Bind_ShouldPreferSandboxId_WhenConfigurationHasBothKeys()
+    {
+        var options = BindOptions(new() { ["SandboxId"] = "1234", ["InboxId"] = "5678" });
+
+        options.SandboxId.Should().Be(1234);
     }
 
     [Test]
@@ -88,4 +105,8 @@ internal sealed class MailtrapClientOptionsTests
 
         options.Should().BeEquivalentTo(expected);
     }
+
+
+    private static MailtrapClientOptions BindOptions(Dictionary<string, string?> settings)
+        => new ConfigurationBuilder().AddInMemoryCollection(settings).Build().Get<MailtrapClientOptions>()!;
 }

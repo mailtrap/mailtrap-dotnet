@@ -19,18 +19,18 @@ internal sealed class MessageReactor : Reactor
     }
 
 
-    public async Task Process(long accountId, long inboxId)
+    public async Task Process(long accountId, long sandboxId)
     {
-        await _testSendReactor.Send(inboxId);
+        await _testSendReactor.Send(sandboxId);
 
         IInboxResource inboxResource = _mailtrapClient
             .Account(accountId)
-            .Inbox(inboxId);
+            .Sandbox(sandboxId);
 
         // Get resource for message collection
         ITestingMessageCollectionResource messagesResource = inboxResource.Messages();
 
-        // Fetch messages from the inbox
+        // Fetch messages from the sandbox
         var messageFilter = new TestingMessageFilter
         {
             SearchFilter = "Supervision request"
@@ -50,7 +50,7 @@ internal sealed class MessageReactor : Reactor
             _logger.LogInformation("Message: {Message}", message);
         }
 
-        // Fetch messages from the inbox
+        // Fetch messages from the sandbox
         messageFilter = new TestingMessageFilter
         {
             SearchFilter = "Greetings"

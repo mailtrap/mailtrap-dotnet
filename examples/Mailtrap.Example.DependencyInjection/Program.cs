@@ -50,9 +50,9 @@ internal sealed class Program
             ISendEmailClient bulkClient = mailtrapClient.Bulk();
             response = await bulkClient.Send(request);
 
-            var inboxId = 1234;
-            ISendEmailClient testClient = mailtrapClient.Test(inboxId);
-            response = await testClient.Send(request);
+            var sandboxId = 1234;
+            ISendEmailClient sandboxClient = mailtrapClient.Sandbox(sandboxId);
+            response = await sandboxClient.Send(request);
         }
         catch (Exception ex)
         {

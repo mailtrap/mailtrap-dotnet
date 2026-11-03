@@ -7,9 +7,9 @@ internal sealed class TestSendReactor : Reactor
         : base(mailtrapClient, logger) { }
 
 
-    public async Task Send(long inboxId)
+    public async Task Send(long sandboxId)
     {
-        ISendEmailClient emailClient = _mailtrapClient.Test(inboxId);
+        ISendEmailClient emailClient = _mailtrapClient.Sandbox(sandboxId);
 
         SendEmailRequest sendEmailRequest = SendEmailRequest
             .Create()

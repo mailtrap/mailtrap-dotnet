@@ -135,16 +135,16 @@ internal sealed class AccountResourceTests
     #endregion
 
 
-    #region Sending Domains
+    #region Domains
 
     [Test]
-    public void SendingDomains_ShouldReturnSendingDomainCollectionResource()
+    public void Domains_ShouldReturnSendingDomainCollectionResource()
     {
         // Arrange
         var client = CreateResource();
 
         // Act
-        var result = client.SendingDomains();
+        var result = client.Domains();
 
         // Assert
         ResourceValidator.Validate<ISendingDomainCollectionResource, SendingDomainCollectionResource>(
@@ -152,14 +152,14 @@ internal sealed class AccountResourceTests
     }
 
     [Test]
-    public void SendingDomain_ShouldReturnSendingDomainResource()
+    public void Domain_ShouldReturnSendingDomainResource()
     {
         // Arrange
         var client = CreateResource();
         var domainId = TestContext.CurrentContext.Random.NextLong();
 
         // Act
-        var result = client.SendingDomain(domainId);
+        var result = client.Domain(domainId);
 
         // Assert
         ResourceValidator.Validate<ISendingDomainResource, SendingDomainResource>(
@@ -167,13 +167,13 @@ internal sealed class AccountResourceTests
     }
 
     [Test]
-    public void SendingDomain_ShouldThrowOutOfRangeException_WhenIdIsEqualOrLessThanZero([Values(0, -1)] long domainId)
+    public void Domain_ShouldThrowOutOfRangeException_WhenIdIsEqualOrLessThanZero([Values(0, -1)] long domainId)
     {
         // Arrange
         var client = CreateResource();
 
         // Act
-        var act = () => client.SendingDomain(domainId);
+        var act = () => client.Domain(domainId);
 
         // Assert
         act.Should().Throw<ArgumentOutOfRangeException>();
@@ -229,16 +229,16 @@ internal sealed class AccountResourceTests
     #endregion
 
 
-    #region Inboxes
+    #region Sandboxes
 
     [Test]
-    public void Inboxes_ShouldReturnInboxCollectionResource()
+    public void Sandboxes_ShouldReturnInboxCollectionResource()
     {
         // Arrange
         var client = CreateResource();
 
         // Act
-        var result = client.Inboxes();
+        var result = client.Sandboxes();
 
         // Assert
         ResourceValidator.Validate<IInboxCollectionResource, InboxCollectionResource>(
@@ -246,28 +246,28 @@ internal sealed class AccountResourceTests
     }
 
     [Test]
-    public void Inbox_ShouldReturnInboxResource()
+    public void Sandbox_ShouldReturnInboxResource()
     {
         // Arrange
         var client = CreateResource();
-        var inboxId = TestContext.CurrentContext.Random.NextLong();
+        var sandboxId = TestContext.CurrentContext.Random.NextLong();
 
         // Act
-        var result = client.Inbox(inboxId);
+        var result = client.Sandbox(sandboxId);
 
         // Assert
         ResourceValidator.Validate<IInboxResource, InboxResource>(
-            result, client.ResourceUri.Append(UrlSegmentsTestConstants.InboxesSegment).Append(inboxId));
+            result, client.ResourceUri.Append(UrlSegmentsTestConstants.InboxesSegment).Append(sandboxId));
     }
 
     [Test]
-    public void Inbox_ShouldThrowOutOfRangeException_WhenIdIsEqualOrLessThanZero([Values(0, -1)] long inboxId)
+    public void Sandbox_ShouldThrowOutOfRangeException_WhenIdIsEqualOrLessThanZero([Values(0, -1)] long sandboxId)
     {
         // Arrange
         var client = CreateResource();
 
         // Act
-        var act = () => client.Inbox(inboxId);
+        var act = () => client.Sandbox(sandboxId);
 
         // Assert
         act.Should().Throw<ArgumentOutOfRangeException>();

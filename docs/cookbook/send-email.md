@@ -311,10 +311,10 @@ catch (Exception ex)
 > @Mailtrap.IMailtrapClient.Email will use send API defined by client configuration.
 
 
-Additionally, you can always use specific send API (transactional, bulk or test) explicitly, to route emails to:
+Additionally, you can always use specific send API (transactional, bulk or sandbox) explicitly, to route emails to:
 ```csharp
-var inboxId = 12345;
-ISendEmailClient emailClient = _mailtrapClient.Test(inboxId); // Emails will be sent using Email Testing API
+var sandboxId = 12345;
+ISendEmailClient emailClient = _mailtrapClient.Sandbox(sandboxId); // Emails will be sent using Email Sandbox API
 // ISendEmailClient emailClient = _mailtrapClient.Transactional(); // Emails will be sent using Email Sending API
 // ISendEmailClient emailClient = _mailtrapClient.Bulk(); // Emails will be sent using Bulk Sending API
 
@@ -322,7 +322,7 @@ var response = await emailClient.Send(request);
 ```
 
 > [!TIP]  
-> @Mailtrap.IMailtrapClient.Transactional, @Mailtrap.IMailtrapClient.Bulk and @Mailtrap.IMailtrapClient.Test(System.Int64)
+> @Mailtrap.IMailtrapClient.Transactional, @Mailtrap.IMailtrapClient.Bulk and @Mailtrap.IMailtrapClient.Sandbox(System.Int64)
 > are factory methods that will create new @Mailtrap.Emails.ISendEmailClient instance every time when called.  
 > Thus, if you need to perform multiple `Send()` calls to the same endpoint, it will be a good idea
 > to spawn client once and then reuse it:

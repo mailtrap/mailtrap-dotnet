@@ -313,13 +313,13 @@ internal sealed class EmailClientFactoryTests
     }
 
 
-    private static IOptions<MailtrapClientOptions> CreateOptions(bool isBulk, long inboxId)
+    private static IOptions<MailtrapClientOptions> CreateOptions(bool isBulk, long sandboxId)
     {
         var token = "token";
 
         var config = new MailtrapClientOptions(token)
         {
-            InboxId = inboxId,
+            SandboxId = sandboxId,
             UseBulkApi = isBulk
         };
 

@@ -145,7 +145,7 @@ internal sealed class SendEmailIntegrationTests
     }
 
     [TestCaseSource(nameof(TestCasesForNonDefault))]
-    public async Task SendEmail_Should_RouteToProperUrl_WhenTestClientIsUsed(MailtrapClientOptions config)
+    public async Task SendEmail_Should_RouteToProperUrl_WhenSandboxClientIsUsed(MailtrapClientOptions config)
     {
         // Arrange
         var random = TestContext.CurrentContext.Random;
@@ -157,12 +157,12 @@ internal sealed class SendEmailIntegrationTests
         var response = SendEmailResponse.CreateSuccess(messageId);
         using var responseContent = JsonContent.Create(response);
 
-        var inboxId = random.NextLong();
+        var sandboxId = random.NextLong();
         var sendUri = EndpointsTestConstants.TestDefaultUrl
             .Append(
                 UrlSegmentsTestConstants.ApiRootSegment,
                 UrlSegmentsTestConstants.SendEmailSegment)
-            .Append(inboxId)
+            .Append(sandboxId)
             .AbsoluteUri;
         using var services = CreateServiceProvider(config, sendUri, request, mockHttp, responseContent);
 
@@ -170,7 +170,7 @@ internal sealed class SendEmailIntegrationTests
 
         // Act
         var result = await client
-            .Test(inboxId)
+            .Sandbox(sandboxId)
             .Send(request)
             .ConfigureAwait(false);
 
@@ -192,17 +192,17 @@ internal sealed class SendEmailIntegrationTests
     {
         var random = TestContext.CurrentContext.Random;
         var token = random.GetString();
-        var inboxId = random.NextLong();
+        var sandboxId = random.NextLong();
         var sendUri = EndpointsTestConstants.SendDefaultUrl
             .Append(
                 UrlSegmentsTestConstants.ApiRootSegment,
                 UrlSegmentsTestConstants.SendEmailSegment)
             .AbsoluteUri;
-        var testUri = EndpointsTestConstants.TestDefaultUrl
+        var sandboxUri = EndpointsTestConstants.TestDefaultUrl
             .Append(
                 UrlSegmentsTestConstants.ApiRootSegment,
                 UrlSegmentsTestConstants.SendEmailSegment)
-            .Append(inboxId)
+            .Append(sandboxId)
             .AbsoluteUri;
         var bulkUri = EndpointsTestConstants.BulkDefaultUrl.Append(
                 UrlSegmentsTestConstants.ApiRootSegment,
@@ -222,25 +222,25 @@ internal sealed class SendEmailIntegrationTests
             bulkUri);
 
         yield return new(
-            new MailtrapClientOptions(token) { InboxId = inboxId },
-            testUri);
+            new MailtrapClientOptions(token) { SandboxId = sandboxId },
+            sandboxUri);
 
         yield return new(
-            new MailtrapClientOptions(token) { InboxId = inboxId, UseBulkApi = true },
-            testUri);
+            new MailtrapClientOptions(token) { SandboxId = sandboxId, UseBulkApi = true },
+            sandboxUri);
     }
 
     private static IEnumerable<MailtrapClientOptions> TestCasesForNonDefault()
     {
         var random = TestContext.CurrentContext.Random;
         var token = random.GetString();
-        var inboxId = random.NextLong();
+        var sandboxId = random.NextLong();
 
         yield return new(token);
         yield return new(token) { PrettyJson = true };
         yield return new(token) { UseBulkApi = true };
-        yield return new(token) { InboxId = inboxId };
-        yield return new(token) { InboxId = inboxId, UseBulkApi = true };
+        yield return new(token) { SandboxId = sandboxId };
+        yield return new(token) { SandboxId = sandboxId, UseBulkApi = true };
     }
 
     #endregion

@@ -20,7 +20,7 @@ public interface IOrganizationSubAccountResource : IRestResource
     ///
     /// <remarks>
     /// <para>
-    /// Requires sub account management permissions for the organization.
+    /// Requires organization admin permissions.
     /// </para>
     /// <para>
     /// Deletion is permanent and removes all data of the sub account.<br />

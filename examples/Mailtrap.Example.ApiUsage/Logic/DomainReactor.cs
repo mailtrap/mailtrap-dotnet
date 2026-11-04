@@ -1,9 +1,9 @@
 ﻿namespace Mailtrap.Example.ApiUsage.Logic;
 
 
-internal sealed class SendingDomainReactor : Reactor
+internal sealed class DomainReactor : Reactor
 {
-    public SendingDomainReactor(IMailtrapClient mailtrapClient, ILogger<SendingDomainReactor> logger)
+    public DomainReactor(IMailtrapClient mailtrapClient, ILogger<DomainReactor> logger)
         : base(mailtrapClient, logger) { }
 
 

@@ -1,18 +1,18 @@
 ﻿namespace Mailtrap.Example.ApiUsage.Logic;
 
 
-internal sealed class InboxReactor : Reactor
+internal sealed class SandboxReactor : Reactor
 {
-    private readonly TestingMessageReactor _messageReactor;
+    private readonly SandboxMessageReactor _sandboxMessageReactor;
 
 
-    public InboxReactor(
-        TestingMessageReactor messageReactor,
+    public SandboxReactor(
+        SandboxMessageReactor sandboxMessageReactor,
         IMailtrapClient mailtrapClient,
-        ILogger<InboxReactor> logger)
+        ILogger<SandboxReactor> logger)
         : base(mailtrapClient, logger)
     {
-        _messageReactor = messageReactor;
+        _sandboxMessageReactor = sandboxMessageReactor;
     }
 
 
@@ -52,7 +52,7 @@ internal sealed class InboxReactor : Reactor
         _logger.LogInformation("Sandbox: {Sandbox}", inbox);
 
         // Process messages
-        await _messageReactor.Process(accountId, inbox.Id);
+        await _sandboxMessageReactor.Process(accountId, inbox.Id);
 
         // Mark all messages in the sandbox as read
         Inbox updatedInbox = await inboxResource.MarkAsRead();

@@ -4,27 +4,27 @@
 namespace Mailtrap.Example.ApiUsage.Logic;
 
 
-internal sealed class TestingMessageReactor : Reactor
+internal sealed class SandboxMessageReactor : Reactor
 {
-    private readonly TestSendReactor _testSendReactor;
+    private readonly SandboxSendReactor _sandboxSendReactor;
     private readonly AttachmentReactor _attachmentReactor;
 
 
-    public TestingMessageReactor(
-        TestSendReactor testSendReactor,
+    public SandboxMessageReactor(
+        SandboxSendReactor sandboxSendReactor,
         AttachmentReactor attachmentReactor,
         IMailtrapClient mailtrapClient,
-        ILogger<TestingMessageReactor> logger)
+        ILogger<SandboxMessageReactor> logger)
         : base(mailtrapClient, logger)
     {
-        _testSendReactor = testSendReactor;
+        _sandboxSendReactor = sandboxSendReactor;
         _attachmentReactor = attachmentReactor;
     }
 
 
     public async Task Process(long accountId, long sandboxId)
     {
-        await _testSendReactor.Send(sandboxId);
+        await _sandboxSendReactor.Send(sandboxId);
 
         IInboxResource inboxResource = _mailtrapClient
             .Account(accountId)

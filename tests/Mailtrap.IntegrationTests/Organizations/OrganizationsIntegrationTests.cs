@@ -93,28 +93,21 @@ internal sealed class OrganizationsIntegrationTests
     public async Task Delete_Success()
     {
         // Arrange
-        var httpMethod = HttpMethod.Delete;
         var subAccountId = TestContext.CurrentContext.Random.NextLong();
         var requestUri = _resourceUri.Append(subAccountId).AbsoluteUri;
 
+        using var responseContent = new StringContent(string.Empty);
+
         using var mockHttp = new MockHttpMessageHandler();
-        mockHttp
-            .Expect(httpMethod, requestUri)
-            .WithHeaders("Authorization", $"Bearer {_clientConfig.ApiToken}")
-            .WithHeaders("Accept", MimeTypes.Application.Json)
-            .WithHeaders("User-Agent", HeaderValues.UserAgent.ToString())
-            .Respond(HttpStatusCode.NoContent);
-
-        var serviceCollection = new ServiceCollection();
-        serviceCollection
-            .AddMailtrapClient(_clientConfig)
-            .ConfigurePrimaryHttpMessageHandler(() => mockHttp);
-
-        using var services = serviceCollection.BuildServiceProvider();
-        var client = services.GetRequiredService<IMailtrapOrganizationClient>();
+        using var clientScope = mockHttp.ConfigureAndCreateClient(
+            HttpMethod.Delete,
+            requestUri,
+            responseContent,
+            HttpStatusCode.NoContent,
+            _clientConfig);
 
         // Act
-        await client
+        await clientScope.OrganizationClient
             .Organization(_organizationId)
             .SubAccount(subAccountId)
             .Delete()

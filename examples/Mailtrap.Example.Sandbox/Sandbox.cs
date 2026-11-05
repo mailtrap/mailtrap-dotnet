@@ -28,10 +28,10 @@ try
 
     var inboxName = "My Test Inbox";
 
-    // Get resource for inbox collection
-    IInboxCollectionResource inboxesResource = accountResource.Inboxes();
+    // Get resource for sandbox collection
+    IInboxCollectionResource inboxesResource = accountResource.Sandboxes();
 
-    // Get all inboxes for account
+    // Get all sandboxes for account
     IList<Inbox> inboxes = await inboxesResource.GetAll();
 
     Inbox? inbox = inboxes
@@ -39,49 +39,49 @@ try
 
     if (inbox is null)
     {
-        logger.LogWarning("No inbox found. Creating.");
+        logger.LogWarning("No sandbox found. Creating.");
 
-        // Create inbox
+        // Create sandbox
         var createInboxRequest = new CreateInboxRequest(projectId, inboxName);
         inbox = await inboxesResource.Create(createInboxRequest);
     }
     else
     {
-        logger.LogInformation("Inbox found.");
+        logger.LogInformation("Sandbox found.");
     }
 
-    // Get resource for specific inbox
-    IInboxResource inboxResource = accountResource.Inbox(inbox.Id);
+    // Get resource for specific sandbox
+    IInboxResource inboxResource = accountResource.Sandbox(inbox.Id);
 
     // Get Details
     inbox = await inboxResource.GetDetails();
-    logger.LogInformation("Inbox: {Inbox}", inbox);
+    logger.LogInformation("Sandbox: {Sandbox}", inbox);
 
-    // Mark all messages in the inbox as read
+    // Mark all messages in the sandbox as read
     Inbox updatedInbox = await inboxResource.MarkAsRead();
 
-    // Update inbox details
+    // Update sandbox details
     var updateInboxRequest = new UpdateInboxRequest
     {
         Name = "Updated Inbox Name"
     };
     updatedInbox = await inboxResource.Update(updateInboxRequest);
 
-    // Toggle email for inbox
+    // Toggle email for sandbox
     // updatedInbox = await inboxResource.ToggleEmailAddress();
 
-    // Reset email address for inbox
+    // Reset email address for sandbox
     updatedInbox = await inboxResource.ResetEmailAddress();
 
-    // Reset credentials for inbox
+    // Reset credentials for sandbox
     updatedInbox = await inboxResource.ResetCredentials();
 
-    logger.LogInformation("Updated Inbox: {Inbox}", updatedInbox);
+    logger.LogInformation("Updated Sandbox: {Sandbox}", updatedInbox);
 
-    // Delete inbox
+    // Delete sandbox
     // Beware that resource becomes invalid after deletion and should not be used anymore
     Inbox deletedInbox = await inboxResource.Delete();
-    logger.LogInformation("Deleted Inbox: {Inbox}", deletedInbox);
+    logger.LogInformation("Deleted Sandbox: {Sandbox}", deletedInbox);
 }
 catch (Exception ex)
 {

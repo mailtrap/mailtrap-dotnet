@@ -44,7 +44,7 @@ var config = new MailtrapClientOptions("<API_TOKEN>");
 ```
 
 ## Default Send API
-A combination of @Mailtrap.Configuration.MailtrapClientOptions.UseBulkApi and @Mailtrap.Configuration.MailtrapClientOptions.InboxId parameters
+A combination of @Mailtrap.Configuration.MailtrapClientOptions.UseBulkApi and @Mailtrap.Configuration.MailtrapClientOptions.SandboxId parameters
 is used to define default API for sending emails.  
 
 By default, if these parameters are not specified, transactional API will be used:
@@ -57,23 +57,23 @@ var config = new MailtrapClientOptions("<API_TOKEN>");
 var response = await _mailtrapClient.Email().Send(request);
 ```
 
-If @Mailtrap.Configuration.MailtrapClientOptions.InboxId contains valid Inbox ID, default send API will be set to test,
-and all emails sent through @Mailtrap.IMailtrapClient.Email will be routed to the specified test inbox.
+If @Mailtrap.Configuration.MailtrapClientOptions.SandboxId contains valid Sandbox ID, default send API will be set to sandbox,
+and all emails sent through @Mailtrap.IMailtrapClient.Email will be routed to the specified sandbox.
 
 ```cs
 var config = new MailtrapClientOptions("<API_TOKEN>")
 {
-    InboxId = 1234,
-    UseBulkApi = true // Will be ignored, since InboxId is set
+    SandboxId = 1234,
+    UseBulkApi = true // Will be ignored, since SandboxId is set
 };
 
 ...
 
-// Will send email to the test inbox with ID '1234', specified by configuration.
+// Will send email to the sandbox with ID '1234', specified by configuration.
 var response = await _mailtrapClient.Email().Send(request);
 ```
 
-In case Inbox is not specified (set to empty string or null), default send API will be set to transactional or bulk,
+In case Sandbox is not specified (set to null), default send API will be set to transactional or bulk,
 depending on the @Mailtrap.Configuration.MailtrapClientOptions.UseBulkApi flag.
 
 ```cs

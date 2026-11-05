@@ -76,7 +76,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mailtrap.Example.Permission
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mailtrap.Example.AccountAccess", "examples\Mailtrap.Example.AccountAccess\Mailtrap.Example.AccountAccess.csproj", "{B7957D47-EB36-405D-8899-50D208CEFA64}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mailtrap.Example.SendingDomain", "examples\Mailtrap.Example.SendingDomain\Mailtrap.Example.SendingDomain.csproj", "{45CBA5F5-DE15-4F1A-9078-949D91773D99}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mailtrap.Example.Domain", "examples\Mailtrap.Example.Domain\Mailtrap.Example.Domain.csproj", "{45CBA5F5-DE15-4F1A-9078-949D91773D99}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mailtrap.Example.EmailCampaigns", "examples\Mailtrap.Example.EmailCampaigns\Mailtrap.Example.EmailCampaigns.csproj", "{AB986BE2-6DE2-47E7-9EE7-188CF168C98A}"
 EndProject
@@ -84,9 +84,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mailtrap.Example.Project", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mailtrap.Example.Attachment", "examples\Mailtrap.Example.Attachment\Mailtrap.Example.Attachment.csproj", "{8B147171-BECF-4693-8343-4F69E597386C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mailtrap.Example.Inbox", "examples\Mailtrap.Example.Inbox\Mailtrap.Example.Inbox.csproj", "{AB9CF980-EAC5-4BC4-AC85-FFA0770FF7DA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mailtrap.Example.Sandbox", "examples\Mailtrap.Example.Sandbox\Mailtrap.Example.Sandbox.csproj", "{AB9CF980-EAC5-4BC4-AC85-FFA0770FF7DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mailtrap.Example.TestingMessage", "examples\Mailtrap.Example.TestingMessage\Mailtrap.Example.TestingMessage.csproj", "{F6357CAB-06C6-4603-99E7-1EDB79ACA8E8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mailtrap.Example.SandboxMessage", "examples\Mailtrap.Example.SandboxMessage\Mailtrap.Example.SandboxMessage.csproj", "{F6357CAB-06C6-4603-99E7-1EDB79ACA8E8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mailtrap.Example.Factory", "examples\Mailtrap.Example.Factory\Mailtrap.Example.Factory.csproj", "{AB1237F4-D074-4D3C-9AE4-6794BD30EA71}"
 EndProject

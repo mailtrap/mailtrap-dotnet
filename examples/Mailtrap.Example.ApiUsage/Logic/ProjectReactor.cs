@@ -3,16 +3,16 @@
 
 internal sealed class ProjectReactor : Reactor
 {
-    private readonly InboxReactor _inboxReactor;
+    private readonly SandboxReactor _sandboxReactor;
 
 
     public ProjectReactor(
-        InboxReactor inboxReactor,
+        SandboxReactor sandboxReactor,
         IMailtrapClient mailtrapClient,
         ILogger<ProjectReactor> logger)
         : base(mailtrapClient, logger)
     {
-        _inboxReactor = inboxReactor;
+        _sandboxReactor = sandboxReactor;
     }
 
 
@@ -51,8 +51,8 @@ internal sealed class ProjectReactor : Reactor
         project = await projectResource.GetDetails();
         _logger.LogInformation("Project: {Project}", project);
 
-        // Process inboxes
-        await _inboxReactor.Process(accountId, project.Id);
+        // Process sandboxes
+        await _sandboxReactor.Process(accountId, project.Id);
 
         // Update project details
         var updateProjectRequest = new UpdateProjectRequest("Updated Project Name");

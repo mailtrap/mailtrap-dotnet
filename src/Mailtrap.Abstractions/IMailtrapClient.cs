@@ -158,7 +158,7 @@ public interface IMailtrapClient : IRestResource
     /// Gets default email client.
     /// </para>
     /// <para>
-    /// Type of the client (transactional, bulk or test) is defined by configuration.
+    /// Type of the client (transactional, bulk or sandbox) is defined by configuration.
     /// </para>
     /// </summary>
     /// 
@@ -186,16 +186,34 @@ public interface IMailtrapClient : IRestResource
     public ISendEmailClient Bulk();
 
     /// <summary>
-    /// Factory method to create test email client.
+    /// Factory method to create sandbox email client.
     /// </summary>
     ///
-    /// <param name="inboxId">
-    /// ID of the inbox to send test emails to.
+    /// <param name="sandboxId">
+    /// ID of the sandbox to send emails to.
     /// </param>
     ///
     /// <returns>
-    /// New <see cref="ISendEmailClient"/> instance that can be used to send test emails to the specified <paramref name="inboxId"/>.
+    /// New <see cref="ISendEmailClient"/> instance that can be used to send emails to the sandbox with the specified <paramref name="sandboxId"/>.
     /// </returns>
+    public ISendEmailClient Sandbox(long sandboxId);
+
+    /// <summary>
+    /// Factory method to create sandbox email client.
+    /// </summary>
+    ///
+    /// <param name="inboxId">
+    /// ID of the sandbox to send emails to.
+    /// </param>
+    ///
+    /// <returns>
+    /// New <see cref="ISendEmailClient"/> instance that can be used to send emails to the sandbox with the specified <paramref name="inboxId"/>.
+    /// </returns>
+    ///
+    /// <remarks>
+    /// Deprecated, use <see cref="Sandbox(long)"/> instead.
+    /// </remarks>
+    [Obsolete("Test(long) is deprecated and will be removed in a future major release; use Sandbox(long) instead.")]
     public ISendEmailClient Test(long inboxId);
 
     #endregion
@@ -209,7 +227,7 @@ public interface IMailtrapClient : IRestResource
     /// Gets default batch email client.
     /// </para>
     /// <para>
-    /// Type of the client (transactional, bulk or test) is defined by configuration.
+    /// Type of the client (transactional, bulk or sandbox) is defined by configuration.
     /// </para>
     /// </summary>
     /// 
@@ -237,16 +255,34 @@ public interface IMailtrapClient : IRestResource
     public IBatchEmailClient BatchBulk();
 
     /// <summary>
-    /// Factory method to create batch test email client.
+    /// Factory method to create batch sandbox email client.
     /// </summary>
     ///
-    /// <param name="inboxId">
-    /// ID of the inbox to send test emails to.
+    /// <param name="sandboxId">
+    /// ID of the sandbox to send emails to.
     /// </param>
     ///
     /// <returns>
-    /// New <see cref="IBatchEmailClient"/> instance that can be used to send test emails to the specified <paramref name="inboxId"/> in a batch.
+    /// New <see cref="IBatchEmailClient"/> instance that can be used to send emails to the sandbox with the specified <paramref name="sandboxId"/> in a batch.
     /// </returns>
+    public IBatchEmailClient BatchSandbox(long sandboxId);
+
+    /// <summary>
+    /// Factory method to create batch sandbox email client.
+    /// </summary>
+    ///
+    /// <param name="inboxId">
+    /// ID of the sandbox to send emails to.
+    /// </param>
+    ///
+    /// <returns>
+    /// New <see cref="IBatchEmailClient"/> instance that can be used to send emails to the sandbox with the specified <paramref name="inboxId"/> in a batch.
+    /// </returns>
+    ///
+    /// <remarks>
+    /// Deprecated, use <see cref="BatchSandbox(long)"/> instead.
+    /// </remarks>
+    [Obsolete("BatchTest(long) is deprecated and will be removed in a future major release; use BatchSandbox(long) instead.")]
     public IBatchEmailClient BatchTest(long inboxId);
 
     #endregion

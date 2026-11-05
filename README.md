@@ -116,15 +116,15 @@ catch (Exception ex)
 }  
 ```
 
-### Sending - Testing (Sandbox vs Production)
+### Sending - Sandbox vs Production
 
-Mailtrap allows you to switch between sandbox (testing) and production sending environments easily.
+Mailtrap allows you to switch between sandbox and production sending environments easily.
 
-**Difference:** In sandbox mode, you use `.Test(inboxId)` instead of `.Email()`, and provide an `inboxId`.
+**Difference:** In sandbox mode, you use `.Sandbox(sandboxId)` instead of `.Email()`, and provide a `sandboxId`.
 
 ```csharp
 var apiToken = "<API-TOKEN>";
-var inboxId = <INBOX-ID>; // Only needed for sandbox
+var sandboxId = <SANDBOX-ID>; // Only needed for sandbox
 using var mailtrapClientFactory = new MailtrapClientFactory(apiToken);
 IMailtrapClient mailtrapClient = mailtrapClientFactory.CreateClient();
 
@@ -136,7 +136,7 @@ SendEmailRequest request = SendEmailRequest
     .Text("Congrats for sending test email with Mailtrap!");
 
 SendEmailResponse? response = await mailtrapClient
-    .Test(inboxId)
+    .Sandbox(sandboxId)
     .Send(request);
 ```
 
@@ -272,7 +272,7 @@ private static SendEmailRequest TemplateBasedRequest()
 - Send an email with a template – [`examples/Mailtrap.Example.Email.Send`](examples/Mailtrap.Example.Email.Send/)
 - Send emails with attachments – [`examples/Mailtrap.Example.Email.Send`](examples/Mailtrap.Example.Email.Send/)
 - Batch send (Transactional and Bulk streams) – [`examples/Mailtrap.Example.Email.BatchSend`](examples/Mailtrap.Example.Email.BatchSend/)
-- Sending domain management, settings and company info – [`examples/Mailtrap.Example.SendingDomain`](examples/Mailtrap.Example.SendingDomain/)
+- Domain management, settings and company info – [`examples/Mailtrap.Example.Domain`](examples/Mailtrap.Example.Domain/)
 - Suppressions management – [`examples/Mailtrap.Example.Suppression`](examples/Mailtrap.Example.Suppression/)
 - Tracking opt-outs management – [`examples/Mailtrap.Example.TrackingOptOut`](examples/Mailtrap.Example.TrackingOptOut/)
 - Email logs (list with filters and pagination; get message details with events) – [`examples/Mailtrap.Example.EmailLogs`](examples/Mailtrap.Example.EmailLogs/)
@@ -284,13 +284,13 @@ private static SendEmailRequest TemplateBasedRequest()
 
 - Inbound folders, inboxes, forward rules, messages, and threads (CRUD, pagination, thread search, reply/reply-all/forward) – [`examples/Mailtrap.Example.Inbound`](examples/Mailtrap.Example.Inbound/)
 
-### Email Sandbox (Testing)
+### Email Sandbox
 
 - Send an email – [`examples/Mailtrap.Example.Email.Send`](examples/Mailtrap.Example.Email.Send/)
 - Send an email with a template – [`examples/Mailtrap.Example.Email.Send`](examples/Mailtrap.Example.Email.Send/)
-- Message management – [`examples/Mailtrap.Example.TestingMessage`](examples/Mailtrap.Example.TestingMessage/)
-- Attachments in testing messages – [`examples/Mailtrap.Example.Attachment`](examples/Mailtrap.Example.Attachment/)
-- Inbox management – [`examples/Mailtrap.Example.Inbox`](examples/Mailtrap.Example.Inbox/)
+- Message management – [`examples/Mailtrap.Example.SandboxMessage`](examples/Mailtrap.Example.SandboxMessage/)
+- Attachments in sandbox messages – [`examples/Mailtrap.Example.Attachment`](examples/Mailtrap.Example.Attachment/)
+- Sandbox management – [`examples/Mailtrap.Example.Sandbox`](examples/Mailtrap.Example.Sandbox/)
 - Project management – [`examples/Mailtrap.Example.Project`](examples/Mailtrap.Example.Project/)
 
 ### Email Marketing
@@ -325,6 +325,26 @@ private static SendEmailRequest TemplateBasedRequest()
 - Factory Pattern – [`examples/Mailtrap.Example.Factory`](examples/Mailtrap.Example.Factory/)
 
 Each example includes detailed comments and demonstrates best practices for error handling, configuration, and resource management.
+
+## Renamed APIs
+
+Email Sandbox inboxes are now called **sandboxes**, and sending domains are now called **domains**.
+The old members still work, but they are marked `[Obsolete]` and will be removed in a future major release:
+
+| Old (deprecated)                           | New                                       |
+|--------------------------------------------|-------------------------------------------|
+| `IMailtrapClient.Test(inboxId)`            | `IMailtrapClient.Sandbox(sandboxId)`      |
+| `IMailtrapClient.BatchTest(inboxId)`       | `IMailtrapClient.BatchSandbox(sandboxId)` |
+| `IAccountResource.Inboxes()`               | `IAccountResource.Sandboxes()`            |
+| `IAccountResource.Inbox(inboxId)`          | `IAccountResource.Sandbox(sandboxId)`     |
+| `IAccountResource.SendingDomains()`        | `IAccountResource.Domains()`              |
+| `IAccountResource.SendingDomain(domainId)` | `IAccountResource.Domain(domainId)`       |
+| `MailtrapClientOptions.InboxId`            | `MailtrapClientOptions.SandboxId`         |
+
+- The `InboxId` configuration key still binds to `SandboxId`. When a configuration section has both keys, `SandboxId` wins.
+- In a project that treats warnings as errors, calls to the old members fail the build with `CS0618`. Switch them to the new names.
+- Model, request and resource types (`Inbox`, `IInboxResource`, `SendingDomain`, `ISendingDomainResource` and so on) and their namespaces keep their names until the next major release.
+- Inbound Email inboxes keep their names.
 
 ---
 

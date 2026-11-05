@@ -9,7 +9,7 @@ internal sealed class AttachmentsIntegrationTests
 
 
     private readonly long _accountId;
-    private readonly long _inboxId;
+    private readonly long _sandboxId;
     private readonly long _messageId;
     private readonly Uri _resourceUri;
     private readonly MailtrapClientOptions _clientConfig;
@@ -20,7 +20,7 @@ internal sealed class AttachmentsIntegrationTests
         var random = TestContext.CurrentContext.Random;
 
         _accountId = random.NextLong();
-        _inboxId = random.NextLong();
+        _sandboxId = random.NextLong();
         _messageId = random.NextLong();
         _resourceUri = EndpointsTestConstants.ApiDefaultUrl
             .Append(
@@ -28,7 +28,7 @@ internal sealed class AttachmentsIntegrationTests
                 UrlSegmentsTestConstants.AccountsSegment)
             .Append(_accountId)
             .Append(UrlSegmentsTestConstants.InboxesSegment)
-            .Append(_inboxId)
+            .Append(_sandboxId)
             .Append(UrlSegmentsTestConstants.EmailsSegment)
             .Append(_messageId)
             .Append(UrlSegmentsTestConstants.AttachmentsSegment);
@@ -70,7 +70,7 @@ internal sealed class AttachmentsIntegrationTests
         // Act
         var result = await client
             .Account(_accountId)
-            .Inbox(_inboxId)
+            .Sandbox(_sandboxId)
             .Message(_messageId)
             .Attachments()
             .Fetch()
@@ -125,7 +125,7 @@ internal sealed class AttachmentsIntegrationTests
         // Act
         var result = await client
             .Account(_accountId)
-            .Inbox(_inboxId)
+            .Sandbox(_sandboxId)
             .Message(_messageId)
             .Attachments()
             .Fetch(filter)
@@ -175,7 +175,7 @@ internal sealed class AttachmentsIntegrationTests
         // Act
         var result = await client
             .Account(_accountId)
-            .Inbox(_inboxId)
+            .Sandbox(_sandboxId)
             .Message(_messageId)
             .Attachment(attachmentId)
             .GetDetails()

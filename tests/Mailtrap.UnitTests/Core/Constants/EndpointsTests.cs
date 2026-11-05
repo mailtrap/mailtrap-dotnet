@@ -23,8 +23,8 @@ internal sealed class EndpointsTests
     }
 
     [Test]
-    public void TestDefaultUrl_ShouldContainCorrectValue()
+    public void SandboxDefaultUrl_ShouldContainCorrectValue()
     {
-        Endpoints.TestDefaultUrl.Should().Be(EndpointsTestConstants.TestDefaultUrl);
+        Endpoints.SandboxDefaultUrl.Should().Be(EndpointsTestConstants.SandboxDefaultUrl);
     }
 }

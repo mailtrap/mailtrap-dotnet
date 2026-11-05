@@ -39,7 +39,7 @@ using Mailtrap.Configuration;
 // Creating new instance of `MailtrapClientOptions`
 var config = new MailtrapClientOptions("<API_TOKEN>")
 {
-    InboxId = 12345
+    SandboxId = 12345
 };
 
 // Creating factory instance        

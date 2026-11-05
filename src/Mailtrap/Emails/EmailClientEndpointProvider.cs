@@ -15,20 +15,20 @@ internal sealed class EmailClientEndpointProvider : IEmailClientEndpointProvider
     /// </summary>
     /// <param name="isBatch">When <c>true</c>, append the batch segment; otherwise append the send segment.</param>
     /// <param name="isBulk">When <c>true</c>, use the bulk host; otherwise use the standard send host.</param>
-    /// <param name="inboxId">When supplied, scope the request to the inbox and switch to the test host.</param>
+    /// <param name="sandboxId">When supplied, scope the request to the sandbox and switch to the sandbox host.</param>
     /// <returns>The fully qualified endpoint URI.</returns>
-    public Uri GetRequestUri(bool isBatch, bool isBulk, long? inboxId)
+    public Uri GetRequestUri(bool isBatch, bool isBulk, long? sandboxId)
     {
-        var rootUrl = inboxId switch
+        var rootUrl = sandboxId switch
         {
             null => isBulk ? Endpoints.BulkDefaultUrl : Endpoints.SendDefaultUrl,
-            _ => Endpoints.TestDefaultUrl,
+            _ => Endpoints.SandboxDefaultUrl,
         };
 
         var emailSegment = isBatch ? BatchEmailSegment : SendEmailSegment;
 
         var result = rootUrl.Append(UrlSegments.ApiRootSegment, emailSegment);
 
-        return inboxId is null ? result : result.Append(inboxId.Value);
+        return sandboxId is null ? result : result.Append(sandboxId.Value);
     }
 }

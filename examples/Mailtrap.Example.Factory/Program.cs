@@ -62,7 +62,7 @@ internal sealed class Program
     {
         var config = new MailtrapClientOptions("<API-KEY>")
         {
-            InboxId = 12345
+            SandboxId = 12345
         };
 
         return new MailtrapClientFactory(config);

@@ -54,29 +54,45 @@ public interface IAccountResource : IRestResource
 
 
     /// <summary>
-    /// Gets sending domain collection resource for the account, represented by this resource instance.
+    /// Gets domain collection resource for the account, represented by this resource instance.
     /// </summary>
     ///
     /// <returns>
-    /// Sending domain collection resource for the account, represented by this resource instance.
+    /// Domain collection resource for the account, represented by this resource instance.
     /// </returns>
-    public ISendingDomainCollectionResource SendingDomains();
+    public ISendingDomainCollectionResource Domains();
 
     /// <summary>
-    /// Gets resource for specific sending domain, identified by <paramref name="domainId"/>.
+    /// Gets resource for specific domain, identified by <paramref name="domainId"/>.
     /// </summary>
     ///
     /// <param name="domainId">
-    /// ID of sending domain to get resource for.
+    /// ID of domain to get resource for.
     /// </param>
     ///
     /// <returns>
-    /// Resource for the sending domain with specified ID.
+    /// Resource for the domain with specified ID.
     /// </returns>
     ///
     /// <exception cref="ArgumentOutOfRangeException">
     /// When <paramref name="domainId"/> is less than or equal to zero.
     /// </exception>
+    public ISendingDomainResource Domain(long domainId);
+
+    /// <inheritdoc cref="Domains"/>
+    ///
+    /// <remarks>
+    /// Deprecated, use <see cref="Domains"/> instead.
+    /// </remarks>
+    [Obsolete("SendingDomains() is deprecated and will be removed in a future major release; use Domains() instead.")]
+    public ISendingDomainCollectionResource SendingDomains();
+
+    /// <inheritdoc cref="Domain(long)"/>
+    ///
+    /// <remarks>
+    /// Deprecated, use <see cref="Domain(long)"/> instead.
+    /// </remarks>
+    [Obsolete("SendingDomain(long) is deprecated and will be removed in a future major release; use Domain(long) instead.")]
     public ISendingDomainResource SendingDomain(long domainId);
 
 
@@ -108,29 +124,59 @@ public interface IAccountResource : IRestResource
 
 
     /// <summary>
-    /// Gets inbox collection resource for the account, represented by this resource instance.
+    /// Gets sandbox collection resource for the account, represented by this resource instance.
     /// </summary>
     ///
     /// <returns>
-    /// Inbox collection resource for the account, represented by this resource instance.
+    /// Sandbox collection resource for the account, represented by this resource instance.
     /// </returns>
-    public IInboxCollectionResource Inboxes();
+    public IInboxCollectionResource Sandboxes();
 
     /// <summary>
-    /// Gets resource for specific inbox, identified by <paramref name="inboxId"/>.
+    /// Gets resource for specific sandbox, identified by <paramref name="sandboxId"/>.
     /// </summary>
     ///
-    /// <param name="inboxId">
-    /// ID of inbox to get resource for.
+    /// <param name="sandboxId">
+    /// ID of sandbox to get resource for.
     /// </param>
     ///
     /// <returns>
-    /// Resource for the inbox with specified ID.
+    /// Resource for the sandbox with specified ID.
+    /// </returns>
+    ///
+    /// <exception cref="ArgumentOutOfRangeException">
+    /// When <paramref name="sandboxId"/> is less than or equal to zero.
+    /// </exception>
+    public IInboxResource Sandbox(long sandboxId);
+
+    /// <inheritdoc cref="Sandboxes"/>
+    ///
+    /// <remarks>
+    /// Deprecated, use <see cref="Sandboxes"/> instead.
+    /// </remarks>
+    [Obsolete("Inboxes() is deprecated and will be removed in a future major release; use Sandboxes() instead.")]
+    public IInboxCollectionResource Inboxes();
+
+    /// <summary>
+    /// Gets resource for specific sandbox, identified by <paramref name="inboxId"/>.
+    /// </summary>
+    ///
+    /// <param name="inboxId">
+    /// ID of sandbox to get resource for.
+    /// </param>
+    ///
+    /// <returns>
+    /// Resource for the sandbox with specified ID.
     /// </returns>
     ///
     /// <exception cref="ArgumentOutOfRangeException">
     /// When <paramref name="inboxId"/> is less than or equal to zero.
     /// </exception>
+    ///
+    /// <remarks>
+    /// Deprecated, use <see cref="Sandbox(long)"/> instead.
+    /// </remarks>
+    [Obsolete("Inbox(long) is deprecated and will be removed in a future major release; use Sandbox(long) instead.")]
     public IInboxResource Inbox(long inboxId);
 
     /// <summary>

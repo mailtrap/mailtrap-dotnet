@@ -116,4 +116,34 @@ internal sealed class OrganizationsIntegrationTests
         // Assert
         mockHttp.VerifyNoOutstandingExpectation();
     }
+
+    [Test]
+    public async Task Delete_NotFound()
+    {
+        // Arrange
+        var subAccountId = TestContext.CurrentContext.Random.NextLong();
+        var requestUri = _resourceUri.Append(subAccountId).AbsoluteUri;
+
+        using var responseContent = await Feature.LoadFileToStringContent();
+
+        using var mockHttp = new MockHttpMessageHandler();
+        using var clientScope = mockHttp.ConfigureAndCreateClient(
+            HttpMethod.Delete,
+            requestUri,
+            responseContent,
+            HttpStatusCode.NotFound,
+            _clientConfig);
+
+        // Act
+        var act = () => clientScope.OrganizationClient
+            .Organization(_organizationId)
+            .SubAccount(subAccountId)
+            .Delete();
+
+        // Assert
+        var assertion = await act.Should().ThrowAsync<HttpRequestFailedException>();
+        assertion.Which.StatusCode.Should().Be(HttpStatusCode.NotFound);
+
+        mockHttp.VerifyNoOutstandingExpectation();
+    }
 }

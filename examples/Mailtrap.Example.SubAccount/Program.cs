@@ -55,6 +55,7 @@ try
 
     // Delete the sub account permanently, together with all its data.
     // Deleting the last sub account of the organization deletes the organization as well.
+    // Deleting needs an organization admin token and the Organization & Sub-accounts feature; listing and creating do not.
     await organizationResource.SubAccount(createdSubAccount.Id).Delete();
     logger.LogInformation("Deleted Sub Account: Id={Id}", createdSubAccount.Id);
 }

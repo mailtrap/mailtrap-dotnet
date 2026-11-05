@@ -9,4 +9,11 @@ internal sealed class OrganizationResource : RestResource, IOrganizationResource
 
     public IOrganizationSubAccountCollectionResource SubAccounts()
         => new OrganizationSubAccountCollectionResource(RestResourceCommandFactory, ResourceUri.Append(UrlSegments.SubAccountsSegment));
+
+    public IOrganizationSubAccountResource SubAccount(long subAccountId)
+    {
+        Ensure.GreaterThanZero(subAccountId, nameof(subAccountId));
+
+        return new OrganizationSubAccountResource(RestResourceCommandFactory, ResourceUri.Append(UrlSegments.SubAccountsSegment).Append(subAccountId));
+    }
 }

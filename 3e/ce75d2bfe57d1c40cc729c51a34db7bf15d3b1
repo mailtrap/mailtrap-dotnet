@@ -1,0 +1,19 @@
+examples/Mailtrap.Example.MarketingStats/MarketingStats.cs
+  s_c3bd6100d0eed9::t_b3580afa9c2285 26,28,49
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "3ece75d2bfe57d1c40cc729c51a34db7bf15d3b1",
+  "prompts": {},
+  "sessions": {
+    "s_c3bd6100d0eed9": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "548075a9-6f4f-4082-985c-c019737cdd9f",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Maciej Walusiak <maciej.walusiak@railsware.com>"
+    }
+  }
+}

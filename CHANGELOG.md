@@ -1,3 +1,12 @@
+## [3.10.0] - 2026-11-09
+
+## What's Changed
+* add sub account deletion by @oshchyhol in https://github.com/mailtrap/mailtrap-dotnet/pull/259
+* Add Sandbox and Domain names; deprecate Test, Inbox and SendingDomain by @Rabsztok in https://github.com/mailtrap/mailtrap-dotnet/pull/266
+
+
+**Full Changelog**: https://github.com/mailtrap/mailtrap-dotnet/compare/v3.9.0...v3.10.0
+
 ## [3.9.0] - 2026-10-29
 
 ## What's Changed

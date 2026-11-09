@@ -27,13 +27,19 @@ internal sealed class AccountResource : RestResource, IAccountResource
 
     #endregion
 
-    #region Sending Domains
+    #region Domains
 
-    public ISendingDomainCollectionResource SendingDomains()
+    public ISendingDomainCollectionResource Domains()
         => new SendingDomainCollectionResource(RestResourceCommandFactory, ResourceUri.Append(UrlSegments.SendingDomainsSegment));
 
-    public ISendingDomainResource SendingDomain(long domainId)
+    public ISendingDomainResource Domain(long domainId)
         => new SendingDomainResource(RestResourceCommandFactory, ResourceUri.Append(UrlSegments.SendingDomainsSegment).Append(domainId));
+
+    [Obsolete("SendingDomains() is deprecated and will be removed in a future major release; use Domains() instead.")]
+    public ISendingDomainCollectionResource SendingDomains() => Domains();
+
+    [Obsolete("SendingDomain(long) is deprecated and will be removed in a future major release; use Domain(long) instead.")]
+    public ISendingDomainResource SendingDomain(long domainId) => Domain(domainId);
 
     #endregion
 
@@ -47,15 +53,21 @@ internal sealed class AccountResource : RestResource, IAccountResource
 
     #endregion
 
-    #region Inboxes
+    #region Sandboxes
 
     // Passing account resource URI is expected, since we need to append both:
     // inboxes and projects segments to it for different scenarios.
-    public IInboxCollectionResource Inboxes()
+    public IInboxCollectionResource Sandboxes()
         => new InboxCollectionResource(RestResourceCommandFactory, ResourceUri);
 
-    public IInboxResource Inbox(long inboxId)
-        => new InboxResource(RestResourceCommandFactory, ResourceUri.Append(UrlSegments.InboxesSegment).Append(inboxId));
+    public IInboxResource Sandbox(long sandboxId)
+        => new InboxResource(RestResourceCommandFactory, ResourceUri.Append(UrlSegments.InboxesSegment).Append(sandboxId));
+
+    [Obsolete("Inboxes() is deprecated and will be removed in a future major release; use Sandboxes() instead.")]
+    public IInboxCollectionResource Inboxes() => Sandboxes();
+
+    [Obsolete("Inbox(long) is deprecated and will be removed in a future major release; use Sandbox(long) instead.")]
+    public IInboxResource Inbox(long inboxId) => Sandbox(inboxId);
 
     #endregion
 

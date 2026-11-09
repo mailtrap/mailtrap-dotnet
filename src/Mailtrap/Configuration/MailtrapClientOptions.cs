@@ -70,24 +70,42 @@ public record MailtrapClientOptions
     /// </value>
     public bool UseBulkApi { get; set; } = false;
 
-    /// <summary>
+    /// <inheritdoc cref="SandboxId"/>
+    ///
+    /// <remarks>
     /// <para>
-    /// Gets or sets Inbox ID to route test emails to.
+    /// Deprecated, use <see cref="SandboxId"/> instead. Reads and writes the same value.
     /// </para>
     /// <para>
-    /// When set to non-default value, all emails will be sent as test and routed to this inbox.
+    /// Declared before <see cref="SandboxId"/>, so that configuration binding sets <see cref="SandboxId"/> last:
+    /// when a configuration section has both keys, <see cref="SandboxId"/> wins.
+    /// </para>
+    /// </remarks>
+    [Obsolete("InboxId is deprecated and will be removed in a future major release; use SandboxId instead.")]
+    public long? InboxId
+    {
+        get => SandboxId;
+        set => SandboxId = value;
+    }
+
+    /// <summary>
+    /// <para>
+    /// Gets or sets Sandbox ID to route emails to.
+    /// </para>
+    /// <para>
+    /// When set to non-default value, all emails will be sent to this sandbox.
     /// </para>
     /// </summary>
     ///
     /// <value>
     /// <para>
-    /// Inbox ID to use for sending test emails.
+    /// Sandbox ID to use for sending emails.
     /// </para>
     /// <para>
     /// Default is <see langword="null"/>.
     /// </para>
     /// </value>
-    public long? InboxId { get; set; } = null;
+    public long? SandboxId { get; set; } = null;
 
 
     /// <summary>
@@ -138,7 +156,7 @@ public record MailtrapClientOptions
         ApiToken = source.ApiToken;
         PrettyJson = source.PrettyJson;
         UseBulkApi = source.UseBulkApi;
-        InboxId = source.InboxId;
+        SandboxId = source.SandboxId;
     }
 
 

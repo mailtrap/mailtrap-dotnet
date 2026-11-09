@@ -1,15 +1,15 @@
 ﻿namespace Mailtrap.Example.ApiUsage.Logic;
 
 
-internal sealed class TestSendReactor : Reactor
+internal sealed class SandboxSendReactor : Reactor
 {
-    public TestSendReactor(IMailtrapClient mailtrapClient, ILogger<InboxReactor> logger)
+    public SandboxSendReactor(IMailtrapClient mailtrapClient, ILogger<SandboxSendReactor> logger)
         : base(mailtrapClient, logger) { }
 
 
-    public async Task Send(long inboxId)
+    public async Task Send(long sandboxId)
     {
-        ISendEmailClient emailClient = _mailtrapClient.Test(inboxId);
+        ISendEmailClient emailClient = _mailtrapClient.Sandbox(sandboxId);
 
         SendEmailRequest sendEmailRequest = SendEmailRequest
             .Create()

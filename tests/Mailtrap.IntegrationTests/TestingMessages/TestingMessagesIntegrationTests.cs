@@ -22,7 +22,7 @@ internal sealed class TestingMessagesIntegrationTests
 
 
     private readonly long _accountId;
-    private readonly long _inboxId;
+    private readonly long _sandboxId;
     private readonly Uri _resourceUri;
     private readonly MailtrapClientOptions _clientConfig;
     private readonly JsonSerializerOptions _jsonSerializerOptions;
@@ -33,14 +33,14 @@ internal sealed class TestingMessagesIntegrationTests
         var random = TestContext.CurrentContext.Random;
 
         _accountId = random.NextLong();
-        _inboxId = random.NextLong();
+        _sandboxId = random.NextLong();
         _resourceUri = EndpointsTestConstants.ApiDefaultUrl
             .Append(
                 UrlSegmentsTestConstants.ApiRootSegment,
                 UrlSegmentsTestConstants.AccountsSegment)
             .Append(_accountId)
             .Append(UrlSegmentsTestConstants.InboxesSegment)
-            .Append(_inboxId)
+            .Append(_sandboxId)
             .Append(UrlSegmentsTestConstants.EmailsSegment);
 
         var token = random.GetString();
@@ -81,7 +81,7 @@ internal sealed class TestingMessagesIntegrationTests
         // Act
         var result = await client
             .Account(_accountId)
-            .Inbox(_inboxId)
+            .Sandbox(_sandboxId)
             .Messages()
             .Fetch()
             .ConfigureAwait(false);
@@ -143,7 +143,7 @@ internal sealed class TestingMessagesIntegrationTests
         // Act
         var result = await client
             .Account(_accountId)
-            .Inbox(_inboxId)
+            .Sandbox(_sandboxId)
             .Messages()
             .Fetch(filter)
             .ConfigureAwait(false);
@@ -203,7 +203,7 @@ internal sealed class TestingMessagesIntegrationTests
         // Act
         var result = await client
             .Account(_accountId)
-            .Inbox(_inboxId)
+            .Sandbox(_sandboxId)
             .Messages()
             .Fetch(filter)
             .ConfigureAwait(false);
@@ -262,7 +262,7 @@ internal sealed class TestingMessagesIntegrationTests
         // Act
         var result = await client
             .Account(_accountId)
-            .Inbox(_inboxId)
+            .Sandbox(_sandboxId)
             .Messages()
             .Fetch(filter)
             .ConfigureAwait(false);
@@ -311,7 +311,7 @@ internal sealed class TestingMessagesIntegrationTests
         // Act
         var result = await client
             .Account(_accountId)
-            .Inbox(_inboxId)
+            .Sandbox(_sandboxId)
             .Message(messageId)
             .GetDetails()
             .ConfigureAwait(false);
@@ -361,7 +361,7 @@ internal sealed class TestingMessagesIntegrationTests
         // Act
         var result = await client
             .Account(_accountId)
-            .Inbox(_inboxId)
+            .Sandbox(_sandboxId)
             .Message(messageId)
             .Update(request)
             .ConfigureAwait(false);
@@ -405,7 +405,7 @@ internal sealed class TestingMessagesIntegrationTests
         // Act
         var result = await client
             .Account(_accountId)
-            .Inbox(_inboxId)
+            .Sandbox(_sandboxId)
             .Message(messageId)
             .Delete()
             .ConfigureAwait(false);
@@ -458,7 +458,7 @@ internal sealed class TestingMessagesIntegrationTests
         // Act
         var result = await client
             .Account(_accountId)
-            .Inbox(_inboxId)
+            .Sandbox(_sandboxId)
             .Message(messageId)
             .Forward(request)
             .ConfigureAwait(false);
@@ -476,7 +476,7 @@ internal sealed class TestingMessagesIntegrationTests
     {
         Task<TestingMessageHeaders> Act(IMailtrapClient client, long messageId) => client
             .Account(_accountId)
-            .Inbox(_inboxId)
+            .Sandbox(_sandboxId)
             .Message(messageId)
             .GetHeaders();
 
@@ -488,7 +488,7 @@ internal sealed class TestingMessagesIntegrationTests
     {
         Task<TestingMessageSpamReport> Act(IMailtrapClient client, long messageId) => client
             .Account(_accountId)
-            .Inbox(_inboxId)
+            .Sandbox(_sandboxId)
             .Message(messageId)
             .GetSpamReport();
 
@@ -500,7 +500,7 @@ internal sealed class TestingMessagesIntegrationTests
     {
         Task<TestingMessageHtmlReport> Act(IMailtrapClient client, long messageId) => client
             .Account(_accountId)
-            .Inbox(_inboxId)
+            .Sandbox(_sandboxId)
             .Message(messageId)
             .GetHtmlAnalysisReport();
 
@@ -513,7 +513,7 @@ internal sealed class TestingMessagesIntegrationTests
     {
         Task<string> Act(IMailtrapClient client, long messageId) => client
             .Account(_accountId)
-            .Inbox(_inboxId)
+            .Sandbox(_sandboxId)
             .Message(messageId)
             .GetTextBody();
 
@@ -530,7 +530,7 @@ internal sealed class TestingMessagesIntegrationTests
     {
         Task<string> Act(IMailtrapClient client, long messageId) => client
             .Account(_accountId)
-            .Inbox(_inboxId)
+            .Sandbox(_sandboxId)
             .Message(messageId)
             .GetHtmlBody();
 
@@ -547,7 +547,7 @@ internal sealed class TestingMessagesIntegrationTests
     {
         Task<string> Act(IMailtrapClient client, long messageId) => client
             .Account(_accountId)
-            .Inbox(_inboxId)
+            .Sandbox(_sandboxId)
             .Message(messageId)
             .GetHtmlSource();
 
@@ -565,7 +565,7 @@ internal sealed class TestingMessagesIntegrationTests
     {
         Task<string> Act(IMailtrapClient client, long messageId) => client
             .Account(_accountId)
-            .Inbox(_inboxId)
+            .Sandbox(_sandboxId)
             .Message(messageId)
             .AsRaw();
 
@@ -582,7 +582,7 @@ internal sealed class TestingMessagesIntegrationTests
     {
         Task<string> Act(IMailtrapClient client, long messageId) => client
             .Account(_accountId)
-            .Inbox(_inboxId)
+            .Sandbox(_sandboxId)
             .Message(messageId)
             .AsEml();
 

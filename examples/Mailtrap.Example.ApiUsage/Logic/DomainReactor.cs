@@ -1,9 +1,9 @@
 ﻿namespace Mailtrap.Example.ApiUsage.Logic;
 
 
-internal sealed class SendingDomainReactor : Reactor
+internal sealed class DomainReactor : Reactor
 {
-    public SendingDomainReactor(IMailtrapClient mailtrapClient, ILogger<SendingDomainReactor> logger)
+    public DomainReactor(IMailtrapClient mailtrapClient, ILogger<DomainReactor> logger)
         : base(mailtrapClient, logger) { }
 
 
@@ -12,9 +12,9 @@ internal sealed class SendingDomainReactor : Reactor
         IAccountResource accountResource = _mailtrapClient.Account(accountId);
 
         // Get resource for domains collection
-        ISendingDomainCollectionResource domainsResource = accountResource.SendingDomains();
+        ISendingDomainCollectionResource domainsResource = accountResource.Domains();
 
-        // Get all sending domains for account
+        // Get all domains for account
         IList<SendingDomain> domains = await domainsResource.GetAll();
 
         var domainName = "demomailtrap.com";
@@ -23,25 +23,25 @@ internal sealed class SendingDomainReactor : Reactor
 
         if (domain is null)
         {
-            _logger.LogWarning("No sending domain found. Creating.");
+            _logger.LogWarning("No domain found. Creating.");
 
-            // Create sending domain
+            // Create domain
             var createDomainRequest = new CreateSendingDomainRequest(domainName);
             domain = await domainsResource.Create(createDomainRequest);
         }
         else
         {
-            _logger.LogInformation("Sending domain found.");
+            _logger.LogInformation("Domain found.");
         }
 
-        // Get resource for specific sending domain
-        ISendingDomainResource domainResource = accountResource.SendingDomain(domain.Id);
+        // Get resource for specific domain
+        ISendingDomainResource domainResource = accountResource.Domain(domain.Id);
 
         // Get details
         domain = await domainResource.GetDetails();
-        _logger.LogInformation("Sending Domain: {SendingDomain}", domain);
+        _logger.LogInformation("Domain: {Domain}", domain);
 
-        // Sending domain instructions
+        // Domain instructions
         var instructionsRequest = new SendingDomainInstructionsRequest("admin@demomailtrap.com");
         await domainResource.SendInstructions(instructionsRequest);
     }

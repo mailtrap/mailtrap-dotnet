@@ -68,7 +68,7 @@ internal sealed class InboxesIntegrationTests
         // Act
         var result = await client
             .Account(_accountId)
-            .Inboxes()
+            .Sandboxes()
             .GetAll()
             .ConfigureAwait(false);
 
@@ -125,7 +125,7 @@ internal sealed class InboxesIntegrationTests
         // Act
         var result = await client
             .Account(_accountId)
-            .Inboxes()
+            .Sandboxes()
             .Create(request)
             .ConfigureAwait(false);
 
@@ -169,7 +169,7 @@ internal sealed class InboxesIntegrationTests
         // Act
         var result = await client
             .Account(_accountId)
-            .Inbox(inboxId)
+            .Sandbox(inboxId)
             .GetDetails()
             .ConfigureAwait(false);
 
@@ -222,7 +222,7 @@ internal sealed class InboxesIntegrationTests
         // Act
         var result = await client
             .Account(_accountId)
-            .Inbox(inboxId)
+            .Sandbox(inboxId)
             .Update(request)
             .ConfigureAwait(false);
 
@@ -265,7 +265,7 @@ internal sealed class InboxesIntegrationTests
         // Act
         var result = await client
             .Account(_accountId)
-            .Inbox(inboxId)
+            .Sandbox(inboxId)
             .Delete()
             .ConfigureAwait(false);
 
@@ -280,7 +280,7 @@ internal sealed class InboxesIntegrationTests
     [Test]
     public async Task Clean_Success()
     {
-        Task<Inbox> Act(IMailtrapClient client, long inboxId) => client.Account(_accountId).Inbox(inboxId).Clean();
+        Task<Inbox> Act(IMailtrapClient client, long inboxId) => client.Account(_accountId).Sandbox(inboxId).Clean();
 
         await Patch_Success(CleanSegment, Act).ConfigureAwait(false);
     }
@@ -288,7 +288,7 @@ internal sealed class InboxesIntegrationTests
     [Test]
     public async Task MarkAsRead_Success()
     {
-        Task<Inbox> Act(IMailtrapClient client, long inboxId) => client.Account(_accountId).Inbox(inboxId).MarkAsRead();
+        Task<Inbox> Act(IMailtrapClient client, long inboxId) => client.Account(_accountId).Sandbox(inboxId).MarkAsRead();
 
         await Patch_Success(MarkReadSegment, Act).ConfigureAwait(false);
     }
@@ -296,7 +296,7 @@ internal sealed class InboxesIntegrationTests
     [Test]
     public async Task ResetCredentials_Success()
     {
-        Task<Inbox> Act(IMailtrapClient client, long inboxId) => client.Account(_accountId).Inbox(inboxId).ResetCredentials();
+        Task<Inbox> Act(IMailtrapClient client, long inboxId) => client.Account(_accountId).Sandbox(inboxId).ResetCredentials();
 
         await Patch_Success(ResetCredentialsSegment, Act).ConfigureAwait(false);
     }
@@ -304,7 +304,7 @@ internal sealed class InboxesIntegrationTests
     [Test]
     public async Task ToggleEmailAddress_Success()
     {
-        Task<Inbox> Act(IMailtrapClient client, long inboxId) => client.Account(_accountId).Inbox(inboxId).ToggleEmailAddress();
+        Task<Inbox> Act(IMailtrapClient client, long inboxId) => client.Account(_accountId).Sandbox(inboxId).ToggleEmailAddress();
 
         await Patch_Success(ToggleEmailAddressSegment, Act).ConfigureAwait(false);
     }
@@ -312,7 +312,7 @@ internal sealed class InboxesIntegrationTests
     [Test]
     public async Task ResetEmailAddress_Success()
     {
-        Task<Inbox> Act(IMailtrapClient client, long inboxId) => client.Account(_accountId).Inbox(inboxId).ResetEmailAddress();
+        Task<Inbox> Act(IMailtrapClient client, long inboxId) => client.Account(_accountId).Sandbox(inboxId).ResetEmailAddress();
 
         await Patch_Success(ResetEmailAddressSegment, Act).ConfigureAwait(false);
     }

@@ -23,11 +23,11 @@ IMailtrapClient mailtrapClient = host.Services.GetRequiredService<IMailtrapClien
 try
 {
     var accountId = 12345;
-    var inboxId = 54321;
+    var sandboxId = 54321;
     var messageId = 1122334455;
     ITestingMessageResource messageResource = mailtrapClient
         .Account(accountId)
-        .Inbox(inboxId)
+        .Sandbox(sandboxId)
         .Message(messageId);
 
     // Get resource for attachments collection

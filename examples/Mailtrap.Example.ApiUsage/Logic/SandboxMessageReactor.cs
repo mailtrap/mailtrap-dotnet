@@ -4,36 +4,36 @@
 namespace Mailtrap.Example.ApiUsage.Logic;
 
 
-internal sealed class TestingMessageReactor : Reactor
+internal sealed class SandboxMessageReactor : Reactor
 {
-    private readonly TestSendReactor _testSendReactor;
+    private readonly SandboxSendReactor _sandboxSendReactor;
     private readonly AttachmentReactor _attachmentReactor;
 
 
-    public TestingMessageReactor(
-        TestSendReactor testSendReactor,
+    public SandboxMessageReactor(
+        SandboxSendReactor sandboxSendReactor,
         AttachmentReactor attachmentReactor,
         IMailtrapClient mailtrapClient,
-        ILogger<TestingMessageReactor> logger)
+        ILogger<SandboxMessageReactor> logger)
         : base(mailtrapClient, logger)
     {
-        _testSendReactor = testSendReactor;
+        _sandboxSendReactor = sandboxSendReactor;
         _attachmentReactor = attachmentReactor;
     }
 
 
-    public async Task Process(long accountId, long inboxId)
+    public async Task Process(long accountId, long sandboxId)
     {
-        await _testSendReactor.Send(inboxId);
+        await _sandboxSendReactor.Send(sandboxId);
 
         IInboxResource inboxResource = _mailtrapClient
             .Account(accountId)
-            .Inbox(inboxId);
+            .Sandbox(sandboxId);
 
         // Get resource for message collection
         ITestingMessageCollectionResource messagesResource = inboxResource.Messages();
 
-        // Fetch messages from the inbox
+        // Fetch messages from the sandbox
         var messageFilter = new TestingMessageFilter
         {
             SearchFilter = "Supervision request"
@@ -53,10 +53,10 @@ internal sealed class TestingMessageReactor : Reactor
             _logger.LogInformation("Message: {Message}", message);
 
             // Processing message attachments
-            await _attachmentReactor.Process(accountId, inboxId, message.Id);
+            await _attachmentReactor.Process(accountId, sandboxId, message.Id);
         }
 
-        // Fetch messages from the inbox
+        // Fetch messages from the sandbox
         messageFilter = new TestingMessageFilter
         {
             SearchFilter = "Greetings"

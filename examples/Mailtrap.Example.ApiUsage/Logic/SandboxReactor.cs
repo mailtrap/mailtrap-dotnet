@@ -1,18 +1,18 @@
 ﻿namespace Mailtrap.Example.ApiUsage.Logic;
 
 
-internal sealed class InboxReactor : Reactor
+internal sealed class SandboxReactor : Reactor
 {
-    private readonly TestingMessageReactor _messageReactor;
+    private readonly SandboxMessageReactor _sandboxMessageReactor;
 
 
-    public InboxReactor(
-        TestingMessageReactor messageReactor,
+    public SandboxReactor(
+        SandboxMessageReactor sandboxMessageReactor,
         IMailtrapClient mailtrapClient,
-        ILogger<InboxReactor> logger)
+        ILogger<SandboxReactor> logger)
         : base(mailtrapClient, logger)
     {
-        _messageReactor = messageReactor;
+        _sandboxMessageReactor = sandboxMessageReactor;
     }
 
 
@@ -22,10 +22,10 @@ internal sealed class InboxReactor : Reactor
 
         var inboxName = "My Test Inbox";
 
-        // Get resource for inbox collection
-        IInboxCollectionResource inboxesResource = accountResource.Inboxes();
+        // Get resource for sandbox collection
+        IInboxCollectionResource inboxesResource = accountResource.Sandboxes();
 
-        // Get all inboxes for account
+        // Get all sandboxes for account
         IList<Inbox> inboxes = await inboxesResource.GetAll();
 
         Inbox? inbox = inboxes
@@ -33,51 +33,51 @@ internal sealed class InboxReactor : Reactor
 
         if (inbox is null)
         {
-            _logger.LogWarning("No inbox found. Creating.");
+            _logger.LogWarning("No sandbox found. Creating.");
 
-            // Create inbox
+            // Create sandbox
             var createInboxRequest = new CreateInboxRequest(projectId, inboxName);
             inbox = await inboxesResource.Create(createInboxRequest);
         }
         else
         {
-            _logger.LogInformation("Inbox found.");
+            _logger.LogInformation("Sandbox found.");
         }
 
-        // Get resource for specific inbox
-        IInboxResource inboxResource = accountResource.Inbox(inbox.Id);
+        // Get resource for specific sandbox
+        IInboxResource inboxResource = accountResource.Sandbox(inbox.Id);
 
         // Get Details
         inbox = await inboxResource.GetDetails();
-        _logger.LogInformation("Inbox: {Inbox}", inbox);
+        _logger.LogInformation("Sandbox: {Sandbox}", inbox);
 
         // Process messages
-        await _messageReactor.Process(accountId, inbox.Id);
+        await _sandboxMessageReactor.Process(accountId, inbox.Id);
 
-        // Mark all messages in the inbox as read
+        // Mark all messages in the sandbox as read
         Inbox updatedInbox = await inboxResource.MarkAsRead();
 
-        // Update inbox details
+        // Update sandbox details
         var updateInboxRequest = new UpdateInboxRequest
         {
             Name = "Updated Inbox Name"
         };
         updatedInbox = await inboxResource.Update(updateInboxRequest);
 
-        // Toggle email for inbox
+        // Toggle email for sandbox
         updatedInbox = await inboxResource.ToggleEmailAddress();
 
-        // Reset email address for inbox
+        // Reset email address for sandbox
         updatedInbox = await inboxResource.ResetEmailAddress();
 
-        // Reset credentials for inbox
+        // Reset credentials for sandbox
         updatedInbox = await inboxResource.ResetCredentials();
 
-        _logger.LogInformation("Updated Inbox: {Inbox}", updatedInbox);
+        _logger.LogInformation("Updated Sandbox: {Sandbox}", updatedInbox);
 
-        // Delete inbox
+        // Delete sandbox
         // Beware that resource becomes invalid after deletion and should not be used anymore
         Inbox deletedInbox = await inboxResource.Delete();
-        _logger.LogInformation("Deleted Inbox: {Inbox}", deletedInbox);
+        _logger.LogInformation("Deleted Sandbox: {Sandbox}", deletedInbox);
     }
 }

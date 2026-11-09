@@ -25,8 +25,8 @@ internal static class Endpoints
     internal static Uri BulkDefaultUrl { get; } = new("https://bulk.api.mailtrap.io");
 
     /// <summary>
-    /// Default base URL for Mailtrap API test endpoint.<br />
+    /// Default base URL for Mailtrap API sandbox endpoint.<br />
     /// <see href="https://api-docs.mailtrap.io/docs/mailtrap-api-docs/bcf61cdc1547e-send-email-including-templates"/>
     /// </summary>
-    internal static Uri TestDefaultUrl { get; } = new("https://sandbox.api.mailtrap.io");
+    internal static Uri SandboxDefaultUrl { get; } = new("https://sandbox.api.mailtrap.io");
 }

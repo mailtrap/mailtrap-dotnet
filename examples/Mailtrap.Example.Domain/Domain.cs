@@ -26,9 +26,9 @@ try
     IAccountResource accountResource = mailtrapClient.Account(accountId);
 
     // Get resource for domains collection
-    ISendingDomainCollectionResource domainsResource = accountResource.SendingDomains();
+    ISendingDomainCollectionResource domainsResource = accountResource.Domains();
 
-    // Get all sending domains for account
+    // Get all domains for account
     IList<SendingDomain> domains = await domainsResource.GetAll();
 
     var domainName = "demomailtrap.com";
@@ -37,25 +37,25 @@ try
 
     if (domain is null)
     {
-        logger.LogWarning("No sending domain found. Creating.");
+        logger.LogWarning("No domain found. Creating.");
 
-        // Create sending domain
+        // Create domain
         var createDomainRequest = new CreateSendingDomainRequest(domainName);
         domain = await domainsResource.Create(createDomainRequest);
     }
     else
     {
-        logger.LogInformation("Sending domain found.");
+        logger.LogInformation("Domain found.");
     }
 
-    // Get resource for specific sending domain
-    ISendingDomainResource domainResource = accountResource.SendingDomain(domain.Id);
+    // Get resource for specific domain
+    ISendingDomainResource domainResource = accountResource.Domain(domain.Id);
 
     // Get details
     domain = await domainResource.GetDetails();
-    logger.LogInformation("Sending Domain: {SendingDomain}", domain);
+    logger.LogInformation("Domain: {Domain}", domain);
 
-    // Update sending domain configuration
+    // Update domain configuration
     var updateDomainRequest = new UpdateSendingDomainRequest
     {
         OpenTrackingEnabled = true,
@@ -64,7 +64,7 @@ try
         AutoUnsubscribeLinkEnabled = false
     };
     domain = await domainResource.Update(updateDomainRequest);
-    logger.LogInformation("Updated Sending Domain: {SendingDomain}", domain);
+    logger.LogInformation("Updated Domain: {Domain}", domain);
 
     // Company info is token-scoped, so it hangs off the client rather than the account
     ICompanyInfoResource companyInfoResource = mailtrapClient.CompanyInfo(domain.Id);
@@ -90,14 +90,14 @@ try
     companyInfo = await companyInfoResource.Update(updateCompanyInfoRequest);
     logger.LogInformation("Updated Company Info: {CompanyInfo}", companyInfo);
 
-    // Sending domain instructions
+    // Domain instructions
     var instructionsRequest = new SendingDomainInstructionsRequest("admin@demomailtrap.com");
     await domainResource.SendInstructions(instructionsRequest);
 
-    // Delete sending domain
-    // Beware that sending domain resource becomes invalid after deletion and should not be used anymore
+    // Delete domain
+    // Beware that domain resource becomes invalid after deletion and should not be used anymore
     await domainResource.Delete();
-    logger.LogInformation("Sending domain deleted.");
+    logger.LogInformation("Domain deleted.");
 }
 catch (Exception ex)
 {

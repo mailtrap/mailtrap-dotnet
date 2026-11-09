@@ -49,7 +49,7 @@ internal sealed class SendingDomainIntegrationTests
         // Act
         var result = await client
             .Account(accountId)
-            .SendingDomains()
+            .Domains()
             .GetAll()
             .ConfigureAwait(false);
 
@@ -107,7 +107,7 @@ internal sealed class SendingDomainIntegrationTests
         // Act
         var result = await client
             .Account(accountId)
-            .SendingDomain(domainId)
+            .Domain(domainId)
             .GetDetails()
             .ConfigureAwait(false);
 
@@ -167,7 +167,7 @@ internal sealed class SendingDomainIntegrationTests
         // Act
         var result = await client
             .Account(accountId)
-            .SendingDomains()
+            .Domains()
             .Create(request)
             .ConfigureAwait(false);
 
@@ -223,7 +223,7 @@ internal sealed class SendingDomainIntegrationTests
 
         var act = () => client
             .Account(accountId)
-            .SendingDomains()
+            .Domains()
             .Create(request);
 
 
@@ -283,7 +283,7 @@ internal sealed class SendingDomainIntegrationTests
         // Act
         await client
             .Account(accountId)
-            .SendingDomain(domainId)
+            .Domain(domainId)
             .SendInstructions(request)
             .ConfigureAwait(false);
 
@@ -338,7 +338,7 @@ internal sealed class SendingDomainIntegrationTests
 
         var act = () => client
             .Account(accountId)
-            .SendingDomain(domainId)
+            .Domain(domainId)
             .SendInstructions(request);
 
 
@@ -396,7 +396,7 @@ internal sealed class SendingDomainIntegrationTests
 
         var act = () => client
             .Account(accountId)
-            .SendingDomain(domainId)
+            .Domain(domainId)
             .SendInstructions(request);
 
 
@@ -450,7 +450,7 @@ internal sealed class SendingDomainIntegrationTests
         // Act
         await client
             .Account(accountId)
-            .SendingDomain(domainId)
+            .Domain(domainId)
             .Delete()
             .ConfigureAwait(false);
 
@@ -515,7 +515,7 @@ internal sealed class SendingDomainIntegrationTests
         // Act
         var result = await client
             .Account(accountId)
-            .SendingDomain(domainId)
+            .Domain(domainId)
             .Update(request)
             .ConfigureAwait(false);
 

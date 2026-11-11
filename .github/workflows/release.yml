@@ -124,6 +124,14 @@ jobs:
         with:
           tag: ${{ needs.detect.outputs.tag }}
 
+      # Attached while still a draft (invisible to users) and before the registry publish, so the
+      # un-draft is the only step after it; --clobber lets a re-run overwrite assets.
+      - name: Attach packages to GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ needs.detect.outputs.tag }}
+        run: gh release upload "$TAG" dist/*.nupkg dist/*.snupkg --clobber --repo "$GITHUB_REPOSITORY"
+
       # The workflow token can push when both packages grant this repo write access
       # (package settings, "Manage Actions access").
       - name: Push to GitHub Packages
@@ -134,12 +142,6 @@ jobs:
             --source https://nuget.pkg.github.com/mailtrap/index.json \
             --api-key "$NUGET_TOKEN" \
             --skip-duplicate --no-symbols
-
-      - name: Attach packages to GitHub Release
-        env:
-          GH_TOKEN: ${{ github.token }}
-          TAG: ${{ needs.detect.outputs.tag }}
-        run: gh release upload "$TAG" dist/*.nupkg dist/*.snupkg --repo "$GITHUB_REPOSITORY"
 
       - name: Publish GitHub release
         uses: railsware/github-actions/publish-github-release@master

@@ -1,0 +1,19 @@
+README.md
+  s_d562da60dc1773::t_6bd47fffabcb9a 294
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.11",
+  "base_commit_sha": "398b6122b024be8e83c986aa03c8d70c508c517d",
+  "prompts": {},
+  "sessions": {
+    "s_d562da60dc1773": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "0c94c3a5-75e7-49f4-ae2a-aeeef6ebf18c",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Maciej Walusiak <maciej.walusiak@railsware.com>"
+    }
+  }
+}

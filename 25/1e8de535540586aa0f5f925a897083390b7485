@@ -1,0 +1,21 @@
+tests/Mailtrap.IntegrationTests/ApiTokens/ApiTokensIntegrationTests.cs
+  s_35e942bf87a8d1::t_cc218feae00a5a 94-166,239-248,251,262-364
+tests/Mailtrap.IntegrationTests/ApiTokens/Create_WithExpiration_Success.json
+  s_35e942bf87a8d1::t_6942718b46f870 1-15
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.20",
+  "base_commit_sha": "251e8de535540586aa0f5f925a897083390b7485",
+  "prompts": {},
+  "sessions": {
+    "s_35e942bf87a8d1": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "fe0c4ad9-a5e3-40ee-b534-5305c3091a31",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Alex Shchyhol <oleksandr.shchyhol@railsware.com>"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+src/Mailtrap.Abstractions/ApiTokens/Converters/ApiTokenExpirationJsonConverter.cs
+  h_68ae9308e52348 30-32,34,38
+tests/Mailtrap.UnitTests/ApiTokens/ApiTokenExpirationTests.cs
+  h_68ae9308e52348 15-17,97-121
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.24",
+  "base_commit_sha": "e90beafde9d1c8c33fb482251e9920a8237882d6",
+  "prompts": {},
+  "humans": {
+    "h_68ae9308e52348": {
+      "author": "Alex Shchyhol <oleksandr.shchyhol@railsware.com>"
+    }
+  }
+}

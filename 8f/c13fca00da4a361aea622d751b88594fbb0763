@@ -1,0 +1,24 @@
+examples/Mailtrap.Example.EmailCampaigns/EmailCampaigns.cs
+  s_1d139e47a09853::t_c0f91968c00d84 139-144
+  s_1d139e47a09853::t_9b5f7598de28c8 102-116,119-120,123
+  s_1d139e47a09853::t_222e30358fb38c 117
+  s_1d139e47a09853::t_5e45d26f43751e 121-122
+  s_1d139e47a09853::t_d7f36e503d6573 1-2
+  s_1d139e47a09853::t_8b4a07d928f2cd 138
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.19",
+  "base_commit_sha": "8fc13fca00da4a361aea622d751b88594fbb0763",
+  "prompts": {},
+  "sessions": {
+    "s_1d139e47a09853": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "3943c4ee-a6f3-493c-aa4d-bc291df8727e",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Maciej Walusiak <maciej.walusiak@railsware.com>"
+    }
+  }
+}

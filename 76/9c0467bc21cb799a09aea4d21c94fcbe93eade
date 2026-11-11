@@ -1,0 +1,218 @@
+tests/Mailtrap.IntegrationTests/EmailCampaigns/Update_Success.json
+  s_1d139e47a09853::t_a8fdc62bf12d7f 2-3,6-34
+  s_1d139e47a09853::t_b11008d740e384 1,35-36
+tests/Mailtrap.IntegrationTests/TestConstants/UrlSegmentsTestConstants.cs
+  s_1d139e47a09853::t_116b51b09390b2 34-38
+  s_1d139e47a09853::t_64e11c2e190bad 33
+tests/Mailtrap.UnitTests/EmailCampaigns/Requests/CreateEmailCampaignRequestTests.cs
+  s_1d139e47a09853::t_3c5a1b3a5beccf 8-16,18-25,27-39,41-55,57-70,72-85
+  s_1d139e47a09853::t_7d062175658afe 1-6,86
+  s_8b9eb1b74fa672::t_eda7b969807e44 7
+  s_8b9eb1b74fa672::t_69d95171750e42 56
+tests/Mailtrap.IntegrationTests/EmailCampaigns/Create_Unprocessable.json
+  s_1d139e47a09853::t_7b20727ed7a7c6 1-2,5-7
+src/Mailtrap.Abstractions/EmailCampaigns/Models/EmailCampaign.cs
+  s_1d139e47a09853::t_d66bef01279a6f 27,29,31-38,42-50,52-61,63-72,74-83,85-95,97-106,108-117,119-128,130-139,141-150,152-161,163-172,174-184,186-196,198-207,209-218
+  s_1d139e47a09853::t_2472a10436a9a2 1-20,23-25,220-221
+  s_8b9eb1b74fa672::t_dd72ef6935d3fc 107
+  s_8b9eb1b74fa672::t_2b0e189a1af2da 140
+  s_8b9eb1b74fa672::t_80d34cef17cad0 185
+  s_8b9eb1b74fa672::t_35cf90e982b9c0 197
+  s_8b9eb1b74fa672::t_bc1eb4850246db 129
+  s_8b9eb1b74fa672::t_577f6c73882435 118
+  s_8b9eb1b74fa672::t_567f912ec761fc 96
+  s_8b9eb1b74fa672::t_85ea6438e6b634 208
+  s_8b9eb1b74fa672::t_a12e68ac803b7c 219
+  s_8b9eb1b74fa672::t_6cd1c82fb216e9 151
+  s_8b9eb1b74fa672::t_c2b0eb2ab9af27 84
+  s_8b9eb1b74fa672::t_28b80399c4d47d 162
+  s_8b9eb1b74fa672::t_23a99274a3a53e 173
+  s_8b9eb1b74fa672::t_a023f0a180e839 21-22,26,28,30,39-41,51,62,73
+src/Mailtrap/EmailCampaigns/Responses/EmailCampaignStatsResponseDto.cs
+  s_1d139e47a09853::t_fe5369361782ea 1-13
+tests/Mailtrap.UnitTests/EmailCampaigns/EmailCampaignRequestValidatorTests.cs
+  s_1d139e47a09853::t_b8c9f4d3b63d77 8-36,38-40,42-44,46,48-50,52-102,104,106-112,114,116-118,120-122,124,126-128,130-172,174-176
+  s_1d139e47a09853::t_4456588a954457 1-6,177
+  s_8b9eb1b74fa672::t_170d924a4593d8 37,41,45,47,51
+  s_8b9eb1b74fa672::t_64d0d619c708af 173
+  s_8b9eb1b74fa672::t_d67eda7a81fd1d 7
+  s_8b9eb1b74fa672::t_b0dd0e3323d5e2 103,105,113,115,119,123,125,129
+README.md
+  s_1d139e47a09853::t_f62e2d6c4a8fbf 281
+src/Mailtrap.Abstractions/EmailCampaigns/Models/EmailCampaignStateMetadata.cs
+  s_1d139e47a09853::t_97c67231732884 21-45
+  s_1d139e47a09853::t_fd1c2495e51bc8 1-20,46-54
+src/Mailtrap/EmailCampaigns/Responses/EmailCampaignResponseDto.cs
+  s_1d139e47a09853::t_e568cd0148fe80 1-13
+src/Mailtrap.Abstractions/GlobalSuppressions.cs
+  s_1d139e47a09853::t_fbe1f19b7d7fc4 27-32
+tests/Mailtrap.IntegrationTests/EmailCampaigns/Schedule_Success.json
+  s_1d139e47a09853::t_27af1b15712f02 1-3,6-37
+src/Mailtrap.Abstractions/EmailCampaigns/Models/DeliveryMode.cs
+  s_1d139e47a09853::t_19d388e2b3280f 10-26
+  s_1d139e47a09853::t_204ea90bc07ff0 1-9,27
+tests/Mailtrap.IntegrationTests/EmailCampaigns/EmailCampaignIntegrationTests.cs
+  s_1d139e47a09853::t_0ae14d42880254 12-14,16-80,83-213,216-247,249-301,303-319,321-358,360-377,379-1034,1036,1038-1040,1042-1043,1045-1049,1051-1056,1059,1061-1063,1065,1067,1070-1072,1076-1078,1081-1082
+  s_1d139e47a09853::t_69142bb0784944 1-11,1035,1037,1041,1044,1050,1057-1058,1060,1064,1066,1068-1069,1073-1075,1079-1080,1083
+  s_8b9eb1b74fa672::t_da72bb83fdeb43 82
+  s_8b9eb1b74fa672::t_e70cfa3f70612b 215
+  s_8b9eb1b74fa672::t_d4eeb074e29bde 81
+  s_8b9eb1b74fa672::t_beceb333caa699 214
+src/Mailtrap/EmailCampaigns/EmailCampaignResource.cs
+  s_1d139e47a09853::t_607418b9d51b19 6-104
+  s_1d139e47a09853::t_d20d304d5cc028 1-5,105
+src/Mailtrap.Abstractions/EmailCampaigns/Models/EmailCampaignStatsFilter.cs
+  s_1d139e47a09853::t_b6c071e3f16a17 1-35
+src/Mailtrap/Core/Constants/UrlSegments.cs
+  s_1d139e47a09853::t_daed23c3816a04 24-28
+  s_1d139e47a09853::t_e64b1b497c5572 23
+tests/Mailtrap.IntegrationTests/EmailCampaigns/GetDetails_Success.json
+  s_1d139e47a09853::t_e20afeedf4d653 2-3,6-34
+  s_1d139e47a09853::t_868f5146432ac5 1,35-36
+tests/Mailtrap.IntegrationTests/EmailCampaigns/Start_Success.json
+  s_1d139e47a09853::t_9da39e1b8428f3 1-3,6-37
+tests/Mailtrap.IntegrationTests/EmailCampaigns/GetStats_Success.json
+  s_1d139e47a09853::t_1091184c18fbfa 2-9,10-16
+  s_1d139e47a09853::t_cc37aba7f3029c 1,17
+src/Mailtrap.Abstractions/EmailCampaigns/Models/EmailCampaignTemplate.cs
+  s_1d139e47a09853::t_4ee32344f10ca7 5-65
+  s_1d139e47a09853::t_c177c66029b46c 1-4,66
+src/Mailtrap.Abstractions/EmailCampaigns/Requests/CreateEmailCampaignRequest.cs
+  s_1d139e47a09853::t_de9a1420023fe3 5-23,26-28,30,32-33,35-136
+  s_1d139e47a09853::t_c2294d0972ddea 1-4,137-146
+  s_8b9eb1b74fa672::t_2d1b3ba5890b05 24-25,29,31,34
+src/Mailtrap.Abstractions/EmailCampaigns/Validators/CreateEmailCampaignRequestValidator.cs
+  s_1d139e47a09853::t_31f6948c9cc504 7-23,29-43
+  s_1d139e47a09853::t_cc72639f28c078 1-5,44-45
+  s_8b9eb1b74fa672::t_36f20f2b7e64c4 6
+  s_8b9eb1b74fa672::t_62b839d69a561c 24-28
+src/Mailtrap.Abstractions/EmailCampaigns/Validators/UpdateEmailCampaignRequestValidator.cs
+  s_1d139e47a09853::t_a9ead92e11c18d 7-19,21
+  s_1d139e47a09853::t_d440f10c1e2ede 1-5,25-27
+  s_8b9eb1b74fa672::t_4af6fcb1db08df 20,22-24
+  s_8b9eb1b74fa672::t_8871a1e68734d8 6
+src/Mailtrap.Abstractions/EmailCampaigns/Requests/UpdateEmailCampaignRequest.cs
+  s_1d139e47a09853::t_e4ca9d6a0d84c7 6-24,27-29,31,33-34,36-137
+  s_1d139e47a09853::t_ae653b5325e585 1-5,138-147
+  s_8b9eb1b74fa672::t_2bc0ec3135e236 25-26,30,32,35
+src/Mailtrap.Abstractions/EmailCampaigns/IEmailCampaignResource.cs
+  s_1d139e47a09853::t_9404bb0e1c0c7d 9,11-13,15-17,19,22,25-158
+  s_1d139e47a09853::t_d0704f3a43b2cf 1-8,10,14,18,20-21,23-24,159
+src/Mailtrap/EmailCampaigns/EmailCampaignCollectionResource.cs
+  s_1d139e47a09853::t_92df2a52f9f0cb 31-33
+  s_1d139e47a09853::t_306ca9f9360aa6 1-30,34-63
+src/Mailtrap.Abstractions/EmailCampaigns/Requests/ScheduleEmailCampaignRequest.cs
+  s_1d139e47a09853::t_dc485eb410ce7d 1-43
+examples/Mailtrap.Example.EmailCampaigns/EmailCampaigns.cs
+  s_1d139e47a09853::t_d9dbdcc3194980 96
+  s_1d139e47a09853::t_e94b5756bd2d44 15
+  s_1d139e47a09853::t_2960a96e77dfb6 44-48,50-95,97-101,118,124-130
+  s_1d139e47a09853::t_ec8565c578a0d4 3-14,16-43,131-137
+  s_1d139e47a09853::t_c0f91968c00d84 139-144
+  s_1d139e47a09853::t_9b5f7598de28c8 102-116,119-120,123
+  s_1d139e47a09853::t_222e30358fb38c 117
+  s_1d139e47a09853::t_5e45d26f43751e 121-122
+  s_1d139e47a09853::t_d7f36e503d6573 1-2
+  s_1d139e47a09853::t_8b4a07d928f2cd 138
+  s_8b9eb1b74fa672::t_fec257a84ce058 49
+src/Mailtrap.Abstractions/EmailCampaigns/Models/EmailCampaignStateError.cs
+  s_1d139e47a09853::t_42e4bdf39c629e 1-30
+src/Mailtrap.Abstractions/EmailCampaigns/Validators/ScheduleEmailCampaignRequestValidator.cs
+  s_1d139e47a09853::t_227e283f42da72 1-27
+tests/Mailtrap.IntegrationTests/EmailCampaigns/GetAll_Success.json
+  s_1d139e47a09853::t_108df84941d19f 7-32
+  s_1d139e47a09853::t_fe14ea1b4b1baf 1-4,33-45
+tests/Mailtrap.IntegrationTests/EmailCampaigns/Start_Unprocessable.json
+  s_1d139e47a09853::t_51b769a6bf32f4 1-3
+tests/Mailtrap.IntegrationTests/EmailCampaigns/Create_Success.json
+  s_1d139e47a09853::t_ae728e30fffaa7 2-3,6-34
+  s_1d139e47a09853::t_f0b7b34462f02b 1,35-36
+tests/Mailtrap.UnitTests/EmailCampaigns/Requests/ScheduleEmailCampaignRequestTests.cs
+  s_1d139e47a09853::t_da2650714a9981 1-30
+tests/Mailtrap.IntegrationTests/EmailCampaigns/Terminate_Success.json
+  s_1d139e47a09853::t_62188318ec78a9 1-3,6-38
+tests/Mailtrap.UnitTests/EmailCampaigns/Requests/UpdateEmailCampaignRequestTests.cs
+  s_1d139e47a09853::t_04a0644215f88d 15-67,69-73
+  s_1d139e47a09853::t_23f91b1aa8dca6 1-12,74-75
+  s_8b9eb1b74fa672::t_badf906e708b3e 68
+  s_8b9eb1b74fa672::t_784a5d04582ce9 13-14
+src/Mailtrap.Abstractions/EmailCampaigns/Requests/EmailCampaignTemplateAttributes.cs
+  s_1d139e47a09853::t_c84fae2f412629 5-67
+  s_1d139e47a09853::t_803ab4dc1687c8 1-4,68
+src/Mailtrap.Abstractions/EmailCampaigns/Models/EmailCampaignStats.cs
+  s_1d139e47a09853::t_c6465dbc584a56 6
+  s_1d139e47a09853::t_bc158650197a6f 1-5,7-86,87-94,96-105,107-116,118-127,129-138,140-149,151-152
+  s_8b9eb1b74fa672::t_851d5219df7f04 95
+  s_8b9eb1b74fa672::t_bebf644e14e6e7 128
+  s_8b9eb1b74fa672::t_a2c39ba74121e9 150
+  s_8b9eb1b74fa672::t_ca510181d6d30d 106
+  s_8b9eb1b74fa672::t_6ad8969dbd7ee9 117
+  s_8b9eb1b74fa672::t_7ceecd65b59dd4 139
+src/Mailtrap.Abstractions/EmailCampaigns/Models/CampaignState.cs
+  s_1d139e47a09853::t_0907684856c7a0 9,11-13,15,18,20-22,24,27-97
+  s_1d139e47a09853::t_92c6e2a4166127 1-8,10,14,16-17,19,23,25-26,98
+Mailtrap.sln
+  s_1d139e47a09853::t_b442ff536fdd3d 81-82,277-288,546
+examples/Mailtrap.Example.EmailCampaigns/Mailtrap.Example.EmailCampaigns.csproj
+  s_1d139e47a09853::t_4bd7d0a686d20c 1
+examples/Mailtrap.Example.EmailCampaigns/Properties/launchSettings.json
+  s_1d139e47a09853::t_231b097aec32c1 1-10
+examples/Mailtrap.Example.EmailCampaigns/appsettings.json
+  s_1d139e47a09853::t_25a5a964671ee0 1-17
+src/Mailtrap.Abstractions/Accounts/IAccountResource.cs
+  s_1d139e47a09853::t_82a5a38788edbd 302-332
+src/Mailtrap.Abstractions/EmailCampaigns/IEmailCampaignCollectionResource.cs
+  s_1d139e47a09853::t_217a7f6aa3aad6 1-43
+src/Mailtrap.Abstractions/EmailCampaigns/Models/EmailCampaignDeliveryOptions.cs
+  s_1d139e47a09853::t_22bb795f59d690 1-20
+src/Mailtrap.Abstractions/EmailCampaigns/Models/EmailCampaignList.cs
+  s_1d139e47a09853::t_8bde237dc22b82 1-31
+src/Mailtrap.Abstractions/EmailCampaigns/Models/EmailCampaignListFilter.cs
+  s_1d139e47a09853::t_14937c3653d910 1-39
+src/Mailtrap.Abstractions/EmailCampaigns/Models/EmailCampaignsPagination.cs
+  s_1d139e47a09853::t_ddbaa5bd5196e9 1-85
+src/Mailtrap.Abstractions/EmailCampaigns/Models/ReplyTo.cs
+  s_1d139e47a09853::t_e7a99c4f2e981e 1-44
+src/Mailtrap.Abstractions/GlobalUsings.cs
+  s_1d139e47a09853::t_ef7a56993c79e0 54-57
+src/Mailtrap/Accounts/AccountResource.cs
+  s_1d139e47a09853::t_8d271174faa6b1 151-171
+src/Mailtrap/EmailCampaigns/Responses/EmailCampaignListResponseDto.cs
+  s_1d139e47a09853::t_2c3601e1ed93ec 1-31
+src/Mailtrap/GlobalUsings.cs
+  s_1d139e47a09853::t_96e166c68b02d8 55-58
+tests/Mailtrap.IntegrationTests/GlobalUsings.cs
+  s_1d139e47a09853::t_3beaf9560a2af6 31-32
+tests/Mailtrap.UnitTests/EmailCampaigns/EmailCampaignCollectionResourceTests.cs
+  s_1d139e47a09853::t_5be0656721b847 1-64
+tests/Mailtrap.UnitTests/EmailCampaigns/EmailCampaignResourceTests.cs
+  s_1d139e47a09853::t_b4fad26b514b89 1-65
+tests/Mailtrap.UnitTests/GlobalUsings.cs
+  s_1d139e47a09853::t_d8c827543a9feb 45-48
+tests/Mailtrap.UnitTests/TestConstants/UrlSegmentsTestConstants.cs
+  s_1d139e47a09853::t_d995f749ae6098 31
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.18",
+  "base_commit_sha": "769c0467bc21cb799a09aea4d21c94fcbe93eade",
+  "prompts": {},
+  "sessions": {
+    "s_1d139e47a09853": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "3943c4ee-a6f3-493c-aa4d-bc291df8727e",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Maciej Walusiak <maciej.walusiak@railsware.com>"
+    },
+    "s_8b9eb1b74fa672": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "95754cb3-701a-4fef-bc0a-347aa8fd1362",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Maciej Walusiak <maciej.walusiak@railsware.com>"
+    }
+  }
+}

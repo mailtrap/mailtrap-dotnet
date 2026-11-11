@@ -1,0 +1,83 @@
+src/Mailtrap.Abstractions/Inbound/IInboundInboxCollectionResource.cs
+  s_576b7c7847dbe9::t_e2b88484cb4c8e 1-38
+src/Mailtrap.Abstractions/Inbound/Models/InboundAttachment.cs
+  s_576b7c7847dbe9::t_803f635e3a7efb 1-90
+src/Mailtrap.Abstractions/Inbound/Models/InboundThread.cs
+  s_576b7c7847dbe9::t_cd64855ff3a055 1-144
+src/Mailtrap.Abstractions/Inbound/IInboundThreadCollectionResource.cs
+  s_576b7c7847dbe9::t_f15f4a3129c6fa 1-25
+src/Mailtrap.Abstractions/Inbound/IInboundThreadResource.cs
+  s_576b7c7847dbe9::t_02ef95b2c2c3c8 1-35
+src/Mailtrap.Abstractions/Inbound/Models/InboundInbox.cs
+  s_576b7c7847dbe9::t_14e0fe8a1644fe 1-49
+src/Mailtrap.Abstractions/Inbound/Requests/CreateInboundInboxRequest.cs
+  s_576b7c7847dbe9::t_90ceb8136c4086 1-30
+src/Mailtrap.Abstractions/Inbound/Models/InboundMessage.cs
+  s_576b7c7847dbe9::t_5b07fc861d2783 1-237
+src/Mailtrap.Abstractions/Inbound/Requests/UpdateInboundInboxRequest.cs
+  s_576b7c7847dbe9::t_917e45186ba0d8 1-18
+src/Mailtrap.Abstractions/Inbound/Validators/ForwardInboundMessageRequestValidator.cs
+  s_576b7c7847dbe9::t_dccc3f121aed6d 1-24
+src/Mailtrap.Abstractions/Inbound/IInboundMessageCollectionResource.cs
+  s_576b7c7847dbe9::t_bb7b28c11f88dc 1-25
+src/Mailtrap.Abstractions/Inbound/Models/SendMessageResult.cs
+  s_576b7c7847dbe9::t_0bcef739200038 1-19
+src/Mailtrap.Abstractions/Inbound/Models/InboundThreadMessage.cs
+  s_576b7c7847dbe9::t_80ad0a69a0cf1c 19
+  s_576b7c7847dbe9::t_031c01db493acb 1-6,8-18,20-28,30-225
+  s_576b7c7847dbe9::t_e910e7b6b7311d 29
+  s_576b7c7847dbe9::t_781d4276d07693 7
+src/Mailtrap.Abstractions/Inbound/Responses/InboundThreadsListResponse.cs
+  s_576b7c7847dbe9::t_e4edc821c7293f 1-40
+src/Mailtrap.Abstractions/Inbound/Requests/CreateInboundFolderRequest.cs
+  s_576b7c7847dbe9::t_8c4b7cd1d99f06 1-18
+src/Mailtrap.Abstractions/Inbound/IInboundMessageResource.cs
+  s_576b7c7847dbe9::t_13616cd871720e 1-48,50-64,66-80,82
+  s_576b7c7847dbe9::t_b2125b964f0891 49,65,81
+src/Mailtrap.Abstractions/Inbound/Models/InboundFolder.cs
+  s_576b7c7847dbe9::t_dc40586a999067 1-28
+src/Mailtrap.Abstractions/Inbound/Responses/InboundMessagesListResponse.cs
+  s_576b7c7847dbe9::t_a6ad9ec81b02f5 1-40
+src/Mailtrap.Abstractions/Inbound/IInboundResource.cs
+  s_576b7c7847dbe9::t_dc8c1c6489caeb 1-48
+src/Mailtrap.Abstractions/Inbound/Models/ThreadMessageVisibilityStatus.cs
+  s_576b7c7847dbe9::t_3eb8ea2b723a40 1-19
+src/Mailtrap.Abstractions/Inbound/Models/ThreadMessageDirection.cs
+  s_576b7c7847dbe9::t_ba9eef8c10a17d 1-18
+src/Mailtrap.Abstractions/GlobalUsings.cs
+  s_576b7c7847dbe9::t_e8ae2678d1e299 66-69
+src/Mailtrap.Abstractions/Inbound/IInboundInboxResource.cs
+  s_576b7c7847dbe9::t_c5e6358df84f18 1-53
+src/Mailtrap.Abstractions/Inbound/IInboundFolderResource.cs
+  s_576b7c7847dbe9::t_a7f6989b4936cf 1-73
+src/Mailtrap.Abstractions/Inbound/Requests/ReplyInboundMessageRequest.cs
+  s_576b7c7847dbe9::t_3fc1b7e87141da 1-131
+src/Mailtrap.Abstractions/Inbound/Requests/ForwardInboundMessageRequest.cs
+  s_576b7c7847dbe9::t_4fe81eba4696f2 1-5,9,11,133-140
+  s_576b7c7847dbe9::t_81c6f1318ef4b5 6-8,10,12-132
+src/Mailtrap.Abstractions/Inbound/IInboundFolderCollectionResource.cs
+  s_576b7c7847dbe9::t_d3eb87349b373c 1-38
+src/Mailtrap.Abstractions/GlobalSuppressions.cs
+  s_576b7c7847dbe9::t_626c33ef8ff353 27,30-31
+  s_576b7c7847dbe9::t_182913d6730177 28-29
+src/Mailtrap.Abstractions/Inbound/Requests/UpdateInboundFolderRequest.cs
+  s_576b7c7847dbe9::t_8112bf738dc8a9 1-18
+src/Mailtrap.Abstractions/Inbound/IInboundInboxContentResource.cs
+  s_576b7c7847dbe9::t_4e7e9efbb031d4 1-52
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.19",
+  "base_commit_sha": "0ae0ed3c26b4a43c43ffb3f024fcb2edeeaeb21c",
+  "prompts": {},
+  "sessions": {
+    "s_576b7c7847dbe9": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "48d8b14b-0d1c-434e-b1b9-68d02404448f",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Marcin Klocek <marcin.klocek@railsware.com>"
+    }
+  }
+}

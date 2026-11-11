@@ -1,0 +1,51 @@
+README.md
+  s_576b7c7847dbe9::t_57a03fa48294df 282-285
+examples/Mailtrap.Example.Inbound/Program.cs
+  s_576b7c7847dbe9::t_f215d761c17b5b 1,3-21,23,25-31
+  s_576b7c7847dbe9::t_5fd8bd81c4d7dc 2,22,24
+examples/Mailtrap.Example.Inbound/appsettings.json
+  s_576b7c7847dbe9::t_ee64deb2529925 1-14,16-17
+  s_576b7c7847dbe9::t_248ab7ac67a8f5 15
+Mailtrap.sln
+  s_576b7c7847dbe9::t_f8902460bc82a7 121-122,517-528,566
+examples/Mailtrap.Example.Inbound/Properties/launchSettings.json
+  s_576b7c7847dbe9::t_3ed95f5f6529df 1-10
+examples/Mailtrap.Example.Inbound/InboundReactor.cs
+  s_576b7c7847dbe9::t_0a29db11854c17 67,103
+  s_576b7c7847dbe9::t_fda2e3a3162c96 1-4,6-40,42,44-45,48,50,53,57,60,69-75,77-83,85-86,88-90,92-99,101-102,104-107,111-114,116-125,131-132
+  s_576b7c7847dbe9::t_e5dcf0f238e89b 5,43,76,84,87,91,115
+  s_576b7c7847dbe9::t_fc461fe452a1ad 41
+  s_576b7c7847dbe9::t_9e3edddd25d484 46-47
+  s_576b7c7847dbe9::t_3a1675ba367236 49
+  s_576b7c7847dbe9::t_acd6bb58913d50 51-52
+  s_576b7c7847dbe9::t_c96908dfcc44ad 54-56
+  s_576b7c7847dbe9::t_021121cad3a088 58-59
+  s_576b7c7847dbe9::t_bc980c163fceb5 61-66
+  s_576b7c7847dbe9::t_ab46b2fbdece90 68
+  s_576b7c7847dbe9::t_033f70f39c80d7 100
+  s_576b7c7847dbe9::t_62ef8550ce898f 108-110
+  s_576b7c7847dbe9::t_43050e6b7dd08d 126-130
+examples/Mailtrap.Example.Inbound/Mailtrap.Example.Inbound.csproj
+  s_576b7c7847dbe9::t_c09b310fc745ae 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.19",
+  "base_commit_sha": "94f61a6daa1bb37c7a2607a29f8a0df65b1ebfe8",
+  "prompts": {},
+  "humans": {
+    "h_36a957dc058c42": {
+      "author": "Marcin Klocek <marcin.klocek@railsware.com>"
+    }
+  },
+  "sessions": {
+    "s_576b7c7847dbe9": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "48d8b14b-0d1c-434e-b1b9-68d02404448f",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Marcin Klocek <marcin.klocek@railsware.com>"
+    }
+  }
+}

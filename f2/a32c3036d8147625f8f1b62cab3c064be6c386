@@ -1,0 +1,19 @@
+src/Mailtrap.Abstractions/GlobalUsings.cs
+  s_35e942bf87a8d1::t_fd4ffb03e01d7b 15
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.20",
+  "base_commit_sha": "f2a32c3036d8147625f8f1b62cab3c064be6c386",
+  "prompts": {},
+  "sessions": {
+    "s_35e942bf87a8d1": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "fe0c4ad9-a5e3-40ee-b534-5305c3091a31",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Alex Shchyhol <oleksandr.shchyhol@railsware.com>"
+    }
+  }
+}

@@ -1,0 +1,31 @@
+src/Mailtrap.Abstractions/Organizations/IOrganizationResource.cs
+  s_84c25ad63d8c76::t_c1161ad49cab6a 17-33
+src/Mailtrap.Abstractions/Organizations/IOrganizationSubAccountResource.cs
+  s_84c25ad63d8c76::t_a0525035b577f5 1-37
+src/Mailtrap/Organizations/OrganizationResource.cs
+  s_84c25ad63d8c76::t_7d02b05715d720 12-18
+src/Mailtrap/Organizations/OrganizationSubAccountResource.cs
+  s_84c25ad63d8c76::t_b9f63806606615 1-12
+tests/Mailtrap.IntegrationTests/Organizations/OrganizationsIntegrationTests.cs
+  s_84c25ad63d8c76::t_d8b7c667d7c4e0 91-125
+tests/Mailtrap.UnitTests/Organizations/OrganizationResourceTests.cs
+  s_84c25ad63d8c76::t_b8a4ecd664eb82 1-99
+tests/Mailtrap.UnitTests/Organizations/OrganizationSubAccountResourceTests.cs
+  s_84c25ad63d8c76::t_2d723a1c4e6c1c 1-54
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "c158500ba2178dff190492d7333a5f9fc3289a17",
+  "prompts": {},
+  "sessions": {
+    "s_84c25ad63d8c76": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1fbe9c4a-85b3-45c0-922e-f12aed1c5674",
+        "model": "claude-fable-5-1"
+      },
+      "human_author": "Alex Shchyhol <oleksandr.shchyhol@railsware.com>"
+    }
+  }
+}

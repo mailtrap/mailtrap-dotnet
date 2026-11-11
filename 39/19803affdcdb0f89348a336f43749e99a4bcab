@@ -1,0 +1,21 @@
+tests/Mailtrap.IntegrationTests/ApiTokens/ApiTokensIntegrationTests.cs
+  s_2a081af338fd48::t_aab3ba471c12f5 173
+tests/Mailtrap.IntegrationTests/ApiTokens/Create_ShouldThrow_WhenExpirationIsRejected.json
+  s_2a081af338fd48::t_945824ba990502 3-4
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.24",
+  "base_commit_sha": "3919803affdcdb0f89348a336f43749e99a4bcab",
+  "prompts": {},
+  "sessions": {
+    "s_2a081af338fd48": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "ac08a353-2db9-4311-bf0b-ea1d15baccb2",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Alex Shchyhol <oleksandr.shchyhol@railsware.com>"
+    }
+  }
+}

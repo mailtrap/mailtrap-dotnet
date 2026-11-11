@@ -1,0 +1,23 @@
+src/Mailtrap.Abstractions/Core/Models/Pagination.cs
+  s_44ea77dabd4ee4::t_a3d20ee3c89ea5 1,5,7
+src/Mailtrap.Abstractions/EmailCampaigns/Models/EmailCampaignList.cs
+  s_44ea77dabd4ee4::t_3577522e65d17d 30
+src/Mailtrap/EmailCampaigns/Responses/EmailCampaignListResponseDto.cs
+  s_44ea77dabd4ee4::t_5935577bcd7efe 17
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "2d5d361744505923e26cf3cf46ddc0f7e45c4873",
+  "prompts": {},
+  "sessions": {
+    "s_44ea77dabd4ee4": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "a7ac95f6-68c7-4e3b-bf74-eb68a723c929",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Maciej Walusiak <maciej.walusiak@railsware.com>"
+    }
+  }
+}

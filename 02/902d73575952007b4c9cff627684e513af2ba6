@@ -1,0 +1,14 @@
+examples/Mailtrap.Example.ApiTokens/Program.cs
+  h_68ae9308e52348 38-41,44-45,69-70,78-88
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.20",
+  "base_commit_sha": "02902d73575952007b4c9cff627684e513af2ba6",
+  "prompts": {},
+  "humans": {
+    "h_68ae9308e52348": {
+      "author": "Alex Shchyhol <oleksandr.shchyhol@railsware.com>"
+    }
+  }
+}

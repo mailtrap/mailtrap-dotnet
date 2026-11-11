@@ -1,0 +1,14 @@
+src/Mailtrap.Abstractions/Organizations/IOrganizationSubAccountResource.cs
+  h_68ae9308e52348 33-35,38-39
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "1932b1e587cff725748efa7ba808fa15a6d35007",
+  "prompts": {},
+  "humans": {
+    "h_68ae9308e52348": {
+      "author": "Alex Shchyhol <oleksandr.shchyhol@railsware.com>"
+    }
+  }
+}

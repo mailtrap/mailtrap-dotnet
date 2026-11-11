@@ -1,0 +1,16 @@
+tests/Mailtrap.UnitTests/AccountAccesses/Models/SpecifierTests.cs
+  h_68ae9308e52348 58
+tests/Mailtrap.UnitTests/AccountAccesses/TestData/Specifier_Token.json
+  h_68ae9308e52348 6
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.24",
+  "base_commit_sha": "1d5b427c3884c8f886671935e7606d89987883a5",
+  "prompts": {},
+  "humans": {
+    "h_68ae9308e52348": {
+      "author": "Alex Shchyhol <oleksandr.shchyhol@railsware.com>"
+    }
+  }
+}

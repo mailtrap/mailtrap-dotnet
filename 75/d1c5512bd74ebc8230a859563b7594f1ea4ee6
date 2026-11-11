@@ -1,0 +1,19 @@
+examples/Mailtrap.Example.ApiTokens/Program.cs
+  s_a3875ff4afb417::t_87fac0272d0d53 69-71,80-83,94-99
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "75d1c5512bd74ebc8230a859563b7594f1ea4ee6",
+  "prompts": {},
+  "sessions": {
+    "s_a3875ff4afb417": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "3a248198-2c7a-44ef-ae74-95badd240ca4",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Alex Shchyhol <oleksandr.shchyhol@railsware.com>"
+    }
+  }
+}

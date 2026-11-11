@@ -1,0 +1,95 @@
+tests/Mailtrap.IntegrationTests/Inbound/Inboxes/Create_Success.json
+  s_576b7c7847dbe9::t_3a30cbeaba80c4 1
+tests/Mailtrap.IntegrationTests/Inbound/InboundFoldersIntegrationTests.cs
+  s_576b7c7847dbe9::t_536fd802dccc54 1-29,36-54,56-57,64-83,85-87,94-113,115-117,124-140,142-147,152,154-155
+  s_576b7c7847dbe9::t_4d5b8dddf78b6e 30-35,55,58-63,84,88-93,114,118-123,141,148-151,153
+tests/Mailtrap.UnitTests/GlobalUsings.cs
+  s_576b7c7847dbe9::t_f699ec2d1d7aa0 56
+tests/Mailtrap.IntegrationTests/Inbound/Messages/ReplyAll_Success.json
+  s_576b7c7847dbe9::t_0ddd211793af64 1
+tests/Mailtrap.UnitTests/Inbound/InboundThreadResourceTests.cs
+  s_576b7c7847dbe9::t_c187646b896218 1-45
+tests/Mailtrap.IntegrationTests/Inbound/InboundMessagesIntegrationTests.cs
+  s_576b7c7847dbe9::t_c3a5e716d7930e 1-256
+tests/Mailtrap.IntegrationTests/SendingDomains/SendingDomainIntegrationTests.cs
+  s_576b7c7847dbe9::t_28da58f2f10e5c 119-120
+tests/Mailtrap.UnitTests/Inbound/InboundInboxResourceTests.cs
+  s_576b7c7847dbe9::t_93d4e568097611 1-44
+tests/Mailtrap.UnitTests/TestConstants/UrlSegmentsTestConstants.cs
+  s_576b7c7847dbe9::t_f12134ec7d89fa 31-38
+tests/Mailtrap.IntegrationTests/Inbound/Threads/List_Success.json
+  s_576b7c7847dbe9::t_03170ddc78860d 1-28
+tests/Mailtrap.IntegrationTests/Inbound/Inboxes/GetAll_Success.json
+  s_576b7c7847dbe9::t_e9090d099c4c8c 1-4
+tests/Mailtrap.UnitTests/Webhooks/WebhookInboundFieldsTests.cs
+  s_576b7c7847dbe9::t_d36e633c3edbba 1-48
+tests/Mailtrap.UnitTests/EmailLogs/EmailLogMessageThreadingFieldsTests.cs
+  s_576b7c7847dbe9::t_09211d08fe279f 1-30
+tests/Mailtrap.IntegrationTests/Inbound/Messages/List_Success.json
+  s_576b7c7847dbe9::t_6b0e2d470e009a 1-27
+tests/Mailtrap.IntegrationTests/Inbound/Messages/Reply_Success.json
+  s_576b7c7847dbe9::t_b6070131c0eceb 1
+tests/Mailtrap.IntegrationTests/Inbound/Messages/Forward_Success.json
+  s_576b7c7847dbe9::t_4a7098384a6259 1
+tests/Mailtrap.UnitTests/Inbound/InboundFolderCollectionResourceTests.cs
+  s_576b7c7847dbe9::t_df73b45826b616 1-41
+tests/Mailtrap.IntegrationTests/Inbound/Threads/GetDetails_Success.json
+  s_576b7c7847dbe9::t_e1354d0b58eb8e 1-39
+tests/Mailtrap.IntegrationTests/Inbound/Inboxes/Update_Success.json
+  s_576b7c7847dbe9::t_2f21960ed609f8 1
+tests/Mailtrap.UnitTests/Inbound/InboundFolderResourceTests.cs
+  s_576b7c7847dbe9::t_1e2a54513b87fd 1-42
+tests/Mailtrap.IntegrationTests/Inbound/Folders/GetDetails_Success.json
+  s_576b7c7847dbe9::t_a893f02af5a663 1
+tests/Mailtrap.IntegrationTests/Inbound/Messages/GetDetails_Success.json
+  s_576b7c7847dbe9::t_ba9856d5b71a14 1-32
+tests/Mailtrap.IntegrationTests/SendingDomains/GetDetails_Success.json
+  s_576b7c7847dbe9::t_e80037bc38f364 64-65
+tests/Mailtrap.UnitTests/Inbound/InboundInboxCollectionResourceTests.cs
+  s_576b7c7847dbe9::t_f8b9393b5db205 1-43
+tests/Mailtrap.IntegrationTests/Inbound/Folders/Create_Success.json
+  s_576b7c7847dbe9::t_0d78e8a8743491 1
+tests/Mailtrap.IntegrationTests/Inbound/Folders/Update_Success.json
+  s_576b7c7847dbe9::t_a92ce44fab361c 1
+tests/Mailtrap.UnitTests/Inbound/InboundMessageResourceTests.cs
+  s_576b7c7847dbe9::t_a14a6acd19e6b9 1-45
+tests/Mailtrap.IntegrationTests/Inbound/Inboxes/GetDetails_Success.json
+  s_576b7c7847dbe9::t_6231e839932f03 1
+tests/Mailtrap.IntegrationTests/GlobalUsings.cs
+  s_576b7c7847dbe9::t_785a20c76aa02c 37-39
+  s_576b7c7847dbe9::t_007ed0259292cf 36
+tests/Mailtrap.UnitTests/Inbound/InboundInboxContentResourceTests.cs
+  s_576b7c7847dbe9::t_d55fb3ccb69e54 1-42
+tests/Mailtrap.IntegrationTests/TestConstants/UrlSegmentsTestConstants.cs
+  s_576b7c7847dbe9::t_85c33652c0159e 33-42
+tests/Mailtrap.IntegrationTests/Inbound/InboundThreadsIntegrationTests.cs
+  s_576b7c7847dbe9::t_a1105fd6160a4b 1-107
+tests/Mailtrap.UnitTests/Inbound/InboundThreadCollectionResourceTests.cs
+  s_576b7c7847dbe9::t_a9291eef3cf9fe 1-43
+tests/Mailtrap.IntegrationTests/Inbound/Messages/List_WithCursor_Success.json
+  s_576b7c7847dbe9::t_baf296389bc63d 1-26
+tests/Mailtrap.IntegrationTests/Inbound/Folders/GetAll_Success.json
+  s_576b7c7847dbe9::t_ce6ba4fa2838e2 1-4
+tests/Mailtrap.UnitTests/Inbound/InboundResourceTests.cs
+  s_576b7c7847dbe9::t_982b76a731f41b 1-40
+tests/Mailtrap.UnitTests/Inbound/InboundMessageCollectionResourceTests.cs
+  s_576b7c7847dbe9::t_5ed690c1a14053 1-43
+tests/Mailtrap.IntegrationTests/Inbound/InboundInboxesIntegrationTests.cs
+  s_576b7c7847dbe9::t_fa3af303129470 1-163
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.19",
+  "base_commit_sha": "b41496b9f26480c324861f05ff02c98b9a87c67f",
+  "prompts": {},
+  "sessions": {
+    "s_576b7c7847dbe9": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "48d8b14b-0d1c-434e-b1b9-68d02404448f",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Marcin Klocek <marcin.klocek@railsware.com>"
+    }
+  }
+}

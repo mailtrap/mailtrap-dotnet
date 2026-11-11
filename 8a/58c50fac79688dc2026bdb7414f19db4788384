@@ -1,0 +1,67 @@
+tests/Mailtrap.IntegrationTests/EmailCampaigns/EmailCampaignIntegrationTests.cs
+  s_8b9eb1b74fa672::t_da72bb83fdeb43 82
+  s_8b9eb1b74fa672::t_e70cfa3f70612b 215
+  s_8b9eb1b74fa672::t_d4eeb074e29bde 81
+  s_8b9eb1b74fa672::t_beceb333caa699 214
+src/Mailtrap.Abstractions/EmailCampaigns/Validators/CreateEmailCampaignRequestValidator.cs
+  s_8b9eb1b74fa672::t_36f20f2b7e64c4 6
+  s_8b9eb1b74fa672::t_62b839d69a561c 24-28
+src/Mailtrap.Abstractions/EmailCampaigns/Models/EmailCampaignStats.cs
+  s_8b9eb1b74fa672::t_851d5219df7f04 95
+  s_8b9eb1b74fa672::t_bebf644e14e6e7 128
+  s_8b9eb1b74fa672::t_a2c39ba74121e9 150
+  s_8b9eb1b74fa672::t_ca510181d6d30d 106
+  s_8b9eb1b74fa672::t_6ad8969dbd7ee9 117
+  s_8b9eb1b74fa672::t_7ceecd65b59dd4 139
+tests/Mailtrap.UnitTests/EmailCampaigns/EmailCampaignRequestValidatorTests.cs
+  s_8b9eb1b74fa672::t_170d924a4593d8 37,41,45,47,51
+  s_8b9eb1b74fa672::t_64d0d619c708af 173
+  s_8b9eb1b74fa672::t_d67eda7a81fd1d 7
+  s_8b9eb1b74fa672::t_b0dd0e3323d5e2 103,105,113,115,119,123,125,129
+tests/Mailtrap.UnitTests/EmailCampaigns/Requests/UpdateEmailCampaignRequestTests.cs
+  s_8b9eb1b74fa672::t_badf906e708b3e 68
+  s_8b9eb1b74fa672::t_784a5d04582ce9 13-14
+src/Mailtrap.Abstractions/EmailCampaigns/Models/EmailCampaign.cs
+  s_8b9eb1b74fa672::t_dd72ef6935d3fc 107
+  s_8b9eb1b74fa672::t_2b0e189a1af2da 140
+  s_8b9eb1b74fa672::t_80d34cef17cad0 185
+  s_8b9eb1b74fa672::t_35cf90e982b9c0 197
+  s_8b9eb1b74fa672::t_bc1eb4850246db 129
+  s_8b9eb1b74fa672::t_577f6c73882435 118
+  s_8b9eb1b74fa672::t_567f912ec761fc 96
+  s_8b9eb1b74fa672::t_85ea6438e6b634 208
+  s_8b9eb1b74fa672::t_a12e68ac803b7c 219
+  s_8b9eb1b74fa672::t_6cd1c82fb216e9 151
+  s_8b9eb1b74fa672::t_c2b0eb2ab9af27 84
+  s_8b9eb1b74fa672::t_28b80399c4d47d 162
+  s_8b9eb1b74fa672::t_23a99274a3a53e 173
+  s_8b9eb1b74fa672::t_a023f0a180e839 21-22,26,28,30,39-41,51,62,73
+tests/Mailtrap.UnitTests/EmailCampaigns/Requests/CreateEmailCampaignRequestTests.cs
+  s_8b9eb1b74fa672::t_eda7b969807e44 7
+  s_8b9eb1b74fa672::t_69d95171750e42 56
+src/Mailtrap.Abstractions/EmailCampaigns/Requests/CreateEmailCampaignRequest.cs
+  s_8b9eb1b74fa672::t_2d1b3ba5890b05 24-25,29,31,34
+examples/Mailtrap.Example.EmailCampaigns/EmailCampaigns.cs
+  s_8b9eb1b74fa672::t_fec257a84ce058 49
+src/Mailtrap.Abstractions/EmailCampaigns/Validators/UpdateEmailCampaignRequestValidator.cs
+  s_8b9eb1b74fa672::t_4af6fcb1db08df 20,22-24
+  s_8b9eb1b74fa672::t_8871a1e68734d8 6
+src/Mailtrap.Abstractions/EmailCampaigns/Requests/UpdateEmailCampaignRequest.cs
+  s_8b9eb1b74fa672::t_2bc0ec3135e236 25-26,30,32,35
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "8a58c50fac79688dc2026bdb7414f19db4788384",
+  "prompts": {},
+  "sessions": {
+    "s_8b9eb1b74fa672": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "95754cb3-701a-4fef-bc0a-347aa8fd1362",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Maciej Walusiak <maciej.walusiak@railsware.com>"
+    }
+  }
+}

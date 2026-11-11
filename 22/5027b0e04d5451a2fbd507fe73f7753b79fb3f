@@ -1,0 +1,30 @@
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogMessage.cs
+  s_576b7c7847dbe9::t_03884d5114170a 27-51
+src/Mailtrap.Abstractions/Webhooks/Models/WebhookType.cs
+  s_576b7c7847dbe9::t_808ac77aeedc30 26-34
+src/Mailtrap.Abstractions/Webhooks/Models/Webhook.cs
+  s_576b7c7847dbe9::t_6bb12ef436270b 100-111
+src/Mailtrap.Abstractions/Webhooks/Requests/UpdateWebhookRequest.cs
+  s_576b7c7847dbe9::t_003502437c6ad3 59-72
+src/Mailtrap.Abstractions/SendingDomains/Models/SendingDomain.cs
+  s_576b7c7847dbe9::t_865d9cccf1f669 174-175
+  s_576b7c7847dbe9::t_c54a97d4063b15 176-197
+src/Mailtrap.Abstractions/Webhooks/Requests/CreateWebhookRequest.cs
+  s_576b7c7847dbe9::t_5764e093511751 97-110
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.19",
+  "base_commit_sha": "225027b0e04d5451a2fbd507fe73f7753b79fb3f",
+  "prompts": {},
+  "sessions": {
+    "s_576b7c7847dbe9": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "48d8b14b-0d1c-434e-b1b9-68d02404448f",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Marcin Klocek <marcin.klocek@railsware.com>"
+    }
+  }
+}

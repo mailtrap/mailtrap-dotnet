@@ -1,3 +1,11 @@
+## [3.10.1] - 2026-11-12
+
+## What's Changed
+* Add release workflow by @IgorDobryn in https://github.com/mailtrap/mailtrap-dotnet/pull/268
+
+
+**Full Changelog**: https://github.com/mailtrap/mailtrap-dotnet/compare/v3.10.0...v3.10.1
+
 ## [3.10.0] - 2026-11-09
 
 ## What's Changed

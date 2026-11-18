@@ -1,0 +1,14 @@
+examples/Mailtrap.Example.SubAccount/Program.cs
+  h_68ae9308e52348 58
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "8d6993f75486e5994afc389adf5780709ff55b67",
+  "prompts": {},
+  "humans": {
+    "h_68ae9308e52348": {
+      "author": "Alex Shchyhol <oleksandr.shchyhol@railsware.com>"
+    }
+  }
+}

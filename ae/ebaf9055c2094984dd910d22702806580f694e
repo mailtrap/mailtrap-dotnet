@@ -1,0 +1,38 @@
+examples/Mailtrap.Example.ApiUsage/Logic/DomainReactor.cs
+  s_e9c7532c975d83::t_563cc1f4e44446 1-48
+examples/Mailtrap.Example.ApiUsage/Logic/ProjectReactor.cs
+  s_e9c7532c975d83::t_563cc1f4e44446 6,10,15,55
+  s_e9c7532c975d83::t_173729a4827c3b 54
+examples/Mailtrap.Example.ApiUsage/Logic/SandboxReactor.cs
+  s_e9c7532c975d83::t_614a19dbe54589 6,10,15,55
+  s_e9c7532c975d83::t_563cc1f4e44446 1-5,7-9,11-14,16-54,56-83
+Mailtrap.sln
+  s_e9c7532c975d83::t_563cc1f4e44446 79,87,89
+README.md
+  s_e9c7532c975d83::t_563cc1f4e44446 275,291,293
+examples/Mailtrap.Example.ApiUsage/Logic/AccountReactor.cs
+  s_e9c7532c975d83::t_563cc1f4e44446 9,17,26,52
+examples/Mailtrap.Example.ApiUsage/Logic/SandboxMessageReactor.cs
+  s_e9c7532c975d83::t_563cc1f4e44446 1-150
+examples/Mailtrap.Example.ApiUsage/Logic/MessageReactor.cs
+  s_e9c7532c975d83::t_563cc1f4e44446 9,13,18,24
+examples/Mailtrap.Example.ApiUsage/Logic/SandboxSendReactor.cs
+  s_e9c7532c975d83::t_563cc1f4e44446 1-5,7-53
+  s_e9c7532c975d83::t_173729a4827c3b 6
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "aeebaf9055c2094984dd910d22702806580f694e",
+  "prompts": {},
+  "sessions": {
+    "s_e9c7532c975d83": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "4eb12ad3-81fe-4b11-8ead-8c4a77f9caf3",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Maciej Walusiak <maciej.walusiak@railsware.com>"
+    }
+  }
+}

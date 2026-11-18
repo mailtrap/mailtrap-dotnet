@@ -1,0 +1,14 @@
+tests/Mailtrap.IntegrationTests/ApiTokens/ApiTokensIntegrationTests.cs
+  h_68ae9308e52348 108-112,129-133,280-284,298-302,306,333-334,337,367-368
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.24",
+  "base_commit_sha": "e96c14657ff8f9c4647b49f5d632dc3c01c2ce37",
+  "prompts": {},
+  "humans": {
+    "h_68ae9308e52348": {
+      "author": "Alex Shchyhol <oleksandr.shchyhol@railsware.com>"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+tests/Mailtrap.IntegrationTests/Organizations/Delete_NotFound.json
+  s_dc60685246acb2::t_19dcbc4488c00f 1-3
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "40fc2c2f868478adff8cccc9f4079dda6f04c98b",
+  "prompts": {},
+  "sessions": {
+    "s_dc60685246acb2": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "9969f974-4eb1-456f-ba58-2ae8247d90d1",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Alex Shchyhol <oleksandr.shchyhol@railsware.com>"
+    }
+  }
+}

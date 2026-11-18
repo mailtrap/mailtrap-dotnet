@@ -1,0 +1,27 @@
+tests/Mailtrap.UnitTests/Core/Extensions/UriExtensionsTests.cs
+  s_8bdd20a0bd01bd::t_504e2873ada96c 342-381
+src/Mailtrap/Stats/StatsResource.cs
+  s_8bdd20a0bd01bd::t_b3dc66f6f6d006 88,90-96
+src/Mailtrap/Core/Extensions/UriExtensions.cs
+  s_8bdd20a0bd01bd::t_f9b26bbb3e4752 119-140
+src/Mailtrap/Marketing/MarketingStatsResource.cs
+  s_8bdd20a0bd01bd::t_59a2420a84bd2a 37,39-44
+tests/Mailtrap.UnitTests/MailtrapClientTests.cs
+  s_8bdd20a0bd01bd::t_d8c11d5b8b0af1 151-168
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "1905230d0f1ee8d01f94cfb1802bfb1507ca0122",
+  "prompts": {},
+  "sessions": {
+    "s_8bdd20a0bd01bd": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "19f2d1eb-9281-46a3-aa0f-1a2eed84a6a6",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Maciej Walusiak <maciej.walusiak@railsware.com>"
+    }
+  }
+}

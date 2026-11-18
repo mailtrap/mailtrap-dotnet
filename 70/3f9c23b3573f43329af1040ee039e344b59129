@@ -1,0 +1,14 @@
+tests/Mailtrap.IntegrationTests/Organizations/OrganizationsIntegrationTests.cs
+  h_68ae9308e52348 99,101-107,110
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "703f9c23b3573f43329af1040ee039e344b59129",
+  "prompts": {},
+  "humans": {
+    "h_68ae9308e52348": {
+      "author": "Alex Shchyhol <oleksandr.shchyhol@railsware.com>"
+    }
+  }
+}

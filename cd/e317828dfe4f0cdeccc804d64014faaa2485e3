@@ -1,0 +1,50 @@
+tests/Mailtrap.UnitTests/Core/Constants/EndpointsTests.cs
+  s_e335e8952a2c32::t_61607fab8a1407 26,28
+tests/Mailtrap.IntegrationTests/Emails/BatchEmailIntegrationTests.cs
+  s_e335e8952a2c32::t_61607fab8a1407 170,209
+tests/Mailtrap.UnitTests/Emails/EmailClientEndpointProviderTests.cs
+  s_e335e8952a2c32::t_61607fab8a1407 18,22,29,36,40,47,54,57-58,62,65,73,77,84,91,95,102,109,112-113,117,120
+src/Mailtrap/Emails/EmailClientEndpointProvider.cs
+  s_e335e8952a2c32::t_61607fab8a1407 25
+  s_e335e8952a2c32::t_ffe58f21fd83ca 18,20,22,32
+tests/Mailtrap.UnitTests/TestConstants/EndpointsTestConstants.cs
+  s_e335e8952a2c32::t_61607fab8a1407 28,31
+tests/Mailtrap.IntegrationTests/Attachments/AttachmentsIntegrationTests.cs
+  s_e335e8952a2c32::t_61607fab8a1407 12,23,31,73,128,178
+tests/Mailtrap.UnitTests/MailtrapClientTests.cs
+  s_e335e8952a2c32::t_ffe58f21fd83ca 103,232
+src/Mailtrap/Core/Constants/Endpoints.cs
+  s_e335e8952a2c32::t_61607fab8a1407 28,31
+tests/Mailtrap.IntegrationTests/Emails/SendEmailIntegrationTests.cs
+  s_e335e8952a2c32::t_61607fab8a1407 161,201
+tests/Mailtrap.IntegrationTests/TestConstants/EndpointsTestConstants.cs
+  s_e335e8952a2c32::t_61607fab8a1407 28,31
+tests/Mailtrap.UnitTests/Emails/EmailClientFactoryTests.cs
+  s_e335e8952a2c32::t_baf871a2f8435e 55,62,65,72,81,88,91,107,117,133,143,159,166,169,176,186,193,196,203,212,219,222,238,248,264,274,290,297,300,307
+tests/Mailtrap.IntegrationTests/TestingMessages/TestingMessagesIntegrationTests.cs
+  s_e335e8952a2c32::t_ffe58f21fd83ca 25,36,43,84,146,206,265,314,364,408,461,479,491,503,516,533,550,568,585
+src/Mailtrap/MailtrapClient.cs
+  s_e335e8952a2c32::t_ffe58f21fd83ca 146,168
+src/Mailtrap/Emails/IEmailClientEndpointProvider.cs
+  s_e335e8952a2c32::t_ffe58f21fd83ca 9
+src/Mailtrap/Emails/EmailClientFactory.cs
+  s_e335e8952a2c32::t_ffe58f21fd83ca 29,31,42,45,47,58
+src/Mailtrap/Emails/IEmailClientFactory.cs
+  s_e335e8952a2c32::t_ffe58f21fd83ca 9,13,15,19
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "cde317828dfe4f0cdeccc804d64014faaa2485e3",
+  "prompts": {},
+  "sessions": {
+    "s_e335e8952a2c32": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "afc48a99-2671-4a9d-8d4a-35bbe84be287",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Maciej Walusiak <maciej.walusiak@railsware.com>"
+    }
+  }
+}

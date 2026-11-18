@@ -1,0 +1,48 @@
+src/Mailtrap.Abstractions/Inbound/Models/ThreadMessageDelivery.cs
+  s_ed71987c89f446::t_a7a556eb999dd5 48-57
+tests/Mailtrap.IntegrationTests/Inbound/Threads/GetDetails_Success.json
+  s_ed71987c89f446::t_a80c22c06dd7d4 61-62
+  s_ed71987c89f446::t_f2da83d96f8396 64-79
+  s_78f6790d7af21f::t_80b88d5c3ff824 63
+tests/Mailtrap.IntegrationTests/Inbound/InboundThreadsIntegrationTests.cs
+  s_ed71987c89f446::t_572c06e2f7d827 145
+  s_ed71987c89f446::t_12ef41b0acbcf1 177-183
+  s_ed71987c89f446::t_19e9df4944bc37 176
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "dee51bee0ce251376dd82fa5dff98ae995815f10",
+  "prompts": {
+    "c81a7625329ae81e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "aa274368-6bb4-4653-88d8-2dc258ad8d98",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Piotr Bednarz <piotr.bednarz@railsware.com>",
+      "total_additions": 44,
+      "total_deletions": 135,
+      "accepted_lines": 42,
+      "overriden_lines": 0
+    }
+  },
+  "sessions": {
+    "s_78f6790d7af21f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "ce7c593b-3c20-449c-bd3e-fa8472cd9b11",
+        "model": "unknown"
+      },
+      "human_author": "Piotr Bednarz <piotr.bednarz@railsware.com>"
+    },
+    "s_ed71987c89f446": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "28a91546-f628-4267-96df-007ba1404233",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Piotr Bednarz <piotr.bednarz@railsware.com>"
+    }
+  }
+}

@@ -47,7 +47,7 @@ public sealed class CreateWebhookRequestValidator : AbstractValidator<CreateWebh
         {
             RuleFor(r => r.EventTypes)
                 .Must(events => events is { Count: > 0 })
-                .WithMessage("'EventTypes' must contain at least one event for 'email_sending' and 'campaigns' webhook types.");
+                .WithMessage(r => $"'EventTypes' must contain at least one event for '{r.WebhookType}' webhook type.");
         });
     }
 }

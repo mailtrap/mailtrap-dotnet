@@ -35,11 +35,7 @@ internal sealed class WebhookCampaignsFieldsTests
     [Test]
     public void Serialize_CreateCampaignsWebhookRequest_WritesTypeAndEvent()
     {
-        var request = new CreateWebhookRequest
-        {
-            Url = new Uri("https://example.com/campaigns"),
-            WebhookType = WebhookType.Campaigns
-        };
+        var request = CampaignsRequest();
         request.EventTypes.Add(WebhookEventType.SubscriptionPreferencesUpdate);
 
         var json = JsonSerializer.Serialize(request, MailtrapJsonSerializerOptions.Default);
@@ -53,11 +49,7 @@ internal sealed class WebhookCampaignsFieldsTests
     [Test]
     public void Validate_CampaignsWebhookWithEventTypes_ShouldPass()
     {
-        var request = new CreateWebhookRequest
-        {
-            Url = new Uri("https://example.com/campaigns"),
-            WebhookType = WebhookType.Campaigns
-        };
+        var request = CampaignsRequest();
         request.EventTypes.Add(WebhookEventType.SubscriptionPreferencesUpdate);
 
         var result = CreateWebhookRequestValidator.Instance.TestValidate(request);
@@ -68,30 +60,28 @@ internal sealed class WebhookCampaignsFieldsTests
     [Test]
     public void Validate_CampaignsWebhookWithoutEventTypes_ShouldFail()
     {
-        var request = new CreateWebhookRequest
-        {
-            Url = new Uri("https://example.com/campaigns"),
-            WebhookType = WebhookType.Campaigns
-        };
+        var request = CampaignsRequest();
 
         var result = CreateWebhookRequestValidator.Instance.TestValidate(request);
 
-        result.ShouldHaveValidationErrorFor(r => r.EventTypes);
+        result.ShouldHaveValidationErrorFor(r => r.EventTypes)
+            .WithErrorMessage("'EventTypes' must contain at least one event for 'campaigns' webhook type.");
     }
 
     [Test]
     public void Validate_CampaignsWebhookWithSendingStream_ShouldFail()
     {
-        var request = new CreateWebhookRequest
-        {
-            Url = new Uri("https://example.com/campaigns"),
-            WebhookType = WebhookType.Campaigns,
-            SendingStream = SendingStream.Bulk
-        };
+        var request = CampaignsRequest() with { SendingStream = SendingStream.Bulk };
         request.EventTypes.Add(WebhookEventType.Delivery);
 
         var result = CreateWebhookRequestValidator.Instance.TestValidate(request);
 
         result.ShouldHaveValidationErrorFor(r => r.SendingStream);
     }
+
+    private static CreateWebhookRequest CampaignsRequest() => new()
+    {
+        Url = new Uri("https://example.com/campaigns"),
+        WebhookType = WebhookType.Campaigns
+    };
 }

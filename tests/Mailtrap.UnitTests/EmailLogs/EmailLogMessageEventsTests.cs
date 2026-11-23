@@ -124,6 +124,7 @@ internal sealed class EmailLogMessageEventsTests
         // Writing must not recurse into this converter, and must put event_type first.
         var written = JsonSerializer.Serialize(parsed, MailtrapJsonSerializerOptions.NotIndented);
         written.Should().StartWith($"{{\"event_type\":\"{eventType}\",");
+        written.Should().NotContain("eventType");
         written.Should().Contain("\"details\":{");
 
         var reparsed = JsonSerializer.Deserialize<EmailLogMessageEvent>(written, MailtrapJsonSerializerOptions.Default);
@@ -133,14 +134,14 @@ internal sealed class EmailLogMessageEventsTests
     }
 
     [Test]
-    public void Serialize_DerivedEventDirectly_DoesNotUseBaseConverter()
+    public void Serialize_DerivedEventDirectly_WritesEventTypeFirst()
     {
-        // A type-level converter isn't inherited, so the derived type serializes without the discriminator.
+        // A type-level converter isn't inherited, so the derived type serializes on its own, discriminator included.
         var delivery = new EmailLogMessageEventDelivery { Details = new EventDetailsDelivery { SendingIp = "192.0.2.1" } };
 
         var written = JsonSerializer.Serialize(delivery, MailtrapJsonSerializerOptions.NotIndented);
 
-        written.Should().NotContain("event_type");
+        written.Should().StartWith("{\"event_type\":\"delivery\",");
         written.Should().Contain("\"sending_ip\":\"192.0.2.1\"");
     }
 }

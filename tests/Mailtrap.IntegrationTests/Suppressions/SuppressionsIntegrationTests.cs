@@ -165,6 +165,9 @@ internal sealed class SuppressionsIntegrationTests
         using var mockHttp = new MockHttpMessageHandler();
         mockHttp
             .Expect(HttpMethod.Get, _resourceUri.AbsoluteUri)
+            .WithHeaders("Authorization", $"Bearer {_clientConfig.ApiToken}")
+            .WithHeaders("Accept", MimeTypes.Application.Json)
+            .WithHeaders("User-Agent", HeaderValues.UserAgent.ToString())
             // The API opts in only on the literal "true", not "True".
             .WithExactQueryString($"{IncludeTopicUnsubscriptionsQueryParameter}=true")
             .Respond(HttpStatusCode.OK, responseContent);

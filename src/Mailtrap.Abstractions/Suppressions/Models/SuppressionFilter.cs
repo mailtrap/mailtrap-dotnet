@@ -49,12 +49,11 @@ public sealed record SuppressionFilter
     /// </summary>
     ///
     /// <value>
-    /// <see langword="true"/> to include topic unsubscriptions;
-    /// <see langword="null"/> or <see langword="false"/> to leave them out.
+    /// <see langword="true"/> to include topic unsubscriptions; <see langword="false"/> (the default) to leave them out.
     /// </value>
     ///
     /// <remarks>
     /// Topic unsubscriptions are returned only for an API token that can read contacts.
     /// </remarks>
-    public bool? IncludeTopicUnsubscriptions { get; set; }
+    public bool IncludeTopicUnsubscriptions { get; set; }
 }

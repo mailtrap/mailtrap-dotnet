@@ -55,7 +55,7 @@ internal sealed class SuppressionCollectionResource : RestResource, ISuppression
         }
 
         // The API opts in only on the literal "true"; bool.ToString() would send "True".
-        if (filter.IncludeTopicUnsubscriptions is true)
+        if (filter.IncludeTopicUnsubscriptions)
         {
             result = result.AppendQueryParameter(IncludeTopicUnsubscriptionsQueryParameter, "true");
         }

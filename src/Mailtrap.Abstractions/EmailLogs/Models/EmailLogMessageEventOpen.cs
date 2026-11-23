@@ -7,6 +7,8 @@ namespace Mailtrap.EmailLogs.Models;
 public sealed record EmailLogMessageEventOpen : EmailLogMessageEvent
 {
     /// <inheritdoc />
+    [JsonPropertyName("event_type")]
+    [JsonPropertyOrder(-1)]
     public override string EventType => "open";
 
     /// <summary>

@@ -4,7 +4,7 @@ namespace Mailtrap.EmailLogs.Converters;
 /// <summary>
 /// Custom JSON converter to be used for <see cref="EmailLogMessageEvent"/>.<br/>
 /// Reads the derived event type named by the <c>event_type</c> property, falling back to
-/// <see cref="EmailLogMessageEventUnknown"/> for a type it doesn't know, and writes <c>event_type</c> first.
+/// <see cref="EmailLogMessageEventUnknown"/> for a type it doesn't know, and writes the derived type.
 /// </summary>
 ///
 /// <remarks>
@@ -69,21 +69,11 @@ internal sealed class EmailLogMessageEventJsonConverter : JsonConverter<EmailLog
         return result;
     }
 
+    // Each derived type writes its event_type first, from its EventType property.
     public override void Write(Utf8JsonWriter writer, EmailLogMessageEvent value, JsonSerializerOptions options)
     {
-        Ensure.NotNull(writer, nameof(writer));
         Ensure.NotNull(value, nameof(value));
 
-        using var document = JsonSerializer.SerializeToDocument(value, value.GetType(), options);
-
-        writer.WriteStartObject();
-        writer.WriteString(EventTypePropertyName, value.EventType);
-
-        foreach (var property in document.RootElement.EnumerateObject())
-        {
-            property.WriteTo(writer);
-        }
-
-        writer.WriteEndObject();
+        JsonSerializer.Serialize(writer, value, value.GetType(), options);
     }
 }

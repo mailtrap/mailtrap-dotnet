@@ -7,9 +7,6 @@ namespace Mailtrap.EmailLogs.Models;
 /// </summary>
 public sealed record EmailLogMessageEventUnknown : EmailLogMessageEvent
 {
-    private readonly string _eventType;
-
-
     /// <summary>
     /// Creates an event of the given <paramref name="eventType"/>.
     /// </summary>
@@ -25,12 +22,22 @@ public sealed record EmailLogMessageEventUnknown : EmailLogMessageEvent
     {
         Ensure.NotNull(eventType, nameof(eventType));
 
-        _eventType = eventType;
+        EventType = eventType;
+    }
+
+    // For serializer metadata only: the converter creates unknown events through the public constructor,
+    // whose parameter would otherwise bind to both EventType declarations.
+    [JsonConstructor]
+    private EmailLogMessageEventUnknown()
+    {
+        EventType = string.Empty;
     }
 
 
     /// <inheritdoc />
-    public override string EventType => _eventType;
+    [JsonPropertyName("event_type")]
+    [JsonPropertyOrder(-1)]
+    public override string EventType { get; }
 
     /// <summary>
     /// Raw event details, or <see langword="null"/> when the event has none.

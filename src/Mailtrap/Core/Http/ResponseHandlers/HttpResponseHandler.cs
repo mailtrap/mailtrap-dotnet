@@ -44,28 +44,27 @@ internal abstract class HttpResponseHandler<T> : IHttpResponseHandler<T>
                 .ReadAsStringAsync()
                 .ConfigureAwait(false);
 
-        var problem = string.IsNullOrWhiteSpace(content)
-            ? null
-            : _httpResponseMessage.StatusCode.GetHashCode() >= 500
-                ? TryDeserializeProblem(content!)
-                : JsonSerializer.Deserialize<Problem>(content!, _jsonSerializerOptions);
-
         return new HttpRequestFailedException(
             _httpResponseMessage.RequestMessage.RequestUri,
             _httpResponseMessage.RequestMessage.Method,
             _httpResponseMessage.StatusCode,
             _httpResponseMessage.ReasonPhrase,
-            problem?.ToString());
+            TryReadProblem(content)?.ToString());
     }
 
 
-    // A 5xx body may come from a proxy instead of the API, such as an HTML error page,
+    // An error body may come from a proxy instead of the API, such as an HTML error page,
     // so its error details are read only when it is JSON.
-    private Problem? TryDeserializeProblem(string content)
+    private Problem? TryReadProblem(string? content)
     {
+        if (string.IsNullOrWhiteSpace(content))
+        {
+            return null;
+        }
+
         try
         {
-            return JsonSerializer.Deserialize<Problem>(content, _jsonSerializerOptions);
+            return JsonSerializer.Deserialize<Problem>(content!, _jsonSerializerOptions);
         }
         catch (JsonException)
         {

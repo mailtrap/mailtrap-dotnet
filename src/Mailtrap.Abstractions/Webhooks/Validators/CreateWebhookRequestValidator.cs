@@ -34,10 +34,6 @@ public sealed class CreateWebhookRequestValidator : AbstractValidator<CreateWebh
             RuleFor(r => r.SendingStream)
                 .NotNull()
                 .WithMessage("'SendingStream' is required for 'email_sending' webhook type.");
-
-            RuleFor(r => r.EventTypes)
-                .Must(events => events is { Count: > 0 })
-                .WithMessage("'EventTypes' must contain at least one event for 'email_sending' webhook type.");
         });
 
         When(r => r.WebhookType == WebhookType.Campaigns, () =>
@@ -45,10 +41,13 @@ public sealed class CreateWebhookRequestValidator : AbstractValidator<CreateWebh
             RuleFor(r => r.SendingStream)
                 .Null()
                 .WithMessage("'SendingStream' must not be set for 'campaigns' webhook type.");
+        });
 
+        When(r => r.WebhookType == WebhookType.EmailSending || r.WebhookType == WebhookType.Campaigns, () =>
+        {
             RuleFor(r => r.EventTypes)
                 .Must(events => events is { Count: > 0 })
-                .WithMessage("'EventTypes' must contain at least one event for 'campaigns' webhook type.");
+                .WithMessage("'EventTypes' must contain at least one event for 'email_sending' and 'campaigns' webhook types.");
         });
     }
 }

@@ -54,16 +54,16 @@ internal sealed class StatusCodeHttpResponseHandlerTests
             .WithMessage("*The contact was saved, but its subscription topic preferences were not.*");
     }
 
-    [Test]
-    public async Task ProcessResponse_ShouldThrowExceptionWithoutDetails_WhenHttpCodeIs5xxWithNonJsonBody()
+    [TestCase(HttpStatusCode.BadGateway)]
+    [TestCase(HttpStatusCode.TooManyRequests)]
+    public async Task ProcessResponse_ShouldThrowExceptionWithoutDetails_WhenBodyIsNotJson(HttpStatusCode statusCode)
     {
         // Arrange - a proxy's HTML error page must not turn into a JSON parsing error.
-        var statusCode = HttpStatusCode.BadGateway;
 
         using var httpMessage = new HttpResponseMessage(statusCode)
         {
             RequestMessage = new HttpRequestMessage(HttpMethod.Get, "http://test.com"),
-            Content = new StringContent("<html><body>502 Bad Gateway</body></html>", Encoding.UTF8, "text/html")
+            Content = new StringContent("<html><body>Proxy error</body></html>", Encoding.UTF8, "text/html")
         };
 
         var handler = new StatusCodeHttpResponseHandler(

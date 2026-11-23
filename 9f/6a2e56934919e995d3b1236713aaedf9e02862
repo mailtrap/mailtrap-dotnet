@@ -1,0 +1,19 @@
+examples/Mailtrap.Example.Suppression/Program.cs
+  s_42366caa964704::t_9ab3af4f370da5 70-77,79
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "9f6a2e56934919e995d3b1236713aaedf9e02862",
+  "prompts": {},
+  "sessions": {
+    "s_42366caa964704": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "4b36dc4d-30dd-4e4c-a916-db11a25b87a2",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Maciej Walusiak <maciej.walusiak@railsware.com>"
+    }
+  }
+}

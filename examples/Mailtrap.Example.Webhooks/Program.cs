@@ -83,6 +83,25 @@ try
     // The webhook resource becomes invalid after deletion and should not be used anymore
     Webhook deletedWebhook = await webhookResource.Delete();
     logger.LogInformation("Webhook Deleted: Id={Id}", deletedWebhook.Id);
+
+    // Create a "campaigns" webhook: it takes event types but no sending stream.
+    // "subscription_preferences_update" is available only for campaigns webhooks
+    // and for email_sending webhooks of the bulk stream.
+    var campaignsRequest = new CreateWebhookRequest
+    {
+        Url = new Uri("https://example.com/webhooks/mailtrap-campaigns"),
+        WebhookType = WebhookType.Campaigns
+    };
+    campaignsRequest.EventTypes.Add(WebhookEventType.Delivery);
+    campaignsRequest.EventTypes.Add(WebhookEventType.SubscriptionPreferencesUpdate);
+
+    CreateWebhookResponse campaignsWebhook = await webhooksResource.Create(campaignsRequest);
+    logger.LogInformation("Created campaigns Webhook: Id={Id}, EventTypes={EventTypes}",
+        campaignsWebhook.Id,
+        string.Join(",", campaignsWebhook.EventTypes));
+
+    await accountResource.Webhook(campaignsWebhook.Id).Delete();
+    logger.LogInformation("Webhook Deleted: Id={Id}", campaignsWebhook.Id);
 }
 catch (Exception ex)
 {

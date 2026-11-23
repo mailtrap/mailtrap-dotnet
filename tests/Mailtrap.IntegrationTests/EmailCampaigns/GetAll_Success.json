@@ -30,7 +30,8 @@
         "id": 789,
         "subject": "Spring is here — 30% off",
         "merge_tags": []
-      }
+      },
+      "subscription_topic_id": null
     }
   ],
   "pagination": {

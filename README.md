@@ -277,7 +277,7 @@ private static SendEmailRequest TemplateBasedRequest()
 - Tracking opt-outs management – [`examples/Mailtrap.Example.TrackingOptOut`](examples/Mailtrap.Example.TrackingOptOut/)
 - Email logs (list with filters and pagination; get message details with events) – [`examples/Mailtrap.Example.EmailLogs`](examples/Mailtrap.Example.EmailLogs/)
 - Email sending statistics – [`examples/Mailtrap.Example.Stats`](examples/Mailtrap.Example.Stats/)
-- Webhooks management – [`examples/Mailtrap.Example.Webhooks`](examples/Mailtrap.Example.Webhooks/)
+- Webhooks management, including campaigns webhooks – [`examples/Mailtrap.Example.Webhooks`](examples/Mailtrap.Example.Webhooks/)
 - Verifying webhook signatures – [`examples/Mailtrap.Example.WebhookSignature`](examples/Mailtrap.Example.WebhookSignature/)
 
 ### Inbound Email
@@ -295,7 +295,7 @@ private static SendEmailRequest TemplateBasedRequest()
 
 ### Email Marketing
 
-- Email campaigns management (CRUD, lifecycle actions, and statistics) – [`examples/Mailtrap.Example.EmailCampaigns`](examples/Mailtrap.Example.EmailCampaigns/)
+- Email campaigns management (CRUD, lifecycle actions, subscription topic, and statistics) – [`examples/Mailtrap.Example.EmailCampaigns`](examples/Mailtrap.Example.EmailCampaigns/)
 - Email Marketing statistics (campaigns and automations) – [`examples/Mailtrap.Example.MarketingStats`](examples/Mailtrap.Example.MarketingStats/)
 - Subscription topics (list and get) – [`examples/Mailtrap.Example.SubscriptionTopics`](examples/Mailtrap.Example.SubscriptionTopics/)
 

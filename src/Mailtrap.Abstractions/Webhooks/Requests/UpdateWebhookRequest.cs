@@ -44,7 +44,7 @@ public sealed record UpdateWebhookRequest : IValidatable
 
     /// <summary>
     /// Gets or sets the list of event types the webhook subscribes to.<br/>
-    /// Applicable only for <c>email_sending</c> webhooks.<br/>
+    /// Applicable only for <c>email_sending</c> and <c>campaigns</c> webhooks.<br/>
     /// Leave <see langword="null"/> to keep the existing event types unchanged.
     /// </summary>
     ///

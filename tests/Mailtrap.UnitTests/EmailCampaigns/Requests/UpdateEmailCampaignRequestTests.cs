@@ -31,7 +31,8 @@ internal sealed class UpdateEmailCampaignRequestTests
                 MergeTags = ["first_name"]
             },
             ContactListIds = [55],
-            ContactSegmentIds = []
+            ContactSegmentIds = [],
+            SubscriptionTopicId = 12
         };
 
         // Act
@@ -49,6 +50,7 @@ internal sealed class UpdateEmailCampaignRequestTests
         // An empty list is serialized (clears the audience), unlike an unset (null) one.
         json.Should().Contain("\"contact_list_ids\":[55]");
         json.Should().Contain("\"contact_segment_ids\":[]");
+        json.Should().Contain("\"subscription_topic_id\":12");
     }
 
     [Test]
@@ -71,5 +73,6 @@ internal sealed class UpdateEmailCampaignRequestTests
         json.Should().NotContain("template_attributes");
         json.Should().NotContain("contact_list_ids");
         json.Should().NotContain("contact_segment_ids");
+        json.Should().NotContain("subscription_topic_id");
     }
 }

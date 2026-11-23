@@ -4,7 +4,8 @@ namespace Mailtrap.Webhooks.Validators;
 /// <summary>
 /// Validator for <see cref="CreateWebhookRequest"/>.<br/>
 /// Ensures Url is an absolute URI, WebhookType is set,
-/// and that <c>email_sending</c> webhooks specify SendingStream and EventTypes.
+/// that <c>email_sending</c> webhooks specify SendingStream and EventTypes,
+/// and that <c>campaigns</c> webhooks specify EventTypes and no SendingStream.
 /// </summary>
 public sealed class CreateWebhookRequestValidator : AbstractValidator<CreateWebhookRequest>
 {
@@ -33,10 +34,20 @@ public sealed class CreateWebhookRequestValidator : AbstractValidator<CreateWebh
             RuleFor(r => r.SendingStream)
                 .NotNull()
                 .WithMessage("'SendingStream' is required for 'email_sending' webhook type.");
+        });
 
+        When(r => r.WebhookType == WebhookType.Campaigns, () =>
+        {
+            RuleFor(r => r.SendingStream)
+                .Null()
+                .WithMessage("'SendingStream' must not be set for 'campaigns' webhook type.");
+        });
+
+        When(r => r.WebhookType == WebhookType.EmailSending || r.WebhookType == WebhookType.Campaigns, () =>
+        {
             RuleFor(r => r.EventTypes)
                 .Must(events => events is { Count: > 0 })
-                .WithMessage("'EventTypes' must contain at least one event for 'email_sending' webhook type.");
+                .WithMessage("'EventTypes' must contain at least one event for 'email_sending' and 'campaigns' webhook types.");
         });
     }
 }

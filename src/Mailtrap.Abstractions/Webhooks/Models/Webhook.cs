@@ -44,7 +44,7 @@ public record Webhook
     /// </summary>
     ///
     /// <value>
-    /// Webhook type. Allowed values: "email_sending", "audit_log".
+    /// Webhook type. Allowed values: "email_sending", "audit_log", "inbound_receiving", "campaigns".
     /// </value>
     [JsonPropertyName("webhook_type")]
     [JsonPropertyOrder(4)]
@@ -75,7 +75,7 @@ public record Webhook
 
     /// <summary>
     /// Gets or sets the domain ID the webhook is scoped to.<br/>
-    /// Applicable only for <c>email_sending</c> webhooks; <see langword="null"/> means all domains.
+    /// Applicable only for <c>email_sending</c> and <c>campaigns</c> webhooks; <see langword="null"/> means all domains.
     /// </summary>
     ///
     /// <value>
@@ -87,7 +87,7 @@ public record Webhook
 
     /// <summary>
     /// Gets or sets the list of event types the webhook is subscribed to.<br/>
-    /// Applicable only for <c>email_sending</c> webhooks.
+    /// Applicable only for <c>email_sending</c> and <c>campaigns</c> webhooks.
     /// </summary>
     ///
     /// <value>

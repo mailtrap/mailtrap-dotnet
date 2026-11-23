@@ -141,7 +141,7 @@ public interface IContactCollectionResource : IRestResource
     /// <remarks>
     /// When the contact is saved but its <see cref="ContactRequest.SubscriptionTopics"/> are not,
     /// the API responds with HTTP 503 and an error naming the contact:
-    /// send the topics again in an update of that contact.
+    /// send the topics again in an update of that contact, which can be addressed by its email.
     /// </remarks>
     public Task<CreateContactResponse> Create(CreateContactRequest request, CancellationToken cancellationToken = default);
 }

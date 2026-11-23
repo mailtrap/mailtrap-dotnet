@@ -70,25 +70,15 @@ internal sealed class ContactRequestTests
         result.IsValid.Should().BeTrue();
     }
 
-    [Test]
-    public void Validate_ShouldFail_WhenSubscriptionTopicIdIsNotPositive([Values(0, -1)] long subscriptionTopicId)
+    [TestCase(0, 4321)]
+    [TestCase(-1, 4321)]
+    [TestCase(12, 0)]
+    [TestCase(12, -1)]
+    public void Validate_ShouldFail_WhenTopicOrDomainIdIsNotPositive(long subscriptionTopicId, long domainId)
     {
         var request = RequestWithTopic(new ContactSubscriptionTopic
         {
             SubscriptionTopicId = subscriptionTopicId,
-            DomainId = 4321,
-            Status = ContactStatus.Subscribed
-        });
-
-        request.Validate().IsValid.Should().BeFalse();
-    }
-
-    [Test]
-    public void Validate_ShouldFail_WhenDomainIdIsNotPositive([Values(0, -1)] long domainId)
-    {
-        var request = RequestWithTopic(new ContactSubscriptionTopic
-        {
-            SubscriptionTopicId = 12,
             DomainId = domainId,
             Status = ContactStatus.Subscribed
         });

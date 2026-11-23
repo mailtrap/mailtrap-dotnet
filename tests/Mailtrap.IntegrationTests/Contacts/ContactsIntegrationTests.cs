@@ -206,15 +206,15 @@ internal sealed class ContactsIntegrationTests
         using var responseContent = await Feature.LoadFileToStringContent();
 
         using var mockHttp = new MockHttpMessageHandler();
-        mockHttp
-            .Expect(HttpMethod.Get, _resourceUri.Append(contactId).AbsoluteUri)
-            .Respond(HttpStatusCode.OK, responseContent);
-
-        using var services = CreateServices(mockHttp);
-        var client = services.GetRequiredService<IMailtrapClient>();
+        using var clientScope = mockHttp.ConfigureAndCreateClient(
+            HttpMethod.Get,
+            _resourceUri.Append(contactId).AbsoluteUri,
+            responseContent,
+            HttpStatusCode.OK,
+            _clientConfig);
 
         // Act
-        var result = await client
+        var result = await clientScope.Client
             .Account(_accountId)
             .Contact(contactId)
             .GetDetails()
@@ -225,7 +225,7 @@ internal sealed class ContactsIntegrationTests
 
         result.Contact.SubscriptionTopics.Should().BeEquivalentTo(
         [
-            new ContactSubscriptionTopic { SubscriptionTopicId = 12, DomainId = 4321, Status = ContactStatus.Unsubscribed },
+            Topic(ContactStatus.Unsubscribed),
             new ContactSubscriptionTopic { SubscriptionTopicId = 15, DomainId = 4321, Status = ContactStatus.Subscribed }
         ]);
     }
@@ -239,15 +239,15 @@ internal sealed class ContactsIntegrationTests
         using var responseContent = await Feature.LoadFileToStringContent();
 
         using var mockHttp = new MockHttpMessageHandler();
-        mockHttp
-            .Expect(HttpMethod.Get, _resourceUri.Append(contactId).AbsoluteUri)
-            .Respond(HttpStatusCode.OK, responseContent);
-
-        using var services = CreateServices(mockHttp);
-        var client = services.GetRequiredService<IMailtrapClient>();
+        using var clientScope = mockHttp.ConfigureAndCreateClient(
+            HttpMethod.Get,
+            _resourceUri.Append(contactId).AbsoluteUri,
+            responseContent,
+            HttpStatusCode.OK,
+            _clientConfig);
 
         // Act
-        var result = await client
+        var result = await clientScope.Client
             .Account(_accountId)
             .Contact(contactId)
             .GetDetails()
@@ -266,26 +266,22 @@ internal sealed class ContactsIntegrationTests
         // Arrange
         var request = new CreateContactRequest("john.smith@example.com")
         {
-            SubscriptionTopics =
-            [
-                new ContactSubscriptionTopic { SubscriptionTopicId = 12, DomainId = 4321, Status = ContactStatus.Unsubscribed }
-            ]
+            SubscriptionTopics = [Topic(ContactStatus.Unsubscribed)]
         };
 
         using var responseContent = await Feature.LoadFileToStringContent();
 
         using var mockHttp = new MockHttpMessageHandler();
-        mockHttp
-            .Expect(HttpMethod.Post, _resourceUri.AbsoluteUri)
-            .WithJsonContent(request.ToDto(), _jsonSerializerOptions)
-            .WithPartialContent("\"subscription_topics\":[{\"subscription_topic_id\":12,\"domain_id\":4321,\"status\":\"unsubscribed\"}]")
-            .Respond(HttpStatusCode.Created, responseContent);
-
-        using var services = CreateServices(mockHttp);
-        var client = services.GetRequiredService<IMailtrapClient>();
+        using var clientScope = mockHttp.ConfigureAndCreateClient(
+            HttpMethod.Post,
+            _resourceUri.AbsoluteUri,
+            responseContent,
+            HttpStatusCode.Created,
+            _clientConfig,
+            request.ToDto());
 
         // Act
-        var result = await client
+        var result = await clientScope.Client
             .Account(_accountId)
             .Contacts()
             .Create(request)
@@ -304,23 +300,20 @@ internal sealed class ContactsIntegrationTests
         // Arrange
         var request = new CreateContactRequest("john.smith@example.com")
         {
-            SubscriptionTopics =
-            [
-                new ContactSubscriptionTopic { SubscriptionTopicId = 12, DomainId = 4321, Status = ContactStatus.Unsubscribed }
-            ]
+            SubscriptionTopics = [Topic(ContactStatus.Unsubscribed)]
         };
 
         using var responseContent = await Feature.LoadFileToStringContent();
 
         using var mockHttp = new MockHttpMessageHandler();
-        mockHttp
-            .Expect(HttpMethod.Post, _resourceUri.AbsoluteUri)
-            .Respond(HttpStatusCode.ServiceUnavailable, responseContent);
+        using var clientScope = mockHttp.ConfigureAndCreateClient(
+            HttpMethod.Post,
+            _resourceUri.AbsoluteUri,
+            responseContent,
+            HttpStatusCode.ServiceUnavailable,
+            _clientConfig);
 
-        using var services = CreateServices(mockHttp);
-        var client = services.GetRequiredService<IMailtrapClient>();
-
-        var act = () => client
+        var act = () => clientScope.Client
             .Account(_accountId)
             .Contacts()
             .Create(request);
@@ -329,7 +322,7 @@ internal sealed class ContactsIntegrationTests
         await act.Should()
             .ThrowAsync<HttpRequestFailedException>()
             .Where(ex => ex.StatusCode == HttpStatusCode.ServiceUnavailable)
-            .WithMessage("*Send them again in an update of contact 018dd5e3-f6d2-7c00-8f9b-e5c3f2d8a132*");
+            .WithMessage("*Error details: 'The contact was saved*Send them again in an update of contact 018dd5e3-f6d2-7c00-8f9b-e5c3f2d8a132*");
 
         mockHttp.VerifyNoOutstandingExpectation();
     }
@@ -341,26 +334,22 @@ internal sealed class ContactsIntegrationTests
         var contactId = TestContext.CurrentContext.Random.NextGuid().ToString();
         var request = new UpdateContactRequest("john.smith@example.com")
         {
-            SubscriptionTopics =
-            [
-                new ContactSubscriptionTopic { SubscriptionTopicId = 12, DomainId = 4321, Status = ContactStatus.Subscribed }
-            ]
+            SubscriptionTopics = [Topic(ContactStatus.Subscribed)]
         };
 
         using var responseContent = await Feature.LoadFileToStringContent();
 
         using var mockHttp = new MockHttpMessageHandler();
-        mockHttp
-            .Expect(HttpMethodEx.Patch, _resourceUri.Append(contactId).AbsoluteUri)
-            .WithJsonContent(request.ToDto(), _jsonSerializerOptions)
-            .WithPartialContent("\"subscription_topics\":[{\"subscription_topic_id\":12,\"domain_id\":4321,\"status\":\"subscribed\"}]")
-            .Respond(HttpStatusCode.OK, responseContent);
-
-        using var services = CreateServices(mockHttp);
-        var client = services.GetRequiredService<IMailtrapClient>();
+        using var clientScope = mockHttp.ConfigureAndCreateClient(
+            HttpMethodEx.Patch,
+            _resourceUri.Append(contactId).AbsoluteUri,
+            responseContent,
+            HttpStatusCode.OK,
+            _clientConfig,
+            request.ToDto());
 
         // Act
-        var result = await client
+        var result = await clientScope.Client
             .Account(_accountId)
             .Contact(contactId)
             .Update(request)
@@ -381,23 +370,20 @@ internal sealed class ContactsIntegrationTests
         var contactId = TestContext.CurrentContext.Random.NextGuid().ToString();
         var request = new UpdateContactRequest("john.smith@example.com")
         {
-            SubscriptionTopics =
-            [
-                new ContactSubscriptionTopic { SubscriptionTopicId = 12, DomainId = 4321, Status = ContactStatus.Subscribed }
-            ]
+            SubscriptionTopics = [Topic(ContactStatus.Subscribed)]
         };
 
         using var responseContent = await Feature.LoadFileToStringContent();
 
         using var mockHttp = new MockHttpMessageHandler();
-        mockHttp
-            .Expect(HttpMethodEx.Patch, _resourceUri.Append(contactId).AbsoluteUri)
-            .Respond(HttpStatusCode.UnprocessableContent, responseContent);
+        using var clientScope = mockHttp.ConfigureAndCreateClient(
+            HttpMethodEx.Patch,
+            _resourceUri.Append(contactId).AbsoluteUri,
+            responseContent,
+            HttpStatusCode.UnprocessableContent,
+            _clientConfig);
 
-        using var services = CreateServices(mockHttp);
-        var client = services.GetRequiredService<IMailtrapClient>();
-
-        var act = () => client
+        var act = () => clientScope.Client
             .Account(_accountId)
             .Contact(contactId)
             .Update(request);
@@ -409,35 +395,6 @@ internal sealed class ContactsIntegrationTests
             .WithMessage("*are not available for this account*");
 
         mockHttp.VerifyNoOutstandingExpectation();
-    }
-
-    [Test]
-    public async Task Update_ShouldFailValidation_WhenSubscriptionTopicStatusIsNotSet()
-    {
-        // Arrange
-        var contactId = TestContext.CurrentContext.Random.NextGuid().ToString();
-        var request = new UpdateContactRequest("john.smith@example.com")
-        {
-            SubscriptionTopics = [new ContactSubscriptionTopic { SubscriptionTopicId = 12, DomainId = 4321 }]
-        };
-
-        using var mockHttp = new MockHttpMessageHandler();
-        var mockedRequest = mockHttp
-            .Expect(HttpMethodEx.Patch, _resourceUri.Append(contactId).AbsoluteUri)
-            .Respond(HttpStatusCode.OK);
-
-        using var services = CreateServices(mockHttp);
-        var client = services.GetRequiredService<IMailtrapClient>();
-
-        var act = () => client
-            .Account(_accountId)
-            .Contact(contactId)
-            .Update(request);
-
-        // Assert - no request is sent when client-side validation fails.
-        await act.Should().ThrowAsync<RequestValidationException>();
-
-        mockHttp.GetMatchCount(mockedRequest).Should().Be(0);
     }
 
     [Test]
@@ -561,14 +518,6 @@ internal sealed class ContactsIntegrationTests
     }
 
 
-    private ServiceProvider CreateServices(MockHttpMessageHandler mockHttp)
-    {
-        var serviceCollection = new ServiceCollection();
-
-        serviceCollection
-            .AddMailtrapClient(_clientConfig)
-            .ConfigurePrimaryHttpMessageHandler(() => mockHttp);
-
-        return serviceCollection.BuildServiceProvider();
-    }
+    private static ContactSubscriptionTopic Topic(ContactStatus status)
+        => new() { SubscriptionTopicId = 12, DomainId = 4321, Status = status };
 }

@@ -1,0 +1,58 @@
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogMessageEventUnsubscribe.cs
+  s_42366caa964704::t_4bfea50925b5ef 9-13,17
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogMessageEventReject.cs
+  s_42366caa964704::t_4bfea50925b5ef 9-13,17
+src/Mailtrap.Abstractions/EmailLogs/Converters/EmailLogMessageEventJsonConverter.cs
+  s_42366caa964704::t_4389378959b3c4 23-33
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogMessageEventSuspension.cs
+  s_42366caa964704::t_4bfea50925b5ef 9-13,17
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogMessageEventSpam.cs
+  s_42366caa964704::t_4bfea50925b5ef 9-13,17
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogMessageEventUnknown.cs
+  s_42366caa964704::t_57bb42457dd705 25,28-29,33,37-38,40-44,47-51
+tests/Mailtrap.UnitTests/EmailLogs/EmailLogMessageEventsTests.cs
+  s_42366caa964704::t_a3c37e2c0e1162 80-93
+  s_d2c724b42da5f6::t_1a3a90adfcdcfb 79
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogMessageEventOpen.cs
+  s_42366caa964704::t_4bfea50925b5ef 9-13,17
+src/Mailtrap.Abstractions/Suppressions/Validators/CreateSuppressionRequestValidator.cs
+  s_42366caa964704::t_6f4898c125e79d 34-35
+src/Mailtrap.Abstractions/GlobalSuppressions.cs
+  s_42366caa964704::t_d756db05a03715 40
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogMessageEventBounce.cs
+  s_42366caa964704::t_4bfea50925b5ef 9-13,17
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogMessageEventTopicResubscribe.cs
+  s_42366caa964704::t_4bfea50925b5ef 9-13,17
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogMessageEventClick.cs
+  s_42366caa964704::t_4bfea50925b5ef 9-13,17
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogMessageEventDelivery.cs
+  s_42366caa964704::t_4bfea50925b5ef 9-13,17
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogMessageEventTopicUnsubscribe.cs
+  s_42366caa964704::t_4bfea50925b5ef 9-13,17
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogMessageEventSoftBounce.cs
+  s_42366caa964704::t_4bfea50925b5ef 9-13,17
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "81152247ca415cd86dbd1c1ea0d88a272b893565",
+  "prompts": {},
+  "sessions": {
+    "s_42366caa964704": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "4b36dc4d-30dd-4e4c-a916-db11a25b87a2",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Maciej Walusiak <maciej.walusiak@railsware.com>"
+    },
+    "s_d2c724b42da5f6": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "c6043bb1-4068-47ed-b360-ba8659e3b8e6",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Maciej Walusiak <maciej.walusiak@railsware.com>"
+    }
+  }
+}

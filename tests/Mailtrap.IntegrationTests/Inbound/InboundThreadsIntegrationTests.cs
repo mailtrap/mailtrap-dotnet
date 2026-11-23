@@ -142,7 +142,7 @@ internal sealed class InboundThreadsIntegrationTests
         var result = await client.Inbound().Inbox(inboxId).Thread(ThreadId).GetDetails().ConfigureAwait(false);
 
         mockHttp.VerifyNoOutstandingExpectation();
-        result.Messages.Should().HaveCount(3);
+        result.Messages.Should().HaveCount(4);
 
         var placeholder = result.Messages[0];
         placeholder.VisibilityStatus.Should().Be(ThreadMessageVisibilityStatus.Placeholder);
@@ -173,6 +173,14 @@ internal sealed class InboundThreadsIntegrationTests
         sent.Delivery.Status.Should().Be(EmailLogStatus.Delivered);
         sent.Delivery.DeliveredAt.Should().Be(new DateTimeOffset(2026, 7, 30, 13, 0, 5, TimeSpan.Zero));
         sent.Delivery.BouncedAt.Should().BeNull();
+        sent.Delivery.RejectedAt.Should().BeNull();
+
+        var rejected = result.Messages[3];
+        rejected.Delivery.Should().NotBeNull();
+        rejected.Delivery!.Status.Should().Be(EmailLogStatus.NotDelivered);
+        rejected.Delivery.DeliveredAt.Should().BeNull();
+        rejected.Delivery.BouncedAt.Should().BeNull();
+        rejected.Delivery.RejectedAt.Should().Be(new DateTimeOffset(2026, 7, 30, 13, 5, 0, TimeSpan.Zero));
     }
 
     [Test]

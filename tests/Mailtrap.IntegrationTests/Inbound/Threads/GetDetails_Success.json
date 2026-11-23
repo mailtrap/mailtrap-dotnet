@@ -58,7 +58,25 @@
         "to": "customer@example.com",
         "status": "delivered",
         "delivered_at": "2026-07-30T13:00:05Z",
-        "bounced_at": null
+        "bounced_at": null,
+        "rejected_at": null
+      }
+    },
+    {
+      "visibility_status": "available",
+      "direction": "outbound",
+      "id": "msg_4",
+      "subject": "Re: Support request",
+      "from": "support@inbound-mailtrap.io",
+      "to": ["suppressed@example.com"],
+      "created_at": "2026-07-30T13:05:00Z",
+      "email_size": 0,
+      "delivery": {
+        "to": "suppressed@example.com",
+        "status": "not_delivered",
+        "delivered_at": null,
+        "bounced_at": null,
+        "rejected_at": "2026-07-30T13:05:00Z"
       }
     }
   ]

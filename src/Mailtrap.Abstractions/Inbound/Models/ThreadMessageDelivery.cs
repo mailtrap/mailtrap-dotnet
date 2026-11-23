@@ -45,4 +45,14 @@ public sealed record ThreadMessageDelivery
     /// </value>
     [JsonPropertyName("bounced_at")]
     public DateTimeOffset? BouncedAt { get; set; }
+
+    /// <summary>
+    /// Gets or sets the timestamp when the message was rejected before sending, e.g. a suppressed recipient.
+    /// </summary>
+    ///
+    /// <value>
+    /// Timestamp when the message was rejected before sending.
+    /// </value>
+    [JsonPropertyName("rejected_at")]
+    public DateTimeOffset? RejectedAt { get; set; }
 }

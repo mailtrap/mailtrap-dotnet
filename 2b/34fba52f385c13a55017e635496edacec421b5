@@ -1,0 +1,217 @@
+tests/Mailtrap.UnitTests/EmailCampaigns/Requests/UpdateEmailCampaignRequestTests.cs
+  s_bfe51e76927331::t_7cd1dce835087f 34-35,53,76
+src/Mailtrap.Abstractions/GlobalSuppressions.cs
+  s_bfe51e76927331::t_22f92697f4c94e 23-24
+src/Mailtrap.Abstractions/Contacts/Models/Contact.cs
+  s_bfe51e76927331::t_22f92697f4c94e 81-97
+src/Mailtrap.Abstractions/Webhooks/Models/WebhookEventType.cs
+  s_bfe51e76927331::t_cd146734cc4db5 5,53-63
+src/Mailtrap.Abstractions/Contacts/Requests/ContactRequest.cs
+  s_bfe51e76927331::t_22f92697f4c94e 35-48
+  s_bfe51e76927331::t_ec2b1492402c10 34
+src/Mailtrap.Abstractions/Webhooks/Models/Webhook.cs
+  s_bfe51e76927331::t_a1edf91b98641d 47,78,90
+tests/Mailtrap.UnitTests/SubscriptionTopics/SubscriptionTopicCollectionResourceTests.cs
+  s_bfe51e76927331::t_a556a51d7d578a 1-51
+src/Mailtrap.Abstractions/EmailCampaigns/Models/EmailCampaign.cs
+  s_bfe51e76927331::t_4dc48474849c4a 221-232
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogMessageEvent.cs
+  s_bfe51e76927331::t_dd5a0dc57dad79 6-7,9
+src/Mailtrap.Abstractions/Webhooks/Requests/UpdateWebhookRequest.cs
+  s_bfe51e76927331::t_a1edf91b98641d 47
+tests/Mailtrap.IntegrationTests/SubscriptionTopics/GetAll_Success.json
+  s_bfe51e76927331::t_2a9713812ffb47 1-27
+tests/Mailtrap.IntegrationTests/Contacts/ContactsIntegrationTests.cs
+  s_bfe51e76927331::t_ee667314f4caa4 195-440,562-573
+examples/Mailtrap.Example.SubscriptionTopics/Properties/launchSettings.json
+  s_bfe51e76927331::t_10884ae79dbefa 1-10
+tests/Mailtrap.UnitTests/EmailCampaigns/Requests/CreateEmailCampaignRequestTests.cs
+  s_bfe51e76927331::t_7cd1dce835087f 47-48,63,87
+README.md
+  s_bfe51e76927331::t_3a888c260334af 276,278,280,298,300,304,307
+src/Mailtrap/Suppressions/SuppressionCollectionResource.cs
+  s_bfe51e76927331::t_6df6f137982f3a 10,57-60
+  s_bfe51e76927331::t_46ea30d472b9f2 61-62
+tests/Mailtrap.IntegrationTests/Contacts/GetDetails_WithNullSubscriptionTopics_Success.json
+  s_bfe51e76927331::t_ee667314f4caa4 1-12
+src/Mailtrap.Abstractions/SubscriptionTopics/ISubscriptionTopicCollectionResource.cs
+  s_bfe51e76927331::t_5591cc33c6adcc 1-30
+src/Mailtrap.Abstractions/Webhooks/Validators/CreateWebhookRequestValidator.cs
+  s_bfe51e76927331::t_cd146734cc4db5 7-8,42-51
+  s_bfe51e76927331::t_67275ddab88b1b 52
+tests/Mailtrap.IntegrationTests/ContactImports/Create_Success_Request.json
+  s_bfe51e76927331::t_ffac84ee5c9335 19-25
+src/Mailtrap.Abstractions/Suppressions/Models/SuppressionType.cs
+  s_bfe51e76927331::t_6df6f137982f3a 43-57
+tests/Mailtrap.UnitTests/Webhooks/WebhookCampaignsFieldsTests.cs
+  s_bfe51e76927331::t_ae73a1d4c8c2fc 1-97
+tests/Mailtrap.IntegrationTests/TestConstants/UrlSegmentsTestConstants.cs
+  s_bfe51e76927331::t_a556a51d7d578a 57-58
+src/Mailtrap.Abstractions/SubscriptionTopics/ISubscriptionTopicResource.cs
+  s_bfe51e76927331::t_5591cc33c6adcc 1-25
+src/Mailtrap.Abstractions/EmailCampaigns/Validators/CreateEmailCampaignRequestValidator.cs
+  s_bfe51e76927331::t_4dc48474849c4a 6-7,45-50
+  s_bfe51e76927331::t_3e902143cf1bb4 51
+src/Mailtrap.Abstractions/Contacts/IContactCollectionResource.cs
+  s_bfe51e76927331::t_ed8fe6db53253e 140-145
+src/Mailtrap.Abstractions/Suppressions/Models/Suppression.cs
+  s_bfe51e76927331::t_6df6f137982f3a 25-26,185-197
+tests/Mailtrap.UnitTests/Contacts/Requests/ContactRequestTests.cs
+  s_bfe51e76927331::t_e22d8c2317ca0b 52-148
+src/Mailtrap.Abstractions/EmailCampaigns/Requests/UpdateEmailCampaignRequest.cs
+  s_bfe51e76927331::t_4dc48474849c4a 139-157
+examples/Mailtrap.Example.Suppression/Program.cs
+  s_bfe51e76927331::t_d0af1d5b4e5882 70-81
+src/Mailtrap.Abstractions/Contacts/Validators/ContactRequestValidator.cs
+  s_bfe51e76927331::t_22f92697f4c94e 6-7,22-25
+src/Mailtrap.Abstractions/SubscriptionTopics/Models/SubscriptionTopicListFilter.cs
+  s_bfe51e76927331::t_5591cc33c6adcc 1-26
+src/Mailtrap/SubscriptionTopics/SubscriptionTopicCollectionResource.cs
+  s_bfe51e76927331::t_5591cc33c6adcc 1-48
+tests/Mailtrap.IntegrationTests/SubscriptionTopics/GetAll_WithFilter_Success.json
+  s_bfe51e76927331::t_2a9713812ffb47 1-18
+src/Mailtrap.Abstractions/IMailtrapClient.cs
+  s_bfe51e76927331::t_25536d5e98ec20 99-132
+src/Mailtrap.Abstractions/EmailCampaigns/Requests/CreateEmailCampaignRequest.cs
+  s_bfe51e76927331::t_4dc48474849c4a 138-155
+examples/Mailtrap.Example.Contact/Program.cs
+  s_bfe51e76927331::t_f1a32c63cfec57 1-3,9-10,72-80,85-91,103-134
+  s_bfe51e76927331::t_f3b0e98c7c3f79 135
+tests/Mailtrap.UnitTests/GlobalUsings.cs
+  s_bfe51e76927331::t_a556a51d7d578a 79
+  s_bfe51e76927331::t_e22d8c2317ca0b 31
+tests/Mailtrap.IntegrationTests/EmailCampaigns/GetAll_Success.json
+  s_bfe51e76927331::t_f3c2d9babc792b 33-34
+tests/Mailtrap.UnitTests/SubscriptionTopics/SubscriptionTopicResourceTests.cs
+  s_bfe51e76927331::t_a556a51d7d578a 1-52
+src/Mailtrap.Abstractions/SubscriptionTopics/Models/SubscriptionTopic.cs
+  s_bfe51e76927331::t_5591cc33c6adcc 1-90
+examples/Mailtrap.Example.SubscriptionTopics/Mailtrap.Example.SubscriptionTopics.csproj
+  s_bfe51e76927331::t_10884ae79dbefa 1
+tests/Mailtrap.IntegrationTests/EmailCampaigns/Update_Success.json
+  s_bfe51e76927331::t_04e7747b913656 34-35
+tests/Mailtrap.IntegrationTests/ContactImports/ContactImportIntegrationTests.cs
+  s_bfe51e76927331::t_ffac84ee5c9335 46-55,66
+tests/Mailtrap.IntegrationTests/Suppressions/SuppressionsIntegrationTests.cs
+  s_bfe51e76927331::t_ed95e537aa187f 12,109-110,128-129,157-230
+  s_bfe51e76927331::t_a9210a0a4b40ce 231-232
+src/Mailtrap.Abstractions/EmailCampaigns/Validators/UpdateEmailCampaignRequestValidator.cs
+  s_bfe51e76927331::t_4dc48474849c4a 6,26-31
+  s_bfe51e76927331::t_8362142796961b 32
+src/Mailtrap.Abstractions/Contacts/IContactResource.cs
+  s_bfe51e76927331::t_ed8fe6db53253e 36-41
+src/Mailtrap/SubscriptionTopics/SubscriptionTopicResource.cs
+  s_bfe51e76927331::t_5591cc33c6adcc 1-16
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogMessageEventTopicResubscribe.cs
+  s_bfe51e76927331::t_dd5a0dc57dad79 1-17
+src/Mailtrap.Abstractions/Webhooks/Models/WebhookType.cs
+  s_bfe51e76927331::t_cd146734cc4db5 35-43
+src/Mailtrap.Abstractions/EmailLogs/Models/EventDetailsTopicSubscription.cs
+  s_bfe51e76927331::t_dd5a0dc57dad79 1-20
+tests/Mailtrap.IntegrationTests/EmailCampaigns/EmailCampaignIntegrationTests.cs
+  s_bfe51e76927331::t_f3c2d9babc792b 80,211,418-419,465
+  s_bfe51e76927331::t_aae2b9f40b6077 242-243
+tests/Mailtrap.IntegrationTests/Contacts/Create_WithSubscriptionTopics_Success.json
+  s_bfe51e76927331::t_ee667314f4caa4 1-18
+tests/Mailtrap.IntegrationTests/SubscriptionTopics/GetDetails_Deleted_Success.json
+  s_bfe51e76927331::t_2a9713812ffb47 1-11
+src/Mailtrap.Abstractions/SubscriptionTopics/Models/SubscriptionTopicList.cs
+  s_bfe51e76927331::t_5591cc33c6adcc 1-31
+tests/Mailtrap.UnitTests/Core/Http/StatusCodeHttpResponseHandlerTests.cs
+  s_bfe51e76927331::t_ae73a1d4c8c2fc 29-65,67-82
+  s_bfe51e76927331::t_a5e6b9d75ee09e 66
+tests/Mailtrap.UnitTests/EmailCampaigns/EmailCampaignRequestValidatorTests.cs
+  s_bfe51e76927331::t_7cd1dce835087f 87-97,143-152
+  s_bfe51e76927331::t_7d231762c14bc5 153
+src/Mailtrap.Abstractions/Suppressions/Models/SuppressionFilter.cs
+  s_bfe51e76927331::t_6df6f137982f3a 45-59
+src/Mailtrap/SubscriptionTopics/Responses/SubscriptionTopicResponseDto.cs
+  s_bfe51e76927331::t_5591cc33c6adcc 1-13
+src/Mailtrap/MailtrapClient.cs
+  s_bfe51e76927331::t_6f5d1a37d85897 91-110
+src/Mailtrap/GlobalUsings.cs
+  s_bfe51e76927331::t_a4e40b8b4a516f 94-96
+tests/Mailtrap.IntegrationTests/Contacts/Update_WithSubscriptionTopics_Success.json
+  s_bfe51e76927331::t_ee667314f4caa4 1-19
+tests/Mailtrap.UnitTests/EmailLogs/EmailLogMessageEventsTests.cs
+  s_bfe51e76927331::t_079a97f53d6ae7 1-117,119-146
+  s_bfe51e76927331::t_7c9e45d711166d 118
+examples/Mailtrap.Example.SubscriptionTopics/Program.cs
+  s_bfe51e76927331::t_10884ae79dbefa 1-35,44-68
+  s_bfe51e76927331::t_8b146da5c515b0 36-43
+examples/Mailtrap.Example.EmailLogs/Program.cs
+  s_bfe51e76927331::t_d0af1d5b4e5882 64,81-104
+  s_bfe51e76927331::t_c523f269615dba 65,74-80
+  s_bfe51e76927331::t_0a6ce5b13291c7 105-106
+examples/Mailtrap.Example.Webhooks/Program.cs
+  s_bfe51e76927331::t_d0af1d5b4e5882 86-104
+src/Mailtrap.Abstractions/Webhooks/Requests/CreateWebhookRequest.cs
+  s_bfe51e76927331::t_a1edf91b98641d 26,72,86
+tests/Mailtrap.IntegrationTests/GlobalUsings.cs
+  s_bfe51e76927331::t_ee667314f4caa4 19
+  s_bfe51e76927331::t_a556a51d7d578a 54
+Mailtrap.sln
+  s_bfe51e76927331::t_10884ae79dbefa 131-132,587-598,641
+src/Mailtrap/Core/Constants/UrlSegments.cs
+  s_bfe51e76927331::t_dd3700557a774a 45-46
+tests/Mailtrap.IntegrationTests/Suppressions/Fetch_WithTopicUnsubscriptions_Success.json
+  s_bfe51e76927331::t_ed95e537aa187f 1-40
+tests/Mailtrap.UnitTests/TestConstants/UrlSegmentsTestConstants.cs
+  s_bfe51e76927331::t_a556a51d7d578a 46-47
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogMessageEventTopicUnsubscribe.cs
+  s_bfe51e76927331::t_dd5a0dc57dad79 1-17
+examples/Mailtrap.Example.ContactImports/Program.cs
+  s_bfe51e76927331::t_d0af1d5b4e5882 1-3,6,11-12,50-56,86-117
+  s_bfe51e76927331::t_042437cd95ec15 118
+tests/Mailtrap.IntegrationTests/SubscriptionTopics/SubscriptionTopicIntegrationTests.cs
+  s_bfe51e76927331::t_2a9713812ffb47 1-27,29-32,35-47,49-197,201-203,205-234
+  s_bfe51e76927331::t_05f8510a04b9f4 28,33-34,48
+  s_bfe51e76927331::t_4d4457cac3c045 198-200,204
+tests/Mailtrap.IntegrationTests/Contacts/Create_WithSubscriptionTopics_ServiceUnavailable.json
+  s_bfe51e76927331::t_ee667314f4caa4 1-3
+tests/Mailtrap.UnitTests/MailtrapClientTests.cs
+  s_bfe51e76927331::t_a556a51d7d578a 169-219
+src/Mailtrap.Abstractions/EmailLogs/Converters/EmailLogMessageEventJsonConverter.cs
+  s_bfe51e76927331::t_dd5a0dc57dad79 1-89
+tests/Mailtrap.IntegrationTests/EmailCampaigns/GetDetails_Success.json
+  s_bfe51e76927331::t_04e7747b913656 34-35
+tests/Mailtrap.IntegrationTests/Contacts/GetDetails_WithSubscriptionTopics_Success.json
+  s_bfe51e76927331::t_ee667314f4caa4 1-26
+src/Mailtrap/Core/Http/ResponseHandlers/HttpResponseHandler.cs
+  s_bfe51e76927331::t_f6eeade0e7d490 41-43,47-59,62-72
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogMessageEventUnknown.cs
+  s_bfe51e76927331::t_dd5a0dc57dad79 1-40
+tests/Mailtrap.IntegrationTests/SubscriptionTopics/GetDetails_Success.json
+  s_bfe51e76927331::t_2a9713812ffb47 1-11
+src/Mailtrap.Abstractions/Contacts/Validators/ContactSubscriptionTopicValidator.cs
+  s_bfe51e76927331::t_22f92697f4c94e 1-32
+examples/Mailtrap.Example.SubscriptionTopics/appsettings.json
+  s_bfe51e76927331::t_10884ae79dbefa 1-17
+examples/Mailtrap.Example.EmailCampaigns/EmailCampaigns.cs
+  s_bfe51e76927331::t_d0af1d5b4e5882 2,5,9,86-89,156-171
+src/Mailtrap/SubscriptionTopics/Responses/SubscriptionTopicListResponseDto.cs
+  s_bfe51e76927331::t_5591cc33c6adcc 1-31
+tests/Mailtrap.IntegrationTests/Contacts/Update_WithSubscriptionTopics_Unprocessable.json
+  s_bfe51e76927331::t_ee667314f4caa4 1-5
+src/Mailtrap.Abstractions/GlobalUsings.cs
+  s_bfe51e76927331::t_a4e40b8b4a516f 97-98
+  s_bfe51e76927331::t_dd5a0dc57dad79 60
+src/Mailtrap.Abstractions/Contacts/Models/ContactSubscriptionTopic.cs
+  s_bfe51e76927331::t_22f92697f4c94e 1-48
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "2b34fba52f385c13a55017e635496edacec421b5",
+  "prompts": {},
+  "sessions": {
+    "s_bfe51e76927331": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "12f6715d-0a5c-49fd-822b-722d318d46f3",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Maciej Walusiak <maciej.walusiak@railsware.com>"
+    }
+  }
+}

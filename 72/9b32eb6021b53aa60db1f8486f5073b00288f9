@@ -1,0 +1,63 @@
+tests/Mailtrap.IntegrationTests/EmailCampaigns/GetAll_Success.json
+  s_c6e26a339d62e5::t_1697fd8b60184c 33
+examples/Mailtrap.Example.ContactImports/Program.cs
+  s_c6e26a339d62e5::t_1697fd8b60184c 1
+src/Mailtrap.Abstractions/Webhooks/Requests/CreateWebhookRequest.cs
+  s_c6e26a339d62e5::t_1697fd8b60184c 26,72,86
+src/Mailtrap.Abstractions/Webhooks/Requests/UpdateWebhookRequest.cs
+  s_c6e26a339d62e5::t_1697fd8b60184c 47
+src/Mailtrap.Abstractions/Suppressions/Models/Suppression.cs
+  s_c6e26a339d62e5::t_1697fd8b60184c 25
+examples/Mailtrap.Example.Contact/Program.cs
+  s_c6e26a339d62e5::t_1697fd8b60184c 1
+src/Mailtrap.Abstractions/EmailCampaigns/Validators/UpdateEmailCampaignRequestValidator.cs
+  s_c6e26a339d62e5::t_1697fd8b60184c 6
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogMessageEvent.cs
+  s_c6e26a339d62e5::t_1697fd8b60184c 6,8-17,21
+tests/Mailtrap.IntegrationTests/EmailCampaigns/EmailCampaignIntegrationTests.cs
+  s_c6e26a339d62e5::t_1697fd8b60184c 240,415
+tests/Mailtrap.IntegrationTests/Suppressions/SuppressionsIntegrationTests.cs
+  s_c6e26a339d62e5::t_1697fd8b60184c 108,126
+examples/Mailtrap.Example.EmailCampaigns/EmailCampaigns.cs
+  s_c6e26a339d62e5::t_1697fd8b60184c 83
+src/Mailtrap.Abstractions/Contacts/Validators/ContactRequestValidator.cs
+  s_c6e26a339d62e5::t_1697fd8b60184c 6
+src/Mailtrap.Abstractions/Suppressions/Validators/CreateSuppressionRequestValidator.cs
+  s_c6e26a339d62e5::t_1697fd8b60184c 6
+src/Mailtrap.Abstractions/Webhooks/Validators/CreateWebhookRequestValidator.cs
+  s_c6e26a339d62e5::t_1697fd8b60184c 7,39
+tests/Mailtrap.IntegrationTests/EmailCampaigns/GetDetails_Success.json
+  s_c6e26a339d62e5::t_1697fd8b60184c 34
+tests/Mailtrap.UnitTests/EmailCampaigns/Requests/CreateEmailCampaignRequestTests.cs
+  s_c6e26a339d62e5::t_1697fd8b60184c 47
+tests/Mailtrap.UnitTests/EmailCampaigns/Requests/UpdateEmailCampaignRequestTests.cs
+  s_c6e26a339d62e5::t_1697fd8b60184c 34
+src/Mailtrap.Abstractions/Webhooks/Models/WebhookEventType.cs
+  s_c6e26a339d62e5::t_1697fd8b60184c 5
+README.md
+  s_c6e26a339d62e5::t_569227ac395136 276,278,280,298,304,307
+src/Mailtrap.Abstractions/EmailCampaigns/Validators/CreateEmailCampaignRequestValidator.cs
+  s_c6e26a339d62e5::t_1697fd8b60184c 6
+src/Mailtrap.Abstractions/Webhooks/Models/Webhook.cs
+  s_c6e26a339d62e5::t_1697fd8b60184c 47,78,90
+tests/Mailtrap.IntegrationTests/EmailCampaigns/Update_Success.json
+  s_c6e26a339d62e5::t_1697fd8b60184c 34
+src/Mailtrap/Core/Http/ResponseHandlers/HttpResponseHandler.cs
+  s_c6e26a339d62e5::t_1697fd8b60184c 41-51,55-62,64-72,74-79
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "729b32eb6021b53aa60db1f8486f5073b00288f9",
+  "prompts": {},
+  "sessions": {
+    "s_c6e26a339d62e5": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "12e96dfc-8e93-479f-9490-56d7dd7d2458",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Maciej Walusiak <maciej.walusiak@railsware.com>"
+    }
+  }
+}

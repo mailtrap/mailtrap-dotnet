@@ -1,0 +1,69 @@
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogMessageEventClick.cs
+  s_bfe51e76927331::t_7b3068862acf8d 10-11
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogMessageEventUnknown.cs
+  s_bfe51e76927331::t_7b3068862acf8d 25,38-40
+  s_bfe51e76927331::t_ee770cd3d5ef82 28-33
+  s_bfe51e76927331::t_cabbc9caf6a433 26-27
+tests/Mailtrap.UnitTests/Suppressions/CreateSuppressionRequestValidatorTests.cs
+  s_bfe51e76927331::t_7b3068862acf8d 61-69
+  s_bfe51e76927331::t_a8527d4b2b9ef5 60
+src/Mailtrap/Suppressions/SuppressionCollectionResource.cs
+  s_bfe51e76927331::t_7b3068862acf8d 58
+src/Mailtrap/Core/Http/ResponseHandlers/HttpResponseHandler.cs
+  s_bfe51e76927331::t_7b3068862acf8d 52,56,58,60-64,67
+tests/Mailtrap.UnitTests/Core/Http/StatusCodeHttpResponseHandlerTests.cs
+  s_bfe51e76927331::t_ab80cef0c2feff 57-59,66
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogMessageEventUnsubscribe.cs
+  s_bfe51e76927331::t_7b3068862acf8d 10-11
+src/Mailtrap.Abstractions/Webhooks/Validators/CreateWebhookRequestValidator.cs
+  s_bfe51e76927331::t_7b3068862acf8d 44,46-47,50
+src/Mailtrap.Abstractions/Suppressions/Validators/CreateSuppressionRequestValidator.cs
+  s_bfe51e76927331::t_7b3068862acf8d 7,34-39
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogMessageEventSuspension.cs
+  s_bfe51e76927331::t_7b3068862acf8d 10-11
+src/Mailtrap.Abstractions/Contacts/IContactResource.cs
+  s_bfe51e76927331::t_7b3068862acf8d 38
+src/Mailtrap.Abstractions/EmailLogs/Converters/EmailLogMessageEventJsonConverter.cs
+  s_bfe51e76927331::t_7b3068862acf8d 7,72,77
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogMessageEventSoftBounce.cs
+  s_bfe51e76927331::t_7b3068862acf8d 10-11
+src/Mailtrap.Abstractions/Suppressions/Models/SuppressionFilter.cs
+  s_bfe51e76927331::t_7b3068862acf8d 52,58
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogMessageEventSpam.cs
+  s_bfe51e76927331::t_7b3068862acf8d 10-11
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogMessageEvent.cs
+  s_bfe51e76927331::t_7b3068862acf8d 6,13
+  s_bfe51e76927331::t_8ab543f1926fe8 15-17
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogMessageEventDelivery.cs
+  s_bfe51e76927331::t_7b3068862acf8d 10-11
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogMessageEventTopicUnsubscribe.cs
+  s_bfe51e76927331::t_7b3068862acf8d 10-11
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogMessageEventReject.cs
+  s_bfe51e76927331::t_7b3068862acf8d 10-11
+tests/Mailtrap.IntegrationTests/Suppressions/SuppressionsIntegrationTests.cs
+  s_bfe51e76927331::t_7b3068862acf8d 168-170
+tests/Mailtrap.UnitTests/EmailLogs/EmailLogMessageEventsTests.cs
+  s_bfe51e76927331::t_7b3068862acf8d 127,137,139,144
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogMessageEventBounce.cs
+  s_bfe51e76927331::t_7b3068862acf8d 10-11
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogMessageEventOpen.cs
+  s_bfe51e76927331::t_7b3068862acf8d 10-11
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogMessageEventTopicResubscribe.cs
+  s_bfe51e76927331::t_7b3068862acf8d 10-11
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "9b3fcc2a45edf1c0b88e1cd5822cafe467f38723",
+  "prompts": {},
+  "sessions": {
+    "s_bfe51e76927331": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "12f6715d-0a5c-49fd-822b-722d318d46f3",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Maciej Walusiak <maciej.walusiak@railsware.com>"
+    }
+  }
+}

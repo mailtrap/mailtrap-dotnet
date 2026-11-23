@@ -1,0 +1,22 @@
+tests/Mailtrap.IntegrationTests/SubscriptionTopics/SubscriptionTopicIntegrationTests.cs
+  s_b8b3ce0336cac9::t_c5124086218019 192
+  s_b8b3ce0336cac9::t_480e7bc67b6fa1 197
+src/Mailtrap.Abstractions/SubscriptionTopics/ISubscriptionTopicCollectionResource.cs
+  s_b8b3ce0336cac9::t_c5124086218019 9-10
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "2c82059c541de07c1b0378633557f89b1d90c2b5",
+  "prompts": {},
+  "sessions": {
+    "s_b8b3ce0336cac9": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1bff079f-df2a-4d84-baf7-862d4c040704",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Maciej Walusiak <maciej.walusiak@railsware.com>"
+    }
+  }
+}

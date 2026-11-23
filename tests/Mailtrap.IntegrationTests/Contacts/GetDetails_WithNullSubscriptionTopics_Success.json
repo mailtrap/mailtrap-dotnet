@@ -1,0 +1,12 @@
+{
+  "data": {
+    "id": "018dd5e3-f6d2-7c00-8f9b-e5c3f2d8a132",
+    "status": "subscribed",
+    "email": "john.smith@example.com",
+    "fields": {},
+    "list_ids": [],
+    "created_at": 1742820600230,
+    "updated_at": 1742820600230,
+    "subscription_topics": null
+  }
+}

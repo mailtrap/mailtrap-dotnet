@@ -301,10 +301,10 @@ private static SendEmailRequest TemplateBasedRequest()
 
 ### Contacts Management
 
-- Contacts management – [`examples/Mailtrap.Example.Contact`](examples/Mailtrap.Example.Contact/)
+- Contacts management, including subscription topic preferences – [`examples/Mailtrap.Example.Contact`](examples/Mailtrap.Example.Contact/)
 - Contact lists management – [`examples/Mailtrap.Example.ContactLists`](examples/Mailtrap.Example.ContactLists/)
 - Contact fields management – [`examples/Mailtrap.Example.ContactFields`](examples/Mailtrap.Example.ContactFields/)
-- Contact import management – [`examples/Mailtrap.Example.ContactImports`](examples/Mailtrap.Example.ContactImports/)
+- Contact import management, including subscription topic preferences – [`examples/Mailtrap.Example.ContactImports`](examples/Mailtrap.Example.ContactImports/)
 - Contact export management – [`examples/Mailtrap.Example.ContactExports`](examples/Mailtrap.Example.ContactExports/)
 - Contact events management – [`examples/Mailtrap.Example.ContactEvents`](examples/Mailtrap.Example.ContactEvents/)
 

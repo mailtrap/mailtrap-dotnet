@@ -51,8 +51,7 @@ try
         return;
     }
 
-    // Get a single topic. A deleted topic is returned too, with DeletedAt set,
-    // since a campaign keeps a topic deleted after it was assigned.
+    // Get a single topic. A deleted topic is returned too, with DeletedAt set.
     SubscriptionTopic details = await mailtrapClient.SubscriptionTopic(firstTopic.Id).GetDetails();
     logger.LogInformation("Topic: {Topic}", details);
 }

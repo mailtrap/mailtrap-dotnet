@@ -1,0 +1,71 @@
+src/Mailtrap.Abstractions/Contacts/Requests/ContactRequest.cs
+  s_c6e26a339d62e5::t_e7ceeaa9f14156 35-48
+  s_c6e26a339d62e5::t_937f61f71c0c8c 34
+tests/Mailtrap.IntegrationTests/Contacts/Update_WithSubscriptionTopics_Success.json
+  s_c6e26a339d62e5::t_e7ceeaa9f14156 1-19
+examples/Mailtrap.Example.ContactImports/Program.cs
+  s_c6e26a339d62e5::t_e7ceeaa9f14156 1-3,6,11-12,50-56,86-117
+  s_c6e26a339d62e5::t_7d22562d9be65c 118
+tests/Mailtrap.IntegrationTests/Contacts/GetDetails_WithSubscriptionTopics_Success.json
+  s_c6e26a339d62e5::t_e7ceeaa9f14156 1-26
+src/Mailtrap/Core/Http/ResponseHandlers/HttpResponseHandler.cs
+  s_c6e26a339d62e5::t_e7ceeaa9f14156 41-43,47-54,56-63,65-71
+tests/Mailtrap.UnitTests/Core/Http/StatusCodeHttpResponseHandlerTests.cs
+  s_c6e26a339d62e5::t_e7ceeaa9f14156 30-82
+  s_c6e26a339d62e5::t_ce86afb6b9bb91 29
+tests/Mailtrap.IntegrationTests/Contacts/GetDetails_WithNullSubscriptionTopics_Success.json
+  s_c6e26a339d62e5::t_e7ceeaa9f14156 1-12
+src/Mailtrap.Abstractions/GlobalSuppressions.cs
+  s_c6e26a339d62e5::t_e7ceeaa9f14156 23-24
+src/Mailtrap.Abstractions/Contacts/Models/Contact.cs
+  s_c6e26a339d62e5::t_e7ceeaa9f14156 81-97
+src/Mailtrap.Abstractions/Contacts/Validators/ContactRequestValidator.cs
+  s_c6e26a339d62e5::t_e7ceeaa9f14156 6-7,22-25
+tests/Mailtrap.IntegrationTests/ContactImports/Create_Success_Request.json
+  s_c6e26a339d62e5::t_e7ceeaa9f14156 19-25
+src/Mailtrap.Abstractions/Contacts/Validators/ContactSubscriptionTopicValidator.cs
+  s_c6e26a339d62e5::t_e7ceeaa9f14156 1-32
+tests/Mailtrap.IntegrationTests/Contacts/Create_WithSubscriptionTopics_ServiceUnavailable.json
+  s_c6e26a339d62e5::t_e7ceeaa9f14156 1-3
+src/Mailtrap.Abstractions/Contacts/IContactCollectionResource.cs
+  s_c6e26a339d62e5::t_e7ceeaa9f14156 140-145
+tests/Mailtrap.IntegrationTests/GlobalUsings.cs
+  s_c6e26a339d62e5::t_e7ceeaa9f14156 19
+tests/Mailtrap.UnitTests/Contacts/Requests/ContactRequestTests.cs
+  s_c6e26a339d62e5::t_e7ceeaa9f14156 52-148
+src/Mailtrap.Abstractions/Contacts/IContactResource.cs
+  s_c6e26a339d62e5::t_e7ceeaa9f14156 36-39
+tests/Mailtrap.IntegrationTests/Contacts/Update_WithSubscriptionTopics_Unprocessable.json
+  s_c6e26a339d62e5::t_e7ceeaa9f14156 1-5
+src/Mailtrap.Abstractions/Contacts/Models/ContactSubscriptionTopic.cs
+  s_c6e26a339d62e5::t_e7ceeaa9f14156 1-48
+tests/Mailtrap.UnitTests/GlobalUsings.cs
+  s_c6e26a339d62e5::t_e7ceeaa9f14156 31
+tests/Mailtrap.IntegrationTests/Contacts/ContactsIntegrationTests.cs
+  s_c6e26a339d62e5::t_e7ceeaa9f14156 195-440,562-573
+README.md
+  s_c6e26a339d62e5::t_e7ceeaa9f14156 304,307
+examples/Mailtrap.Example.Contact/Program.cs
+  s_c6e26a339d62e5::t_e7ceeaa9f14156 1-3,9-10,72-80,85-91,103-134
+  s_c6e26a339d62e5::t_071897d32d955f 135
+tests/Mailtrap.IntegrationTests/Contacts/Create_WithSubscriptionTopics_Success.json
+  s_c6e26a339d62e5::t_e7ceeaa9f14156 1-18
+tests/Mailtrap.IntegrationTests/ContactImports/ContactImportIntegrationTests.cs
+  s_c6e26a339d62e5::t_e7ceeaa9f14156 46-55,66
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "702d4187d080c043f6f9853d9c0c8c1884ddf053",
+  "prompts": {},
+  "sessions": {
+    "s_c6e26a339d62e5": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "12e96dfc-8e93-479f-9490-56d7dd7d2458",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Maciej Walusiak <maciej.walusiak@railsware.com>"
+    }
+  }
+}

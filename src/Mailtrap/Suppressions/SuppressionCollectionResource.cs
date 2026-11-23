@@ -7,6 +7,7 @@ internal sealed class SuppressionCollectionResource : RestResource, ISuppression
     private const string StartTimeQueryParameter = "start_time";
     private const string EndTimeQueryParameter = "end_time";
     private const string LastIdQueryParameter = "last_id";
+    private const string IncludeTopicUnsubscriptionsQueryParameter = "include_topic_unsubscriptions";
 
 
     public SuppressionCollectionResource(IRestResourceCommandFactory restResourceCommandFactory, Uri resourceUri)
@@ -51,6 +52,12 @@ internal sealed class SuppressionCollectionResource : RestResource, ISuppression
         if (!string.IsNullOrWhiteSpace(filter.LastId))
         {
             result = result.AppendQueryParameter(LastIdQueryParameter, filter.LastId);
+        }
+
+        // The API opts in only on the literal "true"; bool.ToString() would send "True".
+        if (filter.IncludeTopicUnsubscriptions)
+        {
+            result = result.AppendQueryParameter(IncludeTopicUnsubscriptionsQueryParameter, "true");
         }
 
         return result;

@@ -7,6 +7,8 @@ namespace Mailtrap.EmailLogs.Models;
 public sealed record EmailLogMessageEventSoftBounce : EmailLogMessageEvent
 {
     /// <inheritdoc />
+    [JsonPropertyName("event_type")]
+    [JsonPropertyOrder(-1)]
     public override string EventType => "soft_bounce";
 
     /// <summary>

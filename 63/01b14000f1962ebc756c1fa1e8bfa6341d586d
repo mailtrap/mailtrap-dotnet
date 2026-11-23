@@ -1,0 +1,76 @@
+README.md
+  s_c6e26a339d62e5::t_6e9b85bf21ba9d 276,278
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogMessageEventTopicResubscribe.cs
+  s_c6e26a339d62e5::t_6e9b85bf21ba9d 1-19
+tests/Mailtrap.IntegrationTests/Suppressions/SuppressionsIntegrationTests.cs
+  s_c6e26a339d62e5::t_6e9b85bf21ba9d 12,109-110,128-129,157-233
+  s_c6e26a339d62e5::t_0a02b73d51d858 234-235
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogMessageEvent.cs
+  s_c6e26a339d62e5::t_6e9b85bf21ba9d 6-7,9,13,15-17
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogMessageEventTopicUnsubscribe.cs
+  s_c6e26a339d62e5::t_6e9b85bf21ba9d 1-19
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogMessageEventUnsubscribe.cs
+  s_c6e26a339d62e5::t_6e9b85bf21ba9d 10-11
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogMessageEventSoftBounce.cs
+  s_c6e26a339d62e5::t_6e9b85bf21ba9d 10-11
+src/Mailtrap.Abstractions/Suppressions/Models/Suppression.cs
+  s_c6e26a339d62e5::t_6e9b85bf21ba9d 25-26,185-197
+tests/Mailtrap.UnitTests/EmailLogs/EmailLogMessageEventsTests.cs
+  s_c6e26a339d62e5::t_6e9b85bf21ba9d 1-147
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogMessageEventUnknown.cs
+  s_c6e26a339d62e5::t_6e9b85bf21ba9d 1-47
+tests/Mailtrap.UnitTests/Suppressions/CreateSuppressionRequestValidatorTests.cs
+  s_c6e26a339d62e5::t_6e9b85bf21ba9d 50-69
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogMessageEventDelivery.cs
+  s_c6e26a339d62e5::t_6e9b85bf21ba9d 10-11
+src/Mailtrap.Abstractions/Suppressions/Models/SuppressionFilter.cs
+  s_c6e26a339d62e5::t_6e9b85bf21ba9d 45-58
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogMessageEventOpen.cs
+  s_c6e26a339d62e5::t_6e9b85bf21ba9d 10-11
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogMessageEventSpam.cs
+  s_c6e26a339d62e5::t_6e9b85bf21ba9d 10-11
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogMessageEventReject.cs
+  s_c6e26a339d62e5::t_6e9b85bf21ba9d 10-11
+examples/Mailtrap.Example.EmailLogs/Program.cs
+  s_c6e26a339d62e5::t_6e9b85bf21ba9d 64-65,74-105
+  s_c6e26a339d62e5::t_66cdc54873603c 106
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogMessageEventSuspension.cs
+  s_c6e26a339d62e5::t_6e9b85bf21ba9d 10-11
+src/Mailtrap/Suppressions/SuppressionCollectionResource.cs
+  s_c6e26a339d62e5::t_6e9b85bf21ba9d 10,57-60
+  s_c6e26a339d62e5::t_8cea786412028b 61-62
+src/Mailtrap.Abstractions/EmailLogs/Models/EventDetailsTopicSubscription.cs
+  s_c6e26a339d62e5::t_6e9b85bf21ba9d 1-20
+src/Mailtrap.Abstractions/EmailLogs/Converters/EmailLogMessageEventJsonConverter.cs
+  s_c6e26a339d62e5::t_6e9b85bf21ba9d 1-79
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogMessageEventClick.cs
+  s_c6e26a339d62e5::t_6e9b85bf21ba9d 10-11
+src/Mailtrap.Abstractions/GlobalUsings.cs
+  s_c6e26a339d62e5::t_6e9b85bf21ba9d 60
+src/Mailtrap.Abstractions/Suppressions/Models/SuppressionType.cs
+  s_c6e26a339d62e5::t_6e9b85bf21ba9d 43-57
+tests/Mailtrap.IntegrationTests/Suppressions/Fetch_WithTopicUnsubscriptions_Success.json
+  s_c6e26a339d62e5::t_6e9b85bf21ba9d 1-40
+examples/Mailtrap.Example.Suppression/Program.cs
+  s_c6e26a339d62e5::t_6e9b85bf21ba9d 70-81
+src/Mailtrap.Abstractions/Suppressions/Validators/CreateSuppressionRequestValidator.cs
+  s_c6e26a339d62e5::t_6e9b85bf21ba9d 6-7,32-39
+src/Mailtrap.Abstractions/EmailLogs/Models/EmailLogMessageEventBounce.cs
+  s_c6e26a339d62e5::t_6e9b85bf21ba9d 10-11
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "6301b14000f1962ebc756c1fa1e8bfa6341d586d",
+  "prompts": {},
+  "sessions": {
+    "s_c6e26a339d62e5": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "12e96dfc-8e93-479f-9490-56d7dd7d2458",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Maciej Walusiak <maciej.walusiak@railsware.com>"
+    }
+  }
+}

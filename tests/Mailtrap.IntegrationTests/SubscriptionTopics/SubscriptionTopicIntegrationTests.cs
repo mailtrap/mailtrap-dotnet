@@ -189,12 +189,12 @@ internal sealed class SubscriptionTopicIntegrationTests
     }
 
     [Test]
-    public async Task GetAll_Forbidden_WhenAccountHasNoSubscriptionTopics()
+    public async Task GetAll_Forbidden_WhenSubscriptionTopicsAreNotEnabled()
     {
         // Arrange
         var clientConfig = new MailtrapClientOptions(TestContext.CurrentContext.Random.GetString());
 
-        // Production answers an account without topics with an empty body.
+        // Production answers this 403 with an empty body.
         using var responseContent = new StringContent(string.Empty);
 
         using var mockHttp = new MockHttpMessageHandler();

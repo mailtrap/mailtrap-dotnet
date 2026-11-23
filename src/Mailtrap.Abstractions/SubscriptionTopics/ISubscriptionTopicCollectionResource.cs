@@ -6,7 +6,8 @@ namespace Mailtrap.SubscriptionTopics;
 /// </summary>
 /// <remarks>
 /// Subscription topics are read-only in the API: they are managed in the Mailtrap app.<br/>
-/// For an account without subscription topics, the API responds with HTTP 403.
+/// For an account that doesn't have subscription topics enabled (or a token without access to them),
+/// the API responds with HTTP 403.
 /// </remarks>
 public interface ISubscriptionTopicCollectionResource : IRestResource
 {

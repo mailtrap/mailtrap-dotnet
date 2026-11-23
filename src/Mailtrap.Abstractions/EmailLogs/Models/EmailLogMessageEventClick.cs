@@ -6,10 +6,15 @@ namespace Mailtrap.EmailLogs.Models;
 /// </summary>
 public sealed record EmailLogMessageEventClick : EmailLogMessageEvent
 {
+    /// <summary>
+    /// Value of <c>event_type</c> for this event.
+    /// </summary>
+    public const string Discriminator = "click";
+
     /// <inheritdoc />
     [JsonPropertyName("event_type")]
     [JsonPropertyOrder(-1)]
-    public override string EventType => "click";
+    public override string EventType => Discriminator;
 
     /// <summary>
     /// Click-specific details.

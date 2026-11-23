@@ -77,6 +77,21 @@ internal sealed class EmailLogMessageEventsTests
     }
 
     [Test]
+    public void RoundTrip_UnknownEventDirectly_KeepsEventType()
+    {
+        var json = """{ "event_type": "future_event", "details": { "value": "x" } }""";
+
+        var unknown = JsonSerializer.Deserialize<EmailLogMessageEventUnknown>(json, MailtrapJsonSerializerOptions.Default);
+
+        unknown!.EventType.Should().Be("future_event");
+        unknown.Details!.Value.GetProperty("value").GetString().Should().Be("x");
+
+        var written = JsonSerializer.Serialize(unknown, MailtrapJsonSerializerOptions.NotIndented);
+
+        written.Should().StartWith("""{"event_type":"future_event",""");
+    }
+
+    [Test]
     public void Deserialize_MessageWithUnknownEvent_DoesNotFail()
     {
         var json = """

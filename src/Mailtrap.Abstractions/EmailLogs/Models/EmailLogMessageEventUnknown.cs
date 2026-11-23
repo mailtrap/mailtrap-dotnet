@@ -22,22 +22,33 @@ public sealed record EmailLogMessageEventUnknown : EmailLogMessageEvent
     {
         Ensure.NotNull(eventType, nameof(eventType));
 
-        EventType = eventType;
+        _eventType = eventType;
     }
 
-    // For serializer metadata only: the converter creates unknown events through the public constructor,
-    // whose parameter would otherwise bind to both EventType declarations.
+    // For the serializer, which fills the event type through RawEventType when this type is read directly:
+    // the public constructor's parameter would bind to both EventType declarations.
     [JsonConstructor]
     private EmailLogMessageEventUnknown()
     {
-        EventType = string.Empty;
+        _eventType = string.Empty;
     }
 
 
+    private string _eventType;
+
     /// <inheritdoc />
+    [JsonIgnore]
+    public override string EventType => _eventType;
+
+    // Maps event_type both ways: an override can't add the setter the serializer needs.
+    [JsonInclude]
     [JsonPropertyName("event_type")]
     [JsonPropertyOrder(-1)]
-    public override string EventType { get; }
+    private string RawEventType
+    {
+        get => _eventType;
+        set => _eventType = value ?? string.Empty;
+    }
 
     /// <summary>
     /// Raw event details, or <see langword="null"/> when the event has none.

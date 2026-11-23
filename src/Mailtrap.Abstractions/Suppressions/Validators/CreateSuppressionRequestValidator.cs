@@ -31,11 +31,7 @@ public sealed class CreateSuppressionRequestValidator : AbstractValidator<Create
             .WithMessage("'SendingStream' must be either transactional or bulk.");
 
         RuleFor(r => r.Type)
-            .Must(t => t is null
-                || t == SuppressionType.HardBounce
-                || t == SuppressionType.SpamComplaint
-                || t == SuppressionType.Unsubscription
-                || t == SuppressionType.ManualImport)
-            .WithMessage("'Type' must be hard bounce, spam complaint, unsubscription or manual import.");
+            .Must(t => t is null || (SuppressionType.IsDefined(t) && t != SuppressionType.TopicUnsubscription))
+            .WithMessage("'Type' must be a defined suppression type other than topic unsubscription.");
     }
 }

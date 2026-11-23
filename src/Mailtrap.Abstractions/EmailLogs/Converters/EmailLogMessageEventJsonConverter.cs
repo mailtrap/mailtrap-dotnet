@@ -20,17 +20,17 @@ internal sealed class EmailLogMessageEventJsonConverter : JsonConverter<EmailLog
 
     private static readonly Dictionary<string, Type> s_eventTypes = new(StringComparer.Ordinal)
     {
-        ["delivery"] = typeof(EmailLogMessageEventDelivery),
-        ["open"] = typeof(EmailLogMessageEventOpen),
-        ["click"] = typeof(EmailLogMessageEventClick),
-        ["soft_bounce"] = typeof(EmailLogMessageEventSoftBounce),
-        ["bounce"] = typeof(EmailLogMessageEventBounce),
-        ["spam"] = typeof(EmailLogMessageEventSpam),
-        ["unsubscribe"] = typeof(EmailLogMessageEventUnsubscribe),
-        ["suspension"] = typeof(EmailLogMessageEventSuspension),
-        ["reject"] = typeof(EmailLogMessageEventReject),
-        ["topic_unsubscribe"] = typeof(EmailLogMessageEventTopicUnsubscribe),
-        ["topic_resubscribe"] = typeof(EmailLogMessageEventTopicResubscribe)
+        [EmailLogMessageEventDelivery.Discriminator] = typeof(EmailLogMessageEventDelivery),
+        [EmailLogMessageEventOpen.Discriminator] = typeof(EmailLogMessageEventOpen),
+        [EmailLogMessageEventClick.Discriminator] = typeof(EmailLogMessageEventClick),
+        [EmailLogMessageEventSoftBounce.Discriminator] = typeof(EmailLogMessageEventSoftBounce),
+        [EmailLogMessageEventBounce.Discriminator] = typeof(EmailLogMessageEventBounce),
+        [EmailLogMessageEventSpam.Discriminator] = typeof(EmailLogMessageEventSpam),
+        [EmailLogMessageEventUnsubscribe.Discriminator] = typeof(EmailLogMessageEventUnsubscribe),
+        [EmailLogMessageEventSuspension.Discriminator] = typeof(EmailLogMessageEventSuspension),
+        [EmailLogMessageEventReject.Discriminator] = typeof(EmailLogMessageEventReject),
+        [EmailLogMessageEventTopicUnsubscribe.Discriminator] = typeof(EmailLogMessageEventTopicUnsubscribe),
+        [EmailLogMessageEventTopicResubscribe.Discriminator] = typeof(EmailLogMessageEventTopicResubscribe)
     };
 
 

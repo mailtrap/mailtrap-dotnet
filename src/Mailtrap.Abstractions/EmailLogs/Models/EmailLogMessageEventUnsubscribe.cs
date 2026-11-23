@@ -6,10 +6,15 @@ namespace Mailtrap.EmailLogs.Models;
 /// </summary>
 public sealed record EmailLogMessageEventUnsubscribe : EmailLogMessageEvent
 {
+    /// <summary>
+    /// Value of <c>event_type</c> for this event.
+    /// </summary>
+    public const string Discriminator = "unsubscribe";
+
     /// <inheritdoc />
     [JsonPropertyName("event_type")]
     [JsonPropertyOrder(-1)]
-    public override string EventType => "unsubscribe";
+    public override string EventType => Discriminator;
 
     /// <summary>
     /// Unsubscribe-specific details.

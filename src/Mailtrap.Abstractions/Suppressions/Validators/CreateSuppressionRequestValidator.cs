@@ -3,7 +3,8 @@ namespace Mailtrap.Suppressions.Validators;
 
 /// <summary>
 /// Validator for <see cref="CreateSuppressionRequest"/>.<br/>
-/// Ensures the email address, sending domain identifier and sending stream are provided.
+/// Ensures the email address, sending domain identifier and sending stream are provided,
+/// and that the type is not <see cref="SuppressionType.TopicUnsubscription"/>, which the API returns but never creates.
 /// </summary>
 public sealed class CreateSuppressionRequestValidator : AbstractValidator<CreateSuppressionRequest>
 {
@@ -28,5 +29,9 @@ public sealed class CreateSuppressionRequestValidator : AbstractValidator<Create
         RuleFor(r => r.SendingStream)
             .NotEqual(SendingStream.Unknown)
             .WithMessage("'SendingStream' must be either transactional or bulk.");
+
+        RuleFor(r => r.Type)
+            .NotEqual(SuppressionType.TopicUnsubscription)
+            .WithMessage("'Type' can't be 'topic unsubscription': topic unsubscriptions are read-only.");
     }
 }

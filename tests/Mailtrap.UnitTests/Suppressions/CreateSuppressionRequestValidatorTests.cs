@@ -48,6 +48,16 @@ internal sealed class CreateSuppressionRequestValidatorTests
     }
 
     [Test]
+    public void WithTopicUnsubscriptionType_ShouldFail()
+    {
+        var request = ValidRequest() with { Type = SuppressionType.TopicUnsubscription };
+
+        var result = s_validator.TestValidate(request);
+
+        result.ShouldHaveValidationErrorFor(r => r.Type);
+    }
+
+    [Test]
     public void WithoutType_ShouldPass()
     {
         var request = ValidRequest() with { Type = null };

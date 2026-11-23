@@ -27,60 +27,6 @@ internal sealed class StatusCodeHttpResponseHandlerTests
     }
 
     [Test]
-    public async Task ProcessResponse_ShouldThrowExceptionWithErrors_WhenHttpCodeIs5xxWithJsonBody()
-    {
-        // Arrange
-        var statusCode = HttpStatusCode.ServiceUnavailable;
-
-        using var httpMessage = new HttpResponseMessage(statusCode)
-        {
-            RequestMessage = new HttpRequestMessage(HttpMethod.Post, "http://test.com"),
-            Content = new StringContent(
-                "{\"errors\":\"The contact was saved, but its subscription topic preferences were not.\"}",
-                Encoding.UTF8,
-                MimeTypes.Application.Json)
-        };
-
-        var handler = new StatusCodeHttpResponseHandler(
-            MailtrapClientOptions.Default.ToJsonSerializerOptions(), httpMessage);
-
-        var act = () => handler.ProcessResponse();
-
-
-        // Assert
-        await act.Should()
-            .ThrowAsync<HttpRequestFailedException>()
-            .Where(ex => ex.StatusCode == statusCode)
-            .WithMessage("*The contact was saved, but its subscription topic preferences were not.*");
-    }
-
-    [TestCase(HttpStatusCode.BadGateway)]
-    [TestCase(HttpStatusCode.TooManyRequests)]
-    public async Task ProcessResponse_ShouldThrowExceptionWithoutDetails_WhenBodyIsNotJson(HttpStatusCode statusCode)
-    {
-        // Arrange - a proxy's HTML error page must not turn into a JSON parsing error.
-
-        using var httpMessage = new HttpResponseMessage(statusCode)
-        {
-            RequestMessage = new HttpRequestMessage(HttpMethod.Get, "http://test.com"),
-            Content = new StringContent("<html><body>Proxy error</body></html>", Encoding.UTF8, "text/html")
-        };
-
-        var handler = new StatusCodeHttpResponseHandler(
-            MailtrapClientOptions.Default.ToJsonSerializerOptions(), httpMessage);
-
-        var act = () => handler.ProcessResponse();
-
-
-        // Assert
-        var exception = await act.Should()
-            .ThrowAsync<HttpRequestFailedException>()
-            .Where(ex => ex.StatusCode == statusCode);
-
-        exception.Which.Message.Should().NotContain("Error details");
-    }
-
-    [Test]
     public async Task ProcessResponse_ShouldThrowExceptionWithDetails_WhenHttpCodeIs4xx()
     {
         // Arrange

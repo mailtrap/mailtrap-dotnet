@@ -77,7 +77,6 @@ internal sealed class EmailCampaignIntegrationTests
         campaign.RecipientTotalCount.Should().BeNull();
         campaign.ContactListIds.Should().Equal(55, 56);
         campaign.ContactSegmentIds.Should().Equal(12);
-        campaign.SubscriptionTopicId.Should().BeNull();
 
         // The list endpoint omits template bodies.
         campaign.Template.Should().NotBeNull();
@@ -208,7 +207,6 @@ internal sealed class EmailCampaignIntegrationTests
         result.Template.MergeTags.Should().Equal("first_name");
         result.Template.BodyHtml.Should().Contain("__unsubscribe_url__");
         result.Template.BodyText.Should().BeNull();
-        result.SubscriptionTopicId.Should().Be(12);
     }
 
     [Test]
@@ -239,8 +237,7 @@ internal sealed class EmailCampaignIntegrationTests
                 Subject = "Spring is here — 30% off"
             },
             ContactListIds = [55, 56],
-            ContactSegmentIds = [12],
-            SubscriptionTopicId = 12
+            ContactSegmentIds = [12]
         };
 
         using var responseContent = await Feature.LoadFileToStringContent();
@@ -415,8 +412,7 @@ internal sealed class EmailCampaignIntegrationTests
                 MergeTags = ["first_name"]
             },
             ContactListIds = [55],
-            ContactSegmentIds = [],
-            SubscriptionTopicId = 15
+            ContactSegmentIds = []
         };
 
         using var responseContent = await Feature.LoadFileToStringContent();
@@ -462,7 +458,6 @@ internal sealed class EmailCampaignIntegrationTests
         result.ContactSegmentIds.Should().BeEmpty();
         result.Template.Should().NotBeNull();
         result.Template!.Subject.Should().Be("New subject");
-        result.SubscriptionTopicId.Should().Be(15);
     }
 
     [Test]

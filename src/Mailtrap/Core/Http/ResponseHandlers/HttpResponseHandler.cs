@@ -38,37 +38,45 @@ internal abstract class HttpResponseHandler<T> : IHttpResponseHandler<T>
 
     protected virtual async Task<MailtrapApiException> ProcessFailureResponse()
     {
-        var content = _httpResponseMessage.Content is null
-            ? null
-            : await _httpResponseMessage.Content
+        if (_httpResponseMessage.StatusCode.GetHashCode() >= 500)
+        {
+            return new HttpRequestFailedException(
+                _httpResponseMessage.RequestMessage.RequestUri,
+                _httpResponseMessage.RequestMessage.Method,
+                _httpResponseMessage.StatusCode,
+                _httpResponseMessage.ReasonPhrase);
+        }
+        else
+        {
+            var content = await _httpResponseMessage.Content
                 .ReadAsStringAsync()
                 .ConfigureAwait(false);
 
-        return new HttpRequestFailedException(
-            _httpResponseMessage.RequestMessage.RequestUri,
-            _httpResponseMessage.RequestMessage.Method,
-            _httpResponseMessage.StatusCode,
-            _httpResponseMessage.ReasonPhrase,
-            TryReadProblem(content)?.ToString());
-    }
+            if (string.IsNullOrWhiteSpace(content))
+            {
+                return new HttpRequestFailedException(
+                    _httpResponseMessage.RequestMessage.RequestUri,
+                    _httpResponseMessage.RequestMessage.Method,
+                    _httpResponseMessage.StatusCode,
+                    _httpResponseMessage.ReasonPhrase);
+            }
 
+            var problem = JsonSerializer.Deserialize<Problem>(content, _jsonSerializerOptions);
+            if (problem is null)
+            {
+                return new HttpRequestFailedException(
+                    _httpResponseMessage.RequestMessage.RequestUri,
+                    _httpResponseMessage.RequestMessage.Method,
+                    _httpResponseMessage.StatusCode,
+                    _httpResponseMessage.ReasonPhrase);
+            }
 
-    // An error body may come from a proxy instead of the API, such as an HTML error page,
-    // so its error details are read only when it is JSON.
-    private Problem? TryReadProblem(string? content)
-    {
-        if (string.IsNullOrWhiteSpace(content))
-        {
-            return null;
-        }
-
-        try
-        {
-            return JsonSerializer.Deserialize<Problem>(content!, _jsonSerializerOptions);
-        }
-        catch (JsonException)
-        {
-            return null;
+            return new HttpRequestFailedException(
+                _httpResponseMessage.RequestMessage.RequestUri,
+                _httpResponseMessage.RequestMessage.Method,
+                _httpResponseMessage.StatusCode,
+                _httpResponseMessage.ReasonPhrase,
+                problem.ToString());
         }
     }
 }

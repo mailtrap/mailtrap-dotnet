@@ -57,7 +57,6 @@ global using Mailtrap.EmailCampaigns.Models;
 global using Mailtrap.EmailCampaigns.Requests;
 global using Mailtrap.EmailCampaigns.Validators;
 global using Mailtrap.EmailLogs;
-global using Mailtrap.EmailLogs.Converters;
 global using Mailtrap.EmailLogs.Models;
 global using Mailtrap.Emails;
 global using Mailtrap.Emails.Extensions;

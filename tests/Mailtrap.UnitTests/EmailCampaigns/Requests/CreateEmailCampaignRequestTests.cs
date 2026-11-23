@@ -44,8 +44,7 @@ internal sealed class CreateEmailCampaignRequestTests
             DeliveryMode = DeliveryMode.Gradual,
             DeliveryOptions = new EmailCampaignDeliveryOptions { EmailsPerHour = 1000 },
             ContactListIds = [55, 56],
-            ContactSegmentIds = [12],
-            SubscriptionTopicId = 12
+            ContactSegmentIds = [12]
         };
 
         // Act
@@ -60,7 +59,6 @@ internal sealed class CreateEmailCampaignRequestTests
         json.Should().Contain("\"delivery_options\":{\"emails_per_hour\":1000}");
         json.Should().Contain("\"contact_list_ids\":[55,56]");
         json.Should().Contain("\"contact_segment_ids\":[12]");
-        json.Should().Contain("\"subscription_topic_id\":12");
     }
 
     [Test]
@@ -84,6 +82,5 @@ internal sealed class CreateEmailCampaignRequestTests
         json.Should().NotContain("delivery_options");
         json.Should().NotContain("contact_list_ids");
         json.Should().NotContain("contact_segment_ids");
-        json.Should().NotContain("subscription_topic_id");
     }
 }

@@ -3,8 +3,7 @@ namespace Mailtrap.EmailCampaigns.Validators;
 
 /// <summary>
 /// Validator for <see cref="CreateEmailCampaignRequest"/>.<br/>
-/// Ensures the campaign name, sending domain identifier, From local part and template subject are provided,
-/// and that a provided subscription topic identifier is positive.
+/// Ensures the campaign name, sending domain identifier, From local part and template subject are provided.
 /// </summary>
 public sealed class CreateEmailCampaignRequestValidator : AbstractValidator<CreateEmailCampaignRequest>
 {
@@ -41,13 +40,6 @@ public sealed class CreateEmailCampaignRequestValidator : AbstractValidator<Crea
             RuleFor(r => r.TemplateAttributes!.Subject)
                 .NotEmpty()
                 .WithMessage("'TemplateAttributes.Subject' must not be empty.");
-        });
-
-        When(r => r.SubscriptionTopicId is not null, () =>
-        {
-            RuleFor(r => r.SubscriptionTopicId)
-                .GreaterThan(0)
-                .WithMessage("'SubscriptionTopicId' must be a positive subscription topic ID.");
         });
     }
 }

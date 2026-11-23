@@ -40,19 +40,4 @@ public sealed record SuppressionType : StringEnum<SuppressionType>
     /// Represents "manual import" suppression type.
     /// </value>
     public static readonly SuppressionType ManualImport = Define("manual import");
-
-    /// <summary>
-    /// Gets the value representing "topic unsubscription" suppression type:
-    /// a contact unsubscribed from a single subscription topic.
-    /// </summary>
-    ///
-    /// <value>
-    /// Represents "topic unsubscription" suppression type.
-    /// </value>
-    ///
-    /// <remarks>
-    /// Returned only when <see cref="SuppressionFilter.IncludeTopicUnsubscriptions"/> is set.
-    /// It can't be used to create or delete a suppression: the API rejects both.
-    /// </remarks>
-    public static readonly SuppressionType TopicUnsubscription = Define("topic unsubscription");
 }

@@ -31,7 +31,6 @@
       "merge_tags": ["first_name"],
       "body_html": "<html><body><h1>Hi {{first_name}}!</h1><p><a href=\"__unsubscribe_url__\">Unsubscribe</a></p></body></html>",
       "body_text": null
-    },
-    "subscription_topic_id": 12
+    }
   }
 }

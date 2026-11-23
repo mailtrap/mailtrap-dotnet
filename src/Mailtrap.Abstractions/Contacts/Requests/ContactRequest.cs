@@ -32,21 +32,6 @@ public record ContactRequest : IValidatable
     public IDictionary<string, object> Fields { get; } = new Dictionary<string, object>();
 
     /// <summary>
-    /// Gets or sets the contact's subscription status per subscription topic and sending domain.
-    /// </summary>
-    ///
-    /// <value>
-    /// Entries to set, or <see langword="null"/> to leave the contact's topic preferences unchanged.
-    /// </value>
-    ///
-    /// <remarks>
-    /// Pairs of topic and domain left out keep their current status.<br />
-    /// For an account without subscription topics, the API rejects a request with this set (HTTP 422).
-    /// </remarks>
-    [JsonPropertyName("subscription_topics")]
-    public IList<ContactSubscriptionTopic>? SubscriptionTopics { get; set; }
-
-    /// <summary>
     /// Primary instance constructor.
     /// </summary>
     ///

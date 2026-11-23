@@ -273,11 +273,11 @@ private static SendEmailRequest TemplateBasedRequest()
 - Send emails with attachments – [`examples/Mailtrap.Example.Email.Send`](examples/Mailtrap.Example.Email.Send/)
 - Batch send (Transactional and Bulk streams) – [`examples/Mailtrap.Example.Email.BatchSend`](examples/Mailtrap.Example.Email.BatchSend/)
 - Domain management, settings and company info – [`examples/Mailtrap.Example.Domain`](examples/Mailtrap.Example.Domain/)
-- Suppressions management, including topic unsubscriptions – [`examples/Mailtrap.Example.Suppression`](examples/Mailtrap.Example.Suppression/)
+- Suppressions management – [`examples/Mailtrap.Example.Suppression`](examples/Mailtrap.Example.Suppression/)
 - Tracking opt-outs management – [`examples/Mailtrap.Example.TrackingOptOut`](examples/Mailtrap.Example.TrackingOptOut/)
-- Email logs (list with filters and pagination; get message details with events, including subscription topic events) – [`examples/Mailtrap.Example.EmailLogs`](examples/Mailtrap.Example.EmailLogs/)
+- Email logs (list with filters and pagination; get message details with events) – [`examples/Mailtrap.Example.EmailLogs`](examples/Mailtrap.Example.EmailLogs/)
 - Email sending statistics – [`examples/Mailtrap.Example.Stats`](examples/Mailtrap.Example.Stats/)
-- Webhooks management, including campaigns webhooks – [`examples/Mailtrap.Example.Webhooks`](examples/Mailtrap.Example.Webhooks/)
+- Webhooks management – [`examples/Mailtrap.Example.Webhooks`](examples/Mailtrap.Example.Webhooks/)
 - Verifying webhook signatures – [`examples/Mailtrap.Example.WebhookSignature`](examples/Mailtrap.Example.WebhookSignature/)
 
 ### Inbound Email
@@ -295,16 +295,16 @@ private static SendEmailRequest TemplateBasedRequest()
 
 ### Email Marketing
 
-- Email campaigns management (CRUD, lifecycle actions, subscription topic, and statistics) – [`examples/Mailtrap.Example.EmailCampaigns`](examples/Mailtrap.Example.EmailCampaigns/)
+- Email campaigns management (CRUD, lifecycle actions, and statistics) – [`examples/Mailtrap.Example.EmailCampaigns`](examples/Mailtrap.Example.EmailCampaigns/)
 - Email Marketing statistics (campaigns and automations) – [`examples/Mailtrap.Example.MarketingStats`](examples/Mailtrap.Example.MarketingStats/)
 - Subscription topics (list and get) – [`examples/Mailtrap.Example.SubscriptionTopics`](examples/Mailtrap.Example.SubscriptionTopics/)
 
 ### Contacts Management
 
-- Contacts management, including subscription topic preferences – [`examples/Mailtrap.Example.Contact`](examples/Mailtrap.Example.Contact/)
+- Contacts management – [`examples/Mailtrap.Example.Contact`](examples/Mailtrap.Example.Contact/)
 - Contact lists management – [`examples/Mailtrap.Example.ContactLists`](examples/Mailtrap.Example.ContactLists/)
 - Contact fields management – [`examples/Mailtrap.Example.ContactFields`](examples/Mailtrap.Example.ContactFields/)
-- Contact import management, including subscription topic preferences – [`examples/Mailtrap.Example.ContactImports`](examples/Mailtrap.Example.ContactImports/)
+- Contact import management – [`examples/Mailtrap.Example.ContactImports`](examples/Mailtrap.Example.ContactImports/)
 - Contact export management – [`examples/Mailtrap.Example.ContactExports`](examples/Mailtrap.Example.ContactExports/)
 - Contact events management – [`examples/Mailtrap.Example.ContactEvents`](examples/Mailtrap.Example.ContactEvents/)
 

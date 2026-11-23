@@ -43,16 +43,6 @@ internal sealed class ContactImportIntegrationTests
         var request = JsonSerializer.Deserialize<CreateContactImportRequest>(requestContent, _jsonSerializerOptions);
         request.Should().NotBeNull();
 
-        // One contact sets its subscription topics, the other leaves them out and sends none.
-        request!.Contacts[0].SubscriptionTopics.Should().ContainSingle()
-            .Which.Should().BeEquivalentTo(new ContactSubscriptionTopic
-            {
-                SubscriptionTopicId = 12,
-                DomainId = 4321,
-                Status = ContactStatus.Unsubscribed
-            });
-        request.Contacts[1].SubscriptionTopics.Should().BeNull();
-
         using var responseContent = await Feature.LoadFileToStringContent(fileName + "_Response");
         var expectedResponse = await responseContent.DeserializeStringContentAsync<ContactImport>(_jsonSerializerOptions);
 
@@ -63,7 +53,6 @@ internal sealed class ContactImportIntegrationTests
             .WithHeaders("Accept", MimeTypes.Application.Json)
             .WithHeaders("User-Agent", HeaderValues.UserAgent.ToString())
             .WithJsonContent(request, _jsonSerializerOptions)
-            .WithPartialContent("\"subscription_topics\":[{\"subscription_topic_id\":12,\"domain_id\":4321,\"status\":\"unsubscribed\"}]")
             .Respond(HttpStatusCode.Created, responseContent);
 
         var serviceCollection = new ServiceCollection();

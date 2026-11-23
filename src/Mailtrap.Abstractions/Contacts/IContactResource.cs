@@ -33,10 +33,6 @@ public interface IContactResource : IRestResource
     /// <returns>
     /// Updated contact details.
     /// </returns>
-    ///
-    /// <remarks>
-    /// <inheritdoc cref="IContactCollectionResource.Create(CreateContactRequest, CancellationToken)" path="/remarks"/>
-    /// </remarks>
     public Task<UpdateContactResponse> Update(UpdateContactRequest request, CancellationToken cancellationToken = default);
 
     /// <summary>

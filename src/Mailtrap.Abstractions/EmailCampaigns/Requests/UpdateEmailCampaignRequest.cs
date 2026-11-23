@@ -136,25 +136,6 @@ public sealed record UpdateEmailCampaignRequest : IValidatable
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     public IList<long>? ContactSegmentIds { get; set; }
 
-    /// <summary>
-    /// Gets or sets the identifier of the subscription topic the campaign is sent under,
-    /// as returned by the Subscription Topics endpoints.<br/>
-    /// The topic must not be deleted and must cover the campaign's sending domain.
-    /// A campaign's topic can be changed, but not removed.
-    /// </summary>
-    ///
-    /// <value>
-    /// Subscription topic identifier, or <see langword="null"/> to leave unchanged.
-    /// </value>
-    ///
-    /// <remarks>
-    /// For an account without subscription topics, the API ignores this field.
-    /// </remarks>
-    [JsonPropertyName("subscription_topic_id")]
-    [JsonPropertyOrder(11)]
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-    public long? SubscriptionTopicId { get; set; }
-
 
     /// <inheritdoc/>
     public ValidationResult Validate()

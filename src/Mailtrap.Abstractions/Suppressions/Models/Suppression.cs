@@ -22,8 +22,7 @@ public sealed record Suppression
     /// </summary>
     ///
     /// <value>
-    /// Suppression type. Allowed values: "hard bounce", "spam complaint", "unsubscription", "manual import",
-    /// and "topic unsubscription" when <see cref="SuppressionFilter.IncludeTopicUnsubscriptions"/> is set.
+    /// Suppression type. Allowed values: "hard bounce", "spam complaint", "unsubscription", "manual import".
     /// </value>
     [JsonPropertyName("type")]
     [JsonPropertyOrder(2)]
@@ -182,17 +181,4 @@ public sealed record Suppression
     [JsonPropertyName("message_subject")]
     [JsonPropertyOrder(16)]
     public string? MessageSubject { get; set; }
-
-    /// <summary>
-    /// Gets or sets the identifier of the subscription topic the contact unsubscribed from,
-    /// as returned by the Subscription Topics endpoints.
-    /// </summary>
-    ///
-    /// <value>
-    /// Subscription topic identifier for a <see cref="SuppressionType.TopicUnsubscription"/>,
-    /// or <see langword="null"/> otherwise.
-    /// </value>
-    [JsonPropertyName("subscription_topic_id")]
-    [JsonPropertyOrder(17)]
-    public long? SubscriptionTopicId { get; set; }
 }

@@ -7,8 +7,6 @@ namespace Mailtrap.EmailLogs.Models;
 public sealed record EmailLogMessageEventReject : EmailLogMessageEvent
 {
     /// <inheritdoc />
-    [JsonPropertyName("event_type")]
-    [JsonPropertyOrder(-1)]
     public override string EventType => "reject";
 
     /// <summary>

@@ -1,0 +1,18 @@
+{
+  "data": [
+    {
+      "id": 15,
+      "name": "Promotions",
+      "description": null,
+      "deleted_at": null,
+      "created_at": "2026-05-03T09:00:00.000Z",
+      "updated_at": "2026-05-03T09:00:00.000Z",
+      "domain_id": 4321
+    }
+  ],
+  "pagination": {
+    "token": 2,
+    "prev_token": 1,
+    "next_token": null
+  }
+}

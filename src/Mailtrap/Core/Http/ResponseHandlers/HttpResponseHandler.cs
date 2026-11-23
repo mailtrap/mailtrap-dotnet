@@ -38,45 +38,38 @@ internal abstract class HttpResponseHandler<T> : IHttpResponseHandler<T>
 
     protected virtual async Task<MailtrapApiException> ProcessFailureResponse()
     {
-        if (_httpResponseMessage.StatusCode.GetHashCode() >= 500)
-        {
-            return new HttpRequestFailedException(
-                _httpResponseMessage.RequestMessage.RequestUri,
-                _httpResponseMessage.RequestMessage.Method,
-                _httpResponseMessage.StatusCode,
-                _httpResponseMessage.ReasonPhrase);
-        }
-        else
-        {
-            var content = await _httpResponseMessage.Content
+        var content = _httpResponseMessage.Content is null
+            ? null
+            : await _httpResponseMessage.Content
                 .ReadAsStringAsync()
                 .ConfigureAwait(false);
 
-            if (string.IsNullOrWhiteSpace(content))
-            {
-                return new HttpRequestFailedException(
-                    _httpResponseMessage.RequestMessage.RequestUri,
-                    _httpResponseMessage.RequestMessage.Method,
-                    _httpResponseMessage.StatusCode,
-                    _httpResponseMessage.ReasonPhrase);
-            }
+        var problem = string.IsNullOrWhiteSpace(content)
+            ? null
+            : _httpResponseMessage.StatusCode.GetHashCode() >= 500
+                ? TryDeserializeProblem(content!)
+                : JsonSerializer.Deserialize<Problem>(content!, _jsonSerializerOptions);
 
-            var problem = JsonSerializer.Deserialize<Problem>(content, _jsonSerializerOptions);
-            if (problem is null)
-            {
-                return new HttpRequestFailedException(
-                    _httpResponseMessage.RequestMessage.RequestUri,
-                    _httpResponseMessage.RequestMessage.Method,
-                    _httpResponseMessage.StatusCode,
-                    _httpResponseMessage.ReasonPhrase);
-            }
+        return new HttpRequestFailedException(
+            _httpResponseMessage.RequestMessage.RequestUri,
+            _httpResponseMessage.RequestMessage.Method,
+            _httpResponseMessage.StatusCode,
+            _httpResponseMessage.ReasonPhrase,
+            problem?.ToString());
+    }
 
-            return new HttpRequestFailedException(
-                _httpResponseMessage.RequestMessage.RequestUri,
-                _httpResponseMessage.RequestMessage.Method,
-                _httpResponseMessage.StatusCode,
-                _httpResponseMessage.ReasonPhrase,
-                problem.ToString());
+
+    // A 5xx body may come from a proxy instead of the API, such as an HTML error page,
+    // so its error details are read only when it is JSON.
+    private Problem? TryDeserializeProblem(string content)
+    {
+        try
+        {
+            return JsonSerializer.Deserialize<Problem>(content, _jsonSerializerOptions);
+        }
+        catch (JsonException)
+        {
+            return null;
         }
     }
 }

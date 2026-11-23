@@ -1,0 +1,27 @@
+{
+  "data": [
+    {
+      "id": 12,
+      "name": "Newsletter",
+      "description": "Monthly product news",
+      "deleted_at": null,
+      "created_at": "2026-05-01T09:00:00.000Z",
+      "updated_at": "2026-05-02T09:00:00.000Z",
+      "domain_id": null
+    },
+    {
+      "id": 15,
+      "name": "Promotions",
+      "description": null,
+      "deleted_at": null,
+      "created_at": "2026-05-03T09:00:00.000Z",
+      "updated_at": "2026-05-03T09:00:00.000Z",
+      "domain_id": 4321
+    }
+  ],
+  "pagination": {
+    "token": 1,
+    "prev_token": null,
+    "next_token": 2
+  }
+}

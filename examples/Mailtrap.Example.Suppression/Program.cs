@@ -67,6 +67,18 @@ try
         suppression = suppressions.First();
     }
 
+    // Include contacts' unsubscriptions from single subscription topics.
+    // They are read-only: the API refuses to delete one, so the deletion below uses
+    // the default fetch, which never returns them.
+    IList<Suppression> withTopicUnsubscriptions = await suppressionsResource.Fetch(
+        new SuppressionFilter { IncludeTopicUnsubscriptions = true });
+
+    foreach (Suppression topicUnsubscription in withTopicUnsubscriptions.Where(s => s.Type == SuppressionType.TopicUnsubscription))
+    {
+        logger.LogInformation("{Email} unsubscribed from subscription topic {TopicId} on {DomainName}.",
+            topicUnsubscription.Email, topicUnsubscription.SubscriptionTopicId, topicUnsubscription.DomainName);
+    }
+
     // Get resource for specific suppression
     ISuppressionResource suppressionResource = accountResource.Suppression(suppression.Id);
 

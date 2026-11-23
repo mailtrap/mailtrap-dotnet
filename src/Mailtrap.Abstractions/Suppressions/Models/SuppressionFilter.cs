@@ -42,4 +42,19 @@ public sealed record SuppressionFilter
     /// Identifier from the previous response, to fetch records after it.
     /// </value>
     public string? LastId { get; set; }
+
+    /// <summary>
+    /// Gets or sets a value indicating whether to include contacts' unsubscriptions from single
+    /// subscription topics, as suppressions of type <see cref="SuppressionType.TopicUnsubscription"/>.
+    /// </summary>
+    ///
+    /// <value>
+    /// <see langword="true"/> to include topic unsubscriptions;
+    /// <see langword="null"/> or <see langword="false"/> to leave them out.
+    /// </value>
+    ///
+    /// <remarks>
+    /// Topic unsubscriptions are returned only for an API token that can read contacts.
+    /// </remarks>
+    public bool? IncludeTopicUnsubscriptions { get; set; }
 }

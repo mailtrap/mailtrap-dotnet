@@ -23,7 +23,7 @@ public sealed record CreateWebhookRequest : IValidatable
     /// </summary>
     ///
     /// <value>
-    /// Webhook type. Allowed values: "email_sending", "audit_log".
+    /// Webhook type. Allowed values: "email_sending", "audit_log", "inbound_receiving", "campaigns".
     /// </value>
     [JsonPropertyName("webhook_type")]
     [JsonPropertyOrder(2)]
@@ -69,7 +69,7 @@ public sealed record CreateWebhookRequest : IValidatable
 
     /// <summary>
     /// Gets the list of event types to subscribe to.<br/>
-    /// Required for <c>email_sending</c> webhook type.
+    /// Required for <c>email_sending</c> and <c>campaigns</c> webhook types.
     /// </summary>
     ///
     /// <value>
@@ -83,7 +83,7 @@ public sealed record CreateWebhookRequest : IValidatable
     /// <summary>
     /// Gets or sets the domain ID to scope the webhook to.<br/>
     /// When omitted, the webhook applies to all domains.<br/>
-    /// Applicable only for <c>email_sending</c> webhooks.
+    /// Applicable only for <c>email_sending</c> and <c>campaigns</c> webhooks.
     /// </summary>
     ///
     /// <value>

@@ -32,4 +32,13 @@ public sealed record WebhookType : StringEnum<WebhookType>
     /// Represents "inbound_receiving" webhook type.
     /// </value>
     public static readonly WebhookType InboundReceiving = Define("inbound_receiving");
+
+    /// <summary>
+    /// Gets the value representing "campaigns" webhook type: events of the account's email campaigns.
+    /// </summary>
+    ///
+    /// <value>
+    /// Represents "campaigns" webhook type.
+    /// </value>
+    public static readonly WebhookType Campaigns = Define("campaigns");
 }

@@ -1,10 +1,15 @@
-﻿using Mailtrap;
+﻿using System.Net;
+
+using Mailtrap;
 using Mailtrap.Accounts;
 using Mailtrap.Contacts;
+using Mailtrap.Contacts.Models;
 using Mailtrap.Contacts.Requests;
 using Mailtrap.ContactImports;
 using Mailtrap.ContactImports.Models;
 using Mailtrap.ContactImports.Requests;
+using Mailtrap.Core.Exceptions;
+using Mailtrap.SubscriptionTopics.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -42,6 +47,13 @@ try
         new("charlie@mailtrap.io"),
     };
 
+    // Set a subscription topic preference for one of the contacts; the others keep theirs.
+    ContactSubscriptionTopic? topicPreference = await FirstTopicPreference(mailtrapClient, accountResource, ContactStatus.Subscribed);
+    if (topicPreference is not null)
+    {
+        contactImportList[0].SubscriptionTopics = [topicPreference];
+    }
+
     // Create contact import request
     var importRequest = new CreateContactImportRequest(contactImportList);
 
@@ -70,4 +82,37 @@ catch (Exception ex)
     logger.LogError(ex, "An error occurred during API call.");
     Environment.FailFast(ex.Message);
     throw;
+}
+
+internal sealed partial class Program
+{
+    // The account's first subscription topic, on its sending domain or, for a topic that covers
+    // every domain, on the account's first domain; null for an account without topics.
+    private static async Task<ContactSubscriptionTopic?> FirstTopicPreference(
+        IMailtrapClient mailtrapClient,
+        IAccountResource accountResource,
+        ContactStatus status)
+    {
+        try
+        {
+            SubscriptionTopicList topics = await mailtrapClient.SubscriptionTopics().GetAll();
+            SubscriptionTopic? topic = topics.Data.FirstOrDefault();
+
+            if (topic is null)
+            {
+                return null;
+            }
+
+            long? domainId = topic.DomainId ?? (await accountResource.Domains().GetAll()).FirstOrDefault()?.Id;
+
+            return domainId is null
+                ? null
+                : new ContactSubscriptionTopic { SubscriptionTopicId = topic.Id, DomainId = domainId.Value, Status = status };
+        }
+        catch (HttpRequestFailedException ex) when (ex.StatusCode == HttpStatusCode.Forbidden)
+        {
+            // Subscription topics are not available for this account.
+            return null;
+        }
+    }
 }

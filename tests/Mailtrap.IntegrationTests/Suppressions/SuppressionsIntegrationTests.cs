@@ -9,6 +9,7 @@ internal sealed class SuppressionsIntegrationTests
     private const string StartTimeQueryParameter = "start_time";
     private const string EndTimeQueryParameter = "end_time";
     private const string LastIdQueryParameter = "last_id";
+    private const string IncludeTopicUnsubscriptionsQueryParameter = "include_topic_unsubscriptions";
 
     private readonly long _accountId;
     private readonly Uri _resourceUri;
@@ -105,7 +106,8 @@ internal sealed class SuppressionsIntegrationTests
             Email = "recipient1@example.com",
             StartTime = new DateTimeOffset(2025, 9, 1, 0, 0, 0, TimeSpan.Zero),
             EndTime = new DateTimeOffset(2025, 9, 30, 0, 0, 0, TimeSpan.Zero),
-            LastId = "2fe148b8-b019-431f-ab3f-107663fdf868"
+            LastId = "2fe148b8-b019-431f-ab3f-107663fdf868",
+            IncludeTopicUnsubscriptions = true
         };
 
         using var responseContent = await Feature.LoadFileToStringContent(nameof(Fetch_WithFilter_Success));
@@ -123,7 +125,8 @@ internal sealed class SuppressionsIntegrationTests
                 [EmailQueryParameter] = filter.Email,
                 [StartTimeQueryParameter] = filter.StartTime.Value.ToString("O"),
                 [EndTimeQueryParameter] = filter.EndTime.Value.ToString("O"),
-                [LastIdQueryParameter] = filter.LastId
+                [LastIdQueryParameter] = filter.LastId,
+                [IncludeTopicUnsubscriptionsQueryParameter] = "true"
             })
             .Respond(HttpStatusCode.OK, responseContent);
 
@@ -148,6 +151,82 @@ internal sealed class SuppressionsIntegrationTests
         mockHttp.VerifyNoOutstandingExpectation();
 
         result.Should().BeEquivalentTo(expectedResponse);
+    }
+
+
+    [Test]
+    public async Task Fetch_WithTopicUnsubscriptions_Success()
+    {
+        // Arrange
+        var filter = new SuppressionFilter { IncludeTopicUnsubscriptions = true };
+
+        using var responseContent = await Feature.LoadFileToStringContent();
+
+        using var mockHttp = new MockHttpMessageHandler();
+        mockHttp
+            .Expect(HttpMethod.Get, _resourceUri.AbsoluteUri)
+            // The API opts in only on the literal "true", not "True".
+            .WithExactQueryString($"{IncludeTopicUnsubscriptionsQueryParameter}=true")
+            .Respond(HttpStatusCode.OK, responseContent);
+
+        var serviceCollection = new ServiceCollection();
+
+        serviceCollection
+            .AddMailtrapClient(_clientConfig)
+            .ConfigurePrimaryHttpMessageHandler(() => mockHttp);
+
+        using var services = serviceCollection.BuildServiceProvider();
+
+        var client = services.GetRequiredService<IMailtrapClient>();
+
+        // Act
+        var result = await client
+            .Account(_accountId)
+            .Suppressions()
+            .Fetch(filter)
+            .ConfigureAwait(false);
+
+        // Assert
+        mockHttp.VerifyNoOutstandingExpectation();
+
+        result.Should().HaveCount(2);
+
+        result[0].Type.Should().Be(SuppressionType.Unsubscription);
+        result[0].SubscriptionTopicId.Should().BeNull();
+
+        result[1].Type.Should().Be(SuppressionType.TopicUnsubscription);
+        result[1].SubscriptionTopicId.Should().Be(12);
+        result[1].Email.Should().Be("recipient2@example.com");
+        result[1].DomainName.Should().Be("sender.com");
+    }
+
+    [Test]
+    public async Task Fetch_WithTopicUnsubscriptionsFalse_SendsNoQuery()
+    {
+        // Arrange
+        var filter = new SuppressionFilter { IncludeTopicUnsubscriptions = false };
+
+        using var responseContent = await Feature.LoadFileToStringContent(nameof(Fetch_WithoutFilter_Success));
+
+        using var mockHttp = new MockHttpMessageHandler();
+        using var clientScope = mockHttp.ConfigureWithQueryAndCreateClient(
+            HttpMethod.Get,
+            _resourceUri.AbsoluteUri,
+            responseContent,
+            HttpStatusCode.OK,
+            _clientConfig,
+            queryParameterName: "");
+
+        // Act
+        var result = await clientScope.Client
+            .Account(_accountId)
+            .Suppressions()
+            .Fetch(filter)
+            .ConfigureAwait(false);
+
+        // Assert
+        mockHttp.VerifyNoOutstandingExpectation();
+        result.Should().NotBeEmpty();
     }
 
 

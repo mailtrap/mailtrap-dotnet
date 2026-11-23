@@ -88,6 +88,26 @@ internal sealed class MailtrapClient : RestResource, IMailtrapClient
 
 
 
+    #region Subscription Topics
+
+    /// <inheritdoc/>
+    public ISubscriptionTopicCollectionResource SubscriptionTopics()
+        => new SubscriptionTopicCollectionResource(RestResourceCommandFactory, ResourceUri.Append(UrlSegments.SubscriptionTopicsSegment));
+
+    /// <inheritdoc/>
+    public ISubscriptionTopicResource SubscriptionTopic(long subscriptionTopicId)
+    {
+        Ensure.GreaterThanZero(subscriptionTopicId, nameof(subscriptionTopicId));
+
+        return new SubscriptionTopicResource(
+            RestResourceCommandFactory,
+            ResourceUri.Append(UrlSegments.SubscriptionTopicsSegment).Append(subscriptionTopicId));
+    }
+
+    #endregion
+
+
+
     #region Company Info
 
     /// <inheritdoc/>

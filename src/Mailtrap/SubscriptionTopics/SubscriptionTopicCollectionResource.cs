@@ -12,16 +12,10 @@ internal sealed class SubscriptionTopicCollectionResource : RestResource, ISubsc
 
 
     public async Task<SubscriptionTopicList> GetAll(SubscriptionTopicListFilter? filter = null, CancellationToken cancellationToken = default)
-    {
-        var uri = CreateListUri(filter);
-
-        var response = await RestResourceCommandFactory
-            .CreateGet<SubscriptionTopicListResponseDto>(uri)
+        => await RestResourceCommandFactory
+            .CreateGet<SubscriptionTopicList>(CreateListUri(filter))
             .Execute(cancellationToken)
             .ConfigureAwait(false);
-
-        return response.FromDto();
-    }
 
 
     private Uri CreateListUri(SubscriptionTopicListFilter? filter)

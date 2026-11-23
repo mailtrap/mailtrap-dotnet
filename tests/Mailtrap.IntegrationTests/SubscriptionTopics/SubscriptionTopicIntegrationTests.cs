@@ -25,21 +25,18 @@ internal sealed class SubscriptionTopicIntegrationTests
         using var responseContent = await Feature.LoadFileToStringContent();
 
         using var mockHttp = new MockHttpMessageHandler();
-        mockHttp
-            .Expect(HttpMethod.Get, CollectionUri.AbsoluteUri)
-            .WithHeaders("Authorization", $"Bearer {clientConfig.ApiToken}")
-            .WithHeaders("Accept", MimeTypes.Application.Json)
-            .WithHeaders("User-Agent", HeaderValues.UserAgent.ToString())
-            // No filter sends no query string.
-            .WithExactQueryString("")
-            .Respond(HttpStatusCode.OK, responseContent);
-
-        using var services = CreateServices(clientConfig, mockHttp);
-        var client = services.GetRequiredService<IMailtrapClient>();
+        // No filter sends no query string: an empty parameter name matches the exact, empty query.
+        using var clientScope = mockHttp.ConfigureWithQueryAndCreateClient(
+            HttpMethod.Get,
+            CollectionUri.AbsoluteUri,
+            responseContent,
+            HttpStatusCode.OK,
+            clientConfig,
+            queryParameterName: string.Empty);
 
 
         // Act
-        var result = await client
+        var result = await clientScope.Client
             .SubscriptionTopics()
             .GetAll()
             .ConfigureAwait(false);
@@ -98,7 +95,12 @@ internal sealed class SubscriptionTopicIntegrationTests
             })
             .Respond(HttpStatusCode.OK, responseContent);
 
-        using var services = CreateServices(clientConfig, mockHttp);
+        var serviceCollection = new ServiceCollection();
+        serviceCollection
+            .AddMailtrapClient(clientConfig)
+            .ConfigurePrimaryHttpMessageHandler(() => mockHttp);
+
+        using var services = serviceCollection.BuildServiceProvider();
         var client = services.GetRequiredService<IMailtrapClient>();
 
 
@@ -128,19 +130,16 @@ internal sealed class SubscriptionTopicIntegrationTests
         using var responseContent = await Feature.LoadFileToStringContent();
 
         using var mockHttp = new MockHttpMessageHandler();
-        mockHttp
-            .Expect(HttpMethod.Get, CollectionUri.Append(subscriptionTopicId).AbsoluteUri)
-            .WithHeaders("Authorization", $"Bearer {clientConfig.ApiToken}")
-            .WithHeaders("Accept", MimeTypes.Application.Json)
-            .WithHeaders("User-Agent", HeaderValues.UserAgent.ToString())
-            .Respond(HttpStatusCode.OK, responseContent);
-
-        using var services = CreateServices(clientConfig, mockHttp);
-        var client = services.GetRequiredService<IMailtrapClient>();
+        using var clientScope = mockHttp.ConfigureAndCreateClient(
+            HttpMethod.Get,
+            CollectionUri.Append(subscriptionTopicId).AbsoluteUri,
+            responseContent,
+            HttpStatusCode.OK,
+            clientConfig);
 
 
         // Act
-        var result = await client
+        var result = await clientScope.Client
             .SubscriptionTopic(subscriptionTopicId)
             .GetDetails()
             .ConfigureAwait(false);
@@ -166,16 +165,16 @@ internal sealed class SubscriptionTopicIntegrationTests
         using var responseContent = await Feature.LoadFileToStringContent();
 
         using var mockHttp = new MockHttpMessageHandler();
-        mockHttp
-            .Expect(HttpMethod.Get, CollectionUri.Append(subscriptionTopicId).AbsoluteUri)
-            .Respond(HttpStatusCode.OK, responseContent);
-
-        using var services = CreateServices(clientConfig, mockHttp);
-        var client = services.GetRequiredService<IMailtrapClient>();
+        using var clientScope = mockHttp.ConfigureAndCreateClient(
+            HttpMethod.Get,
+            CollectionUri.Append(subscriptionTopicId).AbsoluteUri,
+            responseContent,
+            HttpStatusCode.OK,
+            clientConfig);
 
 
         // Act
-        var result = await client
+        var result = await clientScope.Client
             .SubscriptionTopic(subscriptionTopicId)
             .GetDetails()
             .ConfigureAwait(false);
@@ -199,15 +198,16 @@ internal sealed class SubscriptionTopicIntegrationTests
         using var responseContent = new StringContent(string.Empty);
 
         using var mockHttp = new MockHttpMessageHandler();
-        mockHttp
-            .Expect(HttpMethod.Get, CollectionUri.AbsoluteUri)
-            .Respond(HttpStatusCode.Forbidden, responseContent);
+        using var clientScope = mockHttp.ConfigureAndCreateClient(
+            HttpMethod.Get,
+            CollectionUri.AbsoluteUri,
+            responseContent,
+            HttpStatusCode.Forbidden,
+            clientConfig);
 
-        using var services = CreateServices(clientConfig, mockHttp);
-        var client = services.GetRequiredService<IMailtrapClient>();
 
-
-        var act = () => client
+        // Act
+        var act = () => clientScope.Client
             .SubscriptionTopics()
             .GetAll();
 
@@ -218,17 +218,5 @@ internal sealed class SubscriptionTopicIntegrationTests
             .Where(ex => ex.StatusCode == HttpStatusCode.Forbidden);
 
         mockHttp.VerifyNoOutstandingExpectation();
-    }
-
-
-    private static ServiceProvider CreateServices(MailtrapClientOptions clientConfig, MockHttpMessageHandler mockHttp)
-    {
-        var serviceCollection = new ServiceCollection();
-
-        serviceCollection
-            .AddMailtrapClient(clientConfig)
-            .ConfigurePrimaryHttpMessageHandler(() => mockHttp);
-
-        return serviceCollection.BuildServiceProvider();
     }
 }

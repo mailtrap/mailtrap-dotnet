@@ -67,8 +67,16 @@ try
         suppression = suppressions.First();
     }
 
+    // Get resource for specific suppression
+    ISuppressionResource suppressionResource = accountResource.Suppression(suppression.Id);
+
+    // Delete the suppression
+    Suppression? deletedSuppressionDetails = await suppressionResource.Delete();
+
+    logger.LogInformation("Deleted suppression: {Suppression}", deletedSuppressionDetails);
+
     // Include contacts' unsubscriptions from single subscription topics.
-    // They are read-only: the API refuses to delete one, so the deletion below uses
+    // They are read-only: the API refuses to delete one, so the deletion above uses
     // the default fetch, which never returns them.
     IList<Suppression> withTopicUnsubscriptions = await suppressionsResource.Fetch(
         new SuppressionFilter { IncludeTopicUnsubscriptions = true });
@@ -78,14 +86,6 @@ try
         logger.LogInformation("{Email} unsubscribed from subscription topic {TopicId} on {DomainName}.",
             topicUnsubscription.Email, topicUnsubscription.SubscriptionTopicId, topicUnsubscription.DomainName);
     }
-
-    // Get resource for specific suppression
-    ISuppressionResource suppressionResource = accountResource.Suppression(suppression.Id);
-
-    // Delete the suppression
-    Suppression? deletedSuppressionDetails = await suppressionResource.Delete();
-
-    logger.LogInformation("Deleted suppression: {Suppression}", deletedSuppressionDetails);
 }
 catch (Exception ex)
 {

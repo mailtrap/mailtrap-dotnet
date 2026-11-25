@@ -6,8 +6,15 @@ namespace Mailtrap.EmailLogs.Models;
 /// </summary>
 public sealed record EmailLogMessageEventSpam : EmailLogMessageEvent
 {
+    /// <summary>
+    /// Value of <c>event_type</c> for this event.
+    /// </summary>
+    public const string Discriminator = "spam";
+
     /// <inheritdoc />
-    public override string EventType => "spam";
+    [JsonPropertyName("event_type")]
+    [JsonPropertyOrder(-1)]
+    public override string EventType => Discriminator;
 
     /// <summary>
     /// Spam-specific details.

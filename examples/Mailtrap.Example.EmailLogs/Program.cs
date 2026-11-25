@@ -61,6 +61,8 @@ try
         EmailLogMessage details = await messageResource.GetDetails();
         logger.LogInformation("Message details: RawMessageUrl={HasUrl}, Events={EventCount}",
             !string.IsNullOrEmpty(details.RawMessageUrl), details.Events?.Count ?? 0);
+
+        LogEvents(logger, details.Events);
     }
 }
 catch (Exception ex)
@@ -68,4 +70,37 @@ catch (Exception ex)
     logger.LogError(ex, "An error occurred during API call.");
     Environment.ExitCode = 1;
     return;
+}
+
+internal sealed partial class Program
+{
+    // Kept outside the top-level statements to stay within the CA1506 coupling limit.
+    private static void LogEvents(ILogger logger, IList<EmailLogMessageEvent>? events)
+    {
+        foreach (EmailLogMessageEvent messageEvent in events ?? [])
+        {
+            switch (messageEvent)
+            {
+                case EmailLogMessageEventTopicUnsubscribe topicUnsubscribe:
+                    logger.LogInformation("Unsubscribed from subscription topic {TopicId} at {CreatedAt}.",
+                        topicUnsubscribe.Details?.SubscriptionTopicId, topicUnsubscribe.CreatedAt);
+                    break;
+
+                case EmailLogMessageEventTopicResubscribe topicResubscribe:
+                    logger.LogInformation("Subscribed again to subscription topic {TopicId} at {CreatedAt}.",
+                        topicResubscribe.Details?.SubscriptionTopicId, topicResubscribe.CreatedAt);
+                    break;
+
+                case EmailLogMessageEventUnknown unknown:
+                    // An event type this SDK version doesn't know keeps its raw type and details.
+                    logger.LogInformation("Event {EventType} at {CreatedAt}: {Details}",
+                        unknown.EventType, unknown.CreatedAt, unknown.Details);
+                    break;
+
+                default:
+                    logger.LogInformation("Event {EventType} at {CreatedAt}.", messageEvent.EventType, messageEvent.CreatedAt);
+                    break;
+            }
+        }
+    }
 }

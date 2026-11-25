@@ -6,8 +6,15 @@ namespace Mailtrap.EmailLogs.Models;
 /// </summary>
 public sealed record EmailLogMessageEventDelivery : EmailLogMessageEvent
 {
+    /// <summary>
+    /// Value of <c>event_type</c> for this event.
+    /// </summary>
+    public const string Discriminator = "delivery";
+
     /// <inheritdoc />
-    public override string EventType => "delivery";
+    [JsonPropertyName("event_type")]
+    [JsonPropertyOrder(-1)]
+    public override string EventType => Discriminator;
 
     /// <summary>
     /// Delivery-specific details.

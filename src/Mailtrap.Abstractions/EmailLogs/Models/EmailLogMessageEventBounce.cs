@@ -6,8 +6,15 @@ namespace Mailtrap.EmailLogs.Models;
 /// </summary>
 public sealed record EmailLogMessageEventBounce : EmailLogMessageEvent
 {
+    /// <summary>
+    /// Value of <c>event_type</c> for this event.
+    /// </summary>
+    public const string Discriminator = "bounce";
+
     /// <inheritdoc />
-    public override string EventType => "bounce";
+    [JsonPropertyName("event_type")]
+    [JsonPropertyOrder(-1)]
+    public override string EventType => Discriminator;
 
     /// <summary>
     /// Bounce-specific details.

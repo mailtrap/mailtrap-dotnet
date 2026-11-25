@@ -15,8 +15,6 @@ namespace Mailtrap.EmailLogs.Converters;
 internal sealed class EmailLogMessageEventJsonConverter : JsonConverter<EmailLogMessageEvent>
 {
     private const string EventTypePropertyName = "event_type";
-    private const string CreatedAtPropertyName = "created_at";
-    private const string DetailsPropertyName = "details";
 
     private static readonly Dictionary<string, Type> s_eventTypes = new(StringComparer.Ordinal)
     {
@@ -49,24 +47,11 @@ internal sealed class EmailLogMessageEventJsonConverter : JsonConverter<EmailLog
                 ? eventTypeElement.GetString()!
                 : string.Empty;
 
-        if (s_eventTypes.TryGetValue(eventType, out var type))
-        {
-            return (EmailLogMessageEvent?)root.Deserialize(type, options);
-        }
+        var type = s_eventTypes.TryGetValue(eventType, out var knownType)
+            ? knownType
+            : typeof(EmailLogMessageEventUnknown);
 
-        var result = new EmailLogMessageEventUnknown(eventType);
-
-        if (root.TryGetProperty(CreatedAtPropertyName, out var createdAt))
-        {
-            result.CreatedAt = createdAt.Deserialize<DateTimeOffset?>(options);
-        }
-
-        if (root.TryGetProperty(DetailsPropertyName, out var details) && details.ValueKind != JsonValueKind.Null)
-        {
-            result.Details = details.Clone();
-        }
-
-        return result;
+        return (EmailLogMessageEvent?)root.Deserialize(type, options);
     }
 
     // Each derived type writes its event_type first, from its EventType property.

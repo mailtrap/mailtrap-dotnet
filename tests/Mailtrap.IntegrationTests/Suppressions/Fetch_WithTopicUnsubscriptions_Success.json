@@ -19,7 +19,7 @@
     "subscription_topic_id": null
   },
   {
-    "id": "topic-unsubscription-12-recipient2",
+    "id": "2c7d5f0e-9b3a-4e61-8f27-6a1d4c9e0b52",
     "type": "topic unsubscription",
     "created_at": "2026-05-02T09:40:44.161Z",
     "email": "recipient2@example.com",

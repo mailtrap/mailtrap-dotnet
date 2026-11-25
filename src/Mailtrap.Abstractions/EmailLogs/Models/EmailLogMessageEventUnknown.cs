@@ -25,7 +25,7 @@ public sealed record EmailLogMessageEventUnknown : EmailLogMessageEvent
         _eventType = eventType;
     }
 
-    // For the serializer, which fills the event type through RawEventType when this type is read directly:
+    // For the serializer, which fills the event type through RawEventType:
     // the public constructor's parameter would bind to both EventType declarations.
     [JsonConstructor]
     private EmailLogMessageEventUnknown()

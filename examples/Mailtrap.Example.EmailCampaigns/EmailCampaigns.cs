@@ -155,7 +155,7 @@ internal sealed partial class Program
         date.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
 
     // The first subscription topic that covers the domain (a topic without a domain covers every domain);
-    // null when there is none, or when the account has no subscription topics.
+    // null when there is none, or when subscription topics aren't enabled for the account.
     private static async Task<long?> FindSubscriptionTopicId(IMailtrapClient mailtrapClient, long domainId)
     {
         try

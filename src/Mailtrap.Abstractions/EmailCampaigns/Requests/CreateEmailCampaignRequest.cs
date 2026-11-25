@@ -146,7 +146,8 @@ public sealed record CreateEmailCampaignRequest : IValidatable
     /// </value>
     ///
     /// <remarks>
-    /// For an account without subscription topics, the API ignores this field.
+    /// When subscription topics aren't enabled for the account, the API ignores this field.
+    /// When they are, it rejects an identifier that matches none of the account's topics.
     /// </remarks>
     [JsonPropertyName("subscription_topic_id")]
     [JsonPropertyOrder(11)]

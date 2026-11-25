@@ -84,6 +84,17 @@ internal sealed class EmailCampaignRequestValidatorTests
         result.ShouldHaveValidationErrorFor(r => r.TemplateAttributes!.Subject);
     }
 
+    [TestCase(0)]
+    [TestCase(-1)]
+    public void Create_WithNonPositiveSubscriptionTopicId_ShouldFail(long subscriptionTopicId)
+    {
+        var request = ValidCreateRequest() with { SubscriptionTopicId = subscriptionTopicId };
+
+        var result = s_createValidator.TestValidate(request);
+
+        result.ShouldHaveValidationErrorFor(r => r.SubscriptionTopicId);
+    }
+
     #endregion
 
 
@@ -127,6 +138,17 @@ internal sealed class EmailCampaignRequestValidatorTests
         var result = s_updateValidator.TestValidate(request);
 
         result.ShouldHaveValidationErrorFor(r => r.DomainId);
+    }
+
+    [TestCase(0)]
+    [TestCase(-1)]
+    public void Update_WithNonPositiveSubscriptionTopicId_ShouldFail(long subscriptionTopicId)
+    {
+        var request = new UpdateEmailCampaignRequest { SubscriptionTopicId = subscriptionTopicId };
+
+        var result = s_updateValidator.TestValidate(request);
+
+        result.ShouldHaveValidationErrorFor(r => r.SubscriptionTopicId);
     }
 
     #endregion

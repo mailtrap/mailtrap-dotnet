@@ -218,4 +218,16 @@ public sealed record EmailCampaign
     [JsonPropertyName("template")]
     [JsonPropertyOrder(19)]
     public EmailCampaignTemplate? Template { get; set; }
+
+    /// <summary>
+    /// Gets or sets the identifier of the subscription topic the campaign is sent under,
+    /// as returned by the Subscription Topics endpoints.
+    /// </summary>
+    ///
+    /// <value>
+    /// Subscription topic identifier, or <see langword="null"/> when the campaign has no topic.
+    /// </value>
+    [JsonPropertyName("subscription_topic_id")]
+    [JsonPropertyOrder(20)]
+    public long? SubscriptionTopicId { get; set; }
 }

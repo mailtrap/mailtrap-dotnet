@@ -1,9 +1,12 @@
 using System.Globalization;
+using System.Net;
 
 using Mailtrap;
+using Mailtrap.Core.Exceptions;
 using Mailtrap.EmailCampaigns;
 using Mailtrap.EmailCampaigns.Models;
 using Mailtrap.EmailCampaigns.Requests;
+using Mailtrap.SubscriptionTopics.Models;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
@@ -80,7 +83,10 @@ try
             BodyHtml = "<html><body><h1>Hi {{first_name}}!</h1>" +
                 "<p><a href=\"__unsubscribe_url__\">Unsubscribe</a></p></body></html>",
             MergeTags = ["first_name"]
-        }
+        },
+        // Send the campaign under a subscription topic that covers its sending domain.
+        // A campaign's topic can be changed later, but not removed.
+        SubscriptionTopicId = await FindSubscriptionTopicId(mailtrapClient, campaign.DomainId)
     };
     campaign = await campaignResource.Update(updateRequest);
     logger.LogInformation("Updated campaign {Id}.", campaign.Id);
@@ -147,4 +153,20 @@ internal sealed partial class Program
     // Kept outside the top-level statements to stay within the CA1506 coupling limit.
     private static string FormatDate(DateTimeOffset date) =>
         date.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
+
+    // The first subscription topic that covers the domain (a topic without a domain covers every domain);
+    // null when there is none, or when subscription topics aren't enabled for the account.
+    private static async Task<long?> FindSubscriptionTopicId(IMailtrapClient mailtrapClient, long domainId)
+    {
+        try
+        {
+            SubscriptionTopicList topics = await mailtrapClient.SubscriptionTopics().GetAll();
+
+            return topics.Data.FirstOrDefault(t => t.DomainId is null || t.DomainId == domainId)?.Id;
+        }
+        catch (HttpRequestFailedException ex) when (ex.StatusCode == HttpStatusCode.Forbidden)
+        {
+            return null;
+        }
+    }
 }

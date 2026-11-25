@@ -58,7 +58,20 @@ try
     var importRequest = new CreateContactImportRequest(contactImportList);
 
     // Import contacts in bulk
-    ContactImport importResponse = await contactImportsResource.Create(importRequest);
+    ContactImport importResponse;
+    try
+    {
+        importResponse = await contactImportsResource.Create(importRequest);
+    }
+    catch (HttpRequestFailedException ex) when (ex.StatusCode == HttpStatusCode.UnprocessableEntity && topicPreference is not null)
+    {
+        // Topic preferences can be unavailable for an account even when it has topics:
+        // the API then rejects the import, so import the contacts without them.
+        logger.LogWarning("The import's subscription topic preferences were rejected: {Error} Importing without them.", ex.Message);
+        importRequest.Contacts[0].SubscriptionTopics = null;
+        importResponse = await contactImportsResource.Create(importRequest);
+    }
+
     logger.LogInformation("Created contact import, Id: {ImportId}", importResponse.Id);
 
     // Get resource for specific contact import

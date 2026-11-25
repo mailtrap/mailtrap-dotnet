@@ -41,7 +41,7 @@ public record ContactRequest : IValidatable
     ///
     /// <remarks>
     /// Pairs of topic and domain left out keep their current status.<br />
-    /// For an account without subscription topics, the API rejects a request with this set (HTTP 422).
+    /// When subscription topic preferences are not available for the account, the API rejects a request with this set (HTTP 422).
     /// </remarks>
     [JsonPropertyName("subscription_topics")]
     public IList<ContactSubscriptionTopic>? SubscriptionTopics { get; set; }

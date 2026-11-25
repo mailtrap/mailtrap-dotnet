@@ -89,8 +89,10 @@ public sealed record Contact
     ///
     /// <remarks>
     /// Returned by the contact get, create and update operations, not by the contact list.<br />
-    /// <see langword="null"/> when the account has no subscription topics, or when the preferences
-    /// could not be read this time (retry to get them).
+    /// <see langword="null"/> when subscription topic preferences are not available for the account,
+    /// which can happen even when the account has topics, or when the preferences could not be read
+    /// this time (retry to get them).<br />
+    /// Empty when they are available but the account has no subscription topics yet.
     /// </remarks>
     [JsonPropertyName("subscription_topics")]
     [JsonObjectCreationHandling(JsonObjectCreationHandling.Populate)]

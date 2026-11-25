@@ -193,7 +193,7 @@ internal sealed class ContactsIntegrationTests
 
         result.ShouldBeEquivalentToResponse(expectedResponse);
 
-        // An account without subscription topics leaves the key out.
+        // The API leaves the key out when topic preferences are not available for the account.
         result.Contact.SubscriptionTopics.Should().BeNull();
     }
 

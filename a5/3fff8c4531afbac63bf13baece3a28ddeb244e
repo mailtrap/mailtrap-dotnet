@@ -1,0 +1,23 @@
+src/Mailtrap.Abstractions/EmailCampaigns/Requests/UpdateEmailCampaignRequest.cs
+  s_f3cb35770d4ed5::t_1f325a024fc158 151-152
+examples/Mailtrap.Example.EmailCampaigns/EmailCampaigns.cs
+  s_f3cb35770d4ed5::t_1f325a024fc158 158
+src/Mailtrap.Abstractions/EmailCampaigns/Requests/CreateEmailCampaignRequest.cs
+  s_f3cb35770d4ed5::t_1f325a024fc158 149-150
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "a53fff8c4531afbac63bf13baece3a28ddeb244e",
+  "prompts": {},
+  "sessions": {
+    "s_f3cb35770d4ed5": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "787bc97e-5d52-494b-ae77-1d4e2e2e810b",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Maciej Walusiak <maciej.walusiak@railsware.com>"
+    }
+  }
+}

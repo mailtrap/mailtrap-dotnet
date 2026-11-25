@@ -16,6 +16,13 @@
         4,
         5,
         6
+      ],
+      "subscription_topics": [
+        {
+          "subscription_topic_id": 12,
+          "domain_id": 4321,
+          "status": "unsubscribed"
+        }
       ]
     },
     {

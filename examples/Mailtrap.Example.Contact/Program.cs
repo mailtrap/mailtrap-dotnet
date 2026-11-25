@@ -65,9 +65,27 @@ try
 
     // Update contact details
     var updateContactRequest = new UpdateContactRequest("test@mailtrap.io");
+
+    // Unsubscribe the contact from one subscription topic on one sending domain.
+    // Pairs of topic and domain left out keep their status.
+    // The contact's own entries are pairs the API accepts; none when topic preferences are not available.
+    ContactSubscriptionTopic? topicPreference = contactDetails.SubscriptionTopics?.FirstOrDefault();
+    if (topicPreference is not null)
+    {
+        updateContactRequest.SubscriptionTopics = [topicPreference with { Status = ContactStatus.Unsubscribed }];
+    }
+
     UpdateContactResponse updateContactResponse = await contactResource.Update(updateContactRequest);
     Contact updatedContact = updateContactResponse.Contact;
     logger.LogInformation("Updated Contact: {Contact}", updatedContact);
+
+    // Null when topic preferences are not available for the account, even one with topics,
+    // or when they couldn't be read this time; empty when the account has no topics yet.
+    foreach (ContactSubscriptionTopic preference in updatedContact.SubscriptionTopics ?? [])
+    {
+        logger.LogInformation("Topic {TopicId} on domain {DomainId}: {Status}",
+            preference.SubscriptionTopicId, preference.DomainId, preference.Status);
+    }
 
     // Delete contact
     // Beware that contact resource becomes invalid after deletion and should not be used anymore

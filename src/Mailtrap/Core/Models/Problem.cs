@@ -32,7 +32,12 @@ internal sealed record Problem
 
         if (Errors is not null)
         {
-            sb.AppendLine().Append(Errors);
+            if (sb.Length > 0)
+            {
+                sb.AppendLine();
+            }
+
+            sb.Append(Errors);
         }
 
         return sb.ToString();

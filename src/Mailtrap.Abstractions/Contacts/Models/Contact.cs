@@ -78,4 +78,23 @@ public sealed record Contact
     [JsonPropertyName("updated_at")]
     [JsonConverter(typeof(NullableDateTimeOffsetUnixMsConverter))]
     public DateTimeOffset? UpdatedAt { get; set; }
+
+    /// <summary>
+    /// Gets or sets the contact's subscription status per subscription topic and sending domain.
+    /// </summary>
+    ///
+    /// <value>
+    /// One entry per pair of topic and domain, or <see langword="null"/> when they are not available.
+    /// </value>
+    ///
+    /// <remarks>
+    /// Returned by the contact get, create and update operations, not by the contact list.<br />
+    /// <see langword="null"/> when subscription topic preferences are not available for the account,
+    /// which can happen even when the account has topics, or when the preferences could not be read
+    /// this time (retry to get them).<br />
+    /// Empty when they are available but the account has no subscription topics yet.
+    /// </remarks>
+    [JsonPropertyName("subscription_topics")]
+    [JsonObjectCreationHandling(JsonObjectCreationHandling.Populate)]
+    public IList<ContactSubscriptionTopic>? SubscriptionTopics { get; set; }
 }

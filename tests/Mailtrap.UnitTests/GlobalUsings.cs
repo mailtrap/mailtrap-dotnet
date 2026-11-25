@@ -28,6 +28,7 @@ global using Mailtrap.Core.Models;
 global using Mailtrap.Core.Rest;
 global using Mailtrap.Core.Rest.Commands;
 global using Mailtrap.Contacts;
+global using Mailtrap.Contacts.Models;
 global using Mailtrap.Contacts.Requests;
 global using Mailtrap.ContactExports;
 global using Mailtrap.ContactExports.Models;

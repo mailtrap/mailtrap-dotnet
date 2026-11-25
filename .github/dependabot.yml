@@ -1,0 +1,58 @@
+# Managed centrally: changes made in this repository are overwritten.
+version: 2
+updates:
+  - package-ecosystem: dotnet-sdk
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 3
+    # The cooldown delays version updates only. Security updates come at once.
+    cooldown:
+      default-days: 7
+    ignore:
+      # Dependabot ignores rollForward in global.json and proposes the next major SDK.
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+    groups:
+      minor-and-patch:
+        patterns: ["*"]
+        update-types: ["minor", "patch"]
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 3
+    # The cooldown delays version updates only. Security updates come at once.
+    cooldown:
+      default-days: 7
+    groups:
+      actions:
+        patterns: ["*"]
+      security:
+        applies-to: security-updates
+        patterns: ["*"]
+  - package-ecosystem: nuget
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 3
+    # The cooldown delays version updates only. Security updates come at once.
+    cooldown:
+      default-days: 7
+    ignore:
+      # FluentAssertions 8 changed to a paid license.
+      - dependency-name: "FluentAssertions"
+        update-types: ["version-update:semver-major"]
+      # FluentValidation 12 drops netstandard2.0.
+      - dependency-name: "FluentValidation"
+        update-types: ["version-update:semver-major"]
+      # The package uses some of these at run time: a major bump raises the minimum version for each consumer.
+      - dependency-name: "Microsoft.Extensions.*"
+        update-types: ["version-update:semver-major"]
+      # The package uses some of these at run time: a major bump raises the minimum version for each consumer.
+      - dependency-name: "System.*"
+        update-types: ["version-update:semver-major"]
+    groups:
+      minor-and-patch:
+        patterns: ["*"]
+        update-types: ["minor", "patch"]

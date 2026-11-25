@@ -50,7 +50,7 @@ internal sealed class CreateWebhookRequestValidatorTests
     public void CampaignsWebhook_WithEventTypes_ShouldPass()
     {
         var request = Request(WebhookType.Campaigns);
-        request.EventTypes.Add(WebhookEventType.SubscriptionPreferencesUpdate);
+        request.EventTypes.Add(WebhookEventType.Delivery);
 
         var result = s_validator.TestValidate(request);
 

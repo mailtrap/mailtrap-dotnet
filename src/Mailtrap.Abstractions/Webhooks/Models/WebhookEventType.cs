@@ -50,15 +50,4 @@ public sealed record WebhookEventType : StringEnum<WebhookEventType>
     /// Gets the value representing "reject" event.
     /// </summary>
     public static readonly WebhookEventType Reject = Define("reject");
-
-    /// <summary>
-    /// Gets the value representing "subscription_preferences_update" event:
-    /// a recipient changed their subscription preferences.
-    /// </summary>
-    ///
-    /// <remarks>
-    /// Available only for <c>campaigns</c> webhooks and <c>email_sending</c> webhooks of the bulk stream;
-    /// the API rejects it for the transactional stream.
-    /// </remarks>
-    public static readonly WebhookEventType SubscriptionPreferencesUpdate = Define("subscription_preferences_update");
 }

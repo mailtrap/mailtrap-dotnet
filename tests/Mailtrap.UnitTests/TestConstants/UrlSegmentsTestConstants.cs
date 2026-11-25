@@ -43,4 +43,6 @@ internal static class UrlSegmentsTestConstants
     internal static string EmailCampaignsSegment { get; } = "email_campaigns";
 
     internal static string MarketingSegment { get; } = "marketing";
+
+    internal static string SubscriptionTopicsSegment { get; } = "subscription_topics";
 }

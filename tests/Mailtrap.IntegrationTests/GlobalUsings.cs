@@ -50,6 +50,7 @@ global using Mailtrap.Projects.Requests;
 global using Mailtrap.SendingDomains.Models;
 global using Mailtrap.SendingDomains.Requests;
 global using Mailtrap.Stats.Models;
+global using Mailtrap.SubscriptionTopics.Models;
 global using Mailtrap.Suppressions.Models;
 global using Mailtrap.Suppressions.Requests;
 global using Mailtrap.Suppressions.Responses;

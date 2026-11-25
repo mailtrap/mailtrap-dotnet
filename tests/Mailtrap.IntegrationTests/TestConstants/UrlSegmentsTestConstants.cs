@@ -54,4 +54,6 @@ internal static class UrlSegmentsTestConstants
     internal static string ResetSegment { get; } = "reset";
 
     internal static string MarketingSegment { get; } = "marketing";
+
+    internal static string SubscriptionTopicsSegment { get; } = "subscription_topics";
 }

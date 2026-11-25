@@ -166,6 +166,57 @@ internal sealed class MailtrapClientTests
             .Be(client.ResourceUri.Append(UrlSegmentsTestConstants.MarketingSegment, UrlSegmentsTestConstants.StatsSegment));
     }
 
+    [Test]
+    public void SubscriptionTopics_ShouldReturnSubscriptionTopicCollectionResource()
+    {
+        // Arrange
+        var client = new MailtrapClient(Mock.Of<IEmailClientFactory>(), _commandFactoryMock);
+
+        // Act
+        var result = client.SubscriptionTopics();
+
+        // Assert
+        result.Should()
+            .NotBeNull().And
+            .BeOfType<SubscriptionTopicCollectionResource>();
+
+        result.ResourceUri.Should()
+            .Be(client.ResourceUri.Append(UrlSegmentsTestConstants.SubscriptionTopicsSegment));
+    }
+
+    [Test]
+    public void SubscriptionTopic_ShouldReturnSubscriptionTopicResource()
+    {
+        // Arrange
+        var client = new MailtrapClient(Mock.Of<IEmailClientFactory>(), _commandFactoryMock);
+        var subscriptionTopicId = TestContext.CurrentContext.Random.NextLong(1, long.MaxValue);
+
+        // Act
+        var result = client.SubscriptionTopic(subscriptionTopicId);
+
+        // Assert
+        result.Should()
+            .NotBeNull().And
+            .BeOfType<SubscriptionTopicResource>();
+
+        result.ResourceUri.Should()
+            .Be(client.ResourceUri.Append(UrlSegmentsTestConstants.SubscriptionTopicsSegment).Append(subscriptionTopicId));
+    }
+
+    [TestCase(0)]
+    [TestCase(-1)]
+    public void SubscriptionTopic_ShouldThrowArgumentOutOfRangeException_WhenIdIsNotPositive(long subscriptionTopicId)
+    {
+        // Arrange
+        var client = new MailtrapClient(Mock.Of<IEmailClientFactory>(), _commandFactoryMock);
+
+        // Act
+        var act = () => client.SubscriptionTopic(subscriptionTopicId);
+
+        // Assert
+        act.Should().Throw<ArgumentOutOfRangeException>();
+    }
+
 
     [Test]
     public void BatchEmail_ShouldReturnDefaultBatchEmailClient()

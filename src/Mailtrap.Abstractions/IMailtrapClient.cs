@@ -96,6 +96,40 @@ public interface IMailtrapClient : IRestResource
 
 
 
+    #region Subscription Topics
+
+    /// <summary>
+    /// Gets the token-scoped subscription topic collection resource:
+    /// the subscription topics of the account the API token belongs to.
+    /// </summary>
+    ///
+    /// <returns>
+    /// Subscription topic collection resource.
+    /// </returns>
+    public ISubscriptionTopicCollectionResource SubscriptionTopics();
+
+    /// <summary>
+    /// Gets resource for specific subscription topic, identified by <paramref name="subscriptionTopicId"/>,
+    /// including a deleted one.
+    /// </summary>
+    ///
+    /// <param name="subscriptionTopicId">
+    /// ID of subscription topic to get resource for.
+    /// </param>
+    ///
+    /// <returns>
+    /// Resource for the subscription topic with specified ID.
+    /// </returns>
+    ///
+    /// <exception cref="ArgumentOutOfRangeException">
+    /// When <paramref name="subscriptionTopicId"/> is less than or equal to zero.
+    /// </exception>
+    public ISubscriptionTopicResource SubscriptionTopic(long subscriptionTopicId);
+
+    #endregion
+
+
+
     #region Company Info
 
     /// <summary>

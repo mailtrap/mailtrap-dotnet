@@ -75,6 +75,7 @@ global using Mailtrap.Projects.Requests;
 global using Mailtrap.SendingDomains;
 global using Mailtrap.SendingDomains.Requests;
 global using Mailtrap.Stats;
+global using Mailtrap.SubscriptionTopics;
 global using Mailtrap.Suppressions;
 global using Mailtrap.Suppressions.Models;
 global using Mailtrap.Suppressions.Requests;

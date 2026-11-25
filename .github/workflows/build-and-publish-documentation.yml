@@ -24,11 +24,11 @@ jobs:
     steps:
       # https://github.com/marketplace/actions/checkout
       - name: Checkout Sources
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
   
       # https://github.com/marketplace/actions/setup-net-core-sdk
       - name: Setup .NET
-        uses: actions/setup-dotnet@v5
+        uses: actions/setup-dotnet@v6
   
       - name: Install DocFx Tool
         run: dotnet tool update -g docfx
@@ -38,7 +38,7 @@ jobs:
   
       # https://github.com/marketplace/actions/upload-github-pages-artifact
       - name: Upload Pages Artifact
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v5
         with:
           path: './artifacts/docs'
 
@@ -65,4 +65,4 @@ jobs:
       # https://github.com/marketplace/actions/deploy-github-pages-site
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
